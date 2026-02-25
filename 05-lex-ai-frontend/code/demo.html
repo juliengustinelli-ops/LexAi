@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>LexAi • Demo</title>
+
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --brand-green:#00c2b5;
+  --brand-teal :#00bfc7;
+  --footer-bg  :#0b0d19;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Poppins',sans-serif;background:#f4f6f8;color:#0b0d19;
+     display:flex;flex-direction:column;min-height:100vh}
+
+nav.glass{position:fixed;top:0;left:0;width:100%;z-index:999;
+  display:flex;justify-content:space-between;align-items:center;
+  padding:.8rem 4vw;background:rgba(255,255,255,.35);backdrop-filter:blur(18px)}
+.brand{font:700 1.4rem/1 'Poppins';color:var(--brand-green);text-decoration:none}
+.nav-links{list-style:none;display:flex;gap:2.4rem}
+.nav-item{color:#000;text-decoration:none;font-weight:500;transition:color .2s}
+.nav-item:hover{color:var(--brand-teal)}
+.btn-cta{background:var(--brand-green);color:#fff;padding:.5rem 1.4rem;
+  border-radius:25px;font-weight:600;font-size:.9rem;text-decoration:none}
+
+main{flex:1;padding:100px 1rem 60px;max-width:960px;margin:auto;text-align:center}
+h1{font-size:clamp(1.8rem,4vw,2.6rem);font-weight:700;margin-bottom:.6rem}
+p.tag{font-size:1.1rem;color:#36414d;margin-bottom:2rem}
+
+.video-wrap{position:relative;width:100%;padding-bottom:56.25%;     /* 16:9 */
+            border-radius:14px;overflow:hidden;box-shadow:0 6px 18px rgba(0,0,0,.08)}
+.video-wrap iframe{position:absolute;inset:0;width:100%;height:100%}
+
+.btn-big{
+  display:inline-block;margin-top:2rem;padding:.85rem 2.4rem;border:none;
+  border-radius:35px;font-size:1rem;font-weight:600;cursor:pointer;
+  background:var(--brand-green);color:#fff;text-decoration:none;
+  transition:transform .18s,box-shadow .18s}
+.btn-big:hover{transform:translateY(-2px);box-shadow:0 8px 18px rgba(0,0,0,.15)}
+
+footer.site-footer{background:var(--footer-bg);color:#d1d1d1;
+  text-align:center;font-size:.9rem;padding:2rem 1rem}
+
+/* --- NAV height variable ----------------------------------------- */
+:root { --nav-h: 84px; }                    /* desktop baseline */
+.glass { min-height: var(--nav-h); }
+
+/* --- Mobile: collapse nav into a stacked menu -------------------- */
+.nav-toggle{
+  display:none; margin-left:auto; background:transparent; border:0; padding:.4rem;
+  cursor:pointer; border-radius:8px;
+}
+.nav-toggle span{
+  display:block; width:24px; height:2px; background:#0b0d19; margin:6px 0; transition:.2s;
+}
+
+/* Default desktop layout remains unchanged */
+
+/* ≤900px: stack + toggle */
+@media (max-width: 900px){
+  :root { --nav-h: 66px; }                  /* smaller fixed bar */
+
+  main{ padding-top: var(--nav-h); }        /* avoid hero overlap on mobile */
+
+  .glass{ flex-wrap:wrap; align-items:center; }
+  .nav-toggle{ display:block; }             /* show burger */
+
+  /* hide menus by default on mobile */
+  .glass .nav-links,
+  .glass .nav-ctas{
+    display:none;
+    width:100%;
+    background:rgba(255,255,255,.96);
+    border:1px solid #e8edf1;
+    border-radius:12px;
+    margin-top:.8rem;
+    padding:.6rem .8rem;
+    box-shadow:0 6px 14px rgba(0,0,0,.06);
+  }
+
+  /* when nav is open */
+  .glass.open .nav-links,
+  .glass.open .nav-ctas{
+    display:flex;
+  }
+
+  .nav-links{ flex-direction:column; gap:.6rem; }
+  .nav-links .nav-item{ padding:.4rem .2rem; }
+
+  .nav-ctas{ justify-content:flex-start; gap:.8rem; }
+  .btn-cta{ padding:.5rem 1.1rem; font-size:.88rem; }
+
+  /* tighten hero/section spacing to fix “margin and padding off” feel */
+  .section{ padding:1.8rem 1.2rem; }
+  .section h1{ font-size:1.6rem; }
+}
+
+/* Anchor jump fix: sections aren't hidden behind the fixed header */
+section[id], [id^="faq"], [id^="features"], [id^="pricing"], [id^="mission"]{
+  scroll-margin-top: calc(var(--nav-h) + 12px);
+}
+</style>
+</head>
+<body>
+
+<!-- fixed nav (no Demo link, reached only via outreach URL) -->
+<nav class="glass">
+  <a href="index.html" class="brand">LexAi</a>
+  <button id="navToggle" class="nav-toggle" aria-expanded="false" aria-label="Open menu">
+    <span></span><span></span><span></span>
+  </button>
+  <ul class="nav-links">
+    <li><a href="index.html"  class="nav-item">Home</a></li>
+    <li><a href="index.html#features" class="nav-item">Features</a></li>
+    <li><a href="about.html"  class="nav-item">About</a></li>
+      <li><a href="case-studies.html" class="nav-item">Case Studies</a></li>
+  </ul>
+  <a href="trans.html" class="btn-cta">Go to Tool</a>
+</nav>
+
+<main>
+  <h1>See LexAi in action</h1>
+  <p class="tag">2-minute walkthrough of lightning-fast extraction &amp; translation</p>
+
+  <div class="video-wrap">
+    <!-- replace src with your Loom share link (no extra params needed) -->
+    <iframe src="https://www.loom.com/embed/394023dd0db84649ae31e315c5b3ca9f"
+            frameborder="0" allowfullscreen></iframe>
+  </div>
+
+  <!-- CTA → normal sign-up (auto-redirects to /trans.html after auth) -->
+  <a href="trans.html" class="btn-big">Try it for free →</a>
+</main>
+
+<footer class="site-footer">
+  © 2025 LexAi – All rights reserved
+</footer>
+<script>
+  (function(){
+    const nav   = document.querySelector('.glass');
+    const btn   = document.getElementById('navToggle');
+    if(!nav || !btn) return;
+
+    btn.addEventListener('click', () => {
+      const open = nav.classList.toggle('open');
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+
+    // Close menu when a link is tapped (prevents stuck-open state)
+    nav.addEventListener('click', (e)=>{
+      const a = e.target.closest('a');
+      if(a && nav.classList.contains('open')) nav.classList.remove('open');
+    });
+  })();
+</script>
+</body>
+</html>

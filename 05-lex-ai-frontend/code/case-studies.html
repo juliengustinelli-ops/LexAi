@@ -1,0 +1,884 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Case Studies – LexAi</title>
+
+<!-- Google Font -->
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --brand-green:#00c2b5;
+  --brand-teal :#00bfc7;
+  --cta-bg    :#21a8ad;
+  --footer-bg :#0b0d19;
+  --glass-bg  :rgba(255,255,255,.35);
+  --glass-blur:20px;
+  --nav-h     :84px;
+
+  /* Case study palette */
+  --cs-navy  :#1b3a6b;
+  --cs-gold  :#c9a227;
+  --cs-gold-light:#f5e9c0;
+  --cs-light :#f4f7fb;
+  --cs-text  :#1a1a2e;
+  --cs-muted :#5a6478;
+  --radius   :12px;
+}
+
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Poppins',sans-serif;color:#fff}
+
+/* -------- NAVBAR -------- */
+.glass{
+  position:fixed;top:0;left:0;width:100%;z-index:999;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0.8rem 4vw;background:var(--glass-bg);
+  backdrop-filter:blur(var(--glass-blur));
+  min-height:var(--nav-h);
+}
+.brand{font:700 1.4rem/1 'Poppins';color:var(--brand-green);text-decoration:none}
+.nav-links{list-style:none;display:flex;gap:2.5rem}
+.nav-item{color:#000;text-decoration:none;font-weight:500;transition:color .2s}
+.nav-item:hover,.nav-item.active{color:var(--brand-teal)}
+.btn-cta{
+  background:var(--brand-green);color:#fff;padding:.6rem 1.8rem;border-radius:25px;
+  font-weight:600;font-size:.9rem;text-decoration:none;transition:opacity .2s,transform .2s
+}
+.btn-cta:hover{opacity:.9;transform:translateY(-2px)}
+
+.nav-toggle{
+  display:none;margin-left:auto;background:transparent;border:0;padding:.4rem;
+  cursor:pointer;border-radius:8px;
+}
+.nav-toggle span{display:block;width:24px;height:2px;background:#0b0d19;margin:6px 0;transition:.2s}
+
+@media(max-width:900px){
+  :root{--nav-h:66px}
+  main{padding-top:var(--nav-h)}
+  .glass{flex-wrap:wrap;align-items:center}
+  .nav-toggle{display:block}
+  .glass .nav-links,.glass .nav-ctas{
+    display:none;width:100%;background:rgba(10,10,20,.96);
+    border:1px solid rgba(255,255,255,.12);border-radius:12px;margin-top:.8rem;
+    padding:.6rem .8rem;box-shadow:0 6px 14px rgba(0,0,0,.06);
+  }
+  .glass.open .nav-links,.glass.open .nav-ctas{display:flex}
+  .nav-links{flex-direction:column;gap:.6rem}
+  .nav-links .nav-item{padding:.4rem .2rem}
+  .nav-ctas{justify-content:flex-start;gap:.8rem}
+  .btn-cta{padding:.5rem 1.1rem;font-size:.88rem}
+}
+
+section[id],main{scroll-margin-top:calc(var(--nav-h) + 12px)}
+
+/* -------- PAGE HERO -------- */
+.page-hero{
+  background:linear-gradient(135deg,#0b0d19 0%,#1a2540 100%);
+  padding:calc(var(--nav-h) + 3rem) 2rem 4rem;
+  text-align:center;
+}
+.page-hero h1{font-size:clamp(2rem,5vw,3rem);font-weight:700;color:#fff;margin-bottom:1rem}
+.page-hero p{font-size:1.1rem;font-weight:300;color:rgba(255,255,255,.75);max-width:640px;margin:0 auto}
+
+/* -------- CASE STUDY CARD LIST -------- */
+.cs-list{background:#f4f7fb;padding:4rem 2rem}
+.cs-list-inner{max-width:960px;margin:0 auto;display:flex;flex-direction:column;gap:3rem}
+
+/* -------- INDIVIDUAL CASE STUDY -------- */
+.cs-block{background:#fff;border-radius:16px;overflow:hidden;box-shadow:0 4px 24px rgba(0,0,0,.07)}
+
+/* SVF hero strip */
+.cs-hero{
+  background:linear-gradient(135deg,var(--cs-navy) 0%,#2a5298 100%);
+  color:#fff;padding:60px 40px 52px;
+}
+.cs-eyebrow{
+  display:inline-block;background:var(--cs-gold);color:var(--cs-navy);
+  font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;
+  padding:6px 16px;border-radius:100px;margin-bottom:20px;
+}
+.cs-hero h2{font-size:clamp(1.4rem,3.5vw,2.2rem);font-weight:800;line-height:1.25;margin-bottom:16px}
+.cs-hero h2 span{color:var(--cs-gold)}
+.cs-hero .sub{font-size:1rem;color:rgba(255,255,255,.78);max-width:540px;margin-bottom:32px}
+.meta-row{display:flex;flex-wrap:wrap;gap:24px;font-size:13px;color:rgba(255,255,255,.65)}
+.meta-row strong{color:#fff;display:block;font-size:14px}
+
+/* Stat strip */
+.stats-strip{background:var(--cs-gold)}
+.stats-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr))}
+.stat-item{padding:28px 20px;text-align:center;border-right:1px solid rgba(0,0,0,.12)}
+.stat-item:last-child{border-right:none}
+.stat-item .number{font-size:36px;font-weight:900;color:var(--cs-navy);line-height:1;display:block}
+.stat-item .label{font-size:12px;font-weight:600;color:var(--cs-navy);opacity:.75;margin-top:6px;text-transform:uppercase;letter-spacing:.5px}
+
+/* Body sections */
+.cs-body{padding:0}
+.cs-section{padding:52px 40px}
+.cs-section+.cs-section{padding-top:0}
+.cs-section.bg-light{background:var(--cs-light)}
+
+.cs-section h3{font-size:22px;font-weight:800;color:var(--cs-navy);margin-bottom:14px}
+.cs-section h3::after{content:'';display:block;width:40px;height:4px;background:var(--cs-gold);border-radius:2px;margin-top:8px}
+.cs-section p{font-size:15px;color:var(--cs-muted);line-height:1.7;margin-bottom:14px}
+.cs-section p:last-child{margin-bottom:0}
+
+.challenge-box{
+  background:#f4f7fb;border-left:5px solid var(--cs-navy);
+  border-radius:0 var(--radius) var(--radius) 0;padding:24px 28px;margin-top:24px;
+}
+.challenge-box p{margin:0;font-size:14px}
+
+/* Features grid */
+.features-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px;margin-top:28px}
+.feature-card{
+  background:#fff;border-radius:var(--radius);padding:24px 20px;
+  border-top:4px solid var(--cs-navy);box-shadow:0 2px 12px rgba(0,0,0,.06);
+}
+.feature-card .icon{font-size:26px;margin-bottom:10px;display:block}
+.feature-card h4{font-size:14px;font-weight:700;color:var(--cs-navy);margin-bottom:6px}
+.feature-card p{font-size:13px;margin:0;color:var(--cs-muted)}
+
+/* Tech pills */
+.tech-pills{display:flex;flex-wrap:wrap;gap:8px;margin-top:32px}
+.tech-pill{background:var(--cs-navy);color:#fff;padding:7px 16px;border-radius:100px;font-size:12px;font-weight:600}
+
+/* Metrics table */
+.metrics-wrap{margin-top:28px;overflow-x:auto}
+table{width:100%;border-collapse:collapse;font-size:14px}
+thead tr{background:var(--cs-navy);color:#fff}
+thead th{padding:12px 18px;text-align:left;font-weight:600;font-size:12px;letter-spacing:.5px}
+tbody tr:nth-child(even){background:var(--cs-light)}
+tbody tr:hover{background:var(--cs-gold-light)}
+tbody td{padding:12px 18px;border-bottom:1px solid #e5e9f0;color:var(--cs-muted)}
+tbody td:first-child{color:var(--cs-text);font-weight:500}
+.highlight-row td{background:var(--cs-navy)!important;color:#fff!important;font-weight:700}
+.highlight-row td:first-child{color:var(--cs-gold)!important}
+
+.metrics-note{
+  background:var(--cs-gold-light);border:1px solid var(--cs-gold);
+  border-radius:var(--radius);padding:18px 22px;margin-top:20px;font-size:13px;color:var(--cs-text);
+}
+.metrics-note strong{color:var(--cs-navy)}
+
+/* Results list */
+.results-list{list-style:none;margin-top:24px;display:grid;gap:12px}
+.results-list li{
+  display:flex;align-items:flex-start;gap:12px;background:var(--cs-light);
+  border-radius:var(--radius);padding:16px 20px;font-size:14px;color:var(--cs-text);
+}
+.results-list li::before{
+  content:'✓';background:var(--cs-navy);color:var(--cs-gold);font-weight:900;font-size:12px;
+  width:24px;height:24px;border-radius:50%;display:flex;align-items:center;justify-content:center;
+  flex-shrink:0;margin-top:1px;
+}
+
+/* Testimonial */
+.cs-testimonial{background:linear-gradient(135deg,var(--cs-navy) 0%,#2a5298 100%)}
+.testimonial-inner{display:flex;gap:40px;align-items:flex-start;padding:52px 40px}
+.person-card{flex-shrink:0;text-align:center;width:150px}
+.person-card img{width:120px;height:120px;border-radius:50%;object-fit:cover;border:4px solid var(--cs-gold);display:block;margin:0 auto 12px}
+.person-card .name{font-weight:700;font-size:14px;color:#fff}
+.person-card .role{font-size:12px;color:var(--cs-gold);font-weight:600;margin-top:4px}
+.person-card .org{font-size:11px;color:rgba(255,255,255,.6);margin-top:2px}
+.quote-block{flex:1}
+.quote-mark{font-size:72px;line-height:.6;color:var(--cs-gold);font-family:Georgia,serif;display:block;margin-bottom:14px;opacity:.6}
+blockquote{font-size:15px;line-height:1.75;color:rgba(255,255,255,.9);font-style:italic}
+blockquote p{color:rgba(255,255,255,.9);margin-bottom:12px}
+
+/* CTA inside case study */
+.cs-cta{background:var(--cs-gold-light);border-top:4px solid var(--cs-gold);text-align:center;padding:48px 40px}
+.cs-cta h3{font-size:20px;font-weight:800;color:var(--cs-navy);margin-bottom:10px}
+.cs-cta h3::after{content:'';display:block;width:40px;height:4px;background:var(--cs-gold);border-radius:2px;margin:8px auto 0}
+.cs-cta p{font-size:15px;color:var(--cs-muted);max-width:480px;margin:16px auto 28px}
+.cs-btn{
+  display:inline-block;background:var(--cs-navy);color:#fff;
+  padding:14px 32px;border-radius:8px;font-weight:700;font-size:15px;
+  text-decoration:none;transition:background .2s,transform .2s;
+}
+.cs-btn:hover{background:#2a5298;transform:translateY(-2px)}
+
+/* -------- COMING SOON CARD -------- */
+.cs-coming-soon{
+  background:#fff;border-radius:16px;border:2px dashed #d1d5db;
+  display:flex;align-items:center;justify-content:center;
+  padding:4rem 2rem;text-align:center;
+}
+.cs-coming-soon-inner{}
+.cs-coming-soon .badge{
+  display:inline-block;background:var(--brand-green);color:#fff;
+  font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;
+  padding:6px 16px;border-radius:100px;margin-bottom:16px;
+}
+.cs-coming-soon h3{font-size:1.4rem;font-weight:700;color:#0b0d19;margin-bottom:.6rem}
+.cs-coming-soon p{font-size:.95rem;color:#6b7280;max-width:400px;margin:0 auto}
+
+/* -------- FOOTER -------- */
+.site-footer{background:var(--footer-bg);color:#d1d1d1;padding:4rem 2rem}
+.footer-top{display:grid;gap:2.5rem;max-width:1200px;margin:auto}
+@media(min-width:700px){.footer-top{grid-template-columns:2fr 1fr 1fr 1fr}}
+.footer-brand{font-size:1.4rem;font-weight:700;color:var(--brand-green);text-decoration:none}
+.footer-col h4{font-size:1.05rem;font-weight:600;margin-bottom:1rem;color:#fff}
+.footer-col ul{list-style:none}
+.footer-col li+li{margin-top:.6rem}
+.footer-col a{color:#d1d1d1;text-decoration:none;font-size:.95rem;transition:color .2s}
+.footer-col a:hover{color:var(--brand-green)}
+hr{border:none;border-top:1px solid #2a2e3a;margin:3rem 0 2rem}
+.footer-bottom{max-width:1200px;margin:auto;display:flex;justify-content:space-between;flex-wrap:wrap;gap:1rem;font-size:.9rem}
+.social{display:flex;gap:1.5rem;list-style:none}
+.social a{color:#d1d1d1;text-decoration:none;transition:color .2s}
+.social a:hover{color:var(--brand-green)}
+
+@media(max-width:640px){
+  .testimonial-inner{flex-direction:column;align-items:center}
+  .person-card{width:100%}
+  .stat-item{border-right:none;border-bottom:1px solid rgba(0,0,0,.12)}
+  .cs-section{padding:40px 24px}
+  .cs-hero{padding:48px 24px 40px}
+  .testimonial-inner{padding:40px 24px}
+  .cs-cta{padding:40px 24px}
+}
+
+/* -------- CLOUD BASE SOLUTIONS COLOUR OVERRIDES -------- */
+.cs-block--cbs{
+  --cs-navy      :#393158;
+  --cs-gold      :#C8204B;
+  --cs-gold-light:rgba(200,32,75,.10);
+  --cs-light     :#fdf4f6;
+  --cs-text      :#393158;
+  --cs-muted     :#5a4f6a;
+}
+.cs-block--cbs .cs-hero{
+  background:linear-gradient(135deg,#393158 0%,#4B4073 100%);
+}
+.cs-block--cbs .cs-testimonial{
+  background:linear-gradient(135deg,#393158 0%,#4B4073 100%);
+}
+.cs-block--cbs .stats-strip{background:#C8204B}
+.cs-block--cbs .cs-cta{background:rgba(200,32,75,.07);border-top:4px solid #C8204B}
+.cs-block--cbs .cs-cta h3{color:#393158}
+.cs-block--cbs .cs-btn{background:#393158}
+.cs-block--cbs .cs-btn:hover{background:#4B4073}
+.cs-block--cbs .tech-pill{background:#393158}
+.cs-block--cbs .stat-item .number,.cs-block--cbs .stat-item .label{color:#393158}
+.cs-block--cbs .challenge-box{border-left-color:#C8204B}
+.cs-block--cbs thead tr{background:#393158}
+.cs-block--cbs .highlight-row td{background:#393158!important}
+.cs-block--cbs .highlight-row td:first-child{color:#f4a0b0!important}
+.cs-block--cbs .results-list li::before{background:#393158;color:#f4a0b0}
+.cs-block--cbs .feature-card{border-top-color:#C8204B}
+.cs-block--cbs .feature-card h4{color:#393158}
+.cs-block--cbs h3{color:#393158}
+.cs-block--cbs h3::after{background:#C8204B}
+.cs-block--cbs .cs-eyebrow{background:#C8204B;color:#fff}
+.cs-block--cbs .cs-hero h2 span{color:#f4a0b0}
+.cs-block--cbs .metrics-note{background:rgba(200,32,75,.07);border-color:#C8204B}
+.cs-block--cbs .metrics-note strong{color:#393158}
+
+/* -------- INBOXHUNTER COLOUR OVERRIDES -------- */
+.cs-block--ih{
+  --cs-navy      :#0f172a;
+  --cs-gold      :#00c2b5;
+  --cs-gold-light:rgba(0,194,181,.10);
+  --cs-light     :#f0fafa;
+  --cs-text      :#0f172a;
+  --cs-muted     :#475569;
+}
+.cs-block--ih .cs-hero{
+  background:linear-gradient(135deg,#0f172a 0%,#1e3a5f 100%);
+}
+.cs-block--ih .cs-testimonial{
+  background:linear-gradient(135deg,#0f172a 0%,#1e3a5f 100%);
+}
+.cs-block--ih .stats-strip{background:#00c2b5}
+.cs-block--ih .cs-cta{background:rgba(0,194,181,.08);border-top:4px solid #00c2b5}
+.cs-block--ih .cs-cta h3{color:#0f172a}
+.cs-block--ih .cs-btn{background:#0f172a}
+.cs-block--ih .cs-btn:hover{background:#1e3a5f}
+.cs-block--ih .tech-pill{background:#0f172a}
+.cs-block--ih .stat-item .number,.cs-block--ih .stat-item .label{color:#0f172a}
+.cs-block--ih .challenge-box{border-left-color:#00c2b5}
+.cs-block--ih thead tr{background:#0f172a}
+.cs-block--ih .highlight-row td{background:#0f172a!important}
+.cs-block--ih .highlight-row td:first-child{color:#00c2b5!important}
+.cs-block--ih .results-list li::before{background:#0f172a;color:#00c2b5}
+.cs-block--ih .feature-card{border-top-color:#00c2b5}
+.cs-block--ih .feature-card h4{color:#0f172a}
+.cs-block--ih h3{color:#0f172a}
+.cs-block--ih h3::after{background:#00c2b5}
+.cs-block--ih .cs-eyebrow{background:#00c2b5;color:#0f172a}
+.cs-block--ih .cs-hero h2 span{color:#00c2b5}
+.cs-block--ih .metrics-note{background:rgba(0,194,181,.08);border-color:#00c2b5}
+.cs-block--ih .metrics-note strong{color:#0f172a}
+</style>
+</head>
+
+<body>
+
+<!-- ===== NAVBAR ===== -->
+<header>
+  <nav class="glass">
+    <a class="brand" href="index.html">LexAi</a>
+    <button id="navToggle" class="nav-toggle" aria-expanded="false" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links">
+      <li><a class="nav-item" href="index.html">Home</a></li>
+      <li><a class="nav-item" href="index.html#features">Features</a></li>
+      <li><a class="nav-item" href="about.html">About</a></li>
+      <li><a class="nav-item active" href="case-studies.html">Case Studies</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+
+  <!-- ===== PAGE HERO ===== -->
+  <div class="page-hero">
+    <h1>Case Studies</h1>
+    <p>Real results from real clients — see how LexAi's custom solutions drive measurable impact.</p>
+  </div>
+
+  <!-- ===== CASE STUDY LIST ===== -->
+  <div class="cs-list">
+    <div class="cs-list-inner">
+
+      <!-- ── CASE STUDY 1: ST. VINCENT FERRER ── -->
+      <div class="cs-block">
+
+        <div class="cs-hero">
+          <span class="cs-eyebrow">Case Study &nbsp;·&nbsp; K–8 Education</span>
+          <h2>How St. Vincent Ferrer School Reclaimed <span>450+ Hours a Year</span> and Made Every IT Decision Count</h2>
+          <p class="sub">A custom Help Desk Work Order System that turned inbox chaos into data-driven clarity.</p>
+          <div class="meta-row">
+            <div><strong>Client</strong>St. Vincent Ferrer Catholic School</div>
+            <div><strong>Role</strong>IT Director</div>
+            <div><strong>Solution</strong>Custom Help Desk &amp; Work Order System</div>
+            <div><strong>Environment</strong>K–8, 430 Students · 57 Staff</div>
+          </div>
+        </div>
+
+        <div class="stats-strip">
+          <div class="stats-grid">
+            <div class="stat-item"><span class="number">450+</span><span class="label">Hours Saved / Year</span></div>
+            <div class="stat-item"><span class="number">487+</span><span class="label">Devices Managed</span></div>
+            <div class="stat-item"><span class="number">90%</span><span class="label">Less Manual Triage</span></div>
+            <div class="stat-item"><span class="number">Same Day</span><span class="label">Critical Response Time</span></div>
+            <div class="stat-item"><span class="number">80%+</span><span class="label">Fewer Back-and-Forth Emails</span></div>
+          </div>
+        </div>
+
+        <div class="cs-body">
+
+          <div class="cs-section">
+            <h3>The Challenge</h3>
+            <p>Before the system, Lisa Polajenko, IT Director at St. Vincent Ferrer Catholic School, was managing technology support the way most school IT departments do — through a flood of emails, hallway conversations, sticky notes, and phone calls.</p>
+            <p>The scale of the environment makes this no small task. The school has <strong>430 students who use personal devices</strong>, <strong>57 teachers and staff</strong> each with their own devices, and classroom display boards throughout the building — all of which generate work orders when problems arise. Lisa had to manually sift through every single request with no categorization, no priority flags, and no way to tell at a glance whether something was a minor inconvenience or a classroom-stopping emergency.</p>
+            <div class="challenge-box">
+              <p>Device failures were handled one-off, making it impossible to spot patterns. Budget decisions for device replacement were based on memory and gut feeling, not data. And there was no way to know which teachers were quietly struggling with technology rather than asking for help — until it became a classroom problem.</p>
+            </div>
+          </div>
+
+          <div class="cs-section bg-light">
+            <h3>The Solution</h3>
+            <p>We built a custom Help Desk Work Order System designed around how St. Vincent Ferrer's staff actually works. Teachers submit tickets directly — no technical knowledge required. Every request is automatically categorized, prioritized, logged, and tracked from submission to resolution.</p>
+            <div class="features-grid">
+              <div class="feature-card">
+                <span class="icon">📋</span>
+                <h4>Ticket Submission Portal</h4>
+                <p>Name, role, issue type, priority level, and detail field — done in under 60 seconds.</p>
+              </div>
+              <div class="feature-card">
+                <span class="icon">🚦</span>
+                <h4>Four-Tier Urgency System</h4>
+                <p>Color-coded triage: Low / Normal / High / Critical. Critical issues surface immediately.</p>
+              </div>
+              <div class="feature-card">
+                <span class="icon">📈</span>
+                <h4>Pattern &amp; Trend Tracking</h4>
+                <p>Recurring device failures aggregate over time — noise becomes signal.</p>
+              </div>
+              <div class="feature-card">
+                <span class="icon">📂</span>
+                <h4>Full Resolution Logging</h4>
+                <p>Every ticket creates a documentation trail. Nothing falls through the cracks.</p>
+              </div>
+              <div class="feature-card">
+                <span class="icon">🎨</span>
+                <h4>Branded, Accessible UI</h4>
+                <p>Custom dropdowns in school colors, keyboard navigation, and automated email confirmations.</p>
+              </div>
+              <div class="feature-card">
+                <span class="icon">🔒</span>
+                <h4>Secure Backend</h4>
+                <p>RESTful API with rate limiting, tenant identification, and required field validation.</p>
+              </div>
+            </div>
+            <div class="tech-pills">
+              <span style="font-size:12px;font-weight:600;color:var(--cs-muted);align-self:center;">Tech stack:</span>
+              <span class="tech-pill">HTML5</span>
+              <span class="tech-pill">CSS3</span>
+              <span class="tech-pill">JavaScript</span>
+              <span class="tech-pill">RESTful API</span>
+              <span class="tech-pill">Database Backend</span>
+            </div>
+          </div>
+
+          <div class="cs-section">
+            <h3>The Numbers</h3>
+            <p>Manual triage was the hidden tax on Lisa's day. With requests coming in across student devices, staff devices, and classroom display boards, each one requiring time to locate, log, categorize, prioritize, respond to, and follow up on, the old system was consuming an estimated <strong>17 hours every week</strong> in administrative overhead.</p>
+            <div class="metrics-wrap">
+              <table>
+                <thead>
+                  <tr><th>Metric</th><th>Before</th><th>After</th></tr>
+                </thead>
+                <tbody>
+                  <tr><td>Manual triage time per request</td><td>~10 minutes</td><td>&lt;1 minute</td></tr>
+                  <tr><td>Weekly admin overhead</td><td>~17 hours</td><td>~2 hours</td></tr>
+                  <tr class="highlight-row"><td>Hours saved per school year (40 weeks)</td><td>—</td><td>450+ hours</td></tr>
+                  <tr><td>Average response time — urgent issues</td><td>2–3 days</td><td>Same day</td></tr>
+                  <tr><td>Device failures caught proactively</td><td>0</td><td>Ongoing</td></tr>
+                  <tr><td>Back-and-forth email volume</td><td>High</td><td>Reduced 80%+</td></tr>
+                  <tr><td>Budget decisions based on data</td><td>None</td><td>Every cycle</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="metrics-note">
+              <strong>On device costs:</strong> By surfacing recurring Chromebook battery and trackpad failures across classrooms, Lisa can now batch-order replacements and negotiate bulk pricing rather than purchasing reactively. For a school managing 430 student devices plus equipment for 57 staff members and shared classroom display boards, proactive replacement planning alone can represent <strong>thousands of dollars in avoided emergency costs annually</strong>.
+            </div>
+          </div>
+
+          <div class="cs-section">
+            <h3>The Results</h3>
+            <ul class="results-list">
+              <li><strong>450+ hours reclaimed per year</strong> — time previously lost to manual request triage, now reinvested in strategic IT work</li>
+              <li><strong>Response time for urgent issues cut from 2–3 days to same day</strong> — the four-tier urgency system ensures nothing critical gets buried</li>
+              <li><strong>Recurring device failures identified by data, not memory</strong> — Chromebook battery and trackpad issues surface as patterns across classrooms</li>
+              <li><strong>Device refresh decisions are now data-driven</strong> — long-term planning based on actual failure rates, not anecdotal reports</li>
+              <li><strong>Classrooms needing extra support identified proactively</strong> — equitable technology access across every grade level</li>
+              <li><strong>80%+ reduction in back-and-forth emails</strong> — every request is self-contained, trackable, and documented from open to close</li>
+            </ul>
+          </div>
+
+        </div><!-- /cs-body -->
+
+        <div class="cs-testimonial">
+          <div class="testimonial-inner">
+            <div class="person-card">
+              <img src="lisa-polajenko.jpg" alt="Lisa Polajenko, IT Director at St. Vincent Ferrer Catholic School">
+              <div class="name">Lisa Polajenko</div>
+              <div class="role">IT Director</div>
+              <div class="org">St. Vincent Ferrer Catholic School</div>
+            </div>
+            <div class="quote-block">
+              <span class="quote-mark">"</span>
+              <blockquote>
+                <p>Since implementing our new Help Desk Work Order System at our K–8 school, it has become an invaluable part of our technology infrastructure. As the IT Director, I now have a clear, organized way to track not only individual support requests, but also larger patterns in how our devices are performing.</p>
+                <p>Teachers submit work orders directly, which allows us to identify recurring Chromebook issues such as batteries losing charge or trackpads failing. This data has been essential in helping us make informed decisions about device refresh rates and long-term planning, rather than relying on anecdotal information.</p>
+                <p>The system also helps us identify classrooms or teachers who may need additional technology support or professional development, allowing us to respond proactively and equitably. Overall, the Help Desk has streamlined communication, improved response time, strengthened accountability, and enhanced our ability to support teaching and learning through reliable technology.</p>
+                <p>It has truly been a great addition to our school's technology infrastructure and a powerful tool for data-driven decision-making.</p>
+              </blockquote>
+            </div>
+          </div>
+        </div>
+
+        <div class="cs-cta">
+          <h3>See It in Action</h3>
+          <p>This isn't a generic off-the-shelf tool. It was designed around how school staff actually work — simple enough for any teacher, powerful enough for data-driven leadership.</p>
+          <a class="cs-btn" href="school-support.html" target="_blank" rel="noopener">View the Live Project &rarr;</a>
+        </div>
+
+      </div><!-- /cs-block SVF -->
+
+      <!-- ── CASE STUDY 2: CLOUD BASE SOLUTIONS ── -->
+      <div class="cs-block cs-block--cbs">
+
+        <div class="cs-hero">
+          <span class="cs-eyebrow">Case Study &nbsp;·&nbsp; B2B Lead Generation</span>
+          <h2>How Cloud Base Solutions Went from <span>10% Qualified Leads to 90%</span> — With a Single Click</h2>
+          <p class="sub">A custom API and Google X-ray lead generation engine, built and iterated to exact specifications, that replaced manual LinkedIn prospecting and inaccurate bought lists for good.</p>
+          <div class="meta-row">
+            <div><strong>Client</strong>Cloud Base Solutions</div>
+            <div><strong>Role</strong>Co-Founder &amp; CEO</div>
+            <div><strong>Solution</strong>Custom API + Google X-ray Lead Engine</div>
+            <div><strong>Targeting</strong>5–10 Specific Variables</div>
+          </div>
+        </div>
+
+        <div class="stats-strip">
+          <div class="stats-grid">
+            <div class="stat-item"><span class="number">90%</span><span class="label">Qualified Leads</span></div>
+            <div class="stat-item"><span class="number">9x</span><span class="label">Improvement in Lead Quality</span></div>
+            <div class="stat-item"><span class="number">5–10</span><span class="label">Precision Targeting Variables</span></div>
+            <div class="stat-item"><span class="number">1-Click</span><span class="label">Lead Generation</span></div>
+            <div class="stat-item"><span class="number">10%</span><span class="label">Previous List Accuracy</span></div>
+          </div>
+        </div>
+
+        <div class="cs-body">
+
+          <div class="cs-section">
+            <h3>The Challenge</h3>
+            <p>Before LexAi, the sales and development team at Cloud Base Solutions were doing what most B2B businesses resort to — manually searching LinkedIn for prospective clients or purchasing lead lists. Neither was working.</p>
+            <p>Of the people on the bought lists, only about <strong>10% were actually their target audience</strong>. The rest was noise — wasted outreach, wasted time, and a sales team grinding through irrelevant contacts that would never convert.</p>
+            <div class="challenge-box">
+              <p>The criteria for the ideal client was clear. Cloud Base Solutions knew exactly who they were looking for. The problem was they had no way to automate the search against those specific criteria at scale. Every qualified lead still required a human to find it manually.</p>
+            </div>
+          </div>
+
+          <div class="cs-section bg-light">
+            <h3>The Solution</h3>
+            <p>LexAi built a custom lead generation engine using API technology and Google X-ray search — a technique that uses advanced search operators to surface highly specific results from LinkedIn and across the web that standard searches miss entirely.</p>
+            <p>The system was built, tested, and iterated repeatedly until the targeting logic was dialled in to exact specifications. The result: a one-click engine that filters leads against 5–10 very specific variables and returns only the prospects that match.</p>
+
+            <div class="features-grid">
+              <div class="feature-card">
+                <span class="icon">🔍</span>
+                <h4>Google X-Ray Search</h4>
+                <p>Advanced search operator techniques that surface LinkedIn profiles and business pages invisible to standard searches — finding exactly who you're looking for across the open web.</p>
+              </div>
+              <div class="feature-card">
+                <span class="icon">⚙️</span>
+                <h4>API-Powered Automation</h4>
+                <p>Custom API integrations automate the entire prospecting workflow — from search through qualification — eliminating the need for any manual effort in the discovery phase.</p>
+              </div>
+              <div class="feature-card">
+                <span class="icon">🎯</span>
+                <h4>5–10 Variable Precision Targeting</h4>
+                <p>The engine filters against up to 10 very specific criteria simultaneously — matching leads to the exact ideal customer profile rather than broad demographic approximations.</p>
+              </div>
+              <div class="feature-card">
+                <span class="icon">🖱️</span>
+                <h4>One-Click Generation</h4>
+                <p>Once built and calibrated, the entire lead generation process runs with a single click — no manual searching, no list scrubbing, no wasted outreach to unqualified contacts.</p>
+              </div>
+              <div class="feature-card">
+                <span class="icon">🔁</span>
+                <h4>Iterative Refinement</h4>
+                <p>The system was tested and refined in multiple iterations until output quality matched the exact specifications required — a process-driven approach to getting it right, not just getting it done.</p>
+              </div>
+              <div class="feature-card">
+                <span class="icon">📊</span>
+                <h4>Qualified-Lead Output</h4>
+                <p>Every lead returned meets the defined criteria. No sorting, no filtering after the fact — the output is the target audience, ready for outreach.</p>
+              </div>
+            </div>
+
+            <div class="tech-pills" style="margin-top:40px;">
+              <span style="font-size:12px;font-weight:600;color:var(--cs-muted);align-self:center;">Tech stack:</span>
+              <span class="tech-pill">Google X-Ray Search</span>
+              <span class="tech-pill">Custom APIs</span>
+              <span class="tech-pill">Automated Scraping</span>
+              <span class="tech-pill">Lead Filtering Engine</span>
+            </div>
+          </div>
+
+          <div class="cs-section">
+            <h3>The Numbers</h3>
+            <p>The shift from manual prospecting and inaccurate bought lists to a precision-targeted, automated engine changed the economics of their entire sales process. More qualified leads means every hour of outreach goes further.</p>
+            <div class="metrics-wrap">
+              <table>
+                <thead>
+                  <tr><th>Metric</th><th>Before</th><th>After</th></tr>
+                </thead>
+                <tbody>
+                  <tr><td>Lead quality from bought lists</td><td>~10% target audience</td><td>—</td></tr>
+                  <tr><td>Lead quality from automated engine</td><td>—</td><td>~90% qualified</td></tr>
+                  <tr class="highlight-row"><td>Improvement in lead targeting accuracy</td><td>—</td><td>9x</td></tr>
+                  <tr><td>Targeting variables applied</td><td>Broad / manual</td><td>5–10 specific criteria</td></tr>
+                  <tr><td>Effort required per prospecting run</td><td>Hours of manual searching</td><td>1 click</td></tr>
+                  <tr><td>Reliance on inaccurate bought lists</td><td>Yes</td><td>Eliminated</td></tr>
+                  <tr><td>Manual LinkedIn prospecting required</td><td>Yes — daily</td><td>None</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="metrics-note">
+              <strong>On outreach efficiency:</strong> When only 10% of your list is your target audience, 90% of your outreach effort is wasted. Flipping that ratio to 90% qualified leads doesn't just save time — it multiplies the return on every sales conversation, every follow-up, and every dollar spent on outreach.
+            </div>
+          </div>
+
+          <div class="cs-section">
+            <h3>The Results</h3>
+            <ul class="results-list">
+              <li><strong>90% of generated leads now match the target profile</strong> — up from 10% on bought lists, a 9x improvement in qualification accuracy</li>
+              <li><strong>Manual LinkedIn prospecting eliminated entirely</strong> — the sales team no longer spends hours searching for contacts that may not even be the right audience</li>
+              <li><strong>Bought lists abandoned</strong> — the custom engine outperforms any purchased list at a fraction of the ongoing cost</li>
+              <li><strong>One-click lead generation</strong> — the entire prospecting workflow now runs on demand, in seconds, without human intervention</li>
+              <li><strong>5–10 specific variables applied simultaneously</strong> — leads match the exact ideal customer profile, not a broad approximation of it</li>
+              <li><strong>Iterated to perfection</strong> — the system was refined until output consistently met the exact specifications required, not just close enough</li>
+            </ul>
+          </div>
+
+        </div><!-- /cs-body -->
+
+        <div class="cs-testimonial">
+          <div class="testimonial-inner">
+            <div class="person-card">
+              <img src="shajan-koshi.jpeg" alt="Shajan Koshi, Co-Founder and CEO of Cloud Base Solutions">
+              <div class="name">Shajan Koshi</div>
+              <div class="role">Co-Founder &amp; CEO</div>
+              <div class="org">Cloud Base Solutions</div>
+            </div>
+            <div class="quote-block">
+              <span class="quote-mark">"</span>
+              <blockquote>
+                <p>Before this, our sales team was manually searching LinkedIn and buying lists — and only about 10% of those contacts were actually our target audience. We knew exactly who we were looking for, we just had no way to automate it.</p>
+                <p>LexAi used API technology and Google X-ray to build a lead generation machine to our exact specifications. They iterated again and again until the code got it just right. Now, with the click of a button, we're seeing 90% qualified leads based on 5 to 10 very specific variables.</p>
+                <p>It's completely transformed how we approach client acquisition.</p>
+              </blockquote>
+            </div>
+          </div>
+        </div>
+
+        <div class="cs-cta">
+          <h3>Want Leads Built to Your Exact Specifications?</h3>
+          <p>Stop buying inaccurate lists. Stop manual LinkedIn searches. Let's build a lead engine tailored to your exact ideal customer profile.</p>
+          <a class="cs-btn" href="https://calendly.com/lexai/ai-implementation-introductory-chat?month=2025-08" target="_blank" rel="noopener">Book an Intro Call &rarr;</a>
+        </div>
+
+      </div><!-- /cs-block CBS -->
+
+      <!-- ── CASE STUDY 3: INBOXHUNTER ── -->
+      <div class="cs-block cs-block--ih">
+
+        <div class="cs-hero">
+          <span class="cs-eyebrow">Case Study &nbsp;·&nbsp; Marketing Automation</span>
+          <h2>How InboxHunter Put Newsletter Sign-Ups and Lead Generation on <span>Complete Autopilot</span> — While You Sleep</h2>
+          <p class="sub">A custom-built AI desktop application that eliminated hundreds of hours of manual Meta Ads research and sparked a community of 970+ marketers running reverse outreach at scale.</p>
+          <div class="meta-row">
+            <div><strong>Solution</strong>InboxHunter — AI Email Automation Software</div>
+            <div><strong>Community</strong>970+ Active Users</div>
+            <div><strong>Platform</strong>Windows · Mac · Linux</div>
+            <div><strong>Distribution</strong>Free Download via GitHub</div>
+          </div>
+        </div>
+
+        <div class="stats-strip">
+          <div class="stats-grid">
+            <div class="stat-item"><span class="number">970+</span><span class="label">Community Members</span></div>
+            <div class="stat-item"><span class="number">20–30%</span><span class="label">Success Rate — All Forms & Pages</span></div>
+            <div class="stat-item"><span class="number">80–100%</span><span class="label">Success Rate — Compatible Forms</span></div>
+            <div class="stat-item"><span class="number">50%+</span><span class="label">LLM Token Cost Savings</span></div>
+            <div class="stat-item"><span class="number">$0</span><span class="label">Monthly Operating Cost</span></div>
+            <div class="stat-item"><span class="number">6-Fig</span><span class="label">Freelance Incomes Created</span></div>
+          </div>
+        </div>
+
+        <div class="cs-body">
+
+          <div class="cs-section">
+            <h3>The Challenge</h3>
+            <p>For marketers who want to use a "reverse outreach" strategy — getting on brands' email lists so you can pitch your services from a position of knowledge — the process was a manual nightmare. Open Meta Ads Library. Scroll for hours. Find brands running campaigns. Note their URLs. Visit each site. Find the signup form. Fill it out. Move to the next one. Repeat hundreds of times.</p>
+            <p>There was no way to scale it. No way to run it in the background. Every sign-up required a human sitting at a screen, clicking through forms one by one. Building a meaningful list meant sacrificing entire days to repetitive work that delivered no direct value — just access.</p>
+            <div class="challenge-box">
+              <p>An earlier cloud-based version of the tool — built by an outsourced team — had left the project in a difficult state, with $20–30/month in operational costs and significant limitations in how users could configure and control their campaigns. LexAi came in, took over the codebase, and rebuilt it properly from the ground up as a desktop application: more powerful, more flexible, and completely free to run.</p>
+            </div>
+          </div>
+
+          <div class="cs-section bg-light">
+            <h3>The Solution</h3>
+            <p>We engineered InboxHunter as a fully custom desktop application — downloadable directly from GitHub, runs locally on your machine, and costs nothing to operate. At its core, an AI engine intelligently navigates web pages, identifies signup forms, fills them with the right data, and verifies successful submissions — all without you touching a thing.</p>
+            <p>Sophisticated prompt engineering keeps LLM token consumption over 50% lower than a naive implementation, with built-in model selection so users can tune performance vs. cost to their exact needs.</p>
+
+            <div class="features-grid">
+              <div class="feature-card">
+                <span class="icon">🤖</span>
+                <h4>AI-Powered Form Analysis</h4>
+                <p>The LLM reads page structure, identifies signup forms — including hidden and multi-step ones — fills them intelligently, and verifies each submission with confidence scoring.</p>
+              </div>
+              <div class="feature-card">
+                <span class="icon">🎯</span>
+                <h4>20–30% Overall · 80–100% on Compatible Forms</h4>
+                <p>InboxHunter achieves a 20–30% success rate across all forms and pages — on par with doing it manually — automatically skipping sites with no opt-in form. On compatible sign-up pages, the success rate jumps to 80–100%.</p>
+              </div>
+              <div class="feature-card">
+                <span class="icon">🧠</span>
+                <h4>Choose Your AI Model</h4>
+                <p>Select from GPT-4o, GPT-4o mini, or GPT-4 Turbo based on your speed and cost preferences. Swap models at any time from the settings panel.</p>
+              </div>
+              <div class="feature-card">
+                <span class="icon">💰</span>
+                <h4>Token Cost Tracking</h4>
+                <p>Real-time dashboard tracks every API call and its cost. Engineered to cut LLM token usage by 50%+ through two-phase batch planning and structured JSON responses.</p>
+              </div>
+              <div class="feature-card">
+                <span class="icon">📂</span>
+                <h4>CSV Import & Database Management</h4>
+                <p>Load your own URL lists via CSV. SQLite database manages all records, tracks results, and prevents duplicate submissions automatically.</p>
+              </div>
+              <div class="feature-card">
+                <span class="icon">🔄</span>
+                <h4>Automatic Updates</h4>
+                <p>Always on the latest version. Updates push automatically from GitHub so the community always has access to the newest features and improvements.</p>
+              </div>
+              <div class="feature-card">
+                <span class="icon">✏️</span>
+                <h4>Custom Sign-up Credentials</h4>
+                <p>Change the name, email, and other details used when signing up for newsletters — giving you full control over how you appear in each brand's list.</p>
+              </div>
+              <div class="feature-card">
+                <span class="icon">📋</span>
+                <h4>Log Capture & Engineering Feedback</h4>
+                <p>Session logs are captured and sent to engineers for analysis, enabling continuous improvement and faster resolution of edge cases across the community.</p>
+              </div>
+              <div class="feature-card">
+                <span class="icon">🖥️</span>
+                <h4>Beautiful Dashboard</h4>
+                <p>A clean, intuitive interface built with React and TypeScript. Real-time status updates, run controls, and settings all in one easy-to-navigate dashboard.</p>
+              </div>
+            </div>
+
+            <div class="tech-pills" style="margin-top:40px;">
+              <span style="font-size:12px;font-weight:600;color:var(--cs-muted);align-self:center;">Tech stack:</span>
+              <span class="tech-pill">Tauri</span>
+              <span class="tech-pill">Rust</span>
+              <span class="tech-pill">React</span>
+              <span class="tech-pill">TypeScript</span>
+              <span class="tech-pill">Python</span>
+              <span class="tech-pill">Playwright</span>
+              <span class="tech-pill">OpenAI API</span>
+              <span class="tech-pill">SQLite</span>
+              <span class="tech-pill">SQLAlchemy</span>
+              <span class="tech-pill">aiohttp</span>
+            </div>
+          </div>
+
+          <div class="cs-section">
+            <h3>The Numbers</h3>
+            <p>Moving from a cloud-based service to a locally-run desktop application didn't just cut costs — it unlocked performance, flexibility, and scale that a hosted model could never match. Sophisticated prompt engineering keeps AI costs low while maintaining high accuracy across a diverse range of signup page formats.</p>
+            <div class="metrics-wrap">
+              <table>
+                <thead>
+                  <tr><th>Metric</th><th>Before</th><th>After</th></tr>
+                </thead>
+                <tbody>
+                  <tr><td>Monthly operating cost</td><td>$20–30</td><td>$0</td></tr>
+                  <tr><td>LLM token consumption</td><td>Baseline</td><td>50%+ lower</td></tr>
+                  <tr><td>Sign-up success rate — all forms &amp; pages</td><td>Manual / ~0% automated</td><td>20–30% — same as manual</td></tr>
+                  <tr><td>Sign-up success rate — compatible forms</td><td>Manual / ~0% automated</td><td>80–100%</td></tr>
+                  <tr><td>Hours required per newsletter campaign</td><td>Many hours, manual</td><td>Near zero — runs overnight</td></tr>
+                  <tr class="highlight-row"><td>Community built around the tool</td><td>—</td><td>970+ active users</td></tr>
+                  <tr><td>Freelance income outcomes</td><td>N/A</td><td>Multiple 6-figure success stories</td></tr>
+                  <tr><td>Model flexibility</td><td>Fixed</td><td>GPT-4o, 4o-mini, Turbo — user's choice</td></tr>
+                  <tr><td>Duplicate submission prevention</td><td>Manual tracking</td><td>Automatic via database</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="metrics-note">
+              <strong>On the reverse outreach model:</strong> By automating newsletter sign-ups at scale, users position themselves inside their target brands' email ecosystems — seeing exactly what those brands communicate, how they sell, and when the right moment to pitch arrives. This intelligence-first approach has directly contributed to <strong>multiple community members building 6-figure freelance marketing incomes</strong>.
+            </div>
+          </div>
+
+          <div class="cs-section">
+            <h3>The Results</h3>
+            <ul class="results-list">
+              <li><strong>Hundreds of hours of manual research eliminated</strong> — what once took days of scrolling Meta Ads Library and filling forms by hand now runs unattended, overnight</li>
+              <li><strong>970+ marketers in the community</strong> using InboxHunter to run automated lead generation and reverse outreach programs</li>
+              <li><strong>Multiple 6-figure freelance income success stories</strong> — community members who leveraged the tool to build thriving marketing businesses</li>
+              <li><strong>20–30% success rate across all forms and pages</strong> — on par with manual outreach, automatically skipping sites with no opt-in form just as a human would</li>
+              <li><strong>80–100% success rate on compatible forms</strong> — handling multi-step forms, hidden fields, CTA-triggered forms, and validation errors automatically</li>
+              <li><strong>$0 monthly operating cost</strong> — moving from cloud to a locally-run desktop app eliminated the $20–30/month overhead entirely</li>
+              <li><strong>50%+ reduction in LLM token costs</strong> through sophisticated two-phase prompt engineering and efficient model usage</li>
+              <li><strong>Full user control</strong> — choose your AI model, load your own URLs, set your credentials, and track every dollar of API spend in real time</li>
+            </ul>
+          </div>
+
+        </div><!-- /cs-body -->
+
+        <div class="cs-testimonial">
+          <div class="testimonial-inner">
+            <div class="person-card">
+              <img src="sean-ferres.png" alt="Sean Ferres">
+              <div class="name">Sean Ferres</div>
+              <div class="role">CEO &amp; Founder, Copy Millions Blueprint</div>
+              <div class="org">Client Acquisition Coach for Copywriters</div>
+            </div>
+            <div class="quote-block">
+              <span class="quote-mark">"</span>
+              <blockquote>
+                <p>Getting a 20–30% success rate is amazing — that's on par with doing it manually, and exactly what we're after. It skips websites without an opt-in form exactly as we'd do manually.</p>
+                <p>I understand and appreciate the time, energy, and resources you guys have put into this project. I sincerely appreciate you bringing on a second, more competent engineering team to see this through to completion.</p>
+                <p>Thanks for seeing this through and building something epic and useful — this is going to be a gamechanger for our clients.</p>
+              </blockquote>
+            </div>
+          </div>
+        </div>
+
+        <div class="cs-cta">
+          <h3>See InboxHunter in Action</h3>
+          <p>Custom-built from the ground up. AI-powered. Free to download. This is what it looks like when automation is engineered properly.</p>
+          <a class="cs-btn" href="https://github.com/polajenko/inbox-hunter/releases/tag/v1.2.16" target="_blank" rel="noopener">View on GitHub &rarr;</a>
+        </div>
+
+      </div><!-- /cs-block IH -->
+
+    </div><!-- /cs-list-inner -->
+  </div><!-- /cs-list -->
+
+</main>
+
+<!-- ===== FOOTER ===== -->
+<footer class="site-footer">
+  <div class="footer-top">
+    <div class="footer-col">
+      <a href="index.html" class="footer-brand">LexAi</a>
+      <p style="margin-top:1rem;max-width:280px">Building custom AI solutions that drive real results.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Product</h4>
+      <ul>
+        <li><a href="index.html#features">Features</a></li>
+        <li><a href="https://calendly.com/lexai/ai-implementation-introductory-chat?month=2025-08" target="_blank">Request a Quote</a></li>
+        <li><a href="case-studies.html">Testimonials</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Company</h4>
+      <ul>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="https://calendly.com/lexai/ai-implementation-introductory-chat?month=2025-08" target="_blank">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Legal</h4>
+      <ul>
+        <li><a href="privacy.html">Privacy Policy</a></li>
+        <li><a href="javascript:void(0)">Terms of Service</a></li>
+        <li><a href="javascript:void(0)">Cookie Policy</a></li>
+      </ul>
+    </div>
+  </div>
+  <hr>
+  <div class="footer-bottom">
+    <p>© 2025 LexAi. All rights reserved.</p>
+    <ul class="social">
+      <li><a href="javascript:void(0)">Twitter</a></li>
+      <li><a href="javascript:void(0)">LinkedIn</a></li>
+      <li><a href="javascript:void(0)">Facebook</a></li>
+      <li><a href="javascript:void(0)">Instagram</a></li>
+    </ul>
+  </div>
+</footer>
+
+<script>
+(function(){
+  const nav = document.querySelector('.glass');
+  const btn = document.getElementById('navToggle');
+  if(!nav||!btn) return;
+  btn.addEventListener('click',()=>{
+    const open=nav.classList.toggle('open');
+    btn.setAttribute('aria-expanded',open?'true':'false');
+  });
+  nav.addEventListener('click',(e)=>{
+    const a=e.target.closest('a');
+    if(a&&nav.classList.contains('open')) nav.classList.remove('open');
+  });
+})();
+</script>
+
+</body>
+</html>

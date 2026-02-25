@@ -1,0 +1,336 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>LexAi – FAQ</title>
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{ --brand-green:#00c2b5; --brand-teal:#00bfc7; --glass-bg:rgba(255,255,255,.35); --glass-blur:20px; --footer-bg:#0b0d19; }
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Poppins',sans-serif;color:#0b0d19;background:#f4f6f8}
+main{padding-top:100px;max-width:1100px;margin:auto}
+.hidden{display:none!important}
+
+/* navbar (copied from trans.html) */
+.glass{position:fixed;top:0;left:0;width:100%;z-index:999;display:flex;align-items:center;gap:1.4rem;padding:.8rem 4vw;background:var(--glass-bg);backdrop-filter:blur(var(--glass-blur))}
+.brand{font:700 1.4rem/1 'Poppins';color:var(--brand-green);text-decoration:none}
+.nav-links{list-style:none;display:flex;gap:2rem;margin-left:28rem}
+.nav-item{color:#000;text-decoration:none;font-weight:500;transition:color .2s}
+.nav-item:hover{color:var(--brand-teal)}
+.nav-ctas{display:flex;align-items:center;gap:1.3rem;margin-left:auto}
+.btn-cta{background:var(--brand-green);color:#fff;padding:.55rem 1.6rem;border-radius:25px;font-weight:600;font-size:.9rem;text-decoration:none}
+
+/* sections */
+.section{background:#fff;padding:2rem;border-radius:12px;margin:0 4vw 28px;box-shadow:0 4px 10px rgba(0,0,0,.05)}
+.section h1{font-size:1.9rem;font-weight:700;margin-bottom:1rem}
+.section h2{font-size:1.4rem;font-weight:700;margin-bottom:.8rem}
+.section p{line-height:1.6}
+
+/* ticket form */
+.form-row{display:grid;gap:12px;margin-top:12px}
+@media(min-width:680px){.form-row{grid-template-columns:1fr 1fr}}
+label{font-weight:600}
+input[type="text"],textarea,select{
+  width:100%;padding:12px;border:2px solid #e5e7eb;border-radius:10px;
+  font-size:.95rem;background:#f9fafb;color:#333
+}
+textarea{min-height:140px;resize:vertical}
+button.primary{background:var(--brand-green);color:#fff;border:none;border-radius:45px;padding:12px 26px;font-weight:700;cursor:pointer}
+button.primary:hover{opacity:.95;transform:translateY(-1px)}
+.small{color:#5a6572;font-size:.92rem}
+
+/* accordion */
+.faq{margin-top:10px}
+.faq details{background:#fbfcfd;border:1px solid #edf0f3;border-radius:10px;padding:14px 16px;margin-bottom:10px}
+.faq summary{font-weight:600;cursor:pointer;list-style:none}
+.faq summary::-webkit-details-marker{display:none}
+.faq p{margin-top:10px}
+
+/* footer (light) */
+.site-footer{background:var(--footer-bg);color:#d1d1d1;padding:2rem;margin-top:40px}
+.footer-bottom{max-width:1100px;margin:auto;display:flex;justify-content:space-between;flex-wrap:wrap;gap:1rem;font-size:.9rem}
+
+.lex-modal{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;
+  background:rgba(0,0,0,.45);backdrop-filter:blur(2px);z-index:10000;display:none}
+.lex-box{background:#fff;border-radius:16px;padding:1.8rem 2.2rem;max-width:340px;
+  text-align:center;box-shadow:0 8px 24px rgba(0,0,0,.15)}
+.lex-box h4{font-size:1.25rem;margin-bottom:1rem;color:var(--brand-green)}
+.lex-box button{margin-top:1rem;padding:.55rem 1.4rem;border:none;border-radius:45px;
+  background:var(--brand-green);color:#fff;font-weight:600;cursor:pointer}
+
+/* --- NAV height variable ----------------------------------------- */
+:root { --nav-h: 84px; }                    /* desktop baseline */
+.glass { min-height: var(--nav-h); }
+
+/* --- Mobile: collapse nav into a stacked menu -------------------- */
+.nav-toggle{
+  display:none; margin-left:auto; background:transparent; border:0; padding:.4rem;
+  cursor:pointer; border-radius:8px;
+}
+.nav-toggle span{
+  display:block; width:24px; height:2px; background:#0b0d19; margin:6px 0; transition:.2s;
+}
+
+/* Default desktop layout remains unchanged */
+
+/* ≤900px: stack + toggle */
+@media (max-width: 900px){
+  :root { --nav-h: 66px; }                  /* smaller fixed bar */
+
+  main{ padding-top: var(--nav-h); }        /* avoid hero overlap on mobile */
+
+  .glass{ flex-wrap:wrap; align-items:center; }
+  .nav-toggle{ display:block; }             /* show burger */
+
+  /* hide menus by default on mobile */
+  .glass .nav-links,
+  .glass .nav-ctas{
+    display:none;
+    width:100%;
+    background:rgba(255,255,255,.96);
+    border:1px solid #e8edf1;
+    border-radius:12px;
+    margin-top:.8rem;
+    padding:.6rem .8rem;
+    box-shadow:0 6px 14px rgba(0,0,0,.06);
+  }
+
+  /* when nav is open */
+  .glass.open .nav-links,
+  .glass.open .nav-ctas{
+    display:flex;
+  }
+
+  .nav-links{ flex-direction:column; gap:.6rem; }
+  .nav-links .nav-item{ padding:.4rem .2rem; }
+
+  .nav-ctas{ justify-content:flex-start; gap:.8rem; }
+  .btn-cta{ padding:.5rem 1.1rem; font-size:.88rem; }
+
+  /* tighten hero/section spacing to fix “margin and padding off” feel */
+  .section{ padding:1.8rem 1.2rem; }
+  .section h1{ font-size:1.6rem; }
+}
+
+/* Anchor jump fix: sections aren't hidden behind the fixed header */
+section[id], [id^="faq"], [id^="features"], [id^="pricing"], [id^="mission"]{
+  scroll-margin-top: calc(var(--nav-h) + 12px);
+}
+</style>
+</head>
+<body>
+
+<nav class="glass">
+  <a href="index.html" class="brand">LexAi</a>
+  <button id="navToggle" class="nav-toggle" aria-expanded="false" aria-label="Open menu">
+    <span></span><span></span><span></span>
+  </button>
+  <ul class="nav-links">
+    <li><a href="index.html" class="nav-item">Home</a></li>
+    <li><a href="index.html#features" class="nav-item">Features</a></li>
+    <li><a href="about.html" class="nav-item">About</a></li>
+      <li><a href="case-studies.html" class="nav-item">Case Studies</a></li>
+  </ul>
+  <div class="nav-ctas">
+  <a id="appCta" href="trans.html" class="btn-cta">Go to tool</a>
+</div>
+</nav>
+
+<main>
+  <!-- TICKETS -->
+  <section class="section">
+    <h1>FAQs & Support</h1>
+    <p class="small">Can’t find an answer? Send us a ticket below — it goes straight to our team.</p>
+    <div class="form-row" style="margin-top:16px">
+      <div>
+        <label for="ticketSubject">Subject</label>
+        <input id="ticketSubject" type="text" maxlength="120" placeholder="Short summary (e.g., Quota question)">
+      </div>
+      <div>
+        <label for="ticketType">Category</label>
+        <select id="ticketType">
+          <option>General</option>
+          <option>Bug report</option>
+          <option>Feature request</option>
+          <option>Account</option>
+        </select>
+      </div>
+    </div>
+    <div class="form-row" style="grid-template-columns:1fr">
+      <div>
+        <label for="ticketMsg">Message</label>
+        <textarea id="ticketMsg" maxlength="4000" placeholder="Describe the issue or question…"></textarea>
+      </div>
+    </div>
+    <div style="margin-top:12px;display:flex;gap:12px;align-items:center">
+      <button id="ticketSend" class="primary">Submit Ticket</button>
+      <span id="ticketHint" class="small">No sign-in needed — ask away.</span>
+    </div>
+  </section>
+
+  <!-- FAQS -->
+  <section class="section">
+    <h1>Common questions</h1>
+    <div class="faq" id="faqList">
+      <!-- Injected by script -->
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="footer-bottom">
+    <p>© 2025 LexAi. All rights reserved.</p>
+    <p><a href="mailto:lexai.reset@gmail.com" style="color:#d1d1d1;text-decoration:none">lexai.reset@gmail.com</a></p>
+  </div>
+</footer>
+
+<div id="lexModal" class="lex-modal">
+  <div class="lex-box">
+    <h4>LexAi says</h4>
+    <p id="lexMsg"></p>
+    <button onclick="lexClose()">OK</button>
+  </div>
+</div>
+  
+<script>
+(function(){
+  const BE    = "https://api.lexaib2b.com";
+  const token = localStorage.getItem("lexai_token") || "";
+
+  /* ----- CTA: always go straight to the tool ----- */
+  (function setCta(){
+    const cta = document.getElementById("appCta");
+    if (cta){
+      cta.textContent = "Go to tool";
+      cta.href = "trans.html";
+    }
+  })();
+
+  /* ----- ticket form: no sign-in required ----- */
+  const sendBtn = document.getElementById("ticketSend");
+  const hint    = document.getElementById("ticketHint");
+  if (hint) {
+    hint.textContent = token
+      ? "Signed in — your message will include your account email."
+      : "No sign-in needed — ask away.";
+  }
+
+  function lexAlert(msg){
+    const box = document.getElementById("lexMsg");
+    const dlg = document.getElementById("lexModal");
+    if (box && dlg){ box.textContent = msg; dlg.style.display = "flex"; }
+    else { alert(msg); }
+  }
+  window.lexClose = () => { const dlg = document.getElementById("lexModal"); if (dlg) dlg.style.display = "none"; };
+
+  function getCookie(name){
+    return document.cookie.split("; ").find(c => c.startsWith(name+"="))?.split("=")[1] || "";
+  }
+
+  sendBtn.onclick = async () => {
+    const subject = document.getElementById("ticketSubject").value.trim();
+    const type    = document.getElementById("ticketType").value;
+    const msg     = document.getElementById("ticketMsg").value.trim();
+
+    if (subject.length < 4 || msg.length < 10){
+      lexAlert("Please write a clear subject and a longer message.");
+      return;
+    }
+
+    // Logged-in → use backend endpoint (unchanged)
+    if (token){
+      sendBtn.disabled = true; sendBtn.textContent = "Sending…";
+      try{
+        const r = await fetch(BE + "/support/ticket", {
+          method : "POST",
+          headers: {
+            "Content-Type":"application/json",
+            "Authorization":"Bearer " + token
+          },
+          body   : JSON.stringify({ subject: `[${type}] ${subject}`, message: msg })
+        });
+        if (!r.ok) throw 0;
+        lexAlert("Thanks! Your ticket has been sent.");
+        document.getElementById("ticketSubject").value = "";
+        document.getElementById("ticketMsg").value     = "";
+      }catch{
+        lexAlert("Could not send ticket. Please try again later.");
+      }finally{
+        sendBtn.disabled = false; sendBtn.textContent = "Submit Ticket";
+      }
+      return;
+    }
+
+    // Not logged-in → open mail client with a prefilled email
+    const to       = "lexai.reset@gmail.com";
+    const mailSub  = `[${type}] ${subject}`;
+    const session  = getCookie("lex_session");
+    const mailBody =
+`Hi LexAi team,
+
+${msg}
+
+(Submitted from FAQ page — anonymous)
+Session: ${session || "n/a"}`;
+    const mailto = `mailto:${encodeURIComponent(to)}?subject=${encodeURIComponent(mailSub)}&body=${encodeURIComponent(mailBody)}`;
+    window.location.href = mailto;
+  };
+
+  /* ----- FAQ list (unchanged) ----- */
+  const faqs = [
+    {q:"What is LexAi in one sentence?", a:"LexAi turns rough marketing copy into high-performing taglines: GPT refines in English, then DeepL translates to your chosen language."},
+    {q:"How do I translate my first tagline?", a:"Paste your line, pick a target language, then click Get Translation. Rate the result Good/Bad to teach LexAi your taste."},
+    {q:"When should I use Rephrase instead of Translate?", a:"Use Rephrase for a fresher English version; use Translate to produce another language."},
+    {q:"What does the Good button do?", a:"It stores an example so future results learn your style. It also enables optional alternatives for A/B testing."},
+    {q:"What does the Bad button do?", a:"You’ll be asked for a short reason; we regenerate a better English line that respects your critique before translating again."},
+    {q:"Can I upload a PDF or image?", a:"Yes — up to 5 MB. We extract the text so you can Translate or Rephrase it."},
+    {q:"Which languages are supported?", a:"30+ languages. The full list appears in the language picker on the app page."},
+    {q:"Which models are available?", a:"You can choose GPT-4o mini (fast, economical) or GPT-4o (higher quality). Your choice also applies to Regenerate and Alternatives."},
+    {q:"What’s my daily quota?", a:"Your per-day character cap adjusts by traffic and never exceeds 10,000. The quota resets at midnight U.S. Eastern time (ET)."},
+    {q:"How is usage counted?", a:"We count characters for the English rewrite plus the final translation, only on success."},
+    {q:"Do unused quota amounts roll over?", a:"No. Daily quotas reset each midnight ET to keep service fair."},
+    {q:"Can other users see my data?", a:"No. Your prompts and results are tied to your account and not visible to others."},
+    {q:"How do I download or clear my feedback?", a:"Use the Download Excel and Clear Feedbacks buttons under the Feedback table. Clearing feedback does not affect your quota."},
+    {q:"Does LexAi allow emojis or hashtags?", a:"No — we intentionally avoid emojis, puns and hashtags for broad cultural fit."},
+    {q:"Is there an API?", a:"Coming soon. For now, use the web UI."},
+    {q:"I forgot my password — what now?", a:"Click “Forgot password?” on the login page, enter your email, paste the 6-digit code, and set a new password."},
+    {q:"How do I delete my account/data?", a:"Email lexai.reset@gmail.com from your registered address and we’ll wipe your data."},
+    {q:"Which browsers are supported?", a:"Latest Chrome and Edge; Safari on iOS also works well."}
+  ];
+
+  const list = document.getElementById("faqList");
+  if (list){
+    faqs.forEach(({q,a})=>{
+      const el  = document.createElement("details");
+      const sum = document.createElement("summary");
+      sum.textContent = q;
+      const p   = document.createElement("p");
+      p.innerHTML = a;
+      el.appendChild(sum); el.appendChild(p);
+      list.appendChild(el);
+    });
+  }
+})();
+</script>
+<script>
+  (function(){
+    const nav   = document.querySelector('.glass');
+    const btn   = document.getElementById('navToggle');
+    if(!nav || !btn) return;
+
+    btn.addEventListener('click', () => {
+      const open = nav.classList.toggle('open');
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+
+    // Close menu when a link is tapped (prevents stuck-open state)
+    nav.addEventListener('click', (e)=>{
+      const a = e.target.closest('a');
+      if(a && nav.classList.contains('open')) nav.classList.remove('open');
+    });
+  })();
+</script>
+</body>
+</html>

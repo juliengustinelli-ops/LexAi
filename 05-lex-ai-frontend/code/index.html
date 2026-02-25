@@ -1,0 +1,363 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>LexAi – Custom AI Solutions. Real Results. Built Around Your Business.</title>
+<meta name="description" content="LexAi builds custom AI-powered solutions — from lead generation engines to automation tools to workflow systems — engineered around your exact business needs.">
+<meta property="og:title" content="LexAi – Custom AI Solutions. Real Results. Built Around Your Business.">
+<meta property="og:description" content="LexAi builds custom AI-powered solutions — from lead generation engines to automation tools to workflow systems — engineered around your exact business needs.">
+<meta property="og:type" content="website">
+
+<!-- Google Font -->
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --brand-green:#00c2b5;   /* logo, cta buttons            */
+  --brand-teal :#00bfc7;   /* nav hover                    */
+  --cta-bg    :#21a8ad;    /* big teal strip               */
+  --footer-bg :#0b0d19;    /* dark footer                  */
+  --glass-bg  :rgba(255,255,255,.35);
+  --glass-blur:20px;
+}
+
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Poppins',sans-serif;color:#fff}
+
+/* -------- NAVBAR -------- */
+.glass{
+  position:fixed;top:0;left:0;width:100%;z-index:999;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0.8rem 4vw;background:rgba(0,0,0,.52);
+  backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);
+  border-bottom:1px solid rgba(255,255,255,.12);
+}
+.brand{font:700 1.4rem/1 'Poppins';color:var(--brand-green);text-decoration:none}
+.nav-links{list-style:none;display:flex;gap:2.5rem}
+.nav-item{color:#fff;text-decoration:none;font-weight:500;transition:color .2s}
+.nav-item:hover{color:var(--brand-teal)}
+.btn-cta{
+  background:var(--brand-green);color:#fff;padding:.6rem 1.8rem;border-radius:25px;
+  font-weight:600;font-size:.9rem;text-decoration:none;transition:opacity .2s,transform .2s
+}
+.btn-cta:hover{opacity:.9;transform:translateY(-2px)}
+
+/* -------- HERO -------- */
+.hero{
+  min-height:100vh;display:flex;align-items:center;justify-content:center;
+  background:url('hero.jpg') center/cover no-repeat;position:relative;text-align:center;padding:0 1rem
+}
+.hero::after{content:"";position:absolute;inset:0;background:rgba(0,0,0,.10)}
+.hero-inner{position:relative;z-index:1;max-width:900px}
+.hero h4{letter-spacing:4px;font-size:.9rem;font-weight:400;margin-bottom:1rem}
+.hero h1{font-size:clamp(2.5rem,7vw,4.5rem);font-weight:700;margin:0 0 1rem;color:#e7e7e7}
+.hero p{font-size:1.05rem;font-weight:600;margin-bottom:2.5rem;letter-spacing:.5px;line-height:1.5}
+.hero-tagline{
+  display:inline-block;
+  background:rgba(0,0,0,.52);
+  backdrop-filter:blur(6px);
+  -webkit-backdrop-filter:blur(6px);
+  padding:.7rem 2rem;
+  border-radius:8px;
+  border:1px solid rgba(255,255,255,.12);
+}
+.primary-btn{
+  padding:1.2rem 3rem;font-size:1rem;font-weight:600;border-radius:50px;background:#fff;color:#000;
+  border:2px solid #000;cursor:pointer;transition:transform .25s,box-shadow .25s
+}
+.primary-btn:hover{transform:translateY(-4px);box-shadow:0 10px 20px rgba(0,0,0,.15)}
+
+/* -------- STATS STRIP -------- */
+.stats-strip{background:#0b0d19;padding:0}
+.stats-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));max-width:1200px;margin:0 auto}
+.stat-item{padding:2.5rem 1.5rem;text-align:center;border-right:1px solid rgba(255,255,255,.08)}
+.stat-item:last-child{border-right:none}
+.stat-item .number{font-size:2.4rem;font-weight:900;color:var(--brand-green);line-height:1;display:block}
+.stat-item .label{font-size:.75rem;font-weight:600;color:rgba(255,255,255,.55);margin-top:.4rem;text-transform:uppercase;letter-spacing:.5px}
+
+/* -------- FEATURES -------- */
+#features{color:#000;background:#fff;padding:6rem 2rem}
+.features-wrapper{max-width:1200px;margin:auto;text-align:center}
+.features-wrapper h2{font-size:clamp(1.8rem,4vw,2.5rem);font-weight:700;color:#0b0d19;margin-bottom:.6rem}
+.features-wrapper h2::after{content:'';display:block;width:52px;height:4px;background:var(--brand-green);border-radius:2px;margin:.8rem auto 0}
+.features-grid{
+  margin-top:3.5rem;display:grid;gap:2rem;grid-template-columns:1fr
+}
+@media(min-width:768px){.features-grid{grid-template-columns:repeat(2,1fr)}}
+.feature-card{
+  background:#fff;border:1px solid #ececec;border-top:4px solid var(--brand-green);
+  border-radius:12px;padding:2.5rem 2rem;
+  box-shadow:0 4px 12px rgba(0,0,0,.04);display:flex;flex-direction:column;align-items:center;
+  transition:transform .25s,box-shadow .25s
+}
+.feature-card:hover{transform:translateY(-6px);box-shadow:0 12px 26px rgba(0,0,0,.06)}
+.feature-card svg{width:40px;height:40px;stroke:var(--brand-green);stroke-width:2;fill:none}
+.feature-card h3{margin:1.4rem 0 .8rem;font-size:1.15rem;font-weight:700;color:#0b0d19}
+.feature-card p{font-size:.92rem;font-weight:300;line-height:1.7;color:#555;padding:0 6px}
+
+/* -------- CTA STRIP -------- */
+#cta{
+  background:var(--cta-bg);color:#fff;text-align:center;padding:5rem 1.5rem
+}
+#cta h2{font-size:clamp(2rem,5vw,2.8rem);font-weight:700;margin-bottom:1.4rem}
+#cta p{font-size:1.1rem;font-weight:300;max-width:750px;margin:0 auto 3rem}
+.cta-buttons{display:flex;justify-content:center;gap:1.5rem;flex-wrap:wrap}
+.btn-primary,
+.btn-outline{
+  padding:1rem 2.5rem;border-radius:45px;font-weight:600;font-size:1rem;text-decoration:none;transition:.25s
+}
+.btn-primary{background:#fff;color:var(--cta-bg)}
+.btn-primary:hover{transform:translateY(-3px);box-shadow:0 6px 16px rgba(0,0,0,.15)}
+.btn-outline{
+  background:transparent;color:#fff;border:2px solid #fff
+}
+.btn-outline:hover{background:rgba(255,255,255,.1);transform:translateY(-3px)}
+
+/* -------- FOOTER -------- */
+.site-footer{background:var(--footer-bg);color:#d1d1d1;padding:4rem 2rem}
+.footer-top{display:grid;gap:2.5rem;max-width:1200px;margin:auto}
+@media(min-width:700px){.footer-top{grid-template-columns:2fr 1fr 1fr 1fr}}
+.footer-brand{font-size:1.4rem;font-weight:700;color:var(--brand-green);text-decoration:none}
+.footer-col h4{font-size:1.05rem;font-weight:600;margin-bottom:1rem;color:#fff}
+.footer-col ul{list-style:none}
+.footer-col li+li{margin-top:.6rem}
+.footer-col a{color:#d1d1d1;text-decoration:none;font-size:.95rem;transition:color .2s}
+.footer-col a:hover{color:var(--brand-green)}
+hr{border:none;border-top:1px solid #2a2e3a;margin:3rem 0 2rem}
+.footer-bottom{max-width:1200px;margin:auto;display:flex;justify-content:space-between;flex-wrap:wrap;gap:1rem;font-size:.9rem}
+.social{display:flex;gap:1.5rem;list-style:none}
+.social a{color:#d1d1d1;text-decoration:none;transition:color .2s}
+.social a:hover{color:var(--brand-green)}
+
+/* generic section offset so content isn’t hidden behind fixed nav */
+section{scroll-margin-top:90px}
+
+.hero-text {
+  color: #ffffff;
+  text-shadow:
+    0 4px 24px rgba(11,13,25,.55),
+    0 1px 2px rgba(11,13,25,.35);
+}
+
+/* --- NAV height variable ----------------------------------------- */
+:root { --nav-h: 84px; }                    /* desktop baseline */
+.glass { min-height: var(--nav-h); }
+
+/* --- Mobile: collapse nav into a stacked menu -------------------- */
+.nav-toggle{
+  display:none; margin-left:auto; background:transparent; border:0; padding:.4rem;
+  cursor:pointer; border-radius:8px;
+}
+.nav-toggle span{
+  display:block; width:24px; height:2px; background:#fff; margin:6px 0; transition:.2s;
+}
+
+/* Default desktop layout remains unchanged */
+
+/* ≤900px: stack + toggle */
+@media (max-width: 900px){
+  :root { --nav-h: 66px; }                  /* smaller fixed bar */
+
+  main{ padding-top: var(--nav-h); }        /* avoid hero overlap on mobile */
+
+  .glass{ flex-wrap:wrap; align-items:center; }
+  .nav-toggle{ display:block; }             /* show burger */
+
+  /* hide menus by default on mobile */
+  .glass .nav-links,
+  .glass .nav-ctas{
+    display:none;
+    width:100%;
+    background:rgba(10,10,20,.96);
+    border:1px solid rgba(255,255,255,.12);
+    border-radius:12px;
+    margin-top:.8rem;
+    padding:.6rem .8rem;
+    box-shadow:0 6px 14px rgba(0,0,0,.3);
+  }
+
+  /* when nav is open */
+  .glass.open .nav-links,
+  .glass.open .nav-ctas{
+    display:flex;
+  }
+
+  .nav-links{ flex-direction:column; gap:.6rem; }
+  .nav-links .nav-item{ padding:.4rem .2rem; }
+
+  .nav-ctas{ justify-content:flex-start; gap:.8rem; }
+  .btn-cta{ padding:.5rem 1.1rem; font-size:.88rem; }
+
+  /* tighten hero/section spacing to fix “margin and padding off” feel */
+  .section{ padding:1.8rem 1.2rem; }
+  .section h1{ font-size:1.6rem; }
+}
+
+/* Anchor jump fix: sections aren't hidden behind the fixed header */
+section[id], [id^="faq"], [id^="features"], [id^="pricing"], [id^="mission"]{
+  scroll-margin-top: calc(var(--nav-h) + 12px);
+}
+</style>
+</head>
+
+<body>
+<span id="top"></span>
+
+<!-- ===== NAVBAR ===== -->
+<header>
+  <nav class="glass">
+    <a class="brand" href="index.html">LexAi</a>
+    <button id="navToggle" class="nav-toggle" aria-expanded="false" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links">
+      <li><a class="nav-item" href="index.html">Home</a></li>
+      <li><a href="index.html#features" class="nav-item">Features</a></li>
+      <li><a class="nav-item" href="about.html">About</a></li>
+      <li><a class="nav-item" href="case-studies.html">Case Studies</a></li>
+    </ul>
+  </nav>
+</header>
+
+<!-- ===== HERO ===== -->
+<section id="home" class="hero">
+  <div class="hero-inner">
+    <h4><span class="hero-tagline hero-text">WELCOME TO</span></h4>
+    <h1><span class="hero-text">LexAi</span></h1>
+    <p><span class="hero-tagline hero-text">Custom AI Solutions. Real Results. Built Around Your Business.</span></p>
+  </div>
+</section>
+
+<!-- ===== STATS STRIP ===== -->
+<div class="stats-strip">
+  <div class="stats-grid">
+    <div class="stat-item"><span class="number">970+</span><span class="label">Active Users</span></div>
+    <div class="stat-item"><span class="number">450+</span><span class="label">Client Hours Saved / Year</span></div>
+    <div class="stat-item"><span class="number">90%</span><span class="label">Lead Quality Achieved</span></div>
+    <div class="stat-item"><span class="number">3+</span><span class="label">Industries Served</span></div>
+  </div>
+</div>
+
+<!-- ===== FEATURES ===== -->
+<section id="features">
+  <div class="features-wrapper">
+    <h2>Custom-Built Solutions That Drive Real Results</h2>
+
+    <div class="features-grid">
+      <!-- 1 -->
+      <div class="feature-card">
+        <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/><circle cx="12" cy="10" r="3"/></svg>
+        <h3>AI-Powered Automation Tools</h3>
+        <p>We engineer custom software that handles repetitive, time-consuming tasks on autopilot — saving hundreds of hours a year while you focus on growing your business.</p>
+      </div>
+      <!-- 2 -->
+      <div class="feature-card">
+        <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+        <h3>Precision Lead Generation</h3>
+        <p>Using API technology and Google X-ray search, we build lead engines that target your exact ideal customer — not broad bought lists, but verified, qualified prospects matched to your specific criteria.</p>
+      </div>
+      <!-- 3 -->
+      <div class="feature-card">
+        <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+        <h3>Custom Workflow Systems</h3>
+        <p>From help desk platforms to work order systems, we build the operational infrastructure that turns inbox chaos into data-driven clarity — with full tracking, reporting, and accountability built in.</p>
+      </div>
+      <!-- 4 -->
+      <div class="feature-card">
+        <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+        <h3>LLM-Powered Engineering</h3>
+        <p>We integrate large language models into production-ready tools — with sophisticated prompt engineering that cuts token costs by 50%+ and delivers reliable, scalable results across real-world use cases.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CTA STRIP ===== -->
+<section id="cta">
+  <h2>Ready to see what's possible?</h2>
+  <p>From lead generation to automation to custom AI tools — we build solutions around your exact needs. Let's talk about what that looks like for your business.</p>
+  <div class="cta-buttons">
+    <a href="https://calendly.com/lexai/ai-implementation-introductory-chat?month=2025-08" target="_blank" class="btn-outline">Request a Quote</a>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="site-footer">
+  <div class="footer-top">
+
+    <div class="footer-col">
+      <a href="index.html" class="footer-brand">LexAi</a>
+      <p style="margin-top:1rem;max-width:280px">
+        Building custom AI solutions that drive real results.
+      </p>
+    </div>
+
+    <div class="footer-col">
+      <h4>Product</h4>
+      <ul>
+        <li><a href="index.html#features">Features</a></li>
+        <li><a href="https://calendly.com/lexai/ai-implementation-introductory-chat?month=2025-08" target="_blank">Request a Quote</a></li>
+        <li><a href="case-studies.html">Testimonials</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4>Company</h4>
+      <ul>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="https://calendly.com/lexai/ai-implementation-introductory-chat?month=2025-08" target="_blank">Contact</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4>Legal</h4>
+      <ul>
+        <li><a href="privacy.html">Privacy Policy</a></li>
+        <li><a href="javascript:void(0)">Terms of Service</a></li>
+        <li><a href="javascript:void(0)">Cookie Policy</a></li>
+      </ul>
+    </div>
+
+  </div><!-- /footer-top -->
+
+  <hr>
+
+  <div class="footer-bottom">
+    <p>© 2025 LexAi. All rights reserved.</p>
+
+    <ul class="social">
+      <li><a href="javascript:void(0)">Twitter</a></li>
+      <li><a href="javascript:void(0)">LinkedIn</a></li>
+      <li><a href="javascript:void(0)">Facebook</a></li>
+      <li><a href="javascript:void(0)">Instagram</a></li>
+    </ul>
+  </div>
+</footer>
+
+<!-- ===== SCRIPTS ===== -->
+<script>
+  (function(){
+    const nav   = document.querySelector('.glass');
+    const btn   = document.getElementById('navToggle');
+    if(!nav || !btn) return;
+
+    btn.addEventListener('click', () => {
+      const open = nav.classList.toggle('open');
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+
+    // Close menu when a link is tapped (prevents stuck-open state)
+    nav.addEventListener('click', (e)=>{
+      const a = e.target.closest('a');
+      if(a && nav.classList.contains('open')) nav.classList.remove('open');
+    });
+  })();
+</script>
+<script>
+(function(){if(!window.chatbase||window.chatbase("getState")!=="initialized"){window.chatbase=(...arguments)=>{if(!window.chatbase.q){window.chatbase.q=[]}window.chatbase.q.push(arguments)};window.chatbase=new Proxy(window.chatbase,{get(target,prop){if(prop==="q"){return target.q}return(...args)=>target(prop,...args)}})}const onLoad=function(){const script=document.createElement("script");script.src="https://www.chatbase.co/embed.min.js";script.id="x0D2ehC6rlPWPB0WAU7bR";script.domain="www.chatbase.co";document.body.appendChild(script)};if(document.readyState==="complete"){onLoad()}else{window.addEventListener("load",onLoad)}})();
+</script>
+</body>
+</html>

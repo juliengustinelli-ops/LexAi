@@ -1,0 +1,233 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>LexAi – Start Here</title>
+
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --brand-green:#00c2b5; --brand-teal:#00bfc7; --footer-bg:#0b0d19;
+  /* swap this to your actual hero file if you have one */
+  --hero-url: url('hero-index.jpg'); /* fallback uses gradient if file missing */
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Poppins',sans-serif;color:#0b0d19;background:#f4f6f8;display:flex;flex-direction:column;min-height:100vh}
+a{color:var(--brand-teal);text-decoration:none}
+main{flex:1}
+
+/* ===== keep existing nav/footer exactly as-is ===== */
+.glass{position:fixed;top:0;left:0;width:100%;z-index:999;display:flex;justify-content:space-between;align-items:center;padding:.8rem 4vw;background:rgba(255,255,255,.35);backdrop-filter:blur(18px)}
+.brand{font:700 1.4rem/1 'Poppins';color:var(--brand-green);text-decoration:none}
+.nav-links{list-style:none;display:flex;gap:2.4rem}
+.nav-item{color:#000;text-decoration:none;font-weight:500;transition:color .2s}
+.nav-item:hover{color:var(--brand-teal)}
+.btn-cta{background:var(--brand-green);color:#fff;padding:.5rem 1.4rem;border-radius:25px;font-weight:600;font-size:.9rem;text-decoration:none}
+.site-footer{background:var(--footer-bg);color:#d1d1d1;padding:2rem;text-align:center;font-size:.9rem}
+
+/* ===== HERO ===== */
+.hero{
+  margin-top:72px; /* below glass nav */
+  min-height:64vh;
+  display:grid;place-items:center;
+  text-align:center;padding:8vh 6vw;
+  color:#fff;position:relative;overflow:hidden;
+  background:
+    linear-gradient(0deg, rgba(11,13,25,.55), rgba(11,13,25,.35)),
+    var(--hero-url), radial-gradient(60% 60% at 50% 40%, #0b0d19 0%, #131a20 100%);
+  background-size:cover; background-position:center;
+}
+.hero h1{
+  font-size:clamp(2rem,5vw,3.3rem);
+  font-weight:800; line-height:1.12;
+  background:linear-gradient(90deg,#fff 0%,#f2fbfb 60%,#e8ffff 100%);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+  text-shadow:0 6px 28px rgba(0,0,0,.35);
+}
+.hero p{
+  font-size:clamp(1rem,2vw,1.25rem);
+  max-width:860px;margin:.9rem auto 1.6rem;opacity:.95
+}
+.cta-row{display:flex;gap:.8rem;justify-content:center;flex-wrap:wrap}
+.btn{
+  display:inline-block;border:none;border-radius:999px;cursor:pointer;
+  font-weight:700;letter-spacing:.2px;padding:.85rem 1.4rem;font-size:.98rem;
+  transition:transform .15s, box-shadow .15s, opacity .15s
+}
+.btn:hover{transform:translateY(-1px)}
+.btn-primary{background:linear-gradient(90deg,#00c2b5,#00bfc7);color:#fff;box-shadow:0 8px 18px rgba(0,0,0,.18)}
+.btn-ghost{background:rgba(255,255,255,.12);color:#fff;border:1px solid rgba(255,255,255,.45)}
+.pill{display:inline-block;margin-top:.75rem;padding:.35rem .7rem;border-radius:999px;background:rgba(255,255,255,.16);font-size:.85rem}
+
+/* ===== 3 STEPS ===== */
+.steps{max-width:1100px;margin:28px auto;padding:0 4vw;display:grid;gap:14px;
+  grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+.step{
+  background:#fff;border:1px solid #e8ecef;border-radius:14px;padding:18px;
+  box-shadow:0 8px 22px rgba(0,0,0,.06)
+}
+.step h3{font-size:1.05rem;margin-bottom:.35rem}
+.step p{color:#36414d;font-size:.95rem}
+.step .num{display:inline-flex;align-items:center;justify-content:center;
+  width:28px;height:28px;border-radius:50%;
+  background:linear-gradient(90deg,#00c2b5,#00bfc7);color:#fff;
+  font:700 .9rem/1 'Poppins';margin-right:.5rem}
+
+/* ===== PATHS (3 cards) ===== */
+.paths{max-width:1100px;margin:4px auto 56px;padding:0 4vw}
+.paths h2{font-size:1.35rem;font-weight:800;margin:10px 0 14px;color:#00c2b5}
+.card-grid{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+.card{background:#fff;border:1px solid #e8ecef;border-radius:14px;padding:18px;box-shadow:0 8px 22px rgba(0,0,0,.06)}
+.card h3{font-size:1.1rem;margin-bottom:.35rem}
+.card p{color:#36414d;font-size:.96rem;min-height:44px}
+.card .link{display:inline-block;margin-top:.6rem;font-weight:700}
+
+/* --- NAV height variable ----------------------------------------- */
+:root { --nav-h: 84px; }                    /* desktop baseline */
+.glass { min-height: var(--nav-h); }
+
+/* --- Mobile: collapse nav into a stacked menu -------------------- */
+.nav-toggle{
+  display:none; margin-left:auto; background:transparent; border:0; padding:.4rem;
+  cursor:pointer; border-radius:8px;
+}
+.nav-toggle span{
+  display:block; width:24px; height:2px; background:#0b0d19; margin:6px 0; transition:.2s;
+}
+
+/* Default desktop layout remains unchanged */
+
+/* ≤900px: stack + toggle */
+@media (max-width: 900px){
+  :root { --nav-h: 66px; }                  /* smaller fixed bar */
+
+  main{ padding-top: var(--nav-h); }        /* avoid hero overlap on mobile */
+
+  .glass{ flex-wrap:wrap; align-items:center; }
+  .nav-toggle{ display:block; }             /* show burger */
+
+  /* hide menus by default on mobile */
+  .glass .nav-links,
+  .glass .nav-ctas{
+    display:none;
+    width:100%;
+    background:rgba(255,255,255,.96);
+    border:1px solid #e8edf1;
+    border-radius:12px;
+    margin-top:.8rem;
+    padding:.6rem .8rem;
+    box-shadow:0 6px 14px rgba(0,0,0,.06);
+  }
+
+  /* when nav is open */
+  .glass.open .nav-links,
+  .glass.open .nav-ctas{
+    display:flex;
+  }
+
+  .nav-links{ flex-direction:column; gap:.6rem; }
+  .nav-links .nav-item{ padding:.4rem .2rem; }
+
+  .nav-ctas{ justify-content:flex-start; gap:.8rem; }
+  .btn-cta{ padding:.5rem 1.1rem; font-size:.88rem; }
+
+  /* tighten hero/section spacing to fix “margin and padding off” feel */
+  .section{ padding:1.8rem 1.2rem; }
+  .section h1{ font-size:1.6rem; }
+}
+
+/* Anchor jump fix: sections aren't hidden behind the fixed header */
+section[id], [id^="faq"], [id^="features"], [id^="pricing"], [id^="mission"]{
+  scroll-margin-top: calc(var(--nav-h) + 12px);
+}
+</style>
+</head>
+<body>
+
+<nav class="glass">
+  <a href="index.html" class="brand">LexAi</a>
+  <button id="navToggle" class="nav-toggle" aria-expanded="false" aria-label="Open menu">
+    <span></span><span></span><span></span>
+  </button>
+  <ul class="nav-links">
+    <li><a href="index.html" class="nav-item">Home</a></li>
+    <li><a href="index.html#features" class="nav-item">Features</a></li>
+    <li><a href="about.html" class="nav-item">About</a></li>
+      <li><a href="case-studies.html" class="nav-item">Case Studies</a></li>
+  </ul>
+</nav>
+
+<main>
+  <!-- HERO -->
+  <section class="hero">
+    <div>
+      <span class="pill">No card • Free daily quota</span>
+      <h1>Start fast. Write better. Translate brilliantly.</h1>
+      <p>Refine with GPT, translate with DeepL — in 30+ languages — all in one ultra-simple workspace built for high-CTR short copy.</p>
+      <div class="cta-row">
+        <a href="trans.html" class="btn btn-primary">Try out the Tool</a>
+        <a href="demo.html" class="btn btn-ghost">Watch 90-sec demo ▸</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3 STEPS -->
+  <section class="steps">
+    <article class="step"><h3><span class="num">1</span>Paste your line</h3><p>Any short copy. Or upload a PDF/image to extract text.</p></article>
+    <article class="step"><h3><span class="num">2</span>Pick a language</h3><p>Keep English (Rephrase) or translate instantly to 30+ languages.</p></article>
+    <article class="step"><h3><span class="num">3</span>Tag Good / Bad</h3><p>LexAi learns your taste and surfaces stronger alternatives.</p></article>
+  </section>
+
+  <!-- PATHS -->
+  <section class="paths">
+    <h2 style="text-align: center;">Pick your path</h2>
+    <div class="card-grid">
+      <article class="card">
+        <h3>Start creating (Free)</h3>
+        <p>Jump into the editor. Daily characters included.</p>
+        <a class="link" href="trans.html">Goto the tool →</a>
+      </article>
+      <article class="card">
+        <h3>For Teams / Enterprise</h3>
+        <p>Custom brand voice, private data, usage controls & SSO.</p>
+        <a class="link" href="youraiimplementationteam.html">Explore enterprise →</a>
+      </article>
+      <article class="card">
+        <h3>Proof & stats</h3>
+        <p>Charts, ROI and why unifying copy + translation saves hours.</p>
+        <a class="link" href="stats.html">See the stats →</a>
+      </article>
+    </div>
+    <p style="text-align:center;margin-top:12px">
+      Prefer a quick overview? <a href="contentsolutions.html">See what version of LexAi works best for you</a> ·
+      Interested in early access? <a href="youraisolution.html">Apply to the pilot</a>
+    </p>
+  </section>
+</main>
+
+<footer class="site-footer">
+  © 2025 LexAi – All rights reserved
+</footer>
+<script>
+  (function(){
+    const nav   = document.querySelector('.glass');
+    const btn   = document.getElementById('navToggle');
+    if(!nav || !btn) return;
+
+    btn.addEventListener('click', () => {
+      const open = nav.classList.toggle('open');
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+
+    // Close menu when a link is tapped (prevents stuck-open state)
+    nav.addEventListener('click', (e)=>{
+      const a = e.target.closest('a');
+      if(a && nav.classList.contains('open')) nav.classList.remove('open');
+    });
+  })();
+</script>
+</body>
+</html>

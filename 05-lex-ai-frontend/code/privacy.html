@@ -1,0 +1,278 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Privacy Policy | LexAi</title>
+
+<!-- Google Font -->
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<!-- shared palette / utilities (mirrors about.html) -->
+<style>
+:root{
+  --brand-green:#00c2b5;
+  --brand-teal :#00bfc7;
+  --glass-bg   :rgba(255,255,255,.35);
+  --glass-blur :20px;
+  --footer-bg  :#0b0d19;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Poppins',sans-serif;color:#0b0d19;background:#f4f6f8}
+main{padding-top:100px;max-width:1120px;margin:auto}
+.hidden{display:none!important}
+
+.glass{
+  position:fixed;top:0;left:0;width:100%;z-index:999;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:.8rem 4vw;background:var(--glass-bg);backdrop-filter:blur(var(--glass-blur))
+}
+.brand{font:700 1.4rem/1 'Poppins';color:var(--brand-green);text-decoration:none}
+.nav-links{list-style:none;display:flex;gap:2.4rem}
+.nav-item{color:#000;text-decoration:none;font-weight:500;transition:color .2s}
+.nav-item:hover{color:var(--brand-teal)}
+.btn-cta{
+  background:var(--brand-green);color:#fff;padding:.55rem 1.6rem;border-radius:25px;
+  font-weight:600;font-size:.9rem;text-decoration:none;transition:opacity .2s,transform .2s}
+.btn-cta:hover{opacity:.9;transform:translateY(-2px)}
+
+.section{
+  background:#fff;padding:2.6rem 2.2rem;border-radius:14px;margin-bottom:32px;
+  box-shadow:0 4px 12px rgba(0,0,0,.06)
+}
+.section h1{font-size:1.9rem;font-weight:700;margin-bottom:.8rem}
+.section h2{font-size:1.24rem;font-weight:700;margin:1.8rem 0 .8rem}
+.section p, .section li{font-size:1.04rem;line-height:1.6}
+.lede{font-size:1.08rem;color:#1a1f36}
+
+.badge{
+  display:inline-block;background:rgba(0,191,199,.12);color:var(--brand-teal);
+  font-weight:700;font-size:.78rem;padding:6px 10px;border-radius:999px;
+  letter-spacing:.02em
+}
+.small-muted{color:#6b7280;font-size:.9rem}
+
+.kv{
+  display:grid;gap:.6rem;margin:1rem 0 0 0;
+}
+.kv div{display:flex;gap:.6rem;align-items:flex-start}
+.kv strong{min-width:130px}
+
+ul.tight{margin-left:1.1rem}
+ul.tight li+li{margin-top:.4rem}
+
+.notice{
+  background:linear-gradient(135deg,#f0fffd,#ffffff);
+  border:1px solid #e3f7f5;border-radius:12px;padding:12px 14px;margin:14px 0
+}
+
+/* footer (same as about.html) */
+.site-footer{background:var(--footer-bg);color:#d1d1d1;padding:4rem 2rem 3rem;margin-top:60px}
+.footer-top{display:grid;gap:2.5rem;max-width:1200px;margin:auto}
+@media(min-width:700px){.footer-top{grid-template-columns:2fr 1fr 1fr 1fr}}
+.footer-brand{font-size:1.4rem;font-weight:700;color:var(--brand-green);text-decoration:none}
+.footer-col h4{font-size:1.05rem;font-weight:600;margin-bottom:1rem;color:#fff}
+.footer-col ul{list-style:none}
+.footer-col li+li{margin-top:.6rem}
+.footer-col a{color:#d1d1d1;text-decoration:none;font-size:.95rem;transition:color .2s}
+.footer-col a:hover{color:var(--brand-green)}
+hr{border:0;border-top:1px solid #2a2e3a;margin:3rem 0 2rem}
+.footer-bottom{max-width:1200px;margin:auto;display:flex;justify-content:space-between;flex-wrap:wrap;gap:1rem;font-size:.9rem}
+.social{display:flex;gap:1.5rem;list-style:none}
+.social a{color:#d1d1d1;text-decoration:none;transition:color .2s}
+.social a:hover{color:var(--brand-green)}
+
+/* --- NAV height variable + mobile menu, same as about.html --- */
+:root { --nav-h: 84px; }
+.glass { min-height: var(--nav-h); }
+
+.nav-toggle{ display:none; margin-left:auto; background:transparent; border:0; padding:.4rem;
+  cursor:pointer; border-radius:8px; }
+.nav-toggle span{ display:block; width:24px; height:2px; background:#0b0d19; margin:6px 0; transition:.2s; }
+
+@media (max-width: 900px){
+  :root { --nav-h: 66px; }
+  main{ padding-top: var(--nav-h); }
+  .glass{ flex-wrap:wrap; align-items:center; }
+  .nav-toggle{ display:block; }
+  .glass .nav-links,.glass .nav-ctas{
+    display:none;width:100%;background:rgba(255,255,255,.96);border:1px solid #e8edf1;border-radius:12px;
+    margin-top:.8rem;padding:.6rem .8rem;box-shadow:0 6px 14px rgba(0,0,0,.06);
+  }
+  .glass.open .nav-links,.glass.open .nav-ctas{display:flex}
+  .nav-links{ flex-direction:column; gap:.6rem; }
+  .nav-ctas{ justify-content:flex-start; gap:.8rem; }
+  .btn-cta{ padding:.5rem 1.1rem; font-size:.88rem; }
+  .section{ padding:1.8rem 1.2rem; }
+  .section h1{ font-size:1.6rem; }
+}
+
+/* Anchor jump fix */
+section[id]{ scroll-margin-top: calc(var(--nav-h) + 12px); }
+</style>
+</head>
+
+<body>
+<!-- ========= NAVBAR ========= -->
+<nav class="glass">
+  <a href="index.html" class="brand">LexAi</a>
+  <button id="navToggle" class="nav-toggle" aria-expanded="false" aria-label="Open menu">
+    <span></span><span></span><span></span>
+  </button>
+  <ul class="nav-links">
+    <li><a href="index.html" class="nav-item">Home</a></li>
+    <li><a href="index.html#features" class="nav-item">Features</a></li>
+    <li><a href="about.html" class="nav-item">About</a></li>
+      <li><a href="case-studies.html" class="nav-item">Case Studies</a></li>
+  </ul>
+</nav>
+
+<main>
+
+<!-- ========== PRIVACY ========= -->
+<section class="section" id="policy">
+  <h1>Data &amp; Privacy Policy</h1>
+  <p class="small-muted">Last updated: Oct 2025</p>
+
+  <p class="lede">
+    At LexAIB2B, we understand that trust is the foundation of any successful partnership,
+    especially when that partnership involves custom AI solutions and sensitive data.
+    We take our responsibility to protect your information—and the information of your
+    end-users—with the utmost seriousness. <strong>Your data security is our top priority.</strong>
+  </p>
+
+  <h2 id="commitment">Our Commitment to Your Data Security</h2>
+  <p>
+    We believe in a <em>privacy-by-design</em> approach. This means that data protection is woven
+    into the very fabric of our AI solutions and our business processes, not added as an afterthought.
+  </p>
+  <ul class="tight">
+    <li><strong>Strict Internal Policies:</strong> Only authorized personnel can handle your data, and only as needed to provide our services.</li>
+    <li><strong>Secure Infrastructure:</strong> Encryption in transit and at rest, secure access controls, and regular security audits.</li>
+    <li><strong>Purpose Limitation:</strong> We use data only to develop, deploy, and maintain your custom AI solution as defined in your agreement.
+      We do <em>not</em> sell, rent, or share data with third parties for advertising.</li>
+  </ul>
+
+  <h2 id="compliance">Compliance and Regulatory Assurance</h2>
+  <p>
+    LexAIB2B is committed to compliance with relevant federal and industry regulations, especially for clients in specialized sectors.
+    For Educational Institutions, we can operate under processes aligned to:
+  </p>
+  <ul class="tight">
+    <li><strong>FERPA</strong> (Family Educational Rights and Privacy Act)</li>
+    <li><strong>COPPA</strong> (Children’s Online Privacy Protection Act)</li>
+  </ul>
+
+  <h2 id="agreements">Our Detailed Agreement Forms</h2>
+  <p>
+    A public policy is only one part of strong security. During onboarding, every client receives
+    detailed agreement forms and a data processing addendum that specify:
+  </p>
+  <ul class="tight">
+    <li>What data is collected and processed</li>
+    <li>How that data is secured</li>
+    <li>Roles and responsibilities of both parties</li>
+    <li>Compliance measures and audit options</li>
+  </ul>
+  <p class="notice">
+    We are happy to provide prospective clients with examples of these policies during the initial consultation.
+  </p>
+
+  <h2 id="datawehandle">The Data We Handle</h2>
+  <p>The exact data depends on the solution we build for you. Common categories include:</p>
+  <ul class="tight">
+    <li><strong>Client Business Data:</strong> Documents, proprietary datasets, and operational metrics you provide for solution development.</li>
+    <li><strong>Client Contact Data:</strong> Names, titles, email addresses, and phone numbers for billing, support, and account management.</li>
+    <li><strong>Usage Data:</strong> Non-identifying technical analytics used to maintain reliability and improve performance.</li>
+  </ul>
+
+  <h2 id="retention">Data Deletion and Retention</h2>
+  <p>
+    Your data belongs to you. Contracts define retention windows and secure deletion schedules after service termination.
+    Upon request, we will securely destroy or return all client-provided data per the agreement.
+  </p>
+
+  <h2 id="contact">Questions &amp; Contact</h2>
+  <p>
+    Great security starts with open communication. If you have questions about this policy,
+    our compliance procedures, or our security measures, please contact us:
+  </p>
+
+  <div class="kv">
+    <div><strong>Email</strong><span>lexai.outreach@gmail.com</span></div>
+    <div><strong>Phone</strong><span>+1 561-289-8028</span></div>
+  </div>
+</section>
+
+</main>
+
+<!-- ===== FOOTER ===== -->
+<footer class="site-footer">
+  <div class="footer-top">
+
+    <div class="footer-col">
+      <a href="index.html" class="footer-brand">LexAi</a>
+      <p style="margin-top:1rem;max-width:280px">
+        Building custom AI solutions that drive real results.
+      </p>
+    </div>
+
+    <div class="footer-col">
+      <h4>Product</h4>
+      <ul>
+        <li><a href="index.html#features">Features</a></li>
+        <li><a href="https://calendly.com/lexai/ai-implementation-introductory-chat?month=2025-08" target="_blank">Request a Quote</a></li>
+        <li><a href="case-studies.html">Testimonials</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4>Company</h4>
+      <ul>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="https://calendly.com/lexai/ai-implementation-introductory-chat" target="_blank">Contact</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4>Legal</h4>
+      <ul>
+        <li><a href="privacy.html">Privacy Policy</a></li>
+        <li><a href="javascript:void(0)">Terms of Service</a></li>
+        <li><a href="javascript:void(0)">Cookie Policy</a></li>
+      </ul>
+    </div>
+
+  </div><!-- /footer-top -->
+
+  <hr>
+
+  <div class="footer-bottom">
+    <p>© 2025 LexAi. All rights reserved.</p>
+    <ul class="social">
+      <li><a href="javascript:void(0)">Twitter</a></li>
+      <li><a href="javascript:void(0)">LinkedIn</a></li>
+      <li><a href="javascript:void(0)">Facebook</a></li>
+      <li><a href="javascript:void(0)">Instagram</a></li>
+    </ul>
+  </div>
+</footer>
+
+<script>
+  (function(){
+    const nav = document.querySelector('.glass');
+    const btn = document.getElementById('navToggle');
+    if(!nav || !btn) return;
+    btn.addEventListener('click', () => {
+      const open = nav.classList.toggle('open');
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+    nav.addEventListener('click', (e)=>{
+      const a = e.target.closest('a');
+      if(a && nav.classList.contains('open')) nav.classList.remove('open');
+    });
+  })();
+</script>
+</body>
+</html>

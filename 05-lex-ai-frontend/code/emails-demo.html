@@ -1,0 +1,424 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>AI Email Demo – AIDA / PAS / 4U / STAR / IDCA</title>
+  <style>
+    :root{
+      --bg:#0b0f14; --panel:#121924; --muted:#8aa0b2; --text:#eef5ff; --accent:#5bbcff;
+      --accent-2:#7c5cff; --ok:#36d399; --warn:#fbbf24; --danger:#ef4444; --ring:rgba(91,188,255,.35)
+    }
+    *{box-sizing:border-box}
+    body{margin:0;background:linear-gradient(180deg,#0b0f14, #0b0f14 40%, #0f1623);color:var(--text);font:16px/1.45 system-ui, -apple-system, Segoe UI, Roboto, Inter, Arial}
+    a{color:var(--accent)}
+    .wrap{max-width:1100px;margin:24px auto;padding:0 16px}
+    .hero{
+      background:radial-gradient(1200px 350px at 20% -20%,rgba(124,92,255,.14),transparent),
+                 radial-gradient(800px 300px at 100% 0,rgba(91,188,255,.10),transparent);
+      padding:24px 18px;border-radius:18px;border:1px solid #1d2633
+    }
+    h1{margin:0 0 6px;font-size:28px;letter-spacing:.2px}
+    .sub{color:var(--muted);margin:0 0 14px}
+    .grid{display:grid;gap:14px}
+    @media(min-width:880px){ .grid{grid-template-columns:1.15fr .85fr} }
+    .card{background:rgba(18,25,36,.9);border:1px solid #1c2736;border-radius:16px;padding:16px}
+    .label{display:block;color:#b7c7d8;margin:8px 0 6px;font-size:13px}
+    input[type="text"], input[type="url"], textarea, select{
+      width:100%;background:#0e141d;color:#e9f2ff;border:1px solid #1f2a3a;border-radius:12px;padding:10px 12px;
+      outline:none;transition:.15s;border-bottom:1px solid #203146
+    }
+    textarea{min-height:92px;resize:vertical}
+    input:focus, textarea:focus, select:focus{box-shadow:0 0 0 4px var(--ring);border-color:#2a405d}
+    .row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+    .seg{display:inline-flex;background:#0e141d;border:1px solid #1f2a3a;border-radius:12px;overflow:hidden}
+    .seg input{display:none}
+    .seg label{
+      padding:8px 12px;cursor:pointer;color:#c8d6e5;border-right:1px solid #1f2a3a;user-select:none
+    }
+    .seg label:last-child{border-right:none}
+    .seg input:checked + label{background:linear-gradient(180deg,#1b2737,#0f1724);color:#fff}
+    .btn{
+      display:inline-flex;align-items:center;gap:8px;border:1px solid #2a3b52;background:linear-gradient(180deg,#1a2433,#131b28);
+      color:#eaf2ff;padding:10px 14px;border-radius:12px;cursor:pointer;font-weight:600
+    }
+    .btn[disabled]{opacity:.6;cursor:not-allowed}
+    .btn.primary{border-color:#2b4a6a;background:linear-gradient(180deg,#1f3550,#142238)}
+    .btn.ghost{background:transparent}
+    .right{display:flex;gap:10px;flex-wrap:wrap}
+    .note{color:#9db1c8;font-size:13px}
+    .results{margin-top:16px}
+    .tabs{display:flex;gap:8px;flex-wrap:wrap}
+    .tab{
+      padding:8px 10px;border:1px solid #2a3b52;border-radius:10px;background:#0f1724;color:#cfe7ff;cursor:pointer
+    }
+    .tab.active{background:linear-gradient(180deg,#20324a,#101827);border-color:#39597e}
+    .panel{margin-top:10px;background:#0f1623;border:1px solid #1f2d42;padding:14px;border-radius:14px;min-height:180px}
+    .email h3{margin:.2rem 0 .6rem;font-size:16px}
+    .email pre{
+      white-space:pre-wrap;word-wrap:break-word;background:#0b111b;border:1px dashed #25364f;padding:12px;border-radius:12px
+    }
+    .toolbar{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+    .pill{display:inline-block;font-size:12px;padding:3px 8px;border-radius:999px;background:#102036;border:1px solid #294060;color:#bfe1ff}
+    .footer-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+    .spinner{inline-size:16px;block-size:16px;border:2px solid #2a3b52;border-top-color:var(--accent);border-radius:50%;animation:spin 1s linear infinite}
+    @keyframes spin{to{transform:rotate(360deg)}}
+    .error{color:#ffd2d2;background:#3b1111;border:1px solid #662222;padding:10px;border-radius:10px}
+    .success{color:#c9ffe1;background:#0f2a1e;border:1px solid #225c42;padding:10px;border-radius:10px}
+
+    @media (max-width: 880px){
+      #methodsGuide { order: 3; }  /* keep guide after results on mobile */
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <section class="hero">
+      <h1 style="text-align: center;">Outreach Generation Tool</h1>
+      <p class="sub" style="text-align: center;">Drop your brief → get 5 skim-friendly emails in <b>AIDA</b>, <b>PAS</b>, <b>4U</b>, <b>STAR</b>, <b>IDCA</b> (50–125 words).</p>
+
+      <div class="grid">
+        <!-- Form -->
+        <form id="briefForm" class="card" autocomplete="on">
+          <div class="row">
+            <div>
+              <label class="label">Industry *</label>
+              <input id="industry" type="text" placeholder="e.g., B2B SaaS – marketing analytics" required />
+            </div>
+            <div>
+              <label class="label">Target persona *</label>
+              <input id="persona" type="text" placeholder="e.g., VP Marketing at mid-market brands" required />
+            </div>
+          </div>
+
+          <label class="label">Service / Solution *</label>
+          <input id="offer" type="text" placeholder="e.g., AI-driven analytics platform" required />
+
+          <label class="label">Current value proposition *</label>
+          <textarea id="value_prop" placeholder="e.g., Increase qualified pipeline by 30% in 60 days" required></textarea>
+
+          <label class="label">Market state / situation *</label>
+          <textarea id="market_state" placeholder="e.g., Rising CAC, fragmented channels, pressure on ROI" required></textarea>
+
+          <div class="row">
+            <div>
+              <label class="label">Desired action *</label>
+              <div class="seg">
+                <input type="radio" id="cta_buy"   name="cta_type" value="buy" checked />
+                <label for="cta_buy">Buy</label>
+                <input type="radio" id="cta_book"  name="cta_type" value="book" />
+                <label for="cta_book">Book a call</label>
+              </div>
+            </div>
+            <div>
+              <label class="label">CTA URL / phone *</label>
+              <input id="cta_target" type="text" inputmode="url" placeholder="https://link or tel:+1..." required />
+            </div>
+          </div>
+
+          <div class="row">
+            <div>
+              <label class="label">Tone</label>
+              <select id="tone">
+                <option value="neutral" selected>Neutral</option>
+                <option value="friendly">Friendly</option>
+                <option value="formal">Formal</option>
+                <option value="bold">Bold</option>
+              </select>
+            </div>
+            <div>
+              <label class="label">Differentiators (comma-separated)</label>
+              <input id="differentiators" type="text" placeholder="e.g., 15-min setup, SOC2, usage-based pricing" />
+            </div>
+          </div>
+
+          <label class="label">Competitors to contrast (comma-separated)</label>
+          <input id="competitors" type="text" placeholder="e.g., Competitor A, Competitor B" />
+
+          <div class="right" style="margin-top:12px">
+            <button type="submit" class="btn primary" id="generateBtn">
+              <span class="spinner" id="genSpin" style="display:none"></span>
+              Generate 5 Emails
+            </button>
+            <button type="button" class="btn ghost" id="clearBtn">Clear</button>
+            <span class="note">No data stored unless you export.</span>
+          </div>
+          <div id="formMsg" style="margin-top:10px"></div>
+        </form>
+
+        <!-- Methods Guide -->
+        <div class="card" id="methodsGuide" style="margin-top:10px">
+          <h3 style="margin:.2rem 0 .6rem">Methods Guide</h3>
+          <div class="note">Not sure what these mean? Quick primers below.</div>
+          <div id="guideList" style="display:grid;gap:10px;margin-top:10px"></div>
+        </div>
+        
+        <!-- Results -->
+        <div class="card">
+          <div class="tabs" id="tabs"></div>
+          <div class="panel">
+            <div id="panelContent" class="email">
+              <div class="note">Your results will appear here after generation.</div>
+            </div>
+            <div class="footer-actions">
+              <button class="btn" id="copyAllBtn" disabled>Copy all</button>
+              <button class="btn" id="downloadBtn" disabled>Download .txt</button>
+              <span class="pill" id="wcPill" style="display:none"></span>
+            </div>
+          </div>
+          <div id="resMsg" style="margin-top:10px"></div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <script>
+    const API_BASE = (() => {
+    const h = location.hostname;
+    if (h === "localhost" || h === "127.0.0.1") return "http://127.0.0.1:8000";
+    return "https://api.lexaib2b.com";
+      })();
+
+    const apiUrl = (p) => `${API_BASE.replace(/\/$/,'')}${p.startsWith('/')?p:'/'+p}`;
+    
+    const form = document.getElementById('briefForm');
+    const genBtn = document.getElementById('generateBtn');
+    const genSpin = document.getElementById('genSpin');
+    const clearBtn = document.getElementById('clearBtn');
+    const formMsg = document.getElementById('formMsg');
+
+    const tabs = document.getElementById('tabs');
+    const panel = document.getElementById('panelContent');
+    const resMsg = document.getElementById('resMsg');
+    const copyAllBtn = document.getElementById('copyAllBtn');
+    const downloadBtn = document.getElementById('downloadBtn');
+    const wcPill = document.getElementById('wcPill');
+
+    let current = []; // holds emails array from backend
+    let activeMethod = null;
+
+    clearBtn.addEventListener('click', () => {
+      form.reset();
+      document.getElementById('cta_buy').checked = true;
+      tabs.innerHTML = '';
+      panel.innerHTML = '<div class="note">Your results will appear here after generation.</div>';
+      copyAllBtn.disabled = true; downloadBtn.disabled = true; wcPill.style.display='none';
+      resMsg.textContent = ''; formMsg.innerHTML = '';
+      current = [];
+    });
+
+    function payloadFromForm(){
+      const g = id => document.getElementById(id).value.trim();
+      const ctaType = document.querySelector('input[name="cta_type"]:checked').value;
+
+      const diff = g('differentiators')
+        ? g('differentiators').split(',').map(s=>s.trim()).filter(Boolean) : [];
+      const comps = g('competitors')
+        ? g('competitors').split(',').map(s=>s.trim()).filter(Boolean) : [];
+
+      return {
+        industry: g('industry'),
+        persona: g('persona'),
+        offer: g('offer'),
+        value_prop: g('value_prop'),
+        market_state: g('market_state'),
+        cta_type: ctaType,
+        cta_target: g('cta_target'),
+        tone: g('tone') || 'neutral',
+        differentiators: diff,
+        competitors: comps
+      };
+    }
+
+    function validateBrief(p){
+  const fails = [];
+  ['industry','persona','offer','value_prop','market_state','cta_type','cta_target'].forEach(k=>{
+    if(!p[k]) fails.push(k);
+  });
+  if (!/^(https?:\/\/|tel:|mailto:)/i.test(p.cta_target)) {
+    fails.push('cta_target (must start with http(s)://, tel:, or mailto:)');
+  }
+  return fails;
+}
+
+      async function callAPI(body){
+    const url = apiUrl("/api/generate-emails");
+    const resp = await fetch(url, {
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body: JSON.stringify(body)
+    });
+
+    if(!resp.ok){
+      // Build a SHORT, safe message. Don't inject server HTML.
+      let msg = `HTTP ${resp.status} ${resp.statusText}`;
+      const ct = resp.headers.get('content-type') || '';
+      if (ct.includes('application/json')) {
+        try { const j = await resp.json(); if (j.detail) msg += ` – ${j.detail}`; } catch {}
+      }
+      throw new Error(msg);
+    }
+    return resp.json();
+  }
+
+    function renderTabsAndPanel(emails){
+      tabs.innerHTML = '';
+      const order = ['AIDA','PAS','4U','STAR','IDCA'];
+      emails.sort((a,b)=>order.indexOf(a.method)-order.indexOf(b.method));
+      current = emails;
+
+      emails.forEach((e,i)=>{
+        const b = document.createElement('button');
+        b.className = 'tab' + (i===0 ? ' active':'');
+        b.textContent = e.method;
+        b.addEventListener('click',()=>{
+          document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+          b.classList.add('active');
+          activeMethod = e.method;
+          renderEmail(e);
+          renderGuide(e.method);  
+        });
+        tabs.appendChild(b);
+      });
+
+      activeMethod = emails[0].method;
+      renderEmail(emails[0]);
+
+      copyAllBtn.disabled = false;
+      downloadBtn.disabled = false;
+
+      const wc = Object.entries((window.lastMeta?.word_counts)||{}).map(([k,v])=>`${k}:${v}`).join(' • ');
+      if(wc){ wcPill.textContent = `words → ${wc}`; wcPill.style.display='inline-block'; }
+
+      renderGuide(emails[0].method);
+      
+      const firstTab = tabs.querySelector('.tab');
+      if (firstTab) firstTab.focus();
+      
+      // scroll smoothly to the results panel
+      document.querySelector('.panel')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      
+      // small highlight flash (optional)
+      panel.style.outline = '2px solid #39597e';
+      setTimeout(()=> panel.style.outline = 'none', 600);
+    }
+
+    function renderEmail(e){
+      panel.innerHTML = `
+        <h3>${e.title ? e.title : e.method + ' Email'}</h3>
+        <pre>${e.body}</pre>
+        <div class="toolbar">
+          <button class="btn" onclick="copyText(\`${escapeBT(e.body)}\`)">Copy</button>
+          <button class="btn" onclick="regenerate('${e.method}')">Regenerate ${e.method}</button>
+          <span class="pill">${e.method}</span>
+        </div>
+      `;
+    }
+
+    function escapeBT(s){ return s.replace(/`/g,'\\`').replace(/\$/g,'\\$'); }
+
+    async function regenerate(method){
+      if(!current.length) return;
+      resMsg.textContent = '';
+      const payload = payloadFromForm();
+      payload.only_method = method;
+      const btn = document.querySelector('.toolbar .btn:nth-child(2)');
+      const orig = btn.innerHTML;
+      btn.innerHTML = `<span class="spinner"></span> Regenerating…`; btn.disabled = true;
+      try{
+        const data = await callAPI(payload);
+        const item = data.emails[0];
+        window.lastMeta = data.meta;
+        // replace the method in current
+        const idx = current.findIndex(x=>x.method===method);
+        if(idx>=0) current[idx]=item;
+        renderTabsAndPanel(current);
+        resMsg.innerHTML = `<div class="success">Regenerated ${method}.</div>`;
+      }catch(err){
+        resMsg.textContent = `Could not regenerate: ${err.message}`;
+      }finally{
+        btn.innerHTML = orig; btn.disabled = false;
+      }
+    }
+
+    copyAllBtn.addEventListener('click', async ()=>{
+      if(!current.length) return;
+      const text = current.map(e=>`[${e.method}] ${e.title||''}\n${e.body}\n`).join('\n\n');
+      await navigator.clipboard.writeText(text);
+      const el = document.getElementById('resMsg');
+      if(el) el.innerHTML = `<div class="success">All emails copied to clipboard.</div>`;
+    });
+
+    downloadBtn.addEventListener('click', ()=>{
+      if(!current.length) return;
+      const text = current.map(e=>`[${e.method}] ${e.title||''}\n${e.body}\n`).join('\n\n');
+      const blob = new Blob([text], {type:'text/plain'});
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(blob);
+      a.download = 'emails.txt';
+      a.click();
+      URL.revokeObjectURL(a.href);
+    });
+
+    form.addEventListener('submit', async (e)=>{
+      e.preventDefault();
+      resMsg.textContent = ''; formMsg.innerHTML = '';
+
+      const payload = payloadFromForm();
+      const fails = validateBrief(payload);
+      if(fails.length){
+        formMsg.innerHTML = `<div class="error">Fix required fields: ${fails.join(', ')}</div>`;
+        return;
+      }
+
+      genBtn.disabled = true; genSpin.style.display='inline-block';
+      try{
+        const data = await callAPI(payload);
+        window.lastMeta = data.meta;
+        renderTabsAndPanel(data.emails);
+        resMsg.textContent = `Generated 5 emails`;
+      }catch(err){
+          resMsg.textContent = `Generation failed: ${err.message}`;
+      }finally{
+        genBtn.disabled = false; genSpin.style.display='none';
+      }
+    });
+  </script>
+<script>
+  const METHOD_DESCRIPTIONS = {
+    AIDA: "Attention–Interest–Desire–Action. Hook with a sharp opener, build curiosity with a relevant benefit, amplify desire with proof, finish with a single clear ask.",
+    PAS:  "Problem–Agitate–Solution. Name the pain, show the real-world cost of delaying, present your fix as the easiest next step.",
+    "4U":"Useful–Urgent–Unique–Ultra-specific. Promise a tangible outcome, add gentle urgency, highlight your differentiator, give a concrete next step.",
+    STAR:"Situation–Task–Action–Result. A tiny success story: set the scene, name the goal, explain what was done, show the win—then invite the reader.",
+    IDCA:"Interest–Desire–Conviction–Action. Start with a persona-relevant hook, deepen desire with value, build conviction with proof, close with one crisp CTA."
+  };
+
+  function renderGuide(active="AIDA"){
+    const wrap = document.getElementById("guideList");
+    if(!wrap) return;
+    wrap.innerHTML = Object.entries(METHOD_DESCRIPTIONS).map(([m,desc])=>{
+      const on = m===active ? 'border-color:#39597e;background:#0f1724' : '';
+      return `<div style="border:1px solid #2a3b52;border-radius:10px;padding:10px;${on}">
+        <div style="display:flex;justify-content:space-between;align-items:center;gap:8px">
+          <strong>${m}</strong><span class="pill">${m}</span>
+        </div>
+        <div style="color:#b7c7d8;margin-top:6px">${desc}</div>
+      </div>`;
+    }).join('');
+  }
+</script>
+<script>
+  async function copyText(text){
+    try{
+      await navigator.clipboard.writeText(text);
+      const el = document.getElementById('resMsg');
+      if(el) el.innerHTML = `<div class="success">Copied to clipboard.</div>`;
+    }catch(e){
+      const el = document.getElementById('resMsg');
+      if(el) el.innerHTML = `<div class="error">Could not copy: ${e.message}</div>`;
+    }
+  }
+</script>
+<script>renderGuide('AIDA');</script>
+</body>
+</html>

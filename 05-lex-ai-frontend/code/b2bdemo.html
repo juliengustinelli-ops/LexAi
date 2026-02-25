@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>LexAi • B2B Demo</title>
+
+  <!-- Tailwind + Inter (same as landing) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+
+  <style>
+    body{font-family:'Inter',sans-serif}
+    .gradient-text{
+      background:-webkit-linear-gradient(#4F46E5,#DB2777);
+      -webkit-background-clip:text;
+      -webkit-text-fill-color:transparent;
+    }
+    .stat-card{
+      background-color:rgba(255,255,255,.05);
+      border:1px solid rgba(255,255,255,.1);
+      backdrop-filter:blur(10px);
+      -webkit-backdrop-filter:blur(10px);
+    }
+    /* Safe 16:9 wrapper (works even if aspect-video utility isn't present) */
+    .video-shell{position:relative;border-radius:14px;overflow:hidden}
+    .video-shell::before{content:"";display:block;padding-bottom:56.25%}
+    .video-shell > *{position:absolute;inset:0;width:100%;height:100%;border:0}
+
+    @media (max-width: 900px){
+  .glass .nav-links,
+  .glass .nav-ctas{
+    display:none; /* hidden by default */
+    width:100%;
+    background:rgba(255,255,255,.96);
+    border:1px solid #e8edf1;
+    border-radius:12px;
+    margin-top:.8rem;
+    padding:.6rem .8rem;
+    box-shadow:0 6px 14px rgba(0,0,0,.06);
+  }
+  .glass.open .nav-links,
+  .glass.open .nav-ctas{ display:flex; }
+}
+  </style>
+</head>
+<body class="bg-gray-900 text-white">
+
+  <!-- Header (mirrors landing page) -->
+  <header class="container mx-auto px-6 py-4">
+    <nav class="flex items-center justify-between">
+      <a href="index.html" class="text-3xl font-extrabold tracking-tight" aria-label="LexAi Home">
+        Lex<span class="text-indigo-500">Ai</span>
+      </a>
+      <div class="flex items-center gap-3">
+        <a href="https://calendly.com/lexai/ai-implementation-introductory-chat"
+           target="_blank"
+           class="bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-2.5 px-5 rounded-lg shadow-lg transition-transform transform hover:scale-105"
+           data-track="demo:b2b:book-call">Book a Free Call</a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Hero -->
+  <main class="container mx-auto px-6 pt-6 pb-16 text-center">
+    <h1 class="text-4xl md:text-6xl font-extrabold leading-tight mb-3">See LexAi in Action</h1>
+    <h2 class="text-2xl md:text-3xl font-bold mb-6 gradient-text">A 2-minute B2B walkthrough</h2>
+    <p class="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto mb-10">
+      How we move enterprises from AI pilots to measurable ROI—fast. Short, practical, and focused on
+      implementation, not hype.
+    </p>
+
+    <!-- Video -->
+    <section class="max-w-4xl mx-auto stat-card p-2 rounded-xl shadow-xl">
+      <div class="video-shell">
+        <!-- Prefer a Loom/YT embed here. If you have a local MP4, use <video>. -->
+        <!-- Example for local file: -->
+        <video src="LexVid.mp4" controls playsinline preload="metadata" poster=""
+               class="w-full h-full bg-black"
+               data-track="demo:b2b:play"></video>
+
+        <!-- Example Loom embed (replace src, then remove the <video> above):
+        <iframe src="https://www.loom.com/embed/your-id" allowfullscreen></iframe>
+        -->
+      </div>
+    </section>
+
+    <!-- What you'll see -->
+    <section class="max-w-4xl mx-auto mt-12 grid grid-cols-1 md:grid-cols-3 gap-6 text-left">
+      <div class="stat-card p-6 rounded-xl hover:border-indigo-500 transition">
+        <h3 class="text-xl font-semibold mb-2">Strategic Approach</h3>
+        <p class="text-gray-300">How we map business processes, pick high-ROI AI candidates, and avoid dead-end pilots.</p>
+      </div>
+      <div class="stat-card p-6 rounded-xl hover:border-indigo-500 transition">
+        <h3 class="text-xl font-semibold mb-2">No-Code → Custom</h3>
+        <p class="text-gray-300">Where quick wins with low-code tools make sense—and when to move to API-level automation.</p>
+      </div>
+      <div class="stat-card p-6 rounded-xl hover:border-indigo-500 transition">
+        <h3 class="text-xl font-semibold mb-2">Team Delivery</h3>
+        <p class="text-gray-300">How our specialists (Google/Amazon alumni) deliver, govern, and support for up to a year.</p>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="mt-14">
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+        <a href="https://calendly.com/lexai/ai-implementation-introductory-chat"
+           target="_blank"
+           class="bg-pink-600 hover:bg-pink-700 text-white font-bold py-3.5 px-8 rounded-lg text-lg shadow-xl transition-transform transform hover:scale-105"
+           data-track="demo:b2b:book-call-bottom">Book a Free Strategy Call</a>
+
+        <a href="youraisolution.html"
+       class="bg-indigo-500 hover:bg-indigo-600 text-white font-bold py-3.5 px-8 rounded-lg text-lg shadow-xl transition-transform transform hover:scale-105"
+       data-track="demo:b2b:apply-pilot">Apply to the Pilot →</a>
+        
+        <a href="demo.html"
+           class="text-gray-300 hover:text-white font-semibold py-3 px-6 rounded-lg border border-gray-700 hover:border-gray-500 transition"
+           data-track="demo:b2b:view-b2c">See B2C Demo</a>
+      </div>
+      <p class="text-sm text-gray-500 mt-3">Prefer a quick product tour first? The B2C demo shows our UX in 60 seconds.</p>
+    </section>
+  </main>
+
+  <!-- Footer (same tone as landing) -->
+  <footer class="bg-gray-800 py-6">
+    <div class="container mx-auto px-6 text-center text-gray-500">
+      <p>&copy; 2025 LexAi. All Rights Reserved.</p>
+    </div>
+  </footer>
+<script>
+  (function(){
+    const nav = document.querySelector('.glass');
+    const btn = document.getElementById('navToggle');
+    if(!nav || !btn) return;
+
+    btn.addEventListener('click', () => {
+      const open = nav.classList.toggle('open');
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+
+    // close on link tap
+    nav.addEventListener('click', (e)=>{
+      const a = e.target.closest('a');
+      if(a && nav.classList.contains('open')) nav.classList.remove('open');
+    });
+  })();
+</script>
+</body>
+</html>

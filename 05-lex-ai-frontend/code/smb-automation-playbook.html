@@ -1,0 +1,357 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>SMB Automation Playbook (AWS-First) | LexAi</title>
+<meta name="description" content="Three high-impact automations for SMBs—document data extraction, intelligent email management, and data sync—built on AWS services. A practical guide by LexAi.">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --brand-green:#00c2b5;
+  --brand-teal :#00bfc7;
+  --glass-bg   :rgba(255,255,255,.35);
+  --glass-blur :20px;
+  --footer-bg  :#0b0d19;
+  --nav-h: 84px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Poppins',sans-serif;background:#f4f6f8;color:#0b0d19;}
+
+/* ===== NAV (glass) ===== */
+nav.glass{
+  position:fixed;top:0;left:0;width:100%;z-index:999;
+  display:flex;align-items:center;gap:1.4rem;
+  padding:.8rem 4vw;background:var(--glass-bg);backdrop-filter:blur(var(--glass-blur));
+  min-height:var(--nav-h);
+}
+.brand{font:700 1.4rem/1 'Poppins';color:var(--brand-green);text-decoration:none}
+.nav-links{list-style:none;display:flex;gap:2rem;margin-left:28rem}
+.nav-item{color:#000;text-decoration:none;font-weight:500;transition:color .2s}
+.nav-item:hover{color:var(--brand-teal)}
+.nav-ctas{display:flex;align-items:center;gap:1.3rem;margin-left:auto}
+.btn-cta{background:var(--brand-green);color:#fff;padding:.55rem 1.2rem;border-radius:25px;
+  font-weight:600;font-size:.9rem;text-decoration:none}
+
+/* burger */
+.nav-toggle{display:none;margin-left:auto;background:transparent;border:0;padding:.4rem;cursor:pointer;border-radius:8px}
+.nav-toggle span{display:block;width:24px;height:2px;background:#0b0d19;margin:6px 0;transition:.2s}
+
+/* ===== LAYOUT ===== */
+main{padding:calc(var(--nav-h) + 18px) 1rem 60px;max-width:1120px;margin:auto}
+.section{
+  background:#fff;border-radius:14px;box-shadow:0 4px 12px rgba(0,0,0,.06);
+  padding:2.4rem 2rem;margin-bottom:28px
+}
+.hero h1{font-size:clamp(1.9rem,4.5vw,2.6rem);font-weight:800;margin-bottom:.4rem}
+.hero .lede{color:#36414d;font-size:1.05rem}
+
+/* meta row */
+.meta{display:flex;gap:1rem;flex-wrap:wrap;color:#586574;font-size:.92rem;margin-top:.6rem}
+
+/* grid: content + sidebar (TOC) */
+.content-wrap{display:grid;grid-template-columns:1fr 280px;gap:28px}
+@media (max-width: 980px){.content-wrap{grid-template-columns:1fr}}
+.toc{
+  position:sticky;top:calc(var(--nav-h) + 16px);
+  background:#fff;border:1px solid #e8edf1;border-radius:12px;padding:1rem;
+  box-shadow:0 2px 8px rgba(0,0,0,.04);height:max-content
+}
+.toc h3{font-size:1rem;margin-bottom:.5rem}
+.toc a{display:block;color:#0b0d19;text-decoration:none;font-size:.95rem;padding:.3rem 0}
+.toc a:hover{color:var(--brand-teal)}
+
+.article h2{font-size:1.35rem;margin:1.6rem 0 .6rem}
+.article p{font-size:1.04rem;line-height:1.6;margin:.7rem 0}
+.article ul{margin:.4rem 0 .9rem 1.2rem}
+.article li{margin:.35rem 0}
+
+/* inline callouts */
+.badge{
+  display:inline-flex;align-items:center;justify-content:center;
+  width:32px;height:32px;border-radius:999px;
+  background:linear-gradient(135deg,var(--brand-green),var(--brand-teal));
+  color:#fff;font-weight:700;font-size:.95rem;margin-right:.4rem
+}
+
+/* cards for examples */
+.card{
+  border:1px solid #e8edf1;border-radius:12px;padding:1rem;margin:.8rem 0;background:#fff
+}
+.card h4{font-size:1.02rem;margin:.2rem 0 .4rem}
+
+/* CTA */
+.cta{
+  text-align:center;padding:1.6rem;border:2px dashed rgba(0,191,199,.25);
+  border-radius:14px;background:#f9fbfc;margin-top:1.4rem
+}
+.btn-big{
+  display:inline-block;margin-top:.9rem;padding:.85rem 1.8rem;border:none;border-radius:35px;
+  font-size:1rem;font-weight:700;cursor:pointer;background:var(--brand-green);color:#fff;text-decoration:none;
+  transition:transform .18s,box-shadow .18s
+}
+.btn-big:hover{transform:translateY(-2px);box-shadow:0 8px 18px rgba(0,0,0,.15)}
+
+/* footer (shared look) */
+.site-footer{background:var(--footer-bg);color:#d1d1d1;padding:4rem 2rem 3rem;margin-top:60px}
+.footer-top{display:grid;gap:2.5rem;max-width:1200px;margin:auto}
+@media(min-width:700px){.footer-top{grid-template-columns:2fr 1fr 1fr 1fr}}
+.footer-brand{font-size:1.4rem;font-weight:700;color:#00c2b5;text-decoration:none}
+.footer-col h4{font-size:1.05rem;font-weight:600;margin-bottom:1rem;color:#fff}
+.footer-col ul{list-style:none}
+.footer-col li+li{margin-top:.6rem}
+.footer-col a{color:#d1d1d1;text-decoration:none;font-size:.95rem;transition:color .2s}
+.footer-col a:hover{color:#00c2b5}
+hr{border:0;border-top:1px solid #2a2e3a;margin:3rem 0 2rem}
+.footer-bottom{max-width:1200px;margin:auto;display:flex;justify-content:space-between;flex-wrap:wrap;gap:1rem;font-size:.9rem}
+.social{display:flex;gap:1.5rem;list-style:none}
+.social a{color:#d1d1d1;text-decoration:none;transition:color .2s}
+.social a:hover{color:#00c2b5}
+
+/* responsive nav collapse */
+@media (max-width: 900px){
+  :root{ --nav-h: 66px; }
+  .nav-toggle{display:block}
+  .nav-links,.nav-ctas{
+    display:none;width:100%;background:rgba(255,255,255,.96);
+    border:1px solid #e8edf1;border-radius:12px;margin-top:.8rem;padding:.6rem .8rem;
+    box-shadow:0 6px 14px rgba(0,0,0,.06)
+  }
+  .glass.open .nav-links,
+  .glass.open .nav-ctas{display:flex}
+  .nav-links{flex-direction:column;gap:.6rem}
+  .nav-ctas{justify-content:flex-start;gap:.8rem}
+}
+
+/* anchor offset for fixed nav */
+[id]{scroll-margin-top: calc(var(--nav-h) + 12px);}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="glass">
+  <a href="index.html" class="brand">LexAi</a>
+  <button id="navToggle" class="nav-toggle" aria-expanded="false" aria-label="Open menu">
+    <span></span><span></span><span></span>
+  </button>
+  <ul class="nav-links">
+    <li><a href="index.html" class="nav-item">Home</a></li>
+    <li><a href="index.html#features" class="nav-item">Features</a></li>
+    <li><a href="about.html" class="nav-item">About</a></li>
+      <li><a href="case-studies.html" class="nav-item">Case Studies</a></li>
+  </ul>
+</nav>
+
+<main>
+  <!-- HERO -->
+  <section class="section hero" role="banner">
+    <h1>SMB Automation Playbook — AWS-First</h1>
+    <p class="lede">Three high-impact workflows you can deploy quickly: document data extraction, intelligent email management, and secure data sync. Built on AWS building blocks—scalable from day one.</p>
+    <div class="meta">
+      <span>Updated: <time datetime="2025-09-18">Sep 18, 2025</time></span> ·
+      <span>~8 min read</span>
+    </div>
+  </section>
+
+  <div class="content-wrap">
+    <!-- ARTICLE -->
+    <article class="section article" id="content" role="article">
+      <p>Small and mid-size teams don’t need fifty automations—they need a few that compound. This guide distills the most broadly useful, lowest-friction plays we roll out for customers. Each workflow is pragmatic, measurable, and designed to grow with your stack.</p>
+
+      <h2 id="why-now">Why these three?</h2>
+      <p>They target universal pain points: manual data entry, overflowing inboxes, and scattered files. Automating them frees hours per week, improves response time, and creates clean data that downstream systems can trust.</p>
+
+      <h2 id="doc-extraction">Workflow 1 — Automated Document Data Extraction</h2>
+      <p>Turn invoices, receipts, and PDFs into structured records. No more copying totals by hand.</p>
+      <div class="card">
+        <h4><span class="badge">A</span>What it does</h4>
+        <p>Extracts vendor, date, line items, and amounts from documents and posts them into your finance sheet, database, or accounting tool.</p>
+      </div>
+      <div class="card">
+        <h4><span class="badge">B</span>How it works (AWS-first)</h4>
+        <ul>
+          <li>Drop files into a secure bucket → <strong>Amazon S3</strong></li>
+          <li>Parse structured data → <strong>Amazon Textract</strong></li>
+          <li>Transform/validate → <strong>AWS Lambda</strong></li>
+          <li>Store/route → Sheets, Airtable, a database, or your ERP (via API)</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h4><span class="badge">C</span>When to use it</h4>
+        <p>Monthly payables, expense reconciliation, vendor onboarding, or anytime a human is re-typing fields from PDFs.</p>
+      </div>
+      <ul>
+        <li><strong>Time saved:</strong> 2–5 minutes per document, reliably.</li>
+        <li><strong>Quality:</strong> Fewer typos; easy exception handling.</li>
+        <li><strong>Security:</strong> Encrypted at rest/in transit via S3 + IAM.</li>
+      </ul>
+
+      <h2 id="email-mgmt">Workflow 2 — Intelligent Email Management (Replies, Triage & Localization)</h2>
+      <p>Route what matters, draft responses that reflect context, and answer in the customer’s language when needed.</p>
+      <div class="card">
+        <h4><span class="badge">A</span>What it does</h4>
+        <p>Auto-classifies inbound mail, flags priority leads/support tickets, drafts personalized replies, and can localize responses for different regions.</p>
+      </div>
+      <div class="card">
+        <h4><span class="badge">B</span>How it works (AWS-first)</h4>
+        <ul>
+          <li>Inbound/outbound mail → <strong>Amazon SES</strong></li>
+          <li>Intent/sentiment/entities → <strong>Amazon Comprehend</strong></li>
+          <li>Optional translation → <strong>Amazon Translate</strong></li>
+          <li>Drafting & policy guardrails → LLM hosted via your preferred endpoint (e.g., AWS-integrated)</li>
+          <li>Orchestration → <strong>AWS Lambda</strong> with CRM/webhook updates</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h4><span class="badge">C</span>Use cases</h4>
+        <ul>
+          <li>Sales: fast follow-ups, lead qualification, meeting scheduling assistants.</li>
+          <li>Support: SLA-aware replies, auto-summaries to ticketing systems.</li>
+          <li>Ops: multilingual vendor comms without extra overhead.</li>
+        </ul>
+      </div>
+      <ul>
+        <li><strong>Impact:</strong> Faster first response, more consistent tone, fewer missed handoffs.</li>
+        <li><strong>Controls:</strong> Opt-in human review on sensitive threads.</li>
+      </ul>
+
+      <h2 id="data-sync">Workflow 3 — Secure Data Sync & Integration</h2>
+      <p>Keep files and records aligned across tools so teams always see the same truth.</p>
+      <div class="card">
+        <h4><span class="badge">A</span>What it does</h4>
+        <p>Mirrors files from common cloud drives to an S3 archive, forwards events to queues, and keeps CRM/forms data synchronized with analytics or a data lake.</p>
+      </div>
+      <div class="card">
+        <h4><span class="badge">B</span>How it works (AWS-first)</h4>
+        <ul>
+          <li>File backup/ingest → <strong>Amazon S3</strong></li>
+          <li>Event fan-out → <strong>Amazon SQS</strong> or EventBridge</li>
+          <li>Processing/ETL → <strong>AWS Lambda</strong> (optional Step Functions)</li>
+          <li>Downstream → BI dashboards, archives, or downstream apps via API</li>
+        </ul>
+      </div>
+      <ul>
+        <li><strong>Benefits:</strong> Centralized backups, compliant retention, simpler integrations.</li>
+        <li><strong>Applies to:</strong> Cloud drives, CRMs, web forms, and lightweight databases.</li>
+      </ul>
+
+      <h2 id="content-ops">Bonus — AI Content Ops Quick Wins</h2>
+      <p>Use LLMs to create first-draft options for posts, emails, and product copy, then enforce brand locks (names, prices, claims) and run a tight approval loop. Outputs can be auto-logged to sheets or your CMS for tracking and A/B testing.</p>
+      <ul>
+        <li><strong>Examples:</strong> product descriptions, social variations, subject line experiments, microcopy fixes.</li>
+        <li><strong>Guardrails:</strong> keep locked tokens verbatim; human approval before publish.</li>
+      </ul>
+
+      <h2 id="choosing">Where to start (decision guide)</h2>
+      <ul>
+        <li><strong>Lots of PDFs & receipts?</strong> Start with <em>Document Data Extraction</em>.</li>
+        <li><strong>Overflowing inboxes?</strong> Start with <em>Intelligent Email Management</em>.</li>
+        <li><strong>Files and records scattered?</strong> Start with <em>Data Sync & Integration</em>.</li>
+      </ul>
+      <p>All three are modular—pick one, ship it, measure the lift, then layer the next.</p>
+
+      <div class="cta" id="consult-cta">
+        <h3>GET A ROADMAP BUILT AROUND YOUR STACK</h3>
+        <a class="btn-big" href="https://calendly.com/lexai/ai-implementation-introductory-chat" target="_blank" rel="noopener">Book a Free Strategy Call</a>
+      </div>
+    </article>
+
+    <!-- TOC -->
+    <aside class="toc" role="complementary" aria-label="On this page">
+      <h3>On this page</h3>
+      <a href="#why-now">Why these three?</a>
+      <a href="#doc-extraction">Automated Document Data Extraction</a>
+      <a href="#email-mgmt">Intelligent Email Management</a>
+      <a href="#data-sync">Secure Data Sync & Integration</a>
+      <a href="#content-ops">AI Content Ops Quick Wins</a>
+      <a href="#choosing">Where to start</a>
+      <a href="#consult-cta">Free consultation</a>
+    </aside>
+  </div>
+</main>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="footer-top">
+    <div class="footer-col">
+      <a href="index.html" class="footer-brand">LexAi</a>
+      <p style="margin-top:1rem;max-width:280px">
+        Revolutionizing content creation and automation with AI-powered, enterprise-grade tooling.
+      </p>
+    </div>
+
+    <div class="footer-col">
+      <h4>Product</h4>
+      <ul>
+        <li><a href="index.html#features">Features</a></li>
+        <li><a href="https://calendly.com/lexai/ai-implementation-introductory-chat?month=2025-08" target="_blank">Request a Quote</a></li>
+        <li><a href="case-studies.html">Testimonials</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4>Company</h4>
+      <ul>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="https://calendly.com/lexai/ai-implementation-introductory-chat" target="_blank">Contact</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4>Legal</h4>
+      <ul>
+        <li><a href="privacy.html">Privacy Policy</a></li>
+        <li><a href="javascript:void(0)">Terms of Service</a></li>
+        <li><a href="javascript:void(0)">Cookie Policy</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <hr>
+
+  <div class="footer-bottom">
+    <p>© 2025 LexAi. All rights reserved.</p>
+    <ul class="social">
+      <li><a href="javascript:void(0)">Twitter</a></li>
+      <li><a href="javascript:void(0)">LinkedIn</a></li>
+      <li><a href="javascript:void(0)">Facebook</a></li>
+      <li><a href="javascript:void(0)">Instagram</a></li>
+    </ul>
+  </div>
+</footer>
+
+<!-- mobile nav toggle -->
+<script>
+(function(){
+  const nav = document.querySelector('.glass');
+  const btn = document.getElementById('navToggle');
+  if(!nav || !btn) return;
+  btn.addEventListener('click', ()=>{
+    const open = nav.classList.toggle('open');
+    btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+  nav.addEventListener('click', (e)=>{
+    const a = e.target.closest('a');
+    if(a && nav.classList.contains('open')) nav.classList.remove('open');
+  });
+})();
+</script>
+
+<!-- JSON-LD Article (SEO) -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"TechArticle",
+  "headline":"SMB Automation Playbook — AWS-First",
+  "description":"Three high-impact automations for SMBs—document data extraction, intelligent email management, and data sync—built on AWS services.",
+  "author":{"@type":"Organization","name":"LexAi"},
+  "publisher":{"@type":"Organization","name":"LexAi"},
+  "dateModified":"2025-09-18",
+  "mainEntityOfPage":{"@type":"WebPage","@id":"https://lexaib2b.com/smb-automation-playbook"}
+}
+</script>
+</body>
+</html>

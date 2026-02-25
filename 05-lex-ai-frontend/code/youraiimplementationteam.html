@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>LexAi — Strategic AI, From the Founder</title>
+
+  <!-- Tailwind + Inter (same stack as other pages) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Pacifico&display=swap" rel="stylesheet">
+
+  <style>
+  /* container inherits your dark section background */
+  .signature-wrap{
+    display: flex;
+    flex-direction: column;   /* stack */
+    align-items: flex-start;
+    gap: .25rem;
+    margin: .25rem 0 0;       /* small top spacing */
+  }
+
+  .signature-wrap .signature{
+    font-family:"Pacifico","Lobster",system-ui,-apple-system,sans-serif;
+    font-style: italic;
+    color:#fff;
+    font-size: clamp(1.25rem, 3.5vw, 2.5rem);  /* grows with viewport */
+    line-height: 1;
+    letter-spacing: 0;
+    display:inline-block;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-shadow: 0 1px 0 rgba(0,0,0,.35);
+    margin:.25rem 0;
+  }
+
+  .signature-wrap{ display:block; }
+  .signature-wrap > span{ display:block; }
+    
+  /* Slight size bump on large screens so it still feels special */
+  @media (min-width: 992px){
+    .signature{ font-size: 1.3em; }
+  }
+
+  /* Centered version, if you need it for the hero area */
+  .signature--center{
+    display:block;
+    text-align:center;
+    margin-inline:auto;
+  }
+</style>
+
+  <style>
+    body{font-family:'Inter',sans-serif}
+    .gradient-text{
+      background:-webkit-linear-gradient(#4F46E5,#DB2777);
+      -webkit-background-clip:text;
+      -webkit-text-fill-color:transparent;
+    }
+    .stat-card{
+      background-color:rgba(255,255,255,.05);
+      border:1px solid rgba(255,255,255,.1);
+      backdrop-filter:blur(10px);
+      -webkit-backdrop-filter:blur(10px);
+    }
+    /* Safe 16:9 video wrapper */
+    .video-shell{position:relative;border-radius:14px;overflow:hidden}
+    .video-shell::before{content:"";display:block;padding-bottom:56.25%}
+    .video-shell > *{position:absolute;inset:0;width:100%;height:100%;border:0}
+
+    /* Letter typography */
+    .letter h3{letter-spacing:.2px}
+    .letter p{line-height:1.7}
+    .letter p + p{margin-top:1rem}
+    .letter .lede{font-size:1.1rem;color:#e5e7eb}
+    .rule{height:1px;background:rgba(255,255,255,.12)}
+  </style>
+</head>
+<body class="bg-gray-900 text-white">
+
+  <!-- Header -->
+  <header class="container mx-auto px-6 py-4">
+    <nav class="flex items-center justify-between">
+      <a href="index.html" class="text-3xl font-extrabold tracking-tight" aria-label="LexAi Home">
+        Lex<span class="text-indigo-500">Ai</span>
+      </a>
+      <div class="flex items-center gap-3">
+        <a href="https://calendly.com/lexai/ai-implementation-introductory-chat"
+           target="_blank"
+           class="bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-2.5 px-5 rounded-lg shadow-lg transition-transform transform hover:scale-105"
+           data-track="b2b:letter:book-call">Book a Free Call</a>
+        <a href="youraisolution.html"
+           class="bg-pink-600 hover:bg-pink-700 text-white font-semibold py-2.5 px-5 rounded-lg shadow-lg transition-transform transform hover:scale-105"
+           data-track="b2b:letter:apply-pilot">Apply to the Pilot →</a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Hero -->
+  <main class="container mx-auto px-6 pt-6 pb-10 text-center">
+    <h1 class="text-4xl md:text-6xl font-extrabold leading-tight mb-3">An Open Letter on Enterprise AI</h1>
+    <h2 class="text-2xl md:text-3xl font-bold mb-6 gradient-text">From our Founder & CEO</h2>
+    <p class="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto">
+      How to move you enterprise from AI confusion to measurable ROI—without chasing unicorn hires.
+    </p>
+  </main>
+
+  <!-- Video (just below header/hero) -->
+  <section class="container mx-auto px-6 -mt-4 mb-12">
+    <div class="max-w-4xl mx-auto stat-card p-2 rounded-xl shadow-xl">
+      <div class="video-shell">
+        <!-- Keep your existing media source; swap to Loom/YT iframe if desired -->
+        <video src="LexVid.mp4" controls playsinline preload="metadata" poster="" class="w-full h-full bg-black"
+               data-track="b2b:letter:play-video"></video>
+      </div>
+    </div>
+  </section>
+
+  <!-- Open Letter (verbatim) -->
+  <section class="container mx-auto px-6 pb-4">
+    <article class="max-w-4xl mx-auto bg-gray-800/50 border border-gray-700 rounded-2xl p-6 md:p-10 letter">
+      <h3 class="text-2xl md:text-3xl font-extrabold mb-2">Dear Stakeholder,</h3>
+      <p class="lede font-medium">
+        In today’s enterprise world, the quest for efficiency often leads to a frustrating dead-end.
+      </p>
+      <p>
+        You invest in powerful, AI-driven solutions, but they either come with a steep learning curve or are too
+        broad to solve your specific problems.
+      </p>
+      <p>
+        Employees find themselves endlessly duplicating efforts, toggling between dozens of disjointed applications,
+        and spending more time on process than on productivity.
+      </p>
+      <p>
+        This is the “Enterprise Content Trap”, and it's costing you more than you think.
+      </p>
+
+      <div class="rule my-6"></div>
+
+      <p class="font-semibold">
+        LexAi is here to dismantle that trap, brick by brick.
+      </p>
+      <p>
+        We're not just another B2B SaaS platform; we’re your strategic partner in reclaiming your workflow. We believe
+        that the best AI is the one your team can create and control.
+      </p>
+      <p>
+        Our approach is uniquely human-centric and deeply collaborative.
+      </p>
+      <p>
+        We come in, sit with your teams, and listen. We pinpoint the specific, nagging pain points that disrupt their
+        daily flow (the repetitive data entry, the fragmented communication, the clunky content creation process); and
+        create a blueprint for a more intelligent, streamlined workflow.
+      </p>
+      <p>
+        Forget the rigid limitations of generic AI; with LexAi, you get solutions tailored to your exact needs.
+      </p>
+      <p>
+        We seamlessly integrate third-party systems, from Zapier and Make.com, to complex AWS-based solutions, with the
+        platforms you already use.
+      </p>
+      <p>
+        This means your new AI tools won’t just work—they’ll fit perfectly into your existing ecosystem.
+      </p>
+
+      <div class="rule my-6"></div>
+
+      <p class="font-medium">
+        Worried about compliance?
+      </p>
+      <p>
+        With our third-party tools, your data is safe and secure and is not given or put into any database as part of any
+        process.
+      </p>
+
+      <p class="font-medium mt-4">
+        Worried about us handling your data?
+      </p>
+
+      <p>
+        We teach your employees to make them (and provide them the technical support they need). We empower your team with
+        the knowledge and capability to create and iterate on their own AI solutions, turning them from frustrated users
+        into confident architects of their own efficiency. This approach fosters a culture of continuous improvement,
+        ensuring your company remains agile and responsive to future challenges.
+      </p>
+
+      <div class="rule my-6"></div>
+
+      <p class="font-semibold">
+        Ready to unlock your team’s full potential? Stop being trapped by inefficiency and start building a smarter future.
+      </p>
+      <p>
+        Let’s talk: <a href="https://calendly.com/lexai/ai-implementation-introductory-chat"
+                       target="_blank" class="text-indigo-400 underline">https://calendly.com/lexai/ai-implementation-introductory-chat</a>
+      </p><br>
+
+      <div class="signature-wrap">
+        <span>Sincerely,</span><br>
+        <span class="signature" aria-label="Signature">Julien Gustinelli</span>
+      </div>
+      
+      <!--<h1 class="signature">Julien Gustinelli</h1>
+      <br>
+      <p class="mt-6">
+        Sincerely,<br/>
+        <span class="font-semibold">Julien Gustinelli</span><br/>-->
+      
+      <p class="mt-6">
+        CEO/Founder, LexAi<br/>
+        <a href="https://www.lexaib2b.com" target="_blank" class="text-indigo-400 underline">www.lexaib2b.com</a>
+      </p>
+
+      <div class="rule my-6"></div>
+
+      <p class="text-gray-300 italic">
+        P.S. Did you know that according to MIT's research 95% of enterprise generative AI implementations fail? The issue
+        isn't the AI models themselves, but a critical "learning gap" in enterprise integration. Generic tools like
+        ChatGPT excel for individuals, but they fail to adapt to complex enterprise workflows. This "GenAI Divide" is the
+        clearest sign that a one-size-fits-all approach to AI won't work for your business.
+      </p>
+    </article>
+
+    <!-- Primary CTAs under the letter -->
+    <div class="max-w-4xl mx-auto flex flex-col sm:flex-row items-center justify-center gap-4 mt-8">
+      <a href="https://calendly.com/lexai/ai-implementation-introductory-chat"
+         target="_blank"
+         class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3.5 px-8 rounded-lg text-lg shadow-xl transition-transform transform hover:scale-105"
+         data-track="b2b:letter:book-call-bottom">Book a Free Strategy Call</a>
+
+      <a href="youraisolution.html"
+         class="bg-pink-600 hover:bg-pink-700 text-white font-bold py-3.5 px-8 rounded-lg text-lg shadow-xl transition-transform transform hover:scale-105"
+         data-track="b2b:letter:apply-pilot-bottom">Apply to the Pilot →</a>
+    </div>
+  </section>
+
+  <!-- Slim “How we deliver” (kept, but de-duplicated) -->
+  <section class="container mx-auto px-6 py-16">
+    <div class="text-center mb-10">
+      <h2 class="text-3xl md:text-4xl font-extrabold">How We Deliver</h2>
+      <p class="text-gray-400 mt-3 max-w-2xl mx-auto">Strategy first. Then the fastest path to ROI—no-code for quick wins, APIs for scale.</p>
+    </div>
+    <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div class="stat-card p-6 rounded-xl hover:border-indigo-500 transition">
+        <h3 class="text-xl font-semibold mb-2">Strategic Deep Dive</h3>
+        <p class="text-gray-300">We map processes and select AI candidates with a quantified ROI model.</p>
+      </div>
+      <div class="stat-card p-6 rounded-xl hover:border-indigo-500 transition">
+        <h3 class="text-xl font-semibold mb-2">No-Code → Custom</h3>
+        <p class="text-gray-300">Start with low-code where it fits; move to robust APIs when impact demands it.</p>
+      </div>
+      <div class="stat-card p-6 rounded-xl hover:border-indigo-500 transition">
+        <h3 class="text-xl font-semibold mb-2">Team Delivery</h3>
+        <p class="text-gray-300">Specialists (Google/Amazon alumni) ship, govern, and support for up to a year.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-800 py-6">
+    <div class="container mx-auto px-6 text-center text-gray-500">
+      <p>&copy; 2025 LexAi. All Rights Reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>

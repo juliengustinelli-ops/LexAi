@@ -1,0 +1,333 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>About | LexAi</title>
+
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --brand-green:#00c2b5;
+  --brand-teal :#00bfc7;
+  --footer-bg  :#0b0d19;
+  --nav-h      :84px;
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Poppins',sans-serif;color:#0b0d19;background:#f4f6f8}
+
+/* -------- NAVBAR -------- */
+.glass{
+  position:fixed;top:0;left:0;width:100%;z-index:999;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:.8rem 4vw;
+  background:rgba(0,0,0,.52);
+  backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);
+  border-bottom:1px solid rgba(255,255,255,.12);
+  min-height:var(--nav-h);
+}
+.brand{font:700 1.4rem/1 'Poppins';color:var(--brand-green);text-decoration:none}
+.nav-links{list-style:none;display:flex;gap:2.4rem}
+.nav-item{color:#fff;text-decoration:none;font-weight:500;transition:color .2s}
+.nav-item:hover,.nav-item.active{color:var(--brand-teal)}
+.nav-toggle{
+  display:none;margin-left:auto;background:transparent;border:0;padding:.4rem;
+  cursor:pointer;border-radius:8px;
+}
+.nav-toggle span{display:block;width:24px;height:2px;background:#fff;margin:6px 0;transition:.2s}
+
+@media(max-width:900px){
+  :root{--nav-h:66px}
+  .glass{flex-wrap:wrap;align-items:center}
+  .nav-toggle{display:block}
+  .glass .nav-links{
+    display:none;width:100%;background:rgba(15,15,25,.95);
+    border:1px solid rgba(255,255,255,.12);border-radius:12px;margin-top:.8rem;
+    padding:.6rem .8rem;box-shadow:0 6px 14px rgba(0,0,0,.2);
+  }
+  .glass.open .nav-links{display:flex}
+  .nav-links{flex-direction:column;gap:.6rem}
+  .nav-links .nav-item{padding:.4rem .2rem}
+}
+
+section[id]{scroll-margin-top:calc(var(--nav-h) + 12px)}
+
+/* -------- PAGE HERO -------- */
+.page-hero{
+  background:linear-gradient(135deg,#0b0d19 0%,#1a2540 100%);
+  padding:calc(var(--nav-h) + 3rem) 2rem 4rem;
+  text-align:center;color:#fff;
+}
+.page-hero h1{font-size:clamp(2rem,5vw,3rem);font-weight:700;margin-bottom:1rem}
+.page-hero p{font-size:1.1rem;font-weight:300;color:rgba(255,255,255,.75);max-width:640px;margin:0 auto}
+
+/* -------- STATS STRIP -------- */
+.stats-strip{background:#0b0d19;padding:0}
+.stats-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));max-width:1200px;margin:0 auto}
+.stat-item{padding:2.2rem 1.5rem;text-align:center;border-right:1px solid rgba(255,255,255,.08)}
+.stat-item:last-child{border-right:none}
+.stat-item .number{font-size:2.2rem;font-weight:900;color:var(--brand-green);line-height:1;display:block}
+.stat-item .label{font-size:.72rem;font-weight:600;color:rgba(255,255,255,.5);margin-top:.4rem;text-transform:uppercase;letter-spacing:.5px}
+
+/* -------- CONTENT SECTIONS -------- */
+.content-wrap{max-width:1100px;margin:0 auto;padding:4rem 2rem}
+
+.about-section{margin-bottom:3rem}
+.about-section h2{
+  font-size:clamp(1.6rem,3.5vw,2.2rem);font-weight:700;color:#0b0d19;margin-bottom:.5rem;
+}
+.about-section h2::after{
+  content:'';display:block;width:48px;height:4px;background:var(--brand-green);
+  border-radius:2px;margin-top:.6rem;
+}
+.about-section p{font-size:1rem;line-height:1.75;color:#444;margin-bottom:1rem}
+.about-section p:last-child{margin-bottom:0}
+
+/* -------- VALUE CARDS -------- */
+.cards-grid{display:grid;gap:1.5rem;margin-top:2.5rem}
+@media(min-width:768px){.cards-grid{grid-template-columns:repeat(3,1fr)}}
+
+.value-card{
+  background:#fff;border-radius:12px;padding:2rem 1.6rem;
+  border-top:4px solid var(--brand-green);
+  box-shadow:0 4px 14px rgba(0,0,0,.06);
+  transition:transform .25s,box-shadow .25s;
+}
+.value-card:hover{transform:translateY(-5px);box-shadow:0 12px 26px rgba(0,0,0,.08)}
+.value-card .icon{font-size:2rem;margin-bottom:.8rem;display:block}
+.value-card h3{font-size:1.05rem;font-weight:700;color:#0b0d19;margin-bottom:.6rem}
+.value-card p{font-size:.92rem;line-height:1.65;color:#555;margin:0}
+
+/* -------- FOUNDER -------- */
+.founder-section{
+  background:#fff;border-radius:16px;padding:3rem 2.5rem;
+  box-shadow:0 4px 14px rgba(0,0,0,.06);margin-bottom:3rem;
+  display:flex;gap:3rem;align-items:flex-start;
+}
+@media(max-width:700px){.founder-section{flex-direction:column;align-items:center;text-align:center}}
+
+.founder-img{
+  width:160px;height:160px;border-radius:50%;object-fit:cover;flex-shrink:0;
+  border:4px solid var(--brand-green);box-shadow:0 4px 14px rgba(0,0,0,.12);
+}
+.founder-bio h2{font-size:1.4rem;font-weight:700;color:#0b0d19;margin-bottom:.3rem}
+.founder-bio h2::after{content:'';display:block;width:40px;height:4px;background:var(--brand-green);border-radius:2px;margin-top:.5rem}
+.founder-bio .role{font-size:.9rem;color:var(--brand-teal);font-weight:600;margin:.6rem 0 1rem}
+.founder-bio p{font-size:.97rem;line-height:1.75;color:#444;margin-bottom:.9rem}
+.founder-bio p:last-child{margin-bottom:0}
+
+/* -------- MISSION -------- */
+.mission-section{
+  background:linear-gradient(135deg,#0b0d19 0%,#1a2540 100%);
+  border-radius:16px;padding:3.5rem 2.5rem;margin-bottom:3rem;color:#fff;
+}
+.mission-section h2{font-size:clamp(1.4rem,3vw,2rem);font-weight:700;color:#fff;margin-bottom:.5rem}
+.mission-section h2::after{content:'';display:block;width:48px;height:4px;background:var(--brand-green);border-radius:2px;margin-top:.6rem}
+.mission-section p{font-size:1rem;line-height:1.75;color:rgba(255,255,255,.78);margin-top:1.2rem}
+
+.mission-cards{display:grid;gap:1.2rem;margin-top:2rem}
+@media(min-width:768px){.mission-cards{grid-template-columns:repeat(3,1fr)}}
+.mission-card{
+  background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);
+  border-radius:12px;padding:1.5rem 1.4rem;
+}
+.mission-card h3{font-size:1rem;font-weight:700;color:var(--brand-green);margin-bottom:.5rem}
+.mission-card p{font-size:.88rem;color:rgba(255,255,255,.7);line-height:1.65;margin:0}
+
+/* -------- CTA -------- */
+.cta-strip{
+  background:var(--brand-green);border-radius:16px;padding:3rem 2.5rem;
+  text-align:center;margin-bottom:3rem;
+}
+.cta-strip h2{font-size:1.6rem;font-weight:700;color:#fff;margin-bottom:.8rem}
+.cta-strip p{font-size:1rem;color:rgba(255,255,255,.85);max-width:520px;margin:0 auto 1.8rem}
+.cta-btn{
+  display:inline-block;background:#fff;color:var(--brand-green);
+  padding:1rem 2.5rem;border-radius:50px;font-weight:700;font-size:1rem;
+  text-decoration:none;transition:transform .2s,box-shadow .2s;
+}
+.cta-btn:hover{transform:translateY(-3px);box-shadow:0 8px 20px rgba(0,0,0,.15)}
+
+/* -------- FOOTER -------- */
+.site-footer{background:var(--footer-bg);color:#d1d1d1;padding:4rem 2rem 3rem}
+.footer-top{display:grid;gap:2.5rem;max-width:1200px;margin:auto}
+@media(min-width:700px){.footer-top{grid-template-columns:2fr 1fr 1fr 1fr}}
+.footer-brand{font-size:1.4rem;font-weight:700;color:var(--brand-green);text-decoration:none}
+.footer-col h4{font-size:1.05rem;font-weight:600;margin-bottom:1rem;color:#fff}
+.footer-col ul{list-style:none}
+.footer-col li+li{margin-top:.6rem}
+.footer-col a{color:#d1d1d1;text-decoration:none;font-size:.95rem;transition:color .2s}
+.footer-col a:hover{color:var(--brand-green)}
+hr{border:0;border-top:1px solid #2a2e3a;margin:3rem 0 2rem}
+.footer-bottom{max-width:1200px;margin:auto;display:flex;justify-content:space-between;flex-wrap:wrap;gap:1rem;font-size:.9rem}
+.social{display:flex;gap:1.5rem;list-style:none}
+.social a{color:#d1d1d1;text-decoration:none;transition:color .2s}
+.social a:hover{color:var(--brand-green)}
+</style>
+</head>
+
+<body>
+
+<!-- ===== NAVBAR ===== -->
+<nav class="glass">
+  <a href="index.html" class="brand">LexAi</a>
+  <button id="navToggle" class="nav-toggle" aria-expanded="false" aria-label="Open menu">
+    <span></span><span></span><span></span>
+  </button>
+  <ul class="nav-links">
+    <li><a href="index.html" class="nav-item">Home</a></li>
+    <li><a href="index.html#features" class="nav-item">Features</a></li>
+    <li><a href="about.html" class="nav-item active">About</a></li>
+    <li><a href="case-studies.html" class="nav-item">Case Studies</a></li>
+  </ul>
+</nav>
+
+<!-- ===== PAGE HERO ===== -->
+<div class="page-hero">
+  <h1>About LexAi</h1>
+  <p>We build custom AI tools that solve real business problems — engineered from the ground up around your exact needs.</p>
+</div>
+
+<!-- ===== STATS STRIP ===== -->
+<div class="stats-strip">
+  <div class="stats-grid">
+    <div class="stat-item"><span class="number">970+</span><span class="label">Active Users</span></div>
+    <div class="stat-item"><span class="number">450+</span><span class="label">Client Hours Saved / Year</span></div>
+    <div class="stat-item"><span class="number">90%</span><span class="label">Lead Quality Achieved</span></div>
+    <div class="stat-item"><span class="number">3+</span><span class="label">Industries Served</span></div>
+  </div>
+</div>
+
+<!-- ===== MAIN CONTENT ===== -->
+<div class="content-wrap">
+
+  <!-- What We Do -->
+  <div class="about-section">
+    <h2>What We Do</h2>
+    <p>LexAi builds custom AI-powered software solutions for businesses that are done wasting time on work that can be automated. We don't sell off-the-shelf tools — we engineer solutions built around your exact problems, your exact workflow, and your exact results.</p>
+    <p>From lead generation engines that surface 90% qualified prospects with a single click, to automation platforms that handle thousands of tasks while you sleep, to operational systems that turn inbox chaos into data-driven clarity — every solution we ship is designed to create measurable, lasting impact.</p>
+
+    <div class="cards-grid">
+      <div class="value-card">
+        <span class="icon">🤖</span>
+        <h3>AI Automation Tools</h3>
+        <p>Custom-built software that handles repetitive, high-volume tasks on autopilot — saving hundreds of hours a year and running around the clock without human intervention.</p>
+      </div>
+      <div class="value-card">
+        <span class="icon">🎯</span>
+        <h3>Precision Lead Generation</h3>
+        <p>API-powered engines using Google X-ray search to surface leads matched to 5–10 specific criteria — replacing inaccurate bought lists with verified, qualified prospects.</p>
+      </div>
+      <div class="value-card">
+        <span class="icon">📋</span>
+        <h3>Custom Workflow Systems</h3>
+        <p>Operational platforms — from help desk systems to work order tracking — that bring structure, accountability, and data-driven decision-making to complex environments.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Founder -->
+  <div class="founder-section">
+    <img src="Julein.jpeg" alt="Julien, Founder of LexAi" class="founder-img">
+    <div class="founder-bio">
+      <h2>Julien</h2>
+      <div class="role">Founder &amp; Lead Engineer, LexAi</div>
+      <p>I built LexAi after spending years watching businesses lose enormous amounts of time and money to processes that should have been automated long ago. Whether it was sales teams grinding through unqualified LinkedIn lists, marketers manually signing up for thousands of newsletters, or IT directors drowning in untracked support requests — the pattern was always the same: the problem was clear, the solution just hadn't been built yet.</p>
+      <p>That's what we do. We come in, understand the problem precisely, and build the tool that solves it — iterating until the results are exactly right. Every solution we ship is engineered from the ground up, not adapted from a template.</p>
+    </div>
+  </div>
+
+  <!-- Mission -->
+  <div class="mission-section">
+    <h2>Our Mission</h2>
+    <p>To build AI solutions that create real, measurable advantages for the businesses we work with — not generic tools, but precision-engineered systems that do exactly what they need to do, built around each client's specific goals.</p>
+    <div class="mission-cards">
+      <div class="mission-card">
+        <h3>Built for Results</h3>
+        <p>We iterate until the output matches the specification. Every solution is tested, refined, and calibrated — not delivered and forgotten.</p>
+      </div>
+      <div class="mission-card">
+        <h3>Engineered Efficiently</h3>
+        <p>Sophisticated prompt engineering, lean architecture, and smart model selection keep costs low without compromising on quality or performance.</p>
+      </div>
+      <div class="mission-card">
+        <h3>Your Problem, Our Solution</h3>
+        <p>We don't fit your needs into an existing product. We understand your exact criteria and build the tool that meets them — from the ground up.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div class="cta-strip">
+    <h2>Ready to build something?</h2>
+    <p>Tell us what you're trying to solve. We'll tell you how we'd build it.</p>
+    <a href="https://calendly.com/lexai/ai-implementation-introductory-chat?month=2025-08" target="_blank" class="cta-btn">Request a Quote</a>
+  </div>
+
+</div><!-- /content-wrap -->
+
+<!-- ===== FOOTER ===== -->
+<footer class="site-footer">
+  <div class="footer-top">
+    <div class="footer-col">
+      <a href="index.html" class="footer-brand">LexAi</a>
+      <p style="margin-top:1rem;max-width:280px">Building custom AI solutions that drive real results.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Product</h4>
+      <ul>
+        <li><a href="index.html#features">Features</a></li>
+        <li><a href="https://calendly.com/lexai/ai-implementation-introductory-chat?month=2025-08" target="_blank">Request a Quote</a></li>
+        <li><a href="case-studies.html">Testimonials</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Company</h4>
+      <ul>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="https://calendly.com/lexai/ai-implementation-introductory-chat?month=2025-08" target="_blank">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Legal</h4>
+      <ul>
+        <li><a href="privacy.html">Privacy Policy</a></li>
+        <li><a href="javascript:void(0)">Terms of Service</a></li>
+        <li><a href="javascript:void(0)">Cookie Policy</a></li>
+      </ul>
+    </div>
+  </div>
+  <hr>
+  <div class="footer-bottom">
+    <p>© 2025 LexAi. All rights reserved.</p>
+    <ul class="social">
+      <li><a href="javascript:void(0)">Twitter</a></li>
+      <li><a href="javascript:void(0)">LinkedIn</a></li>
+      <li><a href="javascript:void(0)">Facebook</a></li>
+      <li><a href="javascript:void(0)">Instagram</a></li>
+    </ul>
+  </div>
+</footer>
+
+<script>
+(function(){
+  const nav = document.querySelector('.glass');
+  const btn = document.getElementById('navToggle');
+  if(!nav||!btn) return;
+  btn.addEventListener('click',()=>{
+    const open=nav.classList.toggle('open');
+    btn.setAttribute('aria-expanded',open?'true':'false');
+  });
+  nav.addEventListener('click',(e)=>{
+    const a=e.target.closest('a');
+    if(a&&nav.classList.contains('open')) nav.classList.remove('open');
+  });
+})();
+</script>
+
+</body>
+</html>

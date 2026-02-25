@@ -1,0 +1,310 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>LexAi – Other Services</title>
+
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --brand-green:#00c2b5; --brand-teal:#00bfc7; --footer-bg:#0b0d19;
+  --hero-url: url('hero-index.jpg'); /* same visual vibe as Start Here */
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Poppins',sans-serif;color:#0b0d19;background:#f4f6f8;display:flex;flex-direction:column;min-height:100vh}
+a{color:var(--brand-teal);text-decoration:none}
+main{flex:1}
+
+/* ===== shared nav/footer (from Start Here) ===== */
+.glass{position:fixed;top:0;left:0;width:100%;z-index:999;display:flex;justify-content:space-between;align-items:center;padding:.8rem 4vw;background:rgba(255,255,255,.35);backdrop-filter:blur(18px)}
+.brand{font:700 1.4rem/1 'Poppins';color:var(--brand-green);text-decoration:none}
+.nav-links{list-style:none;display:flex;gap:2.4rem}
+.nav-item{color:#000;text-decoration:none;font-weight:500;transition:color .2s}
+.nav-item:hover{color:var(--brand-teal)}
+.btn-cta{background:var(--brand-green);color:#fff;padding:.5rem 1.4rem;border-radius:25px;font-weight:600;font-size:.9rem;text-decoration:none}
+.site-footer{background:var(--footer-bg);color:#d1d1d1;padding:2rem;text-align:center;font-size:.9rem}
+
+/* ===== HERO ===== */
+.hero{
+  margin-top:72px; min-height:58vh; display:grid; place-items:center; text-align:center;
+  padding:8vh 6vw; color:#fff; position:relative; overflow:hidden;
+  background:
+    linear-gradient(0deg, rgba(11,13,25,.55), rgba(11,13,25,.35)),
+    var(--hero-url), radial-gradient(60% 60% at 50% 40%, #0b0d19 0%, #131a20 100%);
+  background-size:cover; background-position:center;
+}
+.hero h1{
+  font-size:clamp(2rem,5vw,3.2rem); font-weight:800; line-height:1.12;
+  background:linear-gradient(90deg,#fff 0%,#f2fbfb 60%,#e8ffff 100%);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+  text-shadow:0 6px 28px rgba(0,0,0,.35);
+}
+.hero p{font-size:clamp(1rem,2vw,1.22rem);max-width:900px;margin:.9rem auto 1.6rem;opacity:.95}
+.cta-row{display:flex;gap:.8rem;justify-content:center;flex-wrap:wrap}
+.btn{display:inline-block;border:none;border-radius:999px;cursor:pointer;font-weight:700;letter-spacing:.2px;padding:.85rem 1.4rem;font-size:.98rem;transition:transform .15s, box-shadow .15s, opacity .15s}
+.btn:hover{transform:translateY(-1px)}
+.btn-primary{background:linear-gradient(90deg,#00c2b5,#00bfc7);color:#fff;box-shadow:0 8px 18px rgba(0,0,0,.18)}
+.btn-ghost{background:rgba(255,255,255,.16);color:#fff;border:1px solid rgba(255,255,255,.45)}
+.pill{display:inline-block;margin-top:.75rem;padding:.35rem .7rem;border-radius:999px;background:rgba(255,255,255,.16);font-size:.85rem}
+
+/* ===== sections ===== */
+.wrap{max-width:1120px;margin:0 auto;padding:28px 4vw}
+.grid{display:grid;gap:16px}
+@media(min-width:900px){ .grid-2{grid-template-columns:1.05fr .95fr} .grid-3{grid-template-columns:repeat(3,1fr)} }
+.card{background:#fff;border:1px solid #e8ecef;border-radius:14px;padding:18px;box-shadow:0 8px 22px rgba(0,0,0,.06)}
+.card h3{font-size:1.15rem;margin-bottom:.4rem}
+.card p{color:#36414d}
+.kicker{font-weight:800;color:var(--brand-green);font-size:.92rem;letter-spacing:.02em;margin-bottom:.3rem}
+
+/* item chips */
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+.chip{font-size:.85rem;padding:.3rem .6rem;border-radius:999px;background:#eef7f7;border:1px solid #d7efef;color:#0b5555}
+
+/* ask form */
+.form{background:#fdfefe;border:1px solid #e6eff2;border-radius:16px;padding:16px}
+.form label{display:block;font-weight:600;margin:.6rem 0 .35rem}
+.form input,.form textarea,.form select{
+  width:100%;border:1px solid #dbe5ea;border-radius:10px;padding:10px 12px;font:inherit
+}
+.form textarea{min-height:110px;resize:vertical}
+.form .row{display:grid;gap:12px}
+@media(min-width:760px){ .form .row{grid-template-columns:1fr 1fr} }
+.form .small{font-size:.9rem;color:#5a7083;margin-top:.4rem}
+
+/* SMB tiles */
+.tile{padding:16px;border-radius:14px;border:1px solid #e8ecef;background:#fff}
+.tile h4{margin:.2rem 0 .35rem;font-size:1.05rem}
+.tile p{color:#455463;font-size:.96rem}
+
+/* --- NAV height variable & mobile menu (same as Start Here) --- */
+:root { --nav-h: 84px; }
+.glass { min-height: var(--nav-h); }
+.nav-toggle{display:none;margin-left:auto;background:transparent;border:0;padding:.4rem;cursor:pointer;border-radius:8px}
+.nav-toggle span{display:block;width:24px;height:2px;background:#0b0d19;margin:6px 0;transition:.2s}
+@media (max-width: 900px){
+  :root { --nav-h: 66px; }
+  main{ padding-top: var(--nav-h); }
+  .glass{ flex-wrap:wrap; align-items:center; }
+  .nav-toggle{ display:block; }
+  .glass .nav-links,.glass .nav-ctas{
+    display:none;width:100%;background:rgba(255,255,255,.96);
+    border:1px solid #e8edf1;border-radius:12px;margin-top:.8rem;padding:.6rem .8rem;box-shadow:0 6px 14px rgba(0,0,0,.06)
+  }
+  .glass.open .nav-links,.glass.open .nav-ctas{ display:flex }
+  .nav-links{ flex-direction:column; gap:.6rem }
+  .nav-ctas{ justify-content:flex-start; gap:.8rem }
+  .btn-cta{ padding:.5rem 1.1rem; font-size:.88rem }
+}
+section[id]{ scroll-margin-top: calc(var(--nav-h) + 12px); }
+</style>
+</head>
+<body>
+
+<nav class="glass">
+  <a href="index.html" class="brand">LexAi</a>
+  <button id="navToggle" class="nav-toggle" aria-expanded="false" aria-label="Open menu">
+    <span></span><span></span><span></span>
+  </button>
+  <ul class="nav-links">
+    <li><a href="index.html" class="nav-item">Home</a></li>
+    <li><a href="index.html#features" class="nav-item">Features</a></li>
+    <li><a href="about.html" class="nav-item">About</a></li>
+      <li><a href="case-studies.html" class="nav-item">Case Studies</a></li>
+  </ul>
+</nav>
+
+<main>
+  <!-- HERO -->
+  <section class="hero">
+    <div>
+      <span class="pill">Flexible · Fast · Built for real work</span>
+      <h1>Other Services & Tools</h1>
+      <p>Beyond translation, we’re building a stack of practical marketing tools—and shipping affordable automations for small businesses.</p>
+      <div class="cta-row">
+        <a href="emails-demo.html" class="btn btn-primary">Try the Email Generator</a>
+        <a href="#tell-us" class="btn btn-ghost">Tell us what to build ▸</a>
+        <a href="https://calendly.com/lexai/ai-implementation-introductory-chat" target="_blank" class="btn btn-ghost">Request a quote</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="wrap">
+    <!-- EMAIL TOOL -->
+    <section class="grid grid-2" id="email-tool">
+      <article class="card">
+        <div class="kicker">Live Now</div>
+        <h3>AI Email Generator (AIDA / PAS / 4U / STAR / IDCA)</h3>
+        <p>Drop a short brief, get five skim-friendly cold emails in classic frameworks. Copy, download, or regenerate any single framework on the fly.</p>
+        <div class="chips">
+          <span class="chip">50–125 words</span>
+          <span class="chip">Copy & download</span>
+          <span class="chip">One-click regenerate</span>
+        </div>
+        <p style="margin-top:10px"><a href="emails-demo.html">Open the demo →</a></p>
+      </article>
+      <article class="card">
+        <div class="kicker">What’s next</div>
+        <h3>More tools we’re shipping</h3>
+        <p>We’re extending the stack so marketers and copywriters can move faster without duct-taping tools.</p>
+        <div class="chips">
+          <span class="chip">Ad variant generator</span>
+          <span class="chip">Landing-page copy blocks</span>
+          <span class="chip">Brief → campaign kit</span>
+          <span class="chip">Headline scorecards</span>
+          <span class="chip">Localization QA</span>
+          <span class="chip">Batch rewrite</span>
+        </div>
+      </article>
+    </section>
+
+    <!-- SMB AUTOMATIONS -->
+    <section style="margin-top:18px">
+      <div class="kicker">For small businesses</div>
+      <h3 style="margin-bottom:.6rem">Affordable AI automation & assistants</h3>
+      <p style="color:#425162">We build quick, reliable automations—no fluff. Fixed-scope packages start small and grow with you.</p>
+      <div class="grid grid-3" style="margin-top:12px">
+        <div class="tile"><h4>Website chatbots</h4><p>Custom data, brand voice, lead capture, hand-off to email/CRM.</p></div>
+        <div class="tile"><h4>Voice agents</h4><p>Phone & WhatsApp voice flows for bookings, FAQs, routing.</p></div>
+        <div class="tile"><h4>Workflow automations</h4><p>From intake forms to document generation and approvals.</p></div>
+        <div class="tile"><h4>Social content helpers</h4><p>Caption/variant packs with scheduled posting.</p></div>
+        <div class="tile"><h4>Lightweight dashboards</h4><p>Campaign KPIs in one view; share with clients or teams.</p></div>
+        <div class="tile"><h4>Integrations</h4><p>Calendly, HubSpot, Notion, Sheets, Slack—wired the right way.</p></div>
+      </div>
+    </section>
+
+    <!-- CUSTOM BUILDS -->
+    <section style="margin-top:18px">
+      <div class="kicker">Custom & Personal</div>
+      <h3 style="margin-bottom:.6rem">Tools tailored to your team—or to you</h3>
+      <p style="color:#425162">We create personalized marketing tools and private workflows for both businesses and individual power users. Same ethos as LexAi: simple front-end, strong guardrails, results first.</p>
+    </section>
+
+    <!-- TELL US WHAT TO BUILD -->
+    <section id="tell-us" style="margin-top:18px">
+      <div class="grid grid-2">
+        <article class="form">
+          <h3>What should we build next?</h3>
+          <p class="small">Tell us what would remove the most friction from your day.</p>
+          <div class="row">
+            <div>
+              <label for="name">Name (optional)</label>
+              <input id="name" type="text" placeholder="Jane Doe">
+            </div>
+            <div>
+              <label for="email">Email (optional)</label>
+              <input id="email" type="email" placeholder="you@company.com">
+            </div>
+          </div>
+
+          <label for="company">Company (optional)</label>
+          <input id="company" type="text" placeholder="Acme Inc.">
+
+          <label for="size">Company size</label>
+          <select id="size">
+            <option value="solo">Solo / Creator</option>
+            <option value="smb">1–50</option>
+            <option value="mid">51–500</option>
+            <option value="ent">500+</option>
+          </select>
+
+          <label>What tools interest you?</label>
+          <div class="chips" style="margin-top:6px">
+            <label class="chip"><input type="checkbox" value="Email generator" style="margin-right:6px">Email generator</label>
+            <label class="chip"><input type="checkbox" value="Ad variants" style="margin-right:6px">Ad variants</label>
+            <label class="chip"><input type="checkbox" value="Landing-page blocks" style="margin-right:6px">Landing-page blocks</label>
+            <label class="chip"><input type="checkbox" value="Localization QA" style="margin-right:6px">Localization QA</label>
+            <label class="chip"><input type="checkbox" value="Batch rewrite" style="margin-right:6px">Batch rewrite</label>
+            <label class="chip"><input type="checkbox" value="Chatbot / Voice agent" style="margin-right:6px">Chatbot / Voice agent</label>
+          </div>
+
+          <label for="wish">Describe your dream tool or pain point</label>
+          <textarea id="wish" placeholder="What’s repetitive, slow, or always falling between tools?"></textarea>
+
+          <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:12px">
+            <button id="sendBtn" class="btn btn-primary" type="button">Send</button>
+            <a class="btn btn-ghost" href="https://calendly.com/lexai/ai-implementation-introductory-chat" target="_blank">Book a quick call</a>
+            <span id="msg" class="small" style="align-self:center"></span>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="kicker">Why we ask</div>
+          <h3>We build from real workflows</h3>
+          <p>Our aim is a focused stack that eliminates everyday marketing friction—fast copy iteration, localized quality, quick A/B packs, and smart automations that actually stick.</p>
+          <ul style="margin:10px 0 0 18px;color:#36414d">
+            <li>Keep the UI minimal, ship value quickly</li>
+            <li>Own your data and brand rules</li>
+            <li>Priced to scale with usage, not seats</li>
+          </ul>
+          <p style="margin-top:10px">You can also email us directly: <a id="mailtoLink" href="#">lexai.outreach@gmail.com</a></p>
+        </article>
+      </div>
+    </section>
+  </div>
+</main>
+
+<footer class="site-footer">
+  © 2025 LexAi – All rights reserved
+</footer>
+
+<script>
+  // Mobile nav toggle (same as Start Here)
+  (function(){
+    const nav   = document.querySelector('.glass');
+    const btn   = document.getElementById('navToggle');
+    if(!nav || !btn) return;
+    btn.addEventListener('click', () => {
+      const open = nav.classList.toggle('open');
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+    nav.addEventListener('click', (e)=>{
+      const a = e.target.closest('a');
+      if(a && nav.classList.contains('open')) nav.classList.remove('open');
+    });
+  })();
+
+  // ===== Lightweight feedback sender (mailto for now) =====
+  const EMAIL_TO = 'lexai.outreach@gmail.com';
+  const sendBtn  = document.getElementById('sendBtn');
+  const msgEl    = document.getElementById('msg');
+  const mailtoA  = document.getElementById('mailtoLink');
+
+  function val(id){ return (document.getElementById(id)?.value || '').trim(); }
+
+  function selectedTools(){
+    return [...document.querySelectorAll('input[type="checkbox"]:checked')].map(c=>c.value);
+  }
+
+  function buildBody(){
+    const body = [
+      `Name: ${val('name') || '-'}`,
+      `Email: ${val('email') || '-'}`,
+      `Company: ${val('company') || '-'}`,
+      `Size: ${val('size') || '-'}`,
+      `Interested tools: ${selectedTools().join(', ') || '-'}`,
+      ``,
+      `Wish / Pain point:`,
+      `${val('wish') || '-'}`,
+    ].join('\n');
+    return encodeURIComponent(body);
+  }
+
+  function updateMailto(){
+    const subject = encodeURIComponent('LexAi – Other Services ideas');
+    mailtoA.href = `mailto:${EMAIL_TO}?subject=${subject}&body=${buildBody()}`;
+    mailtoA.textContent = EMAIL_TO;
+  }
+
+  updateMailto();
+
+  sendBtn.addEventListener('click', ()=>{
+    updateMailto();
+    msgEl.textContent = 'Opening your email client…';
+    setTimeout(()=>{ window.location.href = mailtoA.href; }, 60);
+  });
+</script>
+</body>
+</html>
