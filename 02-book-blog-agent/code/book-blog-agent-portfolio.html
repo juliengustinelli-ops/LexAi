@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Blog Generator Agent</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 50px;
+            background: #fff;
+        }
+
+        h1 {
+            color: #2c5282;
+            font-size: 2.2em;
+            font-weight: 600;
+            margin-bottom: 10px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid #2c5282;
+        }
+
+        h2 {
+            color: #2c5282;
+            font-size: 1.5em;
+            font-weight: 600;
+            margin-top: 30px;
+            margin-bottom: 15px;
+        }
+
+        h3 {
+            color: #333;
+            font-size: 1.1em;
+            font-weight: 600;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            color: #2c5282;
+            font-size: 1.4em;
+            font-weight: 500;
+            margin-top: 25px;
+            margin-bottom: 15px;
+        }
+
+        .view-project {
+            margin-bottom: 25px;
+        }
+
+        .view-project a {
+            color: #3182ce;
+            text-decoration: none;
+        }
+
+        .view-project a:hover {
+            text-decoration: underline;
+        }
+
+        p {
+            margin-bottom: 15px;
+            color: #4a5568;
+        }
+
+        ul {
+            margin-left: 25px;
+            margin-bottom: 15px;
+        }
+
+        li {
+            color: #4a5568;
+            margin-bottom: 8px;
+        }
+
+        .workflow-steps {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin: 15px 0;
+        }
+
+        .step {
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            font-weight: 500;
+        }
+
+        .step-1 { background: #c6f6d5; color: #276749; }
+        .step-2 { background: #bee3f8; color: #2c5282; }
+        .step-3 { background: #faf089; color: #975a16; }
+        .step-4 { background: #fed7d7; color: #c53030; }
+        .step-5 { background: #e9d8fd; color: #6b46c1; }
+
+        .outcome-box {
+            background: #ebf8ff;
+            padding: 25px;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+
+        .outcome-box h2 {
+            margin-top: 0;
+        }
+
+        .tech-box {
+            background: #f0fff4;
+            padding: 15px 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+            border-left: 4px solid #48bb78;
+        }
+
+        .tech-box strong {
+            color: #276749;
+        }
+
+        @media print {
+            body {
+                padding: 20px 40px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Book Blog Generator Agent</h1>
+
+    <h2 class="subtitle">AI-Powered Content Generation System</h2>
+
+    <h2>Project Overview</h2>
+    <p>An intelligent AI agent that automatically discovers marketing and copywriting books, then generates high-quality blog posts matching the user's unique writing style. Built with OpenAI's GPT-4o and a modular tool-based architecture.</p>
+
+    <h2>Problem Solved</h2>
+    <p>Content creators and marketers need efficient ways to:</p>
+    <ul>
+        <li>Maintain consistent blog publishing schedules</li>
+        <li>Discover relevant books in their niche</li>
+        <li>Generate content that matches their personal voice and style</li>
+        <li>Track which topics have already been covered</li>
+        <li>Scale content production without sacrificing quality</li>
+    </ul>
+
+    <h2>System Features</h2>
+
+    <h3>Intelligent Book Discovery</h3>
+    <ul>
+        <li>Google Books API integration for automatic book search</li>
+        <li>Curated book list support (books_to_review.txt)</li>
+        <li>Category-based discovery: copywriting, marketing psychology, persuasion, sales</li>
+        <li>Duplicate detection and tracking of completed books</li>
+    </ul>
+
+    <h3>Five-Step Generation Workflow</h3>
+    <div class="workflow-steps">
+        <span class="step step-1">1. Discover</span>
+        <span class="step step-2">2. Analyze Style</span>
+        <span class="step step-3">3. Generate</span>
+        <span class="step step-4">4. Save</span>
+        <span class="step step-5">5. Track</span>
+    </div>
+
+    <h3>Style Matching</h3>
+    <ul>
+        <li>Learns from example blog posts in the examples/ folder</li>
+        <li>Analyzes heading structure, tone, format, and voice</li>
+        <li>Generates content that feels native to your existing blog</li>
+        <li>Actionable takeaways and key insights in every post</li>
+    </ul>
+
+    <h3>Flexible Operation Modes</h3>
+    <ul>
+        <li>Auto-discover mode: Finds and writes about trending books</li>
+        <li>Manual mode: Input specific book details for targeted posts</li>
+        <li>Chat mode: Interactive conversational interface with the AI agent</li>
+        <li>List mode: Preview discovered books before generating</li>
+    </ul>
+
+    <h2>Technical Implementation</h2>
+
+    <h3>AI Agent Architecture</h3>
+    <ul>
+        <li>OpenAI GPT-4o powered conversational agent</li>
+        <li>Tool-based function calling for modular capabilities</li>
+        <li>Persistent conversation history for context awareness</li>
+        <li>System prompts optimized for blog writing</li>
+    </ul>
+
+    <h3>Six Custom Tools</h3>
+    <ul>
+        <li><strong>search_books:</strong> Query Google Books API for relevant titles</li>
+        <li><strong>get_curated_books:</strong> Load pre-selected book list</li>
+        <li><strong>get_written_books:</strong> Check completion history</li>
+        <li><strong>load_style_examples:</strong> Analyze writing style from samples</li>
+        <li><strong>save_blog_post:</strong> Write Markdown files to output/</li>
+        <li><strong>mark_book_complete:</strong> Track finished posts</li>
+    </ul>
+
+    <h3>Data Management</h3>
+    <ul>
+        <li>books_to_review.txt: Curated book queue with pipe-delimited format</li>
+        <li>books_written.txt: Completion tracking to prevent duplicates</li>
+        <li>output/ folder: Generated blog posts with date-prefixed filenames</li>
+        <li>examples/ folder: Style reference documents</li>
+    </ul>
+
+    <div class="outcome-box">
+        <h2>Outcome</h2>
+        <p>A production-ready content generation system that:</p>
+        <ul>
+            <li>Reduces blog writing time from hours to minutes</li>
+            <li>Maintains consistent voice across all generated content</li>
+            <li>Automatically discovers fresh, relevant book topics</li>
+            <li>Scales content output without additional human effort</li>
+            <li>Provides full transparency with Markdown output files</li>
+        </ul>
+    </div>
+
+    <div class="tech-box">
+        <strong>Technologies Used:</strong> Python, OpenAI GPT-4o API, Google Books API, Function Calling, Markdown, CLI Interface
+    </div>
+
+    <h2>Impact</h2>
+    <p>Demonstrates expertise in building practical AI agents with tool-based architectures, API integrations, and style-aware content generation. Showcases the ability to create autonomous systems that solve real content marketing challenges while maintaining brand voice consistency.</p>
+</body>
+</html>

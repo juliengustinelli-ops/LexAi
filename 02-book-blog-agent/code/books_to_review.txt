@@ -1,0 +1,19 @@
+# Books to review - add books you want to write about
+# Format: Title | Author | Brief description (optional)
+# The agent will pick from this list first before auto-discovering
+
+Influence: The Psychology of Persuasion | Robert Cialdini | The classic book on why people say yes
+Ogilvy on Advertising | David Ogilvy | Timeless advertising wisdom from a legend
+This Is Marketing | Seth Godin | Marketing that matters and creates change
+Contagious: Why Things Catch On | Jonah Berger | The science behind viral content
+$100M Offers | Alex Hormozi | How to make offers so good people feel stupid saying no
+Building a Second Brain | Tiago Forte | A system for organizing your digital life
+The Copywriter's Handbook | Robert Bly | The ultimate guide to writing copy that sells
+Purple Cow | Seth Godin | Transform your business by being remarkable
+Hooked | Nir Eyal | How to build habit-forming products
+Scientific Advertising | Claude Hopkins | The original direct response advertising bible
+Ca$hvertising | Drew Eric Whitman | How to use psychology to make ads sell
+The Boron Letters | Gary Halbert | Classic copywriting lessons in letter form
+Expert Secrets | Russell Brunson | Turn your knowledge into a business
+Hey Whipple, Squeeze This | Luke Sullivan | A guide to creating great advertising
+The Adweek Copywriting Handbook | Joseph Sugarman | Techniques for writing seductive copy

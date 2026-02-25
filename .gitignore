@@ -1,0 +1,21 @@
+# Rust build output
+target/
+
+# Node
+node_modules/
+.next/
+dist/
+
+# Python
+venv/
+__pycache__/
+*.pyc
+*.pyo
+.env
+
+# Browser automation profile
+.browser_profile/
+
+# Output/logs
+output/
+*.log

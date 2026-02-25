@@ -1,0 +1,19 @@
+# Books already reviewed - one per line
+# The agent will skip these when auto-discovering
+Everybody Writes
+The Upwork Freelancer's Bible
+Fanatical Prospecting
+Marketing Automation Unleashed
+The 22 Immutable Laws of Marketing
+Breakthrough Advertising
+The Mom Test
+Lean Analytics
+The Power of Differentiation
+Building a StoryBrand 2.0
+Hacking Growth
+Mindmasters
+Made to Stick
+Influence: The Psychology of Persuasion
+Ogilvy on Advertising
+This Is Marketing
+Contagious: Why Things Catch On

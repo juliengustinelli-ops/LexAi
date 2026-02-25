@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Case Study: Book Blog Generator Agent</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            line-height: 1.7;
+            color: #333;
+            max-width: 850px;
+            margin: 0 auto;
+            padding: 50px 60px;
+            background: #fff;
+        }
+
+        .header {
+            border-bottom: 4px solid #2c5282;
+            padding-bottom: 20px;
+            margin-bottom: 35px;
+        }
+
+        .label {
+            display: inline-block;
+            background: #2c5282;
+            color: white;
+            padding: 4px 12px;
+            border-radius: 4px;
+            font-size: 0.8em;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            margin-bottom: 15px;
+        }
+
+        h1 {
+            color: #1a365d;
+            font-size: 2.4em;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .tagline {
+            color: #4a5568;
+            font-size: 1.2em;
+            font-weight: 400;
+        }
+
+        h2 {
+            color: #2c5282;
+            font-size: 1.4em;
+            font-weight: 600;
+            margin-top: 35px;
+            margin-bottom: 15px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #e2e8f0;
+        }
+
+        h3 {
+            color: #2d3748;
+            font-size: 1.1em;
+            font-weight: 600;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+
+        p {
+            margin-bottom: 15px;
+            color: #4a5568;
+        }
+
+        ul {
+            margin-left: 25px;
+            margin-bottom: 15px;
+        }
+
+        li {
+            color: #4a5568;
+            margin-bottom: 10px;
+        }
+
+        li strong {
+            color: #2d3748;
+        }
+
+        .problem-box {
+            background: linear-gradient(135deg, #fff5f5 0%, #fed7d7 100%);
+            padding: 25px 30px;
+            border-radius: 10px;
+            margin: 25px 0;
+            border-left: 5px solid #c53030;
+        }
+
+        .problem-box h3 {
+            color: #c53030;
+            margin-top: 0;
+        }
+
+        .solution-box {
+            background: linear-gradient(135deg, #f0fff4 0%, #c6f6d5 100%);
+            padding: 25px 30px;
+            border-radius: 10px;
+            margin: 25px 0;
+            border-left: 5px solid #38a169;
+        }
+
+        .solution-box h3 {
+            color: #276749;
+            margin-top: 0;
+        }
+
+        .workflow-section {
+            background: #f7fafc;
+            padding: 25px;
+            border-radius: 10px;
+            margin: 25px 0;
+        }
+
+        .workflow-steps {
+            display: flex;
+            justify-content: space-between;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin: 20px 0;
+        }
+
+        .step {
+            flex: 1;
+            min-width: 100px;
+            text-align: center;
+            padding: 15px 10px;
+            border-radius: 8px;
+            font-size: 0.85em;
+            font-weight: 600;
+            position: relative;
+        }
+
+        .step::after {
+            content: "\2192";
+            position: absolute;
+            right: -15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #a0aec0;
+            font-size: 1.2em;
+        }
+
+        .step:last-child::after {
+            content: "";
+        }
+
+        .step-1 { background: #c6f6d5; color: #276749; }
+        .step-2 { background: #bee3f8; color: #2c5282; }
+        .step-3 { background: #faf089; color: #975a16; }
+        .step-4 { background: #fed7d7; color: #c53030; }
+        .step-5 { background: #e9d8fd; color: #6b46c1; }
+        .step-6 { background: #fbb6ce; color: #97266d; }
+
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .tech-card {
+            background: #edf2f7;
+            padding: 15px 20px;
+            border-radius: 8px;
+        }
+
+        .tech-card h4 {
+            color: #2d3748;
+            font-size: 0.95em;
+            margin-bottom: 5px;
+        }
+
+        .tech-card p {
+            color: #718096;
+            font-size: 0.9em;
+            margin: 0;
+        }
+
+        .integration-highlight {
+            background: linear-gradient(135deg, #ebf4ff 0%, #c3dafe 100%);
+            padding: 25px 30px;
+            border-radius: 10px;
+            margin: 25px 0;
+            border-left: 5px solid #4299e1;
+        }
+
+        .integration-highlight h3 {
+            color: #2b6cb0;
+            margin-top: 0;
+        }
+
+        .tools-list {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+            margin: 15px 0;
+        }
+
+        .tool-item {
+            background: #fff;
+            border: 1px solid #e2e8f0;
+            padding: 12px 15px;
+            border-radius: 6px;
+            font-size: 0.9em;
+        }
+
+        .tool-item strong {
+            color: #2c5282;
+        }
+
+        .outcome-box {
+            background: linear-gradient(135deg, #ebf8ff 0%, #bee3f8 100%);
+            padding: 30px;
+            border-radius: 10px;
+            margin-top: 30px;
+        }
+
+        .outcome-box h2 {
+            color: #2b6cb0;
+            margin-top: 0;
+            border: none;
+            padding: 0;
+        }
+
+        .metrics {
+            display: flex;
+            justify-content: space-around;
+            margin: 25px 0;
+            text-align: center;
+        }
+
+        .metric {
+            padding: 15px;
+        }
+
+        .metric-value {
+            font-size: 2.5em;
+            font-weight: 700;
+            color: #2c5282;
+        }
+
+        .metric-label {
+            font-size: 0.9em;
+            color: #718096;
+        }
+
+        .tech-stack {
+            background: #1a365d;
+            color: white;
+            padding: 20px 25px;
+            border-radius: 10px;
+            margin-top: 30px;
+        }
+
+        .tech-stack h3 {
+            color: #90cdf4;
+            margin-top: 0;
+            margin-bottom: 15px;
+        }
+
+        .tech-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .tech-tag {
+            background: rgba(255,255,255,0.15);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.9em;
+        }
+
+        @media print {
+            body {
+                padding: 30px 40px;
+            }
+            .step::after {
+                content: "\2192";
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <span class="label">CASE STUDY</span>
+        <h1>Book Blog Generator Agent</h1>
+        <p class="tagline">End-to-End AI Content Automation with Substack Integration</p>
+    </div>
+
+    <h2>Project Scope</h2>
+    <p>An intelligent AI-powered system that automates the entire content creation pipeline for a book review blog. The agent discovers relevant books, generates high-quality blog posts matching the author's unique voice, and publishes directly to Substack as drafts&mdash;transforming what was a multi-hour manual process into a streamlined, automated workflow.</p>
+
+    <div class="problem-box">
+        <h3>The Problem</h3>
+        <p>Content creators face significant challenges maintaining a consistent publishing schedule:</p>
+        <ul>
+            <li><strong>Time-intensive research:</strong> Finding relevant books in specific niches requires hours of searching and evaluation</li>
+            <li><strong>Writer's block and consistency:</strong> Maintaining a consistent voice and quality across dozens of posts is mentally exhausting</li>
+            <li><strong>Manual publishing workflow:</strong> Copying content to Substack, formatting, and setting up drafts adds friction to every post</li>
+            <li><strong>Tracking overhead:</strong> Remembering which books have already been covered to avoid duplicates</li>
+            <li><strong>Scaling limitations:</strong> Growing content output means proportionally more time investment</li>
+        </ul>
+    </div>
+
+    <div class="solution-box">
+        <h3>The Solution</h3>
+        <p>A fully autonomous AI agent that handles every step of the content pipeline:</p>
+        <ul>
+            <li><strong>Intelligent discovery:</strong> Automatically finds marketing, copywriting, and business books via Google Books API or curated lists</li>
+            <li><strong>Style learning:</strong> Analyzes example posts to match the author's exact tone, structure, and format</li>
+            <li><strong>Quality content generation:</strong> Produces publication-ready blog posts with actionable insights</li>
+            <li><strong>Direct Substack publishing:</strong> Browser automation creates drafts in Substack, ready for review</li>
+            <li><strong>Automatic tracking:</strong> Maintains records of completed books to prevent duplicates</li>
+        </ul>
+    </div>
+
+    <h2>System Architecture</h2>
+
+    <div class="workflow-section">
+        <h3>Six-Stage Automation Pipeline</h3>
+        <div class="workflow-steps">
+            <span class="step step-1">Discover<br><small>Books</small></span>
+            <span class="step step-2">Load<br><small>Style</small></span>
+            <span class="step step-3">Generate<br><small>Content</small></span>
+            <span class="step step-4">Save<br><small>Locally</small></span>
+            <span class="step step-5">Publish<br><small>Substack</small></span>
+            <span class="step step-6">Track<br><small>Complete</small></span>
+        </div>
+    </div>
+
+    <h3>AI Agent with Tool-Based Architecture</h3>
+    <p>Built on OpenAI's GPT-4o with function calling, the agent operates through seven specialized tools:</p>
+
+    <div class="tools-list">
+        <div class="tool-item"><strong>search_books</strong> &ndash; Query Google Books API</div>
+        <div class="tool-item"><strong>get_curated_books</strong> &ndash; Load pre-selected book list</div>
+        <div class="tool-item"><strong>get_written_books</strong> &ndash; Check completion history</div>
+        <div class="tool-item"><strong>load_style_examples</strong> &ndash; Analyze writing samples</div>
+        <div class="tool-item"><strong>save_blog_post</strong> &ndash; Write Markdown files</div>
+        <div class="tool-item"><strong>mark_book_complete</strong> &ndash; Update tracking</div>
+        <div class="tool-item"><strong>publish_to_substack</strong> &ndash; Automate publishing</div>
+    </div>
+
+    <div class="integration-highlight">
+        <h3>Substack Integration</h3>
+        <p>The system features deep integration with Substack through browser automation powered by Playwright:</p>
+        <ul>
+            <li><strong>Persistent authentication:</strong> Uses a dedicated browser profile that maintains login sessions across runs</li>
+            <li><strong>Smart content handling:</strong> Automatically converts Markdown to Substack's editor format, applying proper heading styles</li>
+            <li><strong>Book cover images:</strong> Downloads cover images from Google Books, resizes for optimal display, and pastes via clipboard</li>
+            <li><strong>Draft creation:</strong> Posts are saved as drafts, allowing human review before publishing</li>
+            <li><strong>Auto-save detection:</strong> Waits for Substack's auto-save to confirm successful draft creation</li>
+        </ul>
+    </div>
+
+    <h2>Key Features</h2>
+
+    <div class="tech-grid">
+        <div class="tech-card">
+            <h4>Multiple Operation Modes</h4>
+            <p>Auto-discover, manual entry, list preview, and interactive chat modes for flexibility</p>
+        </div>
+        <div class="tech-card">
+            <h4>Style Matching</h4>
+            <p>Learns from example posts to replicate exact tone, structure, and formatting</p>
+        </div>
+        <div class="tech-card">
+            <h4>Duplicate Prevention</h4>
+            <p>Tracks all written books to ensure fresh content every time</p>
+        </div>
+        <div class="tech-card">
+            <h4>Conversational Interface</h4>
+            <p>Chat naturally with the agent to request specific books or customize output</p>
+        </div>
+    </div>
+
+    <div class="outcome-box">
+        <h2>Results & Impact</h2>
+
+        <div class="metrics">
+            <div class="metric">
+                <div class="metric-value">15+</div>
+                <div class="metric-label">Blog Posts Generated</div>
+            </div>
+            <div class="metric">
+                <div class="metric-value">90%</div>
+                <div class="metric-label">Time Saved Per Post</div>
+            </div>
+            <div class="metric">
+                <div class="metric-value">100%</div>
+                <div class="metric-label">Automated Pipeline</div>
+            </div>
+        </div>
+
+        <ul>
+            <li>Reduced blog post creation from 2-3 hours to under 15 minutes of review time</li>
+            <li>Maintained consistent voice and quality across all generated content</li>
+            <li>Eliminated manual copy-paste workflow with direct Substack publishing</li>
+            <li>Enabled scaling content output without proportional time investment</li>
+            <li>Created a reusable framework adaptable to other content niches</li>
+        </ul>
+    </div>
+
+    <div class="tech-stack">
+        <h3>Technology Stack</h3>
+        <div class="tech-tags">
+            <span class="tech-tag">Python</span>
+            <span class="tech-tag">OpenAI GPT-4o</span>
+            <span class="tech-tag">Function Calling</span>
+            <span class="tech-tag">Playwright</span>
+            <span class="tech-tag">Google Books API</span>
+            <span class="tech-tag">Browser Automation</span>
+            <span class="tech-tag">Substack API</span>
+            <span class="tech-tag">Markdown</span>
+            <span class="tech-tag">PIL/Pillow</span>
+            <span class="tech-tag">CLI Interface</span>
+        </div>
+    </div>
+
+    <h2>Conclusion</h2>
+    <p>This project demonstrates expertise in building practical AI agents with tool-based architectures, external API integrations, and browser automation. It showcases the ability to create autonomous systems that solve real content marketing challenges while maintaining brand voice consistency and seamlessly integrating with existing publishing platforms like Substack.</p>
+
+</body>
+</html>
