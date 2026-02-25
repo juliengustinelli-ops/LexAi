@@ -1,0 +1,31 @@
+Total Count: 12
+
+    Failed: 11
+
+    Passed: 1
+
+Percentages:
+
+    Failed: 91.67%
+
+    Passed: 8.33%
+
+Total Count: 14
+
+    Passed: 7
+
+    Failed: 7
+
+Percentages:
+
+    Passed: 50.00%
+
+    Failed: 50.00%
+
+
+
+Results:
+  - Passed: 31 (88.6%)
+  - Failed: 4 (11.4%)
+  - Total: 35
+
