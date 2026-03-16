@@ -45,12 +45,42 @@ body{font-family:'Poppins',sans-serif;color:#fff}
 }
 .btn-cta:hover{opacity:.9;transform:translateY(-2px)}
 
+/* -------- DROPDOWN -------- */
+.nav-dropdown{position:relative}
+.nav-dropdown .nav-item{display:flex;align-items:center;gap:5px}
+.nav-dropdown .nav-item::after{content:'▾';font-size:.7rem;opacity:.7}
+.dropdown-menu{
+  display:none;position:absolute;top:100%;left:50%;transform:translateX(-50%);
+  padding-top:10px;
+  background:transparent;
+  min-width:140px;z-index:1000;
+}
+.dropdown-menu-inner{
+  background:rgba(11,13,25,.95);backdrop-filter:blur(12px);
+  border:1px solid rgba(255,255,255,.1);border-radius:10px;
+  overflow:hidden;
+}
+.dropdown-menu a{
+  display:block;padding:.65rem 1.2rem;color:rgba(255,255,255,.8);
+  text-decoration:none;font-size:.88rem;font-weight:500;
+  transition:background .15s,color .15s;white-space:nowrap;
+}
+.dropdown-menu a:hover{background:rgba(0,194,181,.12);color:var(--brand-green)}
+.nav-dropdown:hover .dropdown-menu{display:block}
+
 /* -------- HERO -------- */
 .hero{
   min-height:100vh;display:flex;align-items:center;justify-content:center;
-  background:url('hero.jpg') center/cover no-repeat;position:relative;text-align:center;padding:0 1rem
+  position:relative;text-align:center;padding:0 1rem;
+  background-color:#0a0c18;
+  background-image:
+    radial-gradient(ellipse 90% 55% at 50% 0%, rgba(0,194,181,.18) 0%, transparent 70%),
+    radial-gradient(ellipse 40% 40% at 80% 80%, rgba(0,191,199,.07) 0%, transparent 60%),
+    linear-gradient(rgba(0,194,181,.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,194,181,.04) 1px, transparent 1px);
+  background-size:auto, auto, 56px 56px, 56px 56px;
 }
-.hero::after{content:"";position:absolute;inset:0;background:rgba(0,0,0,.10)}
+.hero::after{content:none}
 .hero-inner{position:relative;z-index:1;max-width:900px}
 .hero h4{letter-spacing:4px;font-size:.9rem;font-weight:400;margin-bottom:1rem}
 .hero h1{font-size:clamp(2.5rem,7vw,4.5rem);font-weight:700;margin:0 0 1rem;color:#e7e7e7}
@@ -142,6 +172,68 @@ section{scroll-margin-top:90px}
     0 1px 2px rgba(11,13,25,.35);
 }
 
+/* -------- HERO CANVAS -------- */
+#heroCanvas{
+  position:absolute;inset:0;width:100%;height:100%;z-index:0;
+  pointer-events:none;
+}
+
+/* -------- HERO BADGE & NEW ELEMENTS -------- */
+.hero-badge{
+  display:inline-block;
+  background:rgba(0,194,181,.18);
+  border:1px solid rgba(0,194,181,.45);
+  color:var(--brand-green);
+  font-size:.82rem;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;
+  padding:.45rem 1.2rem;border-radius:50px;margin-bottom:1.6rem;
+}
+.hero h1{font-size:clamp(2.2rem,6vw,4rem);font-weight:700;line-height:1.15;margin-bottom:1.4rem;color:#f0f0f0}
+.hero-sub{
+  font-size:1.05rem;font-weight:300;line-height:1.75;
+  max-width:620px;margin:0 auto 2.5rem;
+  color:rgba(255,255,255,.85);letter-spacing:0;
+}
+.hero-actions{display:flex;justify-content:center;gap:1.2rem;flex-wrap:wrap}
+.hero-btn-primary{
+  padding:1rem 2.4rem;border-radius:50px;font-weight:600;font-size:1rem;
+  background:var(--brand-green);color:#fff;text-decoration:none;
+  transition:transform .25s,box-shadow .25s;
+}
+.hero-btn-primary:hover{transform:translateY(-3px);box-shadow:0 8px 20px rgba(0,194,181,.35)}
+.hero-btn-secondary{
+  padding:1rem 2.4rem;border-radius:50px;font-weight:600;font-size:1rem;
+  background:transparent;color:#fff;border:2px solid rgba(255,255,255,.6);text-decoration:none;
+  transition:border-color .25s,background .25s,transform .25s;
+}
+.hero-btn-secondary:hover{border-color:#fff;background:rgba(255,255,255,.08);transform:translateY(-3px)}
+
+/* -------- FEATURES SUBTITLE -------- */
+.features-sub{
+  font-size:.97rem;font-weight:300;color:#666;max-width:580px;margin:.4rem auto 0;line-height:1.7;
+}
+
+/* -------- HOW WE WORK -------- */
+#how-it-works{background:#f4f6f8;padding:6rem 2rem;color:#0b0d19;text-align:center}
+.hiw-wrapper{max-width:1000px;margin:auto}
+.hiw-wrapper h2{font-size:clamp(1.8rem,4vw,2.5rem);font-weight:700;color:#0b0d19;margin-bottom:.6rem}
+.hiw-wrapper h2::after{content:'';display:block;width:52px;height:4px;background:var(--brand-green);border-radius:2px;margin:.8rem auto 0}
+.hiw-sub{font-size:.97rem;font-weight:300;color:#666;max-width:520px;margin:.8rem auto 3.5rem;line-height:1.7}
+.hiw-grid{display:flex;align-items:flex-start;justify-content:center;gap:0;flex-wrap:wrap}
+.hiw-step{flex:1;min-width:200px;max-width:260px;padding:1.5rem 1rem;text-align:center}
+.hiw-num{
+  display:inline-flex;align-items:center;justify-content:center;
+  width:52px;height:52px;border-radius:50%;
+  background:var(--brand-green);color:#fff;
+  font-size:1.1rem;font-weight:700;margin-bottom:1.2rem;
+}
+.hiw-step h3{font-size:1.1rem;font-weight:700;color:#0b0d19;margin-bottom:.6rem}
+.hiw-step p{font-size:.9rem;font-weight:300;color:#555;line-height:1.7}
+.hiw-divider{
+  width:60px;height:2px;background:rgba(0,194,181,.3);
+  align-self:center;flex-shrink:0;
+}
+@media(max-width:700px){.hiw-divider{display:none}.hiw-step{max-width:100%;width:100%}}
+
 /* --- NAV height variable ----------------------------------------- */
 :root { --nav-h: 84px; }                    /* desktop baseline */
 .glass { min-height: var(--nav-h); }
@@ -216,18 +308,34 @@ section[id], [id^="faq"], [id^="features"], [id^="pricing"], [id^="mission"]{
     <ul class="nav-links">
       <li><a class="nav-item" href="index.html">Home</a></li>
       <li><a href="index.html#features" class="nav-item">Features</a></li>
-      <li><a class="nav-item" href="about.html">About</a></li>
+      <li class="nav-dropdown">
+        <a class="nav-item" href="about.html">About</a>
+        <div class="dropdown-menu">
+          <div class="dropdown-menu-inner">
+            <a href="about.html">About Us</a>
+            <a href="lexai-faq.html">FAQ</a>
+          </div>
+        </div>
+      </li>
       <li><a class="nav-item" href="case-studies.html">Case Studies</a></li>
     </ul>
+    <div class="nav-ctas">
+      <a href="https://calendly.com/lexai/ai-implementation-introductory-chat?month=2025-08" target="_blank" class="btn-cta">Get Started</a>
+    </div>
   </nav>
 </header>
 
 <!-- ===== HERO ===== -->
 <section id="home" class="hero">
+  <canvas id="heroCanvas"></canvas>
   <div class="hero-inner">
-    <h4><span class="hero-tagline hero-text">WELCOME TO</span></h4>
-    <h1><span class="hero-text">LexAi</span></h1>
-    <p><span class="hero-tagline hero-text">Custom AI Solutions. Real Results. Built Around Your Business.</span></p>
+    <div class="hero-badge hero-text">AI Solutions for B2B Growth Teams</div>
+    <h1 class="hero-text">Built Around Your Business.<br>Engineered to Perform.</h1>
+    <p class="hero-sub hero-text">From lead generation engines to custom automation tools — LexAi builds AI solutions scoped to your exact needs and deployed in weeks, not months.</p>
+    <div class="hero-actions">
+      <a href="https://calendly.com/lexai/ai-implementation-introductory-chat?month=2025-08" target="_blank" class="hero-btn-primary">Book a Free Call</a>
+      <a href="#features" class="hero-btn-secondary">See What We Build</a>
+    </div>
   </div>
 </section>
 
@@ -237,7 +345,7 @@ section[id], [id^="faq"], [id^="features"], [id^="pricing"], [id^="mission"]{
     <div class="stat-item"><span class="number">970+</span><span class="label">Active Users</span></div>
     <div class="stat-item"><span class="number">450+</span><span class="label">Client Hours Saved / Year</span></div>
     <div class="stat-item"><span class="number">90%</span><span class="label">Lead Quality Achieved</span></div>
-    <div class="stat-item"><span class="number">3+</span><span class="label">Industries Served</span></div>
+    <div class="stat-item"><span class="number">100%</span><span class="label">Custom-Built Solutions</span></div>
   </div>
 </div>
 
@@ -245,6 +353,7 @@ section[id], [id^="faq"], [id^="features"], [id^="pricing"], [id^="mission"]{
 <section id="features">
   <div class="features-wrapper">
     <h2>Custom-Built Solutions That Drive Real Results</h2>
+    <p class="features-sub">Every solution is scoped, built, and deployed around your exact business needs — no templates, no off-the-shelf software.</p>
 
     <div class="features-grid">
       <!-- 1 -->
@@ -275,12 +384,40 @@ section[id], [id^="faq"], [id^="features"], [id^="pricing"], [id^="mission"]{
   </div>
 </section>
 
+<!-- ===== HOW WE WORK ===== -->
+<section id="how-it-works">
+  <div class="hiw-wrapper">
+    <h2>How We Work</h2>
+    <p class="hiw-sub">From first call to live deployment — a straightforward, three-step process.</p>
+    <div class="hiw-grid">
+      <div class="hiw-step">
+        <div class="hiw-num">01</div>
+        <h3>Discover</h3>
+        <p>We start with a free strategy call to understand your business, goals, and the exact problem you need solved.</p>
+      </div>
+      <div class="hiw-divider"></div>
+      <div class="hiw-step">
+        <div class="hiw-num">02</div>
+        <h3>Build</h3>
+        <p>We scope and engineer a custom solution — no templates, no generic tools. Built specifically for your workflow.</p>
+      </div>
+      <div class="hiw-divider"></div>
+      <div class="hiw-step">
+        <div class="hiw-num">03</div>
+        <h3>Deploy</h3>
+        <p>We deliver a production-ready system, walk your team through it, and stay available for ongoing support.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ===== CTA STRIP ===== -->
 <section id="cta">
   <h2>Ready to see what's possible?</h2>
   <p>From lead generation to automation to custom AI tools — we build solutions around your exact needs. Let's talk about what that looks like for your business.</p>
   <div class="cta-buttons">
-    <a href="https://calendly.com/lexai/ai-implementation-introductory-chat?month=2025-08" target="_blank" class="btn-outline">Request a Quote</a>
+    <a href="https://calendly.com/lexai/ai-implementation-introductory-chat?month=2025-08" target="_blank" class="btn-primary">Book a Free Call</a>
+    <a href="case-studies.html" class="btn-outline">See Case Studies</a>
   </div>
 </section>
 
@@ -326,7 +463,7 @@ section[id], [id^="faq"], [id^="features"], [id^="pricing"], [id^="mission"]{
   <hr>
 
   <div class="footer-bottom">
-    <p>© 2025 LexAi. All rights reserved.</p>
+    <p>© 2026 LexAi. All rights reserved.</p>
 
     <ul class="social">
       <li><a href="javascript:void(0)">Twitter</a></li>
@@ -336,6 +473,79 @@ section[id], [id^="faq"], [id^="features"], [id^="pricing"], [id^="mission"]{
     </ul>
   </div>
 </footer>
+
+<!-- ===== PARTICLE NETWORK ===== -->
+<script>
+(function(){
+  const canvas = document.getElementById('heroCanvas');
+  const ctx    = canvas.getContext('2d');
+  const TEAL   = '0,194,181';
+  const COUNT  = 72;
+  const LINK_DIST = 140;
+  const SPEED  = 0.4;
+  let W, H, particles;
+
+  function resize(){
+    W = canvas.width  = canvas.offsetWidth;
+    H = canvas.height = canvas.offsetHeight;
+  }
+
+  function Particle(){
+    this.x  = Math.random() * W;
+    this.y  = Math.random() * H;
+    this.vx = (Math.random() - .5) * SPEED;
+    this.vy = (Math.random() - .5) * SPEED;
+    this.r  = Math.random() * 1.8 + 1;
+  }
+
+  function init(){
+    resize();
+    particles = Array.from({length: COUNT}, () => new Particle());
+  }
+
+  function draw(){
+    ctx.clearRect(0, 0, W, H);
+
+    // draw links
+    for(let i = 0; i < particles.length; i++){
+      for(let j = i + 1; j < particles.length; j++){
+        const dx   = particles[i].x - particles[j].x;
+        const dy   = particles[i].y - particles[j].y;
+        const dist = Math.sqrt(dx*dx + dy*dy);
+        if(dist < LINK_DIST){
+          const alpha = (1 - dist / LINK_DIST) * 0.35;
+          ctx.beginPath();
+          ctx.strokeStyle = `rgba(${TEAL},${alpha})`;
+          ctx.lineWidth   = 0.8;
+          ctx.moveTo(particles[i].x, particles[i].y);
+          ctx.lineTo(particles[j].x, particles[j].y);
+          ctx.stroke();
+        }
+      }
+    }
+
+    // draw dots
+    for(const p of particles){
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(${TEAL},0.55)`;
+      ctx.fill();
+
+      // move
+      p.x += p.vx;
+      p.y += p.vy;
+      if(p.x < 0 || p.x > W) p.vx *= -1;
+      if(p.y < 0 || p.y > H) p.vy *= -1;
+    }
+
+    requestAnimationFrame(draw);
+  }
+
+  window.addEventListener('resize', ()=>{ resize(); });
+  init();
+  draw();
+})();
+</script>
 
 <!-- ===== SCRIPTS ===== -->
 <script>
