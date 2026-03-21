@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FAQ — LexAi</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Poppins', sans-serif; background: #f4f6f8; color: #0b0d19; line-height: 1.75; }
+
+  /* NAV */
+  nav {
+    position: sticky; top: 0; z-index: 100;
+    height: 84px; display: flex; align-items: center; justify-content: space-between;
+    padding: 0 2rem;
+    background: rgba(11,13,25,0.85);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(255,255,255,.08);
+  }
+  .logo { font-size: 1.4rem; font-weight: 700; color: #fff; text-decoration: none; }
+  .logo span { color: #00c2b5; }
+  .nav-links { display: flex; gap: 2rem; list-style: none; }
+  .nav-links a { color: rgba(255,255,255,0.75); text-decoration: none; font-size: 0.92rem; font-weight: 500; transition: color 0.2s; }
+  .nav-links a:hover { color: #00bfc7; }
+  .nav-cta { background: #00c2b5; color: #fff; font-family: 'Poppins', sans-serif; font-weight: 700; font-size: 0.88rem; padding: 0.6rem 1.4rem; border-radius: 25px; border: none; cursor: pointer; text-decoration: none; transition: opacity 0.2s; }
+  .nav-cta:hover { opacity: 0.85; }
+
+  /* HERO */
+  .hero { background: #0b0d19; text-align: center; padding: 5rem 2rem 4rem; }
+  .hero-label { display: inline-block; background: rgba(0,194,181,0.12); color: #00c2b5; font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 2.5px; padding: 6px 18px; border-radius: 20px; border: 1px solid rgba(0,194,181,0.25); margin-bottom: 1.4rem; }
+  .hero h1 { font-size: clamp(2rem, 5vw, 3rem); font-weight: 700; color: #fff; line-height: 1.2; margin-bottom: 1rem; }
+  .hero h1 span { color: #00c2b5; }
+  .hero p { font-size: 1rem; color: rgba(255,255,255,0.6); max-width: 500px; margin: 0 auto; }
+
+  /* CONTENT */
+  .container { max-width: 860px; margin: 0 auto; padding: 4rem 2rem 5rem; }
+
+  .section-label {
+    font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px;
+    color: #00c2b5; margin-top: 3.5rem; margin-bottom: 1.5rem;
+    display: flex; align-items: center; gap: 12px;
+  }
+  .section-label:first-child { margin-top: 0; }
+  .section-label::after { content: ''; flex: 1; height: 1px; background: #dde2ea; }
+
+  /* FAQ CARDS */
+  .faq-block {
+    background: #fff;
+    border-top: 4px solid #00c2b5;
+    border-radius: 12px;
+    box-shadow: 0 4px 14px rgba(0,0,0,.06);
+    padding: 2rem 1.6rem;
+    margin-bottom: 1.5rem;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .faq-block:hover { transform: translateY(-3px); box-shadow: 0 8px 20px rgba(0,0,0,.09); }
+
+  .question { font-size: 1.05rem; font-weight: 700; color: #0b0d19; margin-bottom: 0.65rem; }
+  .answer { font-size: 0.97rem; color: #444; line-height: 1.75; }
+  .answer strong { color: #0b0d19; font-weight: 600; }
+
+  .stat-row { display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 1.2rem; }
+  .stat-box { background: #f4f6f8; border-radius: 10px; padding: 0.85rem 1.2rem; flex: 1; min-width: 140px; text-align: center; border: 1px solid #dde2ea; }
+  .stat-box .num { font-size: 1.3rem; font-weight: 700; color: #00c2b5; display: block; }
+  .stat-box .label { font-size: 0.75rem; color: #555; font-weight: 500; }
+
+  .tag-list { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 1rem; }
+  .tag { background: #f4f6f8; color: #555; font-size: 0.78rem; font-weight: 500; padding: 5px 14px; border-radius: 20px; border: 1px solid #dde2ea; }
+  .tag.teal { background: rgba(0,194,181,0.08); color: #00a89d; border-color: rgba(0,194,181,0.3); font-weight: 600; }
+
+  /* CTA STRIP */
+  .cta-strip {
+    background: #0b0d19;
+    border-radius: 16px;
+    padding: 3rem 2.5rem;
+    text-align: center;
+    margin-top: 4rem;
+  }
+  .cta-strip h2 { font-size: clamp(1.4rem, 3vw, 1.9rem); font-weight: 700; color: #fff; margin-bottom: 0.6rem; }
+  .cta-strip p { font-size: 0.97rem; color: rgba(255,255,255,0.6); margin-bottom: 1.6rem; }
+  .cta-btn { background: #00c2b5; color: #fff; font-family: 'Poppins', sans-serif; font-weight: 700; font-size: 0.95rem; padding: 1rem 2.5rem; border-radius: 50px; border: none; cursor: pointer; text-decoration: none; display: inline-block; transition: transform 0.2s, box-shadow 0.2s; }
+  .cta-btn:hover { transform: translateY(-3px); box-shadow: 0 8px 20px rgba(0,194,181,0.35); }
+
+  /* FOOTER */
+  footer { background: #0b0d19; border-top: 1px solid rgba(255,255,255,0.07); text-align: center; padding: 2rem; font-size: 0.82rem; color: rgba(255,255,255,0.3); }
+  footer a { color: #00c2b5; text-decoration: none; }
+
+  @media (max-width: 900px) {
+    nav { padding: 0 1.2rem; }
+    .nav-links { display: none; }
+    .hero { padding: 3.5rem 1.2rem 3rem; }
+    .container { padding: 3rem 1.2rem 4rem; }
+    .faq-block { padding: 1.4rem 1.2rem; }
+    .cta-strip { padding: 2.2rem 1.4rem; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="logo" href="https://lexaib2b.com">Lex<span>Ai</span></a>
+  <ul class="nav-links">
+    <li><a href="https://lexaib2b.com">Home</a></li>
+    <li><a href="https://lexaib2b.com/about.html">About</a></li>
+    <li><a href="https://lexaib2b.com/case-studies.html">Case Studies</a></li>
+    <li><a href="#">FAQ</a></li>
+  </ul>
+  <a class="nav-cta" href="https://lexaib2b.com">Book a Call</a>
+</nav>
+
+<div class="hero">
+  <div class="hero-label">FAQ</div>
+  <h1>Your Questions,<br><span>Answered.</span></h1>
+  <p>Everything you need to know about how we work, what we build, and the results we deliver.</p>
+</div>
+
+<div class="container">
+
+  <!-- SECTION 1 -->
+  <div class="section-label">What We Do</div>
+
+  <div class="faq-block">
+    <div class="question">What does LexAi actually build?</div>
+    <div class="answer">
+      We build custom AI tools engineered around your specific business problem — not off-the-shelf software you have to adapt to. Every solution is built from scratch to fit your exact workflow.<br><br>
+      Our core areas:
+      <div class="tag-list" style="margin-top:0.8rem;">
+        <span class="tag">AI Automation Tools</span>
+        <span class="tag">Precision Lead Generation</span>
+        <span class="tag">Custom Workflow Systems</span>
+        <span class="tag">LLM-Powered Engineering</span>
+        <span class="tag">Agent Orchestration</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="faq-block">
+    <div class="question">How is this different from off-the-shelf AI tools?</div>
+    <div class="answer">
+      Generic AI tools are built for everyone — which means they're optimized for no one. We engineer solutions around your exact problem, your data, and your team's workflow. The result is a tool that actually fits, rather than one you have to work around.<br><br>
+      Our mission: <strong>real, measurable advantages — not generic tools.</strong>
+    </div>
+  </div>
+
+  <div class="faq-block">
+    <div class="question">What kind of results can I expect?</div>
+    <div class="answer">
+      Our results speak for themselves:
+      <div class="stat-row">
+        <div class="stat-box"><span class="num">970+</span><span class="label">Active Users</span></div>
+        <div class="stat-box"><span class="num">450+</span><span class="label">Client Hours Saved / Year</span></div>
+        <div class="stat-box"><span class="num">90%</span><span class="label">Lead Quality Achieved</span></div>
+        <div class="stat-box"><span class="num">50%+</span><span class="label">LLM Cost Reduction</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 2 -->
+  <div class="section-label">How We Build</div>
+
+  <div class="faq-block">
+    <div class="question">How do you approach a new project?</div>
+    <div class="answer">
+      We start by understanding the problem — not pitching a solution. Once we know your workflow, bottlenecks, and goals, we scope a build and move fast. Most pilots are deliverable within two weeks.<br><br>
+      We prototype in a secure, isolated environment first — so nothing touches your live systems until the solution is proven and ready.
+    </div>
+  </div>
+
+  <div class="faq-block">
+    <div class="question">Is it safe to build AI on top of our systems?</div>
+    <div class="answer">
+      Yes. All prototyping happens inside a sandboxed environment — completely isolated from your production infrastructure. Once the solution is validated, we deploy it cleanly into your existing setup. Your data and systems are protected throughout the process.
+    </div>
+  </div>
+
+  <div class="faq-block">
+    <div class="question">Do you work with our existing tools and platforms?</div>
+    <div class="answer">
+      Yes — we build around what you already use. Whether you're running Microsoft, Salesforce, Google Workspace, or a custom internal stack, we integrate with your environment rather than asking you to change it.
+    </div>
+  </div>
+
+  <!-- SECTION 3 -->
+  <div class="section-label">Use Cases</div>
+
+  <div class="faq-block">
+    <div class="question">What kinds of problems do you solve?</div>
+    <div class="answer">
+      Any high-volume, repetitive, or process-heavy problem is a strong candidate. Some examples from our work:<br><br>
+      — <strong>Sales teams</strong> wasting hours on manual prospecting — we replaced a client's entire lead gen process with a one-click engine that delivers 90% qualified leads.<br><br>
+      — <strong>Operations teams</strong> drowning in unstructured requests — we built a help desk system that cut manual triage from 10 minutes to under 1 minute per request, saving 450+ hours annually.<br><br>
+      — <strong>Marketers</strong> doing repetitive outreach manually — we built InboxHunter, now used by 970+ users to automate Meta Ads prospecting at scale.
+    </div>
+  </div>
+
+  <div class="faq-block">
+    <div class="question">What is agent orchestration and do you offer it?</div>
+    <div class="answer">
+      Agent orchestration means deploying multiple AI agents that work together — each handling a specific task, passing results to the next, and running with minimal human input. Think of it as building an AI team rather than a single AI tool.<br><br>
+      Yes — we design and deploy multi-agent systems tailored to your operations.
+    </div>
+  </div>
+
+  <!-- SECTION 4 -->
+  <div class="section-label">Partnerships</div>
+
+  <div class="faq-block">
+    <div class="question">Who do you partner with?</div>
+    <div class="answer">
+      We work with a select group of partners to extend what we can deliver:
+      <div class="tag-list">
+        <span class="tag teal">Cloud Base Solutions</span>
+        <span class="tag teal">O3XO</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="faq-block">
+    <div class="question">What does Cloud Base Solutions bring to the table?</div>
+    <div class="answer">
+      <strong>Cloud Base Solutions</strong> is an enterprise technology transformation consultancy. If your organization runs on <strong>ServiceNow</strong> or <strong>DarwinBox</strong>, this partnership means we can deploy AI directly inside those platforms — no migration, no disruption, no new tools to learn.
+    </div>
+  </div>
+
+  <div class="faq-block">
+    <div class="question">What does O3XO bring to the table?</div>
+    <div class="answer">
+      <strong>O3XO</strong> specializes in knowledge infrastructure and AI connectivity. Through this partnership we can connect your AI systems to your internal knowledge base via <strong>Guru</strong>, and implement <strong>MCP (Model Context Protocol)</strong> — which allows AI agents to securely access your internal tools and data in real time, making them dramatically more effective.
+    </div>
+  </div>
+
+  <div class="faq-block">
+    <div class="question">How do I get started?</div>
+    <div class="answer">
+      Tell us what you're trying to solve — we'll tell you how we'd build it. Book a discovery call at <strong>lexaib2b.com</strong> and we'll assess your setup, identify the highest-leverage opportunity, and scope a pilot.
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div class="cta-strip">
+    <h2>Tell us what you're trying to solve.</h2>
+    <p>We'll tell you exactly how we'd build it.</p>
+    <a class="cta-btn" href="https://lexaib2b.com">Book a Discovery Call</a>
+  </div>
+
+</div>
+
+<footer>
+  &copy; 2026 LexAi &nbsp;·&nbsp; <a href="https://lexaib2b.com">lexaib2b.com</a>
+</footer>
+
+</body>
+</html>
