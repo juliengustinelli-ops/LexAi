@@ -1,0 +1,525 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Custom AI Solutions — LexAi</title>
+<meta name="description" content="LexAi builds custom AI solutions — lead qualification engines, workflow systems, agentic pipelines, and AI-powered tools — scoped and deployed around your exact business problem.">
+
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --brand-green:#00c2b5;
+  --brand-teal :#00bfc7;
+  --cta-bg     :#21a8ad;
+  --footer-bg  :#0b0d19;
+}
+
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Poppins',sans-serif;color:#fff;background:#080b16}
+
+/* ── NAVBAR ──────────────────────────────── */
+.glass{
+  position:fixed;top:0;left:0;width:100%;z-index:999;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0.8rem 4vw;background:rgba(0,0,0,.52);
+  backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);
+  border-bottom:1px solid rgba(255,255,255,.12);min-height:84px;
+}
+.brand{font:700 1.4rem/1 'Poppins';color:var(--brand-green);text-decoration:none}
+.nav-links{list-style:none;display:flex;gap:2.5rem}
+.nav-item{color:#fff;text-decoration:none;font-weight:500;transition:color .2s}
+.nav-item:hover{color:var(--brand-teal)}
+.btn-cta{
+  background:var(--brand-green);color:#fff;padding:.6rem 1.8rem;border-radius:25px;
+  font-weight:600;font-size:.9rem;text-decoration:none;transition:opacity .2s,transform .2s
+}
+.btn-cta:hover{opacity:.9;transform:translateY(-2px)}
+.nav-dropdown{position:relative}
+.nav-dropdown .nav-item{display:flex;align-items:center;gap:5px}
+.nav-dropdown .nav-item::after{content:'▾';font-size:.7rem;opacity:.7}
+.dropdown-menu{
+  display:none;position:absolute;top:100%;left:50%;transform:translateX(-50%);
+  padding-top:10px;background:transparent;min-width:170px;z-index:1000;
+}
+.dropdown-menu-inner{
+  background:rgba(11,13,25,.95);backdrop-filter:blur(12px);
+  border:1px solid rgba(255,255,255,.1);border-radius:10px;overflow:hidden;
+}
+.dropdown-menu a{
+  display:block;padding:.65rem 1.2rem;color:rgba(255,255,255,.8);
+  text-decoration:none;font-size:.88rem;font-weight:500;
+  transition:background .15s,color .15s;white-space:nowrap;
+}
+.dropdown-menu a:hover{background:rgba(0,194,181,.12);color:var(--brand-green)}
+.nav-dropdown:hover .dropdown-menu{display:block}
+.nav-toggle{display:none;margin-left:auto;background:transparent;border:0;padding:.4rem;cursor:pointer;border-radius:8px}
+.nav-toggle span{display:block;width:24px;height:2px;background:#fff;margin:6px 0;transition:.2s}
+@media(max-width:900px){
+  .glass{flex-wrap:wrap;align-items:center}
+  .nav-toggle{display:block}
+  .glass .nav-links,.glass .nav-ctas{
+    display:none;width:100%;background:rgba(10,10,20,.96);
+    border:1px solid rgba(255,255,255,.12);border-radius:12px;margin-top:.8rem;padding:.6rem .8rem;
+  }
+  .glass.open .nav-links,.glass.open .nav-ctas{display:flex}
+  .nav-links{flex-direction:column;gap:.6rem}
+  .nav-ctas{justify-content:flex-start;gap:.8rem}
+}
+
+/* ── HERO ─────────────────────────────────── */
+.hero{
+  min-height:100vh;display:flex;align-items:center;justify-content:center;
+  position:relative;text-align:center;padding:0 1rem;
+  background-color:#080b16;
+  background-image:
+    radial-gradient(ellipse 100% 80% at 10% 40%, rgba(0,194,181,.9) 0%, transparent 65%),
+    radial-gradient(ellipse  80% 70% at 90% 65%, rgba(0,180,194,.8) 0%, transparent 65%),
+    radial-gradient(ellipse  60% 50% at 55% 0%,  rgba(0,194,181,.6) 0%, transparent 60%);
+}
+.hero-inner{position:relative;z-index:1;max-width:820px}
+.hero-badge{
+  display:inline-block;background:rgba(0,194,181,.18);
+  border:1px solid rgba(0,194,181,.45);color:var(--brand-green);
+  font-size:.82rem;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;
+  padding:.45rem 1.2rem;border-radius:50px;margin-bottom:1.6rem;
+}
+.hero h1{
+  font-size:clamp(2.2rem,6vw,4rem);font-weight:700;line-height:1.15;
+  margin-bottom:1.4rem;color:#f0f0f0;
+  text-shadow:0 4px 24px rgba(11,13,25,.55),0 1px 2px rgba(11,13,25,.35);
+}
+.hero h1 span{color:var(--brand-green)}
+.hero-sub{
+  font-size:1.05rem;font-weight:300;line-height:1.75;
+  max-width:620px;margin:0 auto 2.5rem;color:rgba(255,255,255,.85);
+}
+.hero-actions{display:flex;justify-content:center;gap:1.2rem;flex-wrap:wrap}
+.hero-btn-primary{
+  padding:1rem 2.4rem;border-radius:50px;font-weight:600;font-size:1rem;
+  background:var(--brand-green);color:#fff;text-decoration:none;
+  transition:transform .25s,box-shadow .25s;
+}
+.hero-btn-primary:hover{transform:translateY(-3px);box-shadow:0 8px 20px rgba(0,194,181,.35)}
+.hero-btn-secondary{
+  padding:1rem 2.4rem;border-radius:50px;font-weight:600;font-size:1rem;
+  background:transparent;color:#fff;border:2px solid rgba(255,255,255,.6);text-decoration:none;
+  transition:border-color .25s,background .25s,transform .25s;
+}
+.hero-btn-secondary:hover{border-color:#fff;background:rgba(255,255,255,.08);transform:translateY(-3px)}
+
+/* ── STATS STRIP ──────────────────────────── */
+.stats-strip{background:#0b0d19;padding:0}
+.stats-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));max-width:1200px;margin:0 auto}
+.stat-item{padding:2.5rem 1.5rem;text-align:center;border-right:1px solid rgba(255,255,255,.08)}
+.stat-item:last-child{border-right:none}
+.stat-item .number{font-size:2.4rem;font-weight:900;color:var(--brand-green);line-height:1;display:block}
+.stat-item .label{font-size:.75rem;font-weight:600;color:rgba(255,255,255,.55);margin-top:.4rem;text-transform:uppercase;letter-spacing:.5px}
+
+/* ── SHARED SECTION STYLES ────────────────── */
+.section-light{background:#fff;color:#0b0d19;padding:6rem 2rem}
+.section-gray{background:#f4f6f8;color:#0b0d19;padding:6rem 2rem}
+.section-dark{background:#0d1020;color:#fff;padding:6rem 2rem}
+.section-wrapper{max-width:1100px;margin:0 auto}
+.section-tag{
+  display:inline-block;background:rgba(0,194,181,.12);
+  border:1px solid rgba(0,194,181,.35);color:var(--brand-green);
+  font-size:.75rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;
+  padding:.35rem 1rem;border-radius:50px;margin-bottom:1.2rem;
+}
+.section-title{font-size:clamp(1.8rem,4vw,2.5rem);font-weight:700;line-height:1.2;margin-bottom:.7rem}
+.section-title::after{content:'';display:block;width:52px;height:4px;background:var(--brand-green);border-radius:2px;margin:.8rem 0 0}
+.section-title.center{text-align:center}
+.section-title.center::after{margin:.8rem auto 0}
+.section-sub{font-size:.97rem;font-weight:300;color:#666;max-width:600px;line-height:1.7;margin-top:.5rem}
+
+/* ── WHAT WE BUILD CARDS ──────────────────── */
+.build-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1.5rem;margin-top:3rem}
+.build-card{
+  background:#fff;border-radius:16px;padding:2rem;
+  border-top:4px solid var(--brand-green);
+  box-shadow:0 2px 16px rgba(0,0,0,.06);
+}
+.build-icon{font-size:1.8rem;margin-bottom:1rem}
+.build-card h3{font-size:1rem;font-weight:700;color:#0b0d19;margin-bottom:.5rem}
+.build-card p{font-size:.88rem;font-weight:300;color:#555;line-height:1.75}
+.build-card .examples{margin-top:.8rem;font-size:.8rem;font-weight:600;color:var(--brand-green)}
+
+/* ── HOW WE WORK ──────────────────────────── */
+.hiw-grid{display:flex;align-items:flex-start;justify-content:center;gap:0;flex-wrap:wrap;margin-top:3.5rem}
+.hiw-step{flex:1;min-width:200px;max-width:260px;padding:1.5rem 1rem;text-align:center}
+.hiw-num{
+  display:inline-flex;align-items:center;justify-content:center;
+  width:52px;height:52px;border-radius:50%;
+  background:var(--brand-green);color:#fff;
+  font-size:1.1rem;font-weight:700;margin-bottom:1.2rem;
+}
+.hiw-step h3{font-size:1.05rem;font-weight:700;color:#fff;margin-bottom:.6rem}
+.hiw-step p{font-size:.88rem;font-weight:300;color:rgba(255,255,255,.55);line-height:1.7}
+.hiw-divider{width:60px;height:2px;background:rgba(0,194,181,.3);align-self:center;flex-shrink:0}
+@media(max-width:700px){.hiw-divider{display:none}.hiw-step{max-width:100%;width:100%}}
+
+/* ── RESULTS STRIP ────────────────────────── */
+.results-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1.5rem;margin-top:3rem}
+.result-card{
+  background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);
+  border-radius:16px;padding:2rem;
+}
+.result-client{font-size:.72rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--brand-green);margin-bottom:.5rem}
+.result-card h3{font-size:1rem;font-weight:700;color:#fff;margin-bottom:.6rem}
+.result-card p{font-size:.87rem;font-weight:300;color:rgba(255,255,255,.55);line-height:1.7}
+.result-stat{font-size:1.8rem;font-weight:900;color:var(--brand-green);margin-top:1rem;line-height:1}
+.result-stat-label{font-size:.78rem;color:rgba(255,255,255,.4);margin-top:.2rem}
+
+/* ── NOT A TEMPLATE ───────────────────────── */
+.diff-grid{display:grid;grid-template-columns:1fr 1fr;gap:3rem;margin-top:3rem;align-items:center}
+@media(max-width:700px){.diff-grid{grid-template-columns:1fr}}
+.diff-list{display:flex;flex-direction:column;gap:1rem}
+.diff-item{display:flex;gap:1rem;align-items:flex-start}
+.diff-check{
+  width:24px;height:24px;flex-shrink:0;border-radius:50%;
+  background:rgba(0,194,181,.15);border:1.5px solid var(--brand-green);
+  color:var(--brand-green);font-size:.75rem;font-weight:900;
+  display:flex;align-items:center;justify-content:center;margin-top:2px;
+}
+.diff-text{font-size:.9rem;color:#444;line-height:1.65}
+.diff-text strong{color:#0b0d19}
+.diff-visual{
+  background:linear-gradient(135deg,#062a2a,#0a3d3d);
+  border-radius:16px;padding:2.5rem;color:#fff;
+}
+.diff-visual .dv-label{font-size:.72rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--brand-green);margin-bottom:1rem}
+.diff-visual .dv-item{padding:.9rem 0;border-bottom:1px solid rgba(255,255,255,.1);font-size:.9rem;color:rgba(255,255,255,.75);display:flex;justify-content:space-between}
+.diff-visual .dv-item:last-child{border-bottom:none}
+.diff-visual .dv-val{font-weight:700;color:#fff}
+
+/* ── CTA STRIP ────────────────────────────── */
+#cta{background:var(--cta-bg);color:#fff;text-align:center;padding:5rem 2rem}
+#cta h2{font-size:clamp(1.8rem,4vw,2.4rem);font-weight:700;margin-bottom:.8rem}
+#cta p{font-size:1rem;font-weight:300;opacity:.85;max-width:540px;margin:0 auto 2.2rem;line-height:1.75}
+.cta-buttons{display:flex;justify-content:center;gap:1.2rem;flex-wrap:wrap}
+.btn-primary{
+  background:#fff;color:var(--cta-bg);padding:1rem 2.5rem;border-radius:45px;
+  font-weight:600;font-size:1rem;text-decoration:none;transition:.25s
+}
+.btn-primary:hover{transform:translateY(-3px);box-shadow:0 6px 16px rgba(0,0,0,.15)}
+.btn-outline{
+  background:transparent;color:#fff;border:2px solid #fff;
+  padding:1rem 2.5rem;border-radius:45px;font-weight:600;font-size:1rem;text-decoration:none;transition:.25s
+}
+.btn-outline:hover{background:rgba(255,255,255,.1);transform:translateY(-3px)}
+
+/* ── FOOTER ───────────────────────────────── */
+.site-footer{background:var(--footer-bg);color:#d1d1d1;padding:4rem 2rem}
+.footer-top{display:grid;gap:2.5rem;max-width:1200px;margin:auto}
+@media(min-width:700px){.footer-top{grid-template-columns:2fr 1fr 1fr 1fr}}
+.footer-brand{font-size:1.4rem;font-weight:700;color:var(--brand-green);text-decoration:none}
+.footer-col h4{font-size:1.05rem;font-weight:600;margin-bottom:1rem;color:#fff}
+.footer-col ul{list-style:none}
+.footer-col li+li{margin-top:.6rem}
+.footer-col a{color:#d1d1d1;text-decoration:none;font-size:.95rem;transition:color .2s}
+.footer-col a:hover{color:var(--brand-green)}
+hr{border:none;border-top:1px solid #2a2e3a;margin:3rem 0 2rem}
+.footer-bottom{max-width:1200px;margin:auto;display:flex;justify-content:space-between;flex-wrap:wrap;gap:1rem;font-size:.9rem}
+.social{display:flex;gap:1.5rem;list-style:none}
+.social a{color:#d1d1d1;text-decoration:none;transition:color .2s}
+.social a:hover{color:var(--brand-green)}
+
+section{scroll-margin-top:90px}
+</style>
+</head>
+
+<body>
+
+<!-- ===== NAVBAR ===== -->
+<header>
+  <nav class="glass">
+    <a class="brand" href="index.html">LexAi</a>
+    <button id="navToggle" class="nav-toggle" aria-expanded="false" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links">
+      <li><a class="nav-item" href="index.html">Home</a></li>
+      <li><a href="index.html#features" class="nav-item">Features</a></li>
+      <li class="nav-dropdown">
+        <a class="nav-item" href="about.html">About</a>
+        <div class="dropdown-menu">
+          <div class="dropdown-menu-inner">
+            <a href="about.html">About Us</a>
+            <a href="lexai-faq.html">FAQ</a>
+          </div>
+        </div>
+      </li>
+      <li class="nav-dropdown">
+        <a class="nav-item" href="ai-solutions.html">Services</a>
+        <div class="dropdown-menu">
+          <div class="dropdown-menu-inner">
+            <a href="ai-solutions.html">Custom AI Solutions</a>
+            <a href="geo-services.html">GEO Audit</a>
+          </div>
+        </div>
+      </li>
+      <li><a class="nav-item" href="case-studies.html">Case Studies</a></li>
+    </ul>
+    <div class="nav-ctas">
+      <a href="https://calendly.com/lexai/ai-implementation-introductory-chat?month=2025-08" target="_blank" class="btn-cta">Get Started</a>
+    </div>
+  </nav>
+</header>
+
+<!-- ===== HERO ===== -->
+<section id="home" class="hero">
+  <div class="hero-inner">
+    <div class="hero-badge">Custom AI Solutions</div>
+    <h1>Built around your problem.<br><span>Deployed in weeks.</span></h1>
+    <p class="hero-sub">We scope, engineer, and deploy custom AI solutions — lead qualification engines, workflow systems, agentic pipelines, and AI-powered tools — built for your exact business, not adapted from a template.</p>
+    <div class="hero-actions">
+      <a href="https://calendly.com/lexai/ai-implementation-introductory-chat?month=2025-08" target="_blank" class="hero-btn-primary">Book a Free Strategy Call</a>
+      <a href="case-studies.html" class="hero-btn-secondary">See Our Results</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== STATS ===== -->
+<div class="stats-strip">
+  <div class="stats-grid">
+    <div class="stat-item">
+      <span class="number">450+</span>
+      <span class="label">Hours saved per year — St. Vincent Ferrer</span>
+    </div>
+    <div class="stat-item">
+      <span class="number">10→90%</span>
+      <span class="label">Qualification rate lift — Cloud Base Solutions</span>
+    </div>
+    <div class="stat-item">
+      <span class="number">970+</span>
+      <span class="label">Active users — InboxHunter</span>
+    </div>
+    <div class="stat-item">
+      <span class="number">Weeks</span>
+      <span class="label">From scoping call to live deployment</span>
+    </div>
+  </div>
+</div>
+
+<!-- ===== WHAT WE BUILD ===== -->
+<section class="section-light" id="solutions">
+  <div class="section-wrapper">
+    <div class="section-tag">What We Build</div>
+    <h2 class="section-title">Four types of custom AI solutions</h2>
+    <p class="section-sub">Every engagement starts with your exact problem. We build what solves it — not what's easiest to template.</p>
+
+    <div class="build-grid">
+      <div class="build-card">
+        <div class="build-icon">🎯</div>
+        <h3>Lead Qualification Engines</h3>
+        <p>Multi-step agentic pipelines that replace manual qualification with AI-driven scoring, enrichment, and prioritization — at scale, in real time.</p>
+        <div class="examples">→ Cloud Base Solutions: 10% → 90% qualification rate</div>
+      </div>
+      <div class="build-card">
+        <div class="build-icon">⚙️</div>
+        <h3>Custom Workflow Systems</h3>
+        <p>AI-powered internal tools that turn inbox chaos into structured, trackable workflows — with categorization, priority routing, and full reporting built in.</p>
+        <div class="examples">→ St. Vincent Ferrer: 450+ staff hours saved annually</div>
+      </div>
+      <div class="build-card">
+        <div class="build-icon">🤖</div>
+        <h3>AI-Powered SaaS Tools</h3>
+        <p>End-to-end product development — from prompt architecture to Rust/React backend — built with LLM integration, agentic workflows, and scraping automation.</p>
+        <div class="examples">→ InboxHunter: 970+ active users, sole architect</div>
+      </div>
+      <div class="build-card">
+        <div class="build-icon">🔗</div>
+        <h3>RAG & Agentic Pipelines</h3>
+        <p>Retrieval-augmented generation systems, multi-agent orchestration, and tool-calling pipelines built on OpenAI, Anthropic, and Gemini APIs — deployed to production.</p>
+        <div class="examples">→ Custom knowledge bases, internal AI assistants</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== HOW WE WORK ===== -->
+<section class="section-dark" id="process">
+  <div class="section-wrapper">
+    <div class="section-tag">The Process</div>
+    <h2 class="section-title center">From first call to live deployment</h2>
+    <p class="section-sub" style="color:rgba(255,255,255,.55);margin:0.5rem auto 0;max-width:520px;text-align:center">A straightforward three-step engagement — no bloated discovery phases, no month-long scoping docs.</p>
+    <div class="hiw-grid">
+      <div class="hiw-step">
+        <div class="hiw-num">01</div>
+        <h3>Discover</h3>
+        <p>One free strategy call to understand your business, your bottleneck, and the exact outcome you need. We'll tell you honestly if AI is the right solution.</p>
+      </div>
+      <div class="hiw-divider"></div>
+      <div class="hiw-step">
+        <div class="hiw-num">02</div>
+        <h3>Build</h3>
+        <p>We scope and engineer your solution — custom prompt architecture, API integration, backend logic, and UI — built around your workflow, not a generic template.</p>
+      </div>
+      <div class="hiw-divider"></div>
+      <div class="hiw-step">
+        <div class="hiw-num">03</div>
+        <h3>Deploy</h3>
+        <p>We deliver a production-ready system, walk your team through it, and stay available for ongoing support. Most solutions are live within 2–4 weeks.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CLIENT RESULTS ===== -->
+<section class="section-gray" id="results">
+  <div class="section-wrapper">
+    <div class="section-tag">Client Results</div>
+    <h2 class="section-title">What custom looks like in practice</h2>
+    <p class="section-sub">Three examples of solutions we built, scoped, and deployed — each from a different industry with a completely different problem.</p>
+
+    <div class="results-grid">
+      <div class="result-card" style="background:#fff;border:1px solid #e5e7eb;color:#0b0d19">
+        <div class="result-client" style="color:#00706d">St. Vincent Ferrer Catholic School</div>
+        <h3 style="color:#0b0d19">Custom Help Desk & Work Order System</h3>
+        <p style="color:#555">Replaced a flood of emails and sticky notes with a structured ticket portal — categorized, prioritized, and tracked from submission to resolution. IT Director now has full visibility across 487+ devices and 57 staff.</p>
+        <div class="result-stat" style="color:#00c2b5">450+</div>
+        <div class="result-stat-label" style="color:#999">staff hours saved annually</div>
+      </div>
+      <div class="result-card" style="background:#fff;border:1px solid #e5e7eb;color:#0b0d19">
+        <div class="result-client" style="color:#00706d">Cloud Base Solutions</div>
+        <h3 style="color:#0b0d19">AI Lead Qualification Engine</h3>
+        <p style="color:#555">Replaced a fully manual lead qualification process with a multi-step agentic pipeline — scraping, enriching, scoring, and prioritizing leads automatically. What used to take hours of human review now runs end-to-end in minutes.</p>
+        <div class="result-stat" style="color:#00c2b5">10% → 90%</div>
+        <div class="result-stat-label" style="color:#999">qualification rate</div>
+      </div>
+      <div class="result-card" style="background:#fff;border:1px solid #e5e7eb;color:#0b0d19">
+        <div class="result-client" style="color:#00706d">InboxHunter</div>
+        <h3 style="color:#0b0d19">AI-Powered Prospecting Tool</h3>
+        <p style="color:#555">Full-stack AI product built from scratch — Playwright-based automation, OpenAI API integration, Rust/React backend. Sole architect across all agentic workflows, scraping agents, and LLM-driven enrichment pipelines.</p>
+        <div class="result-stat" style="color:#00c2b5">970+</div>
+        <div class="result-stat-label" style="color:#999">active users</div>
+      </div>
+    </div>
+
+    <div style="margin-top:2rem;text-align:center">
+      <a href="case-studies.html" style="display:inline-block;color:var(--brand-green);font-weight:600;font-size:.95rem;text-decoration:none;border-bottom:2px solid rgba(0,194,181,.3);padding-bottom:2px">Read the full case studies →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== NOT A TEMPLATE ===== -->
+<section class="section-light" id="approach">
+  <div class="section-wrapper">
+    <div class="diff-grid">
+      <div>
+        <div class="section-tag">Our Approach</div>
+        <h2 class="section-title">No templates. No off-the-shelf tools.</h2>
+        <p class="section-sub">Most "AI solutions" are pre-built platforms with your logo on top. We build the actual system — from prompt architecture to deployment.</p>
+        <div class="diff-list" style="margin-top:2rem">
+          <div class="diff-item">
+            <div class="diff-check">✓</div>
+            <div class="diff-text"><strong>Scoped to your exact workflow</strong> — we understand your process before we write a single line of code</div>
+          </div>
+          <div class="diff-item">
+            <div class="diff-check">✓</div>
+            <div class="diff-text"><strong>Direct API integration</strong> — OpenAI, Anthropic, Gemini, or multi-model orchestration depending on the use case</div>
+          </div>
+          <div class="diff-item">
+            <div class="diff-check">✓</div>
+            <div class="diff-text"><strong>Full-stack delivery</strong> — prompt architecture, backend logic, UI, and deployment included</div>
+          </div>
+          <div class="diff-item">
+            <div class="diff-check">✓</div>
+            <div class="diff-text"><strong>Deployed in weeks, not months</strong> — no bloated agency timelines or unnecessary discovery phases</div>
+          </div>
+          <div class="diff-item">
+            <div class="diff-check">✓</div>
+            <div class="diff-text"><strong>You own the output</strong> — no vendor lock-in, no recurring platform fees for tools we built</div>
+          </div>
+        </div>
+      </div>
+      <div class="diff-visual">
+        <div class="dv-label">What's included in every engagement</div>
+        <div class="dv-item"><span>Scoping & architecture design</span><div class="dv-val">✓</div></div>
+        <div class="dv-item"><span>Prompt engineering & LLM integration</span><div class="dv-val">✓</div></div>
+        <div class="dv-item"><span>Backend & API development</span><div class="dv-val">✓</div></div>
+        <div class="dv-item"><span>Testing & QA</span><div class="dv-val">✓</div></div>
+        <div class="dv-item"><span>Live deployment</span><div class="dv-val">✓</div></div>
+        <div class="dv-item"><span>Team walkthrough & handoff</span><div class="dv-val">✓</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CTA ===== -->
+<section id="cta">
+  <h2>Tell us your problem. We'll build the solution.</h2>
+  <p>One free call to scope what's possible — no proposal deck, no sales cycle. Just a direct conversation about what AI can do for your specific workflow.</p>
+  <div class="cta-buttons">
+    <a href="https://calendly.com/lexai/ai-implementation-introductory-chat?month=2025-08" target="_blank" class="btn-primary">Book a Free Strategy Call</a>
+    <a href="case-studies.html" class="btn-outline">See Case Studies</a>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="site-footer">
+  <div class="footer-top">
+    <div class="footer-col">
+      <a href="index.html" class="footer-brand">LexAi</a>
+      <p style="margin-top:1rem;max-width:280px">Building custom AI solutions that drive real results.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Services</h4>
+      <ul>
+        <li><a href="ai-solutions.html">Custom AI Solutions</a></li>
+        <li><a href="geo-services.html">GEO Audit</a></li>
+        <li><a href="https://calendly.com/lexai/ai-implementation-introductory-chat?month=2025-08" target="_blank">Request a Quote</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Company</h4>
+      <ul>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="lexai-faq.html">FAQ</a></li>
+        <li><a href="case-studies.html">Case Studies</a></li>
+        <li><a href="https://calendly.com/lexai/ai-implementation-introductory-chat?month=2025-08" target="_blank">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Legal</h4>
+      <ul>
+        <li><a href="privacy.html">Privacy Policy</a></li>
+        <li><a href="javascript:void(0)">Terms of Service</a></li>
+        <li><a href="javascript:void(0)">Cookie Policy</a></li>
+      </ul>
+    </div>
+  </div>
+  <hr>
+  <div class="footer-bottom">
+    <p>© 2026 LexAi. All rights reserved.</p>
+    <ul class="social">
+      <li><a href="javascript:void(0)">Twitter</a></li>
+      <li><a href="javascript:void(0)">LinkedIn</a></li>
+      <li><a href="javascript:void(0)">Facebook</a></li>
+      <li><a href="javascript:void(0)">Instagram</a></li>
+    </ul>
+  </div>
+</footer>
+
+<script>
+  (function(){
+    const nav = document.querySelector('.glass');
+    const btn = document.getElementById('navToggle');
+    if(!nav || !btn) return;
+    btn.addEventListener('click', () => {
+      const open = nav.classList.toggle('open');
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+    nav.addEventListener('click', (e)=>{
+      const a = e.target.closest('a');
+      if(a && nav.classList.contains('open')) nav.classList.remove('open');
+    });
+  })();
+</script>
+
+</body>
+</html>
