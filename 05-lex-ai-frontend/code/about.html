@@ -34,6 +34,16 @@ body{font-family:'Poppins',sans-serif;color:#0b0d19;background:#f4f6f8}
 .nav-links{list-style:none;display:flex;gap:2.4rem}
 .nav-item{color:#fff;text-decoration:none;font-weight:500;transition:color .2s}
 .nav-item:hover,.nav-item.active{color:var(--brand-teal)}
+.btn-cta{background:var(--brand-green);color:#fff;padding:.6rem 1.8rem;border-radius:25px;font-weight:600;font-size:.9rem;text-decoration:none;transition:opacity .2s,transform .2s}
+.btn-cta:hover{opacity:.9;transform:translateY(-2px)}
+.nav-dropdown{position:relative}
+.nav-dropdown .nav-item{display:flex;align-items:center;gap:5px}
+.nav-dropdown .nav-item::after{content:'▾';font-size:.7rem;opacity:.7}
+.dropdown-menu{display:none;position:absolute;top:100%;left:50%;transform:translateX(-50%);padding-top:10px;background:transparent;min-width:170px;z-index:1000}
+.dropdown-menu-inner{background:rgba(11,13,25,.95);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.1);border-radius:10px;overflow:hidden}
+.dropdown-menu a{display:block;padding:.65rem 1.2rem;color:rgba(255,255,255,.8);text-decoration:none;font-size:.88rem;font-weight:500;transition:background .15s,color .15s;white-space:nowrap}
+.dropdown-menu a:hover{background:rgba(0,194,181,.12);color:var(--brand-green)}
+.nav-dropdown:hover .dropdown-menu{display:block}
 .nav-toggle{
   display:none;margin-left:auto;background:transparent;border:0;padding:.4rem;
   cursor:pointer;border-radius:8px;
@@ -173,18 +183,40 @@ hr{border:0;border-top:1px solid #2a2e3a;margin:3rem 0 2rem}
 <body>
 
 <!-- ===== NAVBAR ===== -->
-<nav class="glass">
-  <a href="/index.html" class="brand">LexAi</a>
-  <button id="navToggle" class="nav-toggle" aria-expanded="false" aria-label="Open menu">
-    <span></span><span></span><span></span>
-  </button>
-  <ul class="nav-links">
-    <li><a href="/index.html" class="nav-item">Home</a></li>
-    <li><a href="/#features" class="nav-item">Features</a></li>
-    <li><a href="/about.html" class="nav-item active">About</a></li>
-    <li><a href="/case-studies.html" class="nav-item">Case Studies</a></li>
-  </ul>
-</nav>
+<header>
+  <nav class="glass">
+    <a href="/index.html" class="brand">LexAi</a>
+    <button id="navToggle" class="nav-toggle" aria-expanded="false" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links">
+      <li><a href="/index.html" class="nav-item">Home</a></li>
+      <li><a href="/#features" class="nav-item">Features</a></li>
+      <li class="nav-dropdown">
+        <a class="nav-item active" href="/about.html">About</a>
+        <div class="dropdown-menu">
+          <div class="dropdown-menu-inner">
+            <a href="/about.html">About Us</a>
+            <a href="/lexai-faq.html">FAQ</a>
+          </div>
+        </div>
+      </li>
+      <li class="nav-dropdown">
+        <a class="nav-item" href="/ai-solutions.html">Services</a>
+        <div class="dropdown-menu">
+          <div class="dropdown-menu-inner">
+            <a href="/ai-solutions.html">Custom AI Solutions</a>
+            <a href="/geo-services.html">GEO Audit</a>
+          </div>
+        </div>
+      </li>
+      <li><a href="/case-studies.html" class="nav-item">Case Studies</a></li>
+    </ul>
+    <div class="nav-ctas">
+      <a href="https://calendly.com/lexai/ai-implementation-introductory-chat?month=2025-08" target="_blank" class="btn-cta">Get Started</a>
+    </div>
+  </nav>
+</header>
 
 <!-- ===== PAGE HERO ===== -->
 <div class="page-hero">
