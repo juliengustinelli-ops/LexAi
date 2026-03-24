@@ -1,0 +1,347 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Payment Confirmed — LexAi GEO Audit</title>
+<meta name="robots" content="noindex">
+
+<!-- Google Font -->
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --brand-green:#00c2b5;
+  --brand-teal :#00bfc7;
+  --cta-bg     :#21a8ad;
+  --footer-bg  :#0b0d19;
+}
+
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Poppins',sans-serif;color:#fff;background:#080b16}
+
+/* ── NAVBAR ──────────────────────────────── */
+.glass{
+  position:fixed;top:0;left:0;width:100%;z-index:999;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0.8rem 4vw;background:rgba(0,0,0,.52);
+  backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);
+  border-bottom:1px solid rgba(255,255,255,.12);
+  min-height:84px;
+}
+.brand{font:700 1.4rem/1 'Poppins';color:var(--brand-green);text-decoration:none}
+.nav-links{list-style:none;display:flex;gap:2.5rem}
+.nav-item{color:#fff;text-decoration:none;font-weight:500;transition:color .2s}
+.nav-item:hover{color:var(--brand-teal)}
+.btn-cta{
+  background:var(--brand-green);color:#fff;padding:.6rem 1.8rem;border-radius:25px;
+  font-weight:600;font-size:.9rem;text-decoration:none;transition:opacity .2s,transform .2s
+}
+.btn-cta:hover{opacity:.9;transform:translateY(-2px)}
+
+.nav-dropdown{position:relative}
+.nav-dropdown .nav-item{display:flex;align-items:center;gap:5px}
+.nav-dropdown .nav-item::after{content:'▾';font-size:.7rem;opacity:.7}
+.dropdown-menu{
+  display:none;position:absolute;top:100%;left:50%;transform:translateX(-50%);
+  padding-top:10px;background:transparent;min-width:140px;z-index:1000;
+}
+.dropdown-menu-inner{
+  background:rgba(11,13,25,.95);backdrop-filter:blur(12px);
+  border:1px solid rgba(255,255,255,.1);border-radius:10px;overflow:hidden;
+}
+.dropdown-menu a{
+  display:block;padding:.65rem 1.2rem;color:rgba(255,255,255,.8);
+  text-decoration:none;font-size:.88rem;font-weight:500;
+  transition:background .15s,color .15s;white-space:nowrap;
+}
+.dropdown-menu a:hover{background:rgba(0,194,181,.12);color:var(--brand-green)}
+.nav-dropdown:hover .dropdown-menu{display:block}
+
+.nav-toggle{
+  display:none;margin-left:auto;background:transparent;border:0;padding:.4rem;
+  cursor:pointer;border-radius:8px;
+}
+.nav-toggle span{display:block;width:24px;height:2px;background:#fff;margin:6px 0;transition:.2s}
+@media(max-width:900px){
+  .glass{flex-wrap:wrap;align-items:center}
+  .nav-toggle{display:block}
+  .glass .nav-links,.glass .nav-ctas{
+    display:none;width:100%;background:rgba(10,10,20,.96);
+    border:1px solid rgba(255,255,255,.12);border-radius:12px;
+    margin-top:.8rem;padding:.6rem .8rem;
+  }
+  .glass.open .nav-links,.glass.open .nav-ctas{display:flex}
+  .nav-links{flex-direction:column;gap:.6rem}
+  .nav-ctas{justify-content:flex-start;gap:.8rem}
+}
+
+/* ── HERO ─────────────────────────────────── */
+.hero{
+  min-height:100vh;display:flex;align-items:center;justify-content:center;
+  position:relative;text-align:center;padding:0 1rem;
+  background-color:#080b16;
+  background-image:
+    radial-gradient(ellipse 100% 80% at 10% 40%, rgba(0,194,181,.9) 0%, transparent 65%),
+    radial-gradient(ellipse  80% 70% at 90% 65%, rgba(0,180,194,.8) 0%, transparent 65%),
+    radial-gradient(ellipse  60% 50% at 55% 0%,  rgba(0,194,181,.6) 0%, transparent 60%);
+}
+.hero-inner{position:relative;z-index:1;max-width:700px}
+
+.checkmark{
+  width:80px;height:80px;border-radius:50%;
+  background:rgba(0,194,181,.2);border:2px solid var(--brand-green);
+  display:flex;align-items:center;justify-content:center;
+  font-size:2.2rem;margin:0 auto 2rem;
+}
+
+.hero-badge{
+  display:inline-block;background:rgba(0,194,181,.18);
+  border:1px solid rgba(0,194,181,.45);color:var(--brand-green);
+  font-size:.82rem;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;
+  padding:.45rem 1.2rem;border-radius:50px;margin-bottom:1.6rem;
+}
+.hero h1{
+  font-size:clamp(2rem,5vw,3.2rem);font-weight:700;line-height:1.2;
+  margin-bottom:1.2rem;color:#f0f0f0;
+  text-shadow:0 4px 24px rgba(11,13,25,.55);
+}
+.hero h1 span{color:var(--brand-green)}
+.hero-sub{
+  font-size:1.05rem;font-weight:300;line-height:1.75;
+  max-width:580px;margin:0 auto 2.5rem;color:rgba(255,255,255,.85);
+}
+
+/* ── WHAT HAPPENS NEXT ───────────────────── */
+.steps-section{background:#0b0d19;padding:6rem 2rem}
+.steps-wrapper{max-width:760px;margin:0 auto;text-align:center}
+.section-tag{
+  display:inline-block;background:rgba(0,194,181,.12);
+  border:1px solid rgba(0,194,181,.35);color:var(--brand-green);
+  font-size:.75rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;
+  padding:.35rem 1rem;border-radius:50px;margin-bottom:1.2rem;
+}
+.section-title{font-size:clamp(1.6rem,3.5vw,2.2rem);font-weight:700;margin-bottom:.5rem}
+.section-sub{font-size:.97rem;font-weight:300;color:rgba(255,255,255,.6);margin-bottom:3rem;line-height:1.7}
+
+.steps{display:flex;flex-direction:column;gap:1.5rem;text-align:left}
+.step{
+  display:flex;gap:1.5rem;align-items:flex-start;
+  background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);
+  border-radius:14px;padding:1.6rem 2rem;
+}
+.step-num{
+  flex-shrink:0;width:40px;height:40px;border-radius:50%;
+  background:var(--brand-green);color:#fff;font-weight:700;font-size:1rem;
+  display:flex;align-items:center;justify-content:center;
+}
+.step-content h3{font-size:1rem;font-weight:700;color:#fff;margin-bottom:.3rem}
+.step-content p{font-size:.9rem;font-weight:300;color:rgba(255,255,255,.6);line-height:1.65}
+
+/* ── CTA SECTION ─────────────────────────── */
+.cta-section{background:#080b16;padding:5rem 2rem;text-align:center}
+.cta-inner{max-width:600px;margin:0 auto}
+.cta-inner h2{font-size:clamp(1.5rem,3vw,2rem);font-weight:700;margin-bottom:1rem}
+.cta-inner p{font-size:.97rem;font-weight:300;color:rgba(255,255,255,.65);margin-bottom:2rem;line-height:1.7}
+.btn-primary{
+  display:inline-block;padding:1rem 2.4rem;border-radius:50px;font-weight:600;font-size:1rem;
+  background:var(--brand-green);color:#fff;text-decoration:none;
+  transition:transform .25s,box-shadow .25s;
+}
+.btn-primary:hover{transform:translateY(-3px);box-shadow:0 8px 20px rgba(0,194,181,.35)}
+.btn-secondary{
+  display:inline-block;margin-left:1rem;padding:1rem 2.4rem;border-radius:50px;font-weight:600;font-size:1rem;
+  background:transparent;color:#fff;border:2px solid rgba(255,255,255,.4);text-decoration:none;
+  transition:border-color .25s,background .25s,transform .25s;
+}
+.btn-secondary:hover{border-color:#fff;background:rgba(255,255,255,.08);transform:translateY(-3px)}
+@media(max-width:600px){
+  .btn-secondary{margin-left:0;margin-top:.8rem}
+  .cta-inner .btn-wrap{display:flex;flex-direction:column;align-items:center;gap:.8rem}
+  .btn-secondary{margin-left:0}
+}
+
+/* ── FOOTER ──────────────────────────────── */
+.site-footer{background:var(--footer-bg);color:rgba(255,255,255,.7);padding:4rem 2rem 2rem}
+.footer-top{display:grid;gap:2.5rem;max-width:1200px;margin:auto}
+@media(min-width:700px){.footer-top{grid-template-columns:2fr 1fr 1fr 1fr}}
+.footer-brand{font-size:1.4rem;font-weight:700;color:var(--brand-green);text-decoration:none}
+.footer-col h4{font-size:1.05rem;font-weight:600;margin-bottom:1rem;color:#fff}
+.footer-col ul{list-style:none}
+.footer-col li+li{margin-top:.6rem}
+.footer-col a{color:#d1d1d1;text-decoration:none;font-size:.95rem;transition:color .2s}
+.footer-col a:hover{color:var(--brand-green)}
+.site-footer hr{border:none;border-top:1px solid rgba(255,255,255,.1);margin:2.5rem auto;max-width:1200px}
+.footer-bottom{max-width:1200px;margin:auto;display:flex;justify-content:space-between;flex-wrap:wrap;gap:1rem;font-size:.9rem}
+.social{list-style:none;display:flex;gap:1.5rem}
+.social a{color:rgba(255,255,255,.5);text-decoration:none;transition:color .2s}
+.social a:hover{color:var(--brand-green)}
+
+section{scroll-margin-top:90px}
+</style>
+</head>
+
+<body>
+
+<!-- ===== NAVBAR ===== -->
+<header>
+  <nav class="glass">
+    <a class="brand" href="/index.html">LexAi</a>
+    <button id="navToggle" class="nav-toggle" aria-expanded="false" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links">
+      <li><a class="nav-item" href="/index.html">Home</a></li>
+      <li><a href="/#features" class="nav-item">Features</a></li>
+      <li class="nav-dropdown">
+        <a class="nav-item" href="/about.html">About</a>
+        <div class="dropdown-menu">
+          <div class="dropdown-menu-inner">
+            <a href="/about.html">About Us</a>
+            <a href="/lexai-faq.html">FAQ</a>
+          </div>
+        </div>
+      </li>
+      <li class="nav-dropdown">
+        <a class="nav-item" href="/ai-solutions.html">Services</a>
+        <div class="dropdown-menu">
+          <div class="dropdown-menu-inner">
+            <a href="/ai-solutions.html">Custom AI Solutions</a>
+            <a href="/geo-services.html">GEO Audit</a>
+          </div>
+        </div>
+      </li>
+      <li><a class="nav-item" href="/case-studies.html">Case Studies</a></li>
+    </ul>
+    <div class="nav-ctas">
+      <a href="https://calendly.com/lexai/ai-implementation-introductory-chat?month=2025-08" target="_blank" class="btn-cta">Get Started</a>
+    </div>
+  </nav>
+</header>
+
+<!-- ===== HERO ===== -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="checkmark">✓</div>
+    <div class="hero-badge">Payment Confirmed</div>
+    <h1>You're In — Your <span>GEO Audit</span> Is Booked</h1>
+    <p class="hero-sub">Thank you for your purchase. We'll get started on your full GEO audit right away and deliver your report within 5 business days.</p>
+  </div>
+</section>
+
+<!-- ===== WHAT HAPPENS NEXT ===== -->
+<section class="steps-section">
+  <div class="steps-wrapper">
+    <div class="section-tag">What Happens Next</div>
+    <h2 class="section-title">Here's what to expect</h2>
+    <p class="section-sub">We'll handle everything — no action needed on your end until you receive the report.</p>
+
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-content">
+          <h3>You'll receive a confirmation email</h3>
+          <p>Stripe will send a receipt to the email you used at checkout. Keep it for your records.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-content">
+          <h3>We run your full GEO audit</h3>
+          <p>Our team will audit your site across all 6 dimensions — AI citability, brand authority, technical infrastructure, schema markup, content quality, and platform readiness for ChatGPT, Perplexity, Gemini, Google AI Overviews, and Bing Copilot.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-content">
+          <h3>You receive your 15–20 page PDF report</h3>
+          <p>Delivered within 5 business days via email. Scored, prioritized, and ready to hand to your team.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">4</div>
+        <div class="step-content">
+          <h3>We schedule your 30-min review call</h3>
+          <p>We'll walk you through the findings, answer your questions, and make sure your team knows exactly what to prioritize first.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CTA ===== -->
+<section class="cta-section">
+  <div class="cta-inner">
+    <h2>Questions? We're here.</h2>
+    <p>If you have any questions about your order or want to share your URL with us ahead of time, book a quick call or check out our case studies.</p>
+    <div class="btn-wrap">
+      <a href="https://calendly.com/lexai/ai-implementation-introductory-chat?month=2025-08" target="_blank" class="btn-primary">Book a Call</a>
+      <a href="/case-studies.html" class="btn-secondary">See Case Studies</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="site-footer">
+  <div class="footer-top">
+    <div class="footer-col">
+      <a href="/index.html" class="footer-brand">LexAi</a>
+      <p style="margin-top:1rem;max-width:280px">Building custom AI solutions that drive real results.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Services</h4>
+      <ul>
+        <li><a href="/geo-services.html">GEO Audit</a></li>
+        <li><a href="https://calendly.com/lexai/ai-implementation-introductory-chat?month=2025-08" target="_blank">Request a Quote</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Company</h4>
+      <ul>
+        <li><a href="/about.html">About Us</a></li>
+        <li><a href="/lexai-faq.html">FAQ</a></li>
+        <li><a href="https://calendly.com/lexai/ai-implementation-introductory-chat?month=2025-08" target="_blank">Contact</a></li>
+        <li><a href="/case-studies.html">Case Studies</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Legal</h4>
+      <ul>
+        <li><a href="/privacy.html">Privacy Policy</a></li>
+        <li><a href="javascript:void(0)">Terms of Service</a></li>
+        <li><a href="javascript:void(0)">Cookie Policy</a></li>
+      </ul>
+    </div>
+  </div>
+  <hr>
+  <div class="footer-bottom">
+    <p>© 2026 LexAi. All rights reserved.</p>
+    <ul class="social">
+      <li><a href="javascript:void(0)">Twitter</a></li>
+      <li><a href="javascript:void(0)">LinkedIn</a></li>
+      <li><a href="javascript:void(0)">Facebook</a></li>
+      <li><a href="javascript:void(0)">Instagram</a></li>
+    </ul>
+  </div>
+</footer>
+
+<script>
+  (function(){
+    const nav = document.querySelector('.glass');
+    const btn = document.getElementById('navToggle');
+    if(!nav || !btn) return;
+    btn.addEventListener('click', () => {
+      const open = nav.classList.toggle('open');
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+    nav.addEventListener('click', (e)=>{
+      const a = e.target.closest('a');
+      if(a && nav.classList.contains('open')) nav.classList.remove('open');
+    });
+  })();
+</script>
+
+</body>
+</html>
