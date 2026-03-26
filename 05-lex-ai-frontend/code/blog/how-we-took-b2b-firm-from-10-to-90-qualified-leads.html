@@ -1,0 +1,291 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>How We Took a B2B Tech Firm from 10% to 90% Qualified Leads Using AI | LexAi</title>
+<meta name="description" content="Cloud Base Solutions was getting 10% qualified leads from manual LinkedIn search and bought lists. We built a custom AI lead engine that changed that to 90% — with a single click.">
+<meta property="og:title" content="How We Took a B2B Tech Firm from 10% to 90% Qualified Leads Using AI">
+<meta property="og:description" content="Cloud Base Solutions was getting 10% qualified leads from manual LinkedIn search and bought lists. We built a custom AI lead engine that changed that to 90% — with a single click.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://www.lexaib2b.com/blog/how-we-took-b2b-firm-from-10-to-90-qualified-leads.html">
+<meta property="og:site_name" content="LexAi">
+<meta property="og:image" content="https://www.lexaib2b.com/hero.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://www.lexaib2b.com/blog/how-we-took-b2b-firm-from-10-to-90-qualified-leads.html">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "How We Took a B2B Tech Firm from 10% to 90% Qualified Leads Using AI",
+  "description": "Cloud Base Solutions was getting 10% qualified leads from manual LinkedIn search and bought lists. We built a custom AI lead engine that changed that to 90% — with a single click.",
+  "author": {
+    "@type": "Person",
+    "name": "Julien Gustinelli",
+    "jobTitle": "Founder & Lead Engineer",
+    "worksFor": { "@type": "Organization", "name": "LexAi" },
+    "sameAs": "https://www.linkedin.com/in/juliengustinelli"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "LexAi",
+    "url": "https://www.lexaib2b.com"
+  },
+  "datePublished": "2026-03-26",
+  "url": "https://www.lexaib2b.com/blog/how-we-took-b2b-firm-from-10-to-90-qualified-leads.html"
+}
+</script>
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --brand-green:#00c2b5;
+  --brand-teal:#00bfc7;
+  --footer-bg:#0b0d19;
+  --nav-h:84px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Poppins',sans-serif;color:#0b0d19;background:#f4f6f8}
+
+.glass{
+  position:fixed;top:0;left:0;width:100%;z-index:999;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:.8rem 4vw;background:rgba(0,0,0,.52);
+  backdrop-filter:blur(6px);border-bottom:1px solid rgba(255,255,255,.12);
+  min-height:var(--nav-h);
+}
+.brand{font:700 1.4rem/1 'Poppins';color:var(--brand-green);text-decoration:none}
+.nav-links{list-style:none;display:flex;gap:2.5rem;align-items:center}
+.nav-item{color:#fff;text-decoration:none;font-weight:500;transition:color .2s}
+.nav-item:hover{color:var(--brand-green)}
+.btn-cta{background:var(--brand-green);color:#fff;padding:.6rem 1.8rem;border-radius:25px;font-weight:600;font-size:.9rem;text-decoration:none}
+
+.post-hero{
+  background:#0b0d19;
+  padding:calc(var(--nav-h) + 4rem) 2rem 4rem;
+  text-align:center;
+}
+.post-tag{font-size:.75rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--brand-green);margin-bottom:1rem;display:block}
+.post-hero h1{font-size:clamp(1.6rem,4vw,2.6rem);font-weight:700;color:#fff;line-height:1.3;max-width:780px;margin:0 auto 1.5rem}
+.post-hero-meta{font-size:.85rem;color:rgba(255,255,255,.5);display:flex;gap:1.5rem;justify-content:center;flex-wrap:wrap}
+
+.post-body{
+  max-width:720px;margin:0 auto;padding:3rem 2rem 5rem;
+}
+.post-body p{font-size:1rem;line-height:1.85;color:#333;font-weight:300;margin-bottom:1.4rem}
+.post-body h2{font-size:1.35rem;font-weight:700;color:#0b0d19;margin:2.5rem 0 1rem;padding-bottom:.4rem;border-bottom:2px solid var(--brand-green)}
+.post-body strong{font-weight:600;color:#0b0d19}
+.post-body ul{margin:1rem 0 1.4rem 1.4rem}
+.post-body ul li{font-size:1rem;line-height:1.75;color:#333;font-weight:300;margin-bottom:.4rem}
+.post-body blockquote{
+  border-left:4px solid var(--brand-green);
+  padding:1rem 1.5rem;
+  margin:2rem 0;
+  background:#fff;
+  border-radius:0 8px 8px 0;
+  font-style:italic;
+  color:#444;
+  font-size:.95rem;
+  line-height:1.75;
+}
+
+.stat-bar{
+  background:#fff;border-radius:12px;padding:1.5rem 2rem;
+  margin:2rem 0;display:flex;gap:2rem;flex-wrap:wrap;
+  box-shadow:0 2px 12px rgba(0,0,0,.06);
+  border-top:4px solid var(--brand-green);
+}
+.stat-item{text-align:center;flex:1;min-width:100px}
+.stat-num{font-size:2rem;font-weight:700;color:var(--brand-green);line-height:1}
+.stat-lbl{font-size:.75rem;color:#666;margin-top:.3rem;font-weight:600;text-transform:uppercase;letter-spacing:.5px}
+
+.post-cta{
+  background:#0b0d19;border-radius:12px;padding:2.5rem;text-align:center;margin-top:3rem;
+}
+.post-cta p{color:rgba(255,255,255,.75);margin-bottom:1.5rem;font-size:.95rem;line-height:1.7}
+.post-cta a{
+  background:var(--brand-green);color:#fff;padding:.9rem 2.4rem;
+  border-radius:50px;font-weight:600;text-decoration:none;font-size:1rem;
+  display:inline-block;transition:opacity .2s,transform .2s;
+}
+.post-cta a:hover{opacity:.9;transform:translateY(-2px)}
+
+.back-link{display:inline-flex;align-items:center;gap:.4rem;color:var(--brand-green);text-decoration:none;font-size:.9rem;font-weight:600;margin-bottom:2rem}
+.back-link:hover{opacity:.8}
+
+.site-footer{background:var(--footer-bg);color:#d1d1d1;padding:4rem 2rem}
+.footer-top{display:grid;gap:2.5rem;max-width:1200px;margin:auto}
+@media(min-width:700px){.footer-top{grid-template-columns:2fr 1fr 1fr 1fr}}
+.footer-brand{font-size:1.4rem;font-weight:700;color:var(--brand-green);text-decoration:none}
+.footer-col h4{font-size:1.05rem;font-weight:600;margin-bottom:1rem;color:#fff}
+.footer-col ul{list-style:none}
+.footer-col li+li{margin-top:.6rem}
+.footer-col a{color:#d1d1d1;text-decoration:none;font-size:.95rem;transition:color .2s}
+.footer-col a:hover{color:var(--brand-green)}
+hr{border:none;border-top:1px solid #2a2e3a;margin:3rem 0 2rem}
+.footer-bottom{max-width:1200px;margin:auto;display:flex;justify-content:space-between;flex-wrap:wrap;gap:1rem;font-size:.9rem}
+
+@media(max-width:640px){.stat-bar{flex-direction:column;gap:1.2rem}.post-hero-meta{flex-direction:column;gap:.4rem;align-items:center}}
+</style>
+</head>
+<body>
+
+<header>
+  <nav class="glass">
+    <a class="brand" href="/index.html">LexAi</a>
+    <ul class="nav-links">
+      <li><a class="nav-item" href="/index.html">Home</a></li>
+      <li><a class="nav-item" href="/case-studies.html">Case Studies</a></li>
+      <li><a class="nav-item" href="/blog/">Blog</a></li>
+      <li><a class="nav-item" href="/about.html">About</a></li>
+    </ul>
+    <a href="https://calendly.com/lexai/ai-implementation-introductory-chat?month=2025-08" target="_blank" class="btn-cta">Get Started</a>
+  </nav>
+</header>
+
+<div class="post-hero">
+  <span class="post-tag">Case Study · Lead Generation</span>
+  <h1>How We Took a B2B Tech Firm from 10% to 90% Qualified Leads Using AI</h1>
+  <div class="post-hero-meta">
+    <span>Julien Gustinelli</span>
+    <span>March 26, 2026</span>
+    <span>6 min read</span>
+  </div>
+</div>
+
+<div class="post-body">
+  <a class="back-link" href="/blog/">← Back to Blog</a>
+
+  <div class="stat-bar">
+    <div class="stat-item"><div class="stat-num">10%</div><div class="stat-lbl">Before</div></div>
+    <div class="stat-item"><div class="stat-num">90%</div><div class="stat-lbl">After</div></div>
+    <div class="stat-item"><div class="stat-num">3 wks</div><div class="stat-lbl">Build Time</div></div>
+    <div class="stat-item"><div class="stat-num">1 click</div><div class="stat-lbl">To Run</div></div>
+  </div>
+
+  <p>Most B2B companies have the same lead problem. It's not that they can't find people — it's that 90% of the people they find are wrong.</p>
+
+  <p>That was exactly where Cloud Base Solutions stood when they came to us. Their sales team was spending hours on LinkedIn, buying contact lists, running Waalaxy sequences — and after all of it, maybe 1 in 10 contacts was actually someone they'd want to talk to. The other 9 were noise: wrong industry, wrong role, wrong company type, or just completely off-spec.</p>
+
+  <p>The frustrating part? They knew exactly who they were looking for. The problem was purely one of execution — there was no system that could find those people at scale.</p>
+
+  <p>We built one in three weeks.</p>
+
+  <h2>The Target</h2>
+
+  <p>Cloud Base Solutions specializes in ServiceNow implementation and consulting. Their ideal client is a company that already uses ServiceNow — specifically, the person inside that company responsible for managing or owning the platform. Think ServiceNow Administrators, Platform Owners, ITSM Managers.</p>
+
+  <p>There's a catch that makes this harder than it sounds: ServiceNow has over 22,000 employees of its own, plus a massive ecosystem of independent consultants and implementation partners. If you're not careful, a search for "ServiceNow Administrator" on LinkedIn returns thousands of people who <strong>work for</strong> ServiceNow or consult on it — which is the opposite of what you want.</p>
+
+  <p>Cloud Base Solutions needed people who work <strong>with</strong> ServiceNow at other companies. That distinction is the whole game.</p>
+
+  <p>To make things even more specific, this list wasn't just for general outreach. They had a LinkedIn webinar coming up and needed a hyper-targeted invite list — people who would actually show up and have a reason to care.</p>
+
+  <h2>What Wasn't Working</h2>
+
+  <p>Before we got involved, the team had three approaches:</p>
+
+  <p><strong>Manual LinkedIn search.</strong> Time-intensive, inconsistent, and capped by how many profile views LinkedIn allows per day. Even with Sales Navigator, the filtering isn't precise enough to catch the ServiceNow-employee problem.</p>
+
+  <p><strong>Bought lists.</strong> Cheap and fast, but built for breadth, not precision. 10% qualified leads was the result — meaning 90% of outreach time was wasted by definition.</p>
+
+  <p><strong>Waalaxy automation.</strong> Better than doing it manually, but only as good as the list you feed it. Garbage in, garbage out. The automation worked fine — the lead source didn't.</p>
+
+  <p>The underlying issue wasn't effort or tooling. It was that nobody had built a qualification layer specific to their exact ICP.</p>
+
+  <h2>What We Built</h2>
+
+  <p>We built a Google X-ray lead engine — a Google Sheets-based tool that runs multiple precision searches against LinkedIn using SerpAPI, deduplicates the results, filters out false positives, and delivers a clean, reviewable list with one click.</p>
+
+  <p>Here's how the filtering logic works:</p>
+
+  <p><strong>Five targeted search queries</strong>, each designed to surface a different variation of the ideal profile:</p>
+  <ul>
+    <li>ServiceNow Administrators (excluding ServiceNow, Inc. employees)</li>
+    <li>ServiceNow Platform Owners</li>
+    <li>ITSM Managers who use ServiceNow</li>
+    <li>IT Service Management professionals on ServiceNow</li>
+    <li>ServiceNow Developers (internal, not consultant or freelance)</li>
+  </ul>
+
+  <p><strong>Automatic exclusion filters</strong> that strip out anyone who works directly for ServiceNow, Inc., is listed as a consultant, partner, advisor, or implementation specialist, or works freelance on ServiceNow projects.</p>
+
+  <p><strong>Deduplication logic</strong> that catches the same profile appearing across multiple searches and ensures it only shows up once in the final list.</p>
+
+  <p><strong>A clean review interface</strong> inside Google Sheets — leads come in with Status, Name, Title, Company, and LinkedIn URL. The team marks each one Passed or Failed, exports the passed batch, and it's ready for outreach. The whole thing runs with a single click from a custom menu inside their Google Sheet.</p>
+
+  <h2>The Hard Part</h2>
+
+  <p>The technical build was straightforward. The hard part was getting the exclusion logic right.</p>
+
+  <p>This took several conversations with Rajendra, Cloud Base Solutions' internal IT Head and ServiceNow expert. He knew the ecosystem better than anyone — he could immediately spot a result that looked right on paper but was actually a consultant, or a ServiceNow employee using a non-standard job title.</p>
+
+  <p>We iterated through multiple versions of the filtering rules together. Each round, Rajendra would review a sample batch and flag the false positives. We'd trace back exactly why that result slipped through, adjust the logic, and run it again.</p>
+
+  <p>The main challenge was title ambiguity. "ServiceNow Platform Owner" sounds like an internal role — and usually is — but some consultants use the same title. We had to layer company-level checks on top of title checks to catch those cases reliably.</p>
+
+  <p>By the end, the engine was filtering with enough precision that the qualified rate jumped from 10% to 90%.</p>
+
+  <h2>The Result</h2>
+
+  <p>One click. 35 qualified leads per batch. 90% hit rate against their exact ICP.</p>
+
+  <p>The webinar invite list was pulled, reviewed, and ready in a fraction of the time their manual process would have taken. And unlike a bought list or a Waalaxy-fed sequence, every person on it had been filtered against five specific criteria before a single message was sent.</p>
+
+  <blockquote>
+    "We knew exactly who we were looking for — we just had no way to automate it. LexAi built a lead generation machine to our exact specifications. Now, with the click of a button, we're seeing 90% qualified leads based on 5 to 10 very specific variables. It's completely transformed how we approach client acquisition."
+    <br><br>— Shajan Koshi, Co-Founder & CEO, Cloud Base Solutions
+  </blockquote>
+
+  <h2>What This Looks Like for Other Businesses</h2>
+
+  <p>The ServiceNow filter is specific to Cloud Base Solutions. But the approach is universal.</p>
+
+  <p>If you know who your ideal client is — their title, their tech stack, the type of company they work at, what they don't do — we can build the same kind of engine around your criteria. The exclusion logic, the search queries, the review interface — all of it gets scoped to your exact ICP.</p>
+
+  <p>Most businesses already know who they're looking for. They just don't have a system that can find them at scale without letting the wrong people through. That's the gap we close.</p>
+
+  <div class="post-cta">
+    <p>If you want this built for your business, book a free 30-minute call — no pitch, just a conversation about what's possible.</p>
+    <a href="https://calendly.com/lexai/ai-implementation-introductory-chat?month=2025-08" target="_blank">Book a Free Call →</a>
+  </div>
+</div>
+
+<footer class="site-footer">
+  <div class="footer-top">
+    <div class="footer-col">
+      <a href="/index.html" class="footer-brand">LexAi</a>
+      <p style="margin-top:1rem;max-width:280px">Building custom AI solutions that drive real results.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Product</h4>
+      <ul>
+        <li><a href="/#features">Features</a></li>
+        <li><a href="https://calendly.com/lexai/ai-implementation-introductory-chat?month=2025-08" target="_blank">Request a Quote</a></li>
+        <li><a href="/case-studies.html">Case Studies</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Company</h4>
+      <ul>
+        <li><a href="/about.html">About Us</a></li>
+        <li><a href="/blog/">Blog</a></li>
+        <li><a href="https://calendly.com/lexai/ai-implementation-introductory-chat?month=2025-08" target="_blank">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Legal</h4>
+      <ul>
+        <li><a href="/privacy.html">Privacy Policy</a></li>
+      </ul>
+    </div>
+  </div>
+  <hr>
+  <div class="footer-bottom">
+    <span>© 2026 LexAi. All rights reserved.</span>
+  </div>
+</footer>
+
+</body>
+</html>
