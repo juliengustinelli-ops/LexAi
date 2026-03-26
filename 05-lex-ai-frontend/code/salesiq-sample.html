@@ -1,0 +1,252 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Get a Sample SalesIQ Brief — LexAi</title>
+<meta name="description" content="See exactly what your team receives every Monday. Submit your ICP and we'll build a real sample brief — 20 leads, 2 full intelligence packs, 3 snapshot briefs.">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --brand-green:#00c2b5;
+  --brand-teal:#00bfc7;
+  --footer-bg:#0b0d19;
+  --dark:#080b16;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Poppins',sans-serif;color:#fff;background:var(--dark)}
+
+/* NAV */
+.glass{
+  position:fixed;top:0;left:0;width:100%;z-index:999;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:.8rem 4vw;background:rgba(0,0,0,.52);
+  backdrop-filter:blur(6px);border-bottom:1px solid rgba(255,255,255,.12);
+}
+.brand{font:700 1.4rem/1 'Poppins';color:var(--brand-green);text-decoration:none}
+.nav-links{list-style:none;display:flex;gap:2.5rem;align-items:center}
+.nav-item{color:#fff;text-decoration:none;font-weight:500;transition:color .2s}
+.nav-item:hover{color:var(--brand-teal)}
+.btn-cta{
+  background:var(--brand-green);color:#fff;padding:.6rem 1.8rem;border-radius:25px;
+  font-weight:600;font-size:.9rem;text-decoration:none;transition:opacity .2s,transform .2s
+}
+.btn-cta:hover{opacity:.9;transform:translateY(-2px)}
+.nav-dropdown{position:relative}
+.nav-dropdown .nav-item{display:flex;align-items:center;gap:5px}
+.nav-dropdown .nav-item::after{content:'▾';font-size:.7rem;opacity:.7}
+.dropdown-menu{
+  display:none;position:absolute;top:100%;left:50%;transform:translateX(-50%);
+  padding-top:10px;background:transparent;min-width:160px;z-index:1000;
+}
+.dropdown-menu-inner{
+  background:rgba(11,13,25,.95);backdrop-filter:blur(12px);
+  border:1px solid rgba(255,255,255,.1);border-radius:10px;overflow:hidden;
+}
+.dropdown-menu a{
+  display:block;padding:.65rem 1.2rem;color:rgba(255,255,255,.8);
+  text-decoration:none;font-size:.88rem;font-weight:500;
+  transition:background .15s,color .15s;white-space:nowrap;
+}
+.dropdown-menu a:hover{background:rgba(0,194,181,.12);color:var(--brand-green)}
+.nav-dropdown:hover .dropdown-menu{display:block}
+
+/* HERO */
+.hero{
+  min-height:60vh;display:flex;align-items:center;justify-content:center;
+  text-align:center;padding:6rem 1.5rem 4rem;
+  background:
+    radial-gradient(ellipse 80% 60% at 50% -10%, rgba(0,194,181,0.18) 0%, transparent 70%);
+}
+.hero-inner{max-width:680px;margin:0 auto}
+.hero-badge{
+  display:inline-block;background:rgba(0,194,181,.15);border:1px solid rgba(0,194,181,.4);
+  color:var(--brand-green);font-size:.75rem;font-weight:700;letter-spacing:2px;
+  text-transform:uppercase;padding:.4rem 1.2rem;border-radius:50px;margin-bottom:1.6rem;
+}
+.hero h1{font-size:clamp(2rem,5vw,3rem);font-weight:700;line-height:1.2;margin-bottom:1.2rem}
+.hero h1 span{color:var(--brand-green)}
+.hero-sub{font-size:1rem;font-weight:300;color:rgba(255,255,255,.75);line-height:1.8;max-width:560px;margin:0 auto}
+
+/* FORM SECTION */
+.form-section{padding:4rem 1.5rem 6rem}
+.form-box{
+  max-width:580px;margin:0 auto;
+  background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.1);
+  border-radius:20px;padding:3rem;
+}
+.form-steps{display:flex;gap:1.5rem;margin-bottom:2.5rem;justify-content:center;flex-wrap:wrap}
+.fstep{display:flex;align-items:center;gap:.6rem}
+.fstep-num{
+  width:28px;height:28px;border-radius:50%;
+  background:rgba(0,194,181,.15);border:1.5px solid var(--brand-green);
+  color:var(--brand-green);font-size:.75rem;font-weight:700;
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;
+}
+.fstep-text{font-size:.82rem;color:rgba(255,255,255,.65);font-weight:400}
+.fstep-divider{width:24px;height:1px;background:rgba(255,255,255,.15);flex-shrink:0}
+
+.sample-form{display:flex;flex-direction:column;gap:1rem}
+.sample-form input,
+.sample-form textarea{
+  background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);
+  border-radius:10px;padding:.9rem 1.1rem;color:#fff;font-family:'Poppins',sans-serif;
+  font-size:.9rem;font-weight:300;outline:none;transition:border-color .2s;width:100%;
+}
+.sample-form input::placeholder,
+.sample-form textarea::placeholder{color:rgba(255,255,255,.35)}
+.sample-form input:focus,
+.sample-form textarea:focus{border-color:var(--brand-green)}
+.sample-form textarea{resize:vertical;min-height:90px}
+.submit-btn{
+  background:var(--brand-green);color:#fff;border:none;border-radius:50px;
+  padding:1rem 2rem;font-family:'Poppins',sans-serif;font-size:1rem;font-weight:600;
+  cursor:pointer;transition:transform .25s,box-shadow .25s;margin-top:.5rem;
+}
+.submit-btn:hover{transform:translateY(-3px);box-shadow:0 8px 24px rgba(0,194,181,.35)}
+.form-note{font-size:.78rem;color:rgba(255,255,255,.35);text-align:center;margin-top:1rem;line-height:1.6}
+
+/* WHAT YOU GET */
+.what-section{background:#fff;color:#0b0d19;padding:5rem 1.5rem}
+.what-inner{max-width:900px;margin:0 auto;text-align:center}
+.section-tag{font-size:.7rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--brand-green);margin-bottom:.8rem}
+.what-inner h2{font-size:clamp(1.6rem,3.5vw,2.2rem);font-weight:700;margin-bottom:.8rem}
+.what-inner p.lead{font-size:.95rem;font-weight:300;color:#555;line-height:1.8;max-width:580px;margin:0 auto 3rem}
+.what-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1.5rem;text-align:left}
+.what-card{background:#f4f6f8;border-radius:14px;padding:1.6rem;border-top:3px solid var(--brand-green)}
+.what-card h4{font-size:.92rem;font-weight:700;color:#0b0d19;margin-bottom:.5rem}
+.what-card p{font-size:.82rem;color:#555;line-height:1.7;font-weight:300}
+.what-count{font-size:1.6rem;font-weight:900;color:var(--brand-green);margin-bottom:.3rem;line-height:1}
+
+/* FOOTER */
+.site-footer{background:var(--footer-bg);color:#d1d1d1;padding:3rem 2rem;text-align:center}
+.site-footer .brand{display:block;margin-bottom:.6rem;font-size:1.2rem}
+.site-footer p{font-size:.8rem;color:rgba(255,255,255,.3)}
+.footer-links{display:flex;justify-content:center;gap:2rem;margin:1rem 0;list-style:none}
+.footer-links a{color:rgba(255,255,255,.35);text-decoration:none;font-size:.8rem;transition:color .2s}
+.footer-links a:hover{color:var(--brand-green)}
+
+@media(max-width:768px){
+  .nav-links{display:none}
+  .form-box{padding:2rem 1.4rem}
+  .fstep-divider{display:none}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="glass">
+  <a href="/index.html" class="brand">LexAi</a>
+  <ul class="nav-links">
+    <li><a href="/index.html" class="nav-item">Home</a></li>
+    <li class="nav-dropdown">
+      <a class="nav-item" href="/about.html">About</a>
+      <div class="dropdown-menu">
+        <div class="dropdown-menu-inner">
+          <a href="/about.html">About Us</a>
+          <a href="/lexai-faq.html">FAQ</a>
+        </div>
+      </div>
+    </li>
+    <li class="nav-dropdown">
+      <a class="nav-item" href="/ai-solutions.html">Services</a>
+      <div class="dropdown-menu">
+        <div class="dropdown-menu-inner">
+          <a href="/ai-solutions.html">Custom AI Solutions</a>
+          <a href="/geo-services.html">GEO Audit</a>
+          <a href="/salesiq-services.html">SalesIQ Weekly</a>
+        </div>
+      </div>
+    </li>
+    <li><a href="/case-studies.html" class="nav-item">Case Studies</a></li>
+    <li><a href="https://calendly.com/lexai/ai-implementation-introductory-chat" class="btn-cta" target="_blank">Book a Call</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-badge">SalesIQ Weekly — Sample Brief</div>
+    <h1>See exactly what lands<br>in your inbox <span>every Monday.</span></h1>
+    <p class="hero-sub">Tell us your ICP and we'll build a real sample brief — 20 signal-scored leads, 2 full intelligence packs with org charts and outreach copy, 3 snapshot briefs. No template. Actual output.</p>
+  </div>
+</section>
+
+<!-- FORM -->
+<section class="form-section">
+  <div class="form-box">
+    <div class="form-steps">
+      <div class="fstep">
+        <div class="fstep-num">1</div>
+        <div class="fstep-text">Fill in your ICP</div>
+      </div>
+      <div class="fstep-divider"></div>
+      <div class="fstep">
+        <div class="fstep-num">2</div>
+        <div class="fstep-text">We build the sample</div>
+      </div>
+      <div class="fstep-divider"></div>
+      <div class="fstep">
+        <div class="fstep-num">3</div>
+        <div class="fstep-text">PDF in your inbox</div>
+      </div>
+    </div>
+
+    <form class="sample-form" action="https://formspree.io/f/maqppkwb" method="POST">
+      <input type="hidden" name="_subject" value="New SalesIQ Sample Brief Request">
+      <input type="text" name="name" placeholder="Your name" required>
+      <input type="email" name="email" placeholder="Work email" required>
+      <input type="text" name="company" placeholder="Company name" required>
+      <input type="text" name="role" placeholder="Your role (e.g. Founder, VP Sales)">
+      <textarea name="icp" placeholder="Describe your target customer — industry, company size, titles you sell to, geography" required></textarea>
+      <button type="submit" class="submit-btn">Send Me a Sample Brief →</button>
+    </form>
+    <p class="form-note">No pitch. No credit card. You'll receive a real SalesIQ brief built for your ICP within 2 business days.</p>
+  </div>
+</section>
+
+<!-- WHAT'S IN IT -->
+<section class="what-section">
+  <div class="what-inner">
+    <div class="section-tag">What You'll Receive</div>
+    <h2>One PDF. Three tiers of intelligence.</h2>
+    <p class="lead">The same deliverable your team would receive every Monday morning — built for your actual ICP, not a generic demo.</p>
+    <div class="what-grid">
+      <div class="what-card">
+        <div class="what-count">2</div>
+        <h4>Full Intelligence Packs</h4>
+        <p>Org chart, decision maker map with contacts, BANT/MEDDIC scorecard, competitive positioning, and ready-to-send LinkedIn message + email.</p>
+      </div>
+      <div class="what-card">
+        <div class="what-count">3</div>
+        <h4>Snapshot Briefs</h4>
+        <p>One-page card per lead: prospect score, two live buying signals, key contact, and one personalized first message written for that company's situation.</p>
+      </div>
+      <div class="what-card">
+        <div class="what-count">15</div>
+        <h4>Lead List</h4>
+        <p>Name, company, title, active buying signal, prospect score, and LinkedIn URL. Your warm pipeline for the week.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <a href="/index.html" class="brand">LexAi</a>
+  <ul class="footer-links">
+    <li><a href="/index.html">Home</a></li>
+    <li><a href="/ai-solutions.html">Services</a></li>
+    <li><a href="/geo-services.html">GEO Audit</a></li>
+    <li><a href="/salesiq-services.html">SalesIQ Weekly</a></li>
+    <li><a href="/case-studies.html">Case Studies</a></li>
+    <li><a href="https://calendly.com/lexai/ai-implementation-introductory-chat" target="_blank">Book a Call</a></li>
+  </ul>
+  <p>© 2026 LexAi. All rights reserved.</p>
+</footer>
+
+</body>
+</html>
