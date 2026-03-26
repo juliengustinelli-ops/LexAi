@@ -1,0 +1,303 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>LexAi vs Clay: Which Is Right for B2B Lead Generation? | LexAi</title>
+<meta name="description" content="Clay is a powerful tool — but it's built for GTM engineers, not growing B2B teams. Here's an honest comparison of when Clay makes sense and when a custom-built engine wins.">
+<meta property="og:title" content="LexAi vs Clay: Which Is Right for B2B Lead Generation?">
+<meta property="og:description" content="Clay is a powerful tool — but it's built for GTM engineers, not growing B2B teams. Here's an honest comparison of when Clay makes sense and when a custom-built engine wins.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://www.lexaib2b.com/blog/lexai-vs-clay-b2b-lead-generation.html">
+<meta property="og:site_name" content="LexAi">
+<meta property="og:image" content="https://www.lexaib2b.com/hero.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://www.lexaib2b.com/blog/lexai-vs-clay-b2b-lead-generation.html">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "LexAi vs Clay: Which Is Right for B2B Lead Generation?",
+  "description": "Clay is a powerful tool — but it's built for GTM engineers, not growing B2B teams. Here's an honest comparison of when Clay makes sense and when a custom-built engine wins.",
+  "author": {
+    "@type": "Person",
+    "name": "Julien Gustinelli",
+    "jobTitle": "Founder & Lead Engineer",
+    "worksFor": { "@type": "Organization", "name": "LexAi" },
+    "sameAs": "https://www.linkedin.com/in/juliengustinelli"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "LexAi",
+    "url": "https://www.lexaib2b.com"
+  },
+  "datePublished": "2026-04-16",
+  "url": "https://www.lexaib2b.com/blog/lexai-vs-clay-b2b-lead-generation.html"
+}
+</script>
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --brand-green:#00c2b5;
+  --brand-teal:#00bfc7;
+  --footer-bg:#0b0d19;
+  --nav-h:84px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Poppins',sans-serif;color:#0b0d19;background:#f4f6f8}
+
+.glass{
+  position:fixed;top:0;left:0;width:100%;z-index:999;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:.8rem 4vw;background:rgba(0,0,0,.52);
+  backdrop-filter:blur(6px);border-bottom:1px solid rgba(255,255,255,.12);
+  min-height:var(--nav-h);
+}
+.brand{font:700 1.4rem/1 'Poppins';color:var(--brand-green);text-decoration:none}
+.nav-links{list-style:none;display:flex;gap:2.5rem;align-items:center}
+.nav-item{color:#fff;text-decoration:none;font-weight:500;transition:color .2s}
+.nav-item:hover{color:var(--brand-green)}
+.btn-cta{background:var(--brand-green);color:#fff;padding:.6rem 1.8rem;border-radius:25px;font-weight:600;font-size:.9rem;text-decoration:none}
+
+.post-hero{
+  background:#0b0d19;
+  padding:calc(var(--nav-h) + 4rem) 2rem 4rem;
+  text-align:center;
+}
+.post-tag{font-size:.75rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--brand-green);margin-bottom:1rem;display:block}
+.post-hero h1{font-size:clamp(1.6rem,4vw,2.6rem);font-weight:700;color:#fff;line-height:1.3;max-width:780px;margin:0 auto 1.5rem}
+.post-hero-meta{font-size:.85rem;color:rgba(255,255,255,.5);display:flex;gap:1.5rem;justify-content:center;flex-wrap:wrap}
+
+.post-body{
+  max-width:720px;margin:0 auto;padding:3rem 2rem 5rem;
+}
+.post-body p{font-size:1rem;line-height:1.85;color:#333;font-weight:300;margin-bottom:1.4rem}
+.post-body h2{font-size:1.35rem;font-weight:700;color:#0b0d19;margin:2.5rem 0 1rem;padding-bottom:.4rem;border-bottom:2px solid var(--brand-green)}
+.post-body strong{font-weight:600;color:#0b0d19}
+.post-body ul{margin:1rem 0 1.4rem 1.4rem}
+.post-body ul li{font-size:1rem;line-height:1.75;color:#333;font-weight:300;margin-bottom:.6rem}
+
+.compare-table{width:100%;border-collapse:collapse;margin:2rem 0;background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,.06)}
+.compare-table th{background:#0b0d19;color:#fff;padding:1rem 1.2rem;text-align:left;font-size:.85rem;font-weight:600}
+.compare-table th:first-child{width:35%}
+.compare-table td{padding:.9rem 1.2rem;font-size:.9rem;color:#333;font-weight:300;border-bottom:1px solid #f0f0f0;vertical-align:top;line-height:1.6}
+.compare-table tr:last-child td{border-bottom:none}
+.compare-table tr:nth-child(even) td{background:#fafafa}
+.tag-green{color:var(--brand-green);font-weight:600}
+.tag-neutral{color:#888;font-weight:400}
+
+.verdict-box{
+  background:#fff;border-radius:12px;padding:1.8rem 2rem;
+  margin:2.5rem 0;box-shadow:0 2px 12px rgba(0,0,0,.06);
+  border-top:4px solid var(--brand-green);
+}
+.verdict-box h3{font-size:1rem;font-weight:700;color:#0b0d19;margin-bottom:1rem}
+.verdict-box p{font-size:.95rem;color:#444;line-height:1.75;font-weight:300;margin-bottom:0}
+
+.post-cta{
+  background:#0b0d19;border-radius:12px;padding:2.5rem;text-align:center;margin-top:3rem;
+}
+.post-cta p{color:rgba(255,255,255,.75);margin-bottom:1.5rem;font-size:.95rem;line-height:1.7}
+.post-cta a{
+  background:var(--brand-green);color:#fff;padding:.9rem 2.4rem;
+  border-radius:50px;font-weight:600;text-decoration:none;font-size:1rem;
+  display:inline-block;transition:opacity .2s,transform .2s;
+}
+.post-cta a:hover{opacity:.9;transform:translateY(-2px)}
+
+.back-link{display:inline-flex;align-items:center;gap:.4rem;color:var(--brand-green);text-decoration:none;font-size:.9rem;font-weight:600;margin-bottom:2rem}
+.back-link:hover{opacity:.8}
+
+.site-footer{background:var(--footer-bg);color:#d1d1d1;padding:4rem 2rem}
+.footer-top{display:grid;gap:2.5rem;max-width:1200px;margin:auto}
+@media(min-width:700px){.footer-top{grid-template-columns:2fr 1fr 1fr 1fr}}
+.footer-brand{font-size:1.4rem;font-weight:700;color:var(--brand-green);text-decoration:none}
+.footer-col h4{font-size:1.05rem;font-weight:600;margin-bottom:1rem;color:#fff}
+.footer-col ul{list-style:none}
+.footer-col li+li{margin-top:.6rem}
+.footer-col a{color:#d1d1d1;text-decoration:none;font-size:.95rem;transition:color .2s}
+.footer-col a:hover{color:var(--brand-green)}
+hr{border:none;border-top:1px solid #2a2e3a;margin:3rem 0 2rem}
+.footer-bottom{max-width:1200px;margin:auto;display:flex;justify-content:space-between;flex-wrap:wrap;gap:1rem;font-size:.9rem}
+
+@media(max-width:640px){.compare-table{font-size:.82rem}.compare-table td,.compare-table th{padding:.7rem .8rem}}
+</style>
+</head>
+<body>
+
+<header>
+  <nav class="glass">
+    <a class="brand" href="/index.html">LexAi</a>
+    <ul class="nav-links">
+      <li><a class="nav-item" href="/index.html">Home</a></li>
+      <li><a class="nav-item" href="/case-studies.html">Case Studies</a></li>
+      <li><a class="nav-item" href="/blog/">Blog</a></li>
+      <li><a class="nav-item" href="/about.html">About</a></li>
+    </ul>
+    <a href="https://calendly.com/lexai/ai-implementation-introductory-chat?month=2025-08" target="_blank" class="btn-cta">Get Started</a>
+  </nav>
+</header>
+
+<div class="post-hero">
+  <span class="post-tag">Versus · Lead Generation</span>
+  <h1>LexAi vs Clay: Which Is Right for B2B Lead Generation?</h1>
+  <div class="post-hero-meta">
+    <span>Julien Gustinelli</span>
+    <span>April 16, 2026</span>
+    <span>5 min read</span>
+  </div>
+</div>
+
+<div class="post-body">
+  <a class="back-link" href="/blog/">← Back to Blog</a>
+
+  <p>Clay is genuinely impressive. If you've spent any time in B2B sales or growth circles recently, you've seen it come up — and for good reason. It connects dozens of data sources, lets you enrich leads at scale, and can run surprisingly sophisticated logic if you know how to use it.</p>
+
+  <p>We're not here to tear it down. But we talk to a lot of B2B teams who are evaluating Clay and wondering if it's the right fit — and the honest answer is: it depends on what you actually need. Here's how we think about it.</p>
+
+  <h2>What Clay Is Built For</h2>
+
+  <p>Clay is a data enrichment and workflow automation platform. At its core, it lets you take a list of companies or contacts and layer in additional data from 75+ sources — LinkedIn, Apollo, Clearbit, news APIs, job postings, and more. You can then use that enriched data to trigger actions: send to a CRM, kick off an email sequence, score a lead.</p>
+
+  <p>It's powerful. But it's a platform — meaning you bring the strategy, the logic, and the workflow design. Clay gives you the building blocks. You still have to be a builder.</p>
+
+  <p>Clay works best when:</p>
+  <ul>
+    <li>You have a dedicated GTM engineer or RevOps person to set it up and maintain it</li>
+    <li>Your ICP is broad enough that off-the-shelf data sources cover most of your criteria</li>
+    <li>You want to enrich an existing list rather than generate a new one from scratch</li>
+    <li>You're running high-volume outreach and need to automate personalization at scale</li>
+  </ul>
+
+  <h2>Where Clay Falls Short</h2>
+
+  <p>The most common issue we hear from teams who've tried Clay: it took longer than expected to set up, cost more than anticipated, and still required manual work they didn't plan for.</p>
+
+  <p>Clay's pricing scales with usage — credits get consumed fast when you're enriching at volume across multiple data sources. A mid-size team running a serious outbound motion can hit $500–$1,000/mo without blinking. That's not a complaint about Clay's value — it's just a reality to plan for.</p>
+
+  <p>More importantly: Clay is a horizontal tool. It doesn't know your business. It doesn't know that "ServiceNow Platform Owner" can mean either an internal hire or an external consultant, and that you only want the former. It doesn't know that your ideal client is a 50-200 person company in one of four specific industries that isn't already a vendor in your space. That nuance has to come from you — and building it in Clay requires real technical skill.</p>
+
+  <p>Clay struggles when:</p>
+  <ul>
+    <li>Your ICP criteria are highly specific or require custom exclusion logic</li>
+    <li>You don't have a GTM engineer to own the build</li>
+    <li>You need a lead source, not just enrichment (Clay enriches — it doesn't generate)</li>
+    <li>You want a system your sales team can run themselves without touching a workflow builder</li>
+  </ul>
+
+  <h2>How LexAi Is Different</h2>
+
+  <p>We don't sell a platform. We build a system — one that's scoped entirely around your ICP, your data sources, and your workflow.</p>
+
+  <p>That means the qualification logic, the exclusion rules, the search queries, and the review interface are all built for your specific use case. Not adapted from a template. Not configured inside a general-purpose tool. Written from scratch to do exactly what you need and nothing more.</p>
+
+  <p>The practical difference: when we finished the lead engine for one of our clients, their sales team could run it themselves with a single click inside a Google Sheet. No Clay account, no credits, no GTM engineer required. 35 qualified leads per batch, 90% hit rate against their ICP — ongoing, with no monthly bill tied to usage volume.</p>
+
+  <h2>Head-to-Head Comparison</h2>
+
+  <table class="compare-table">
+    <thead>
+      <tr>
+        <th>Factor</th>
+        <th>Clay</th>
+        <th>LexAi Custom Build</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Setup</strong></td>
+        <td>Self-serve, but requires GTM/RevOps expertise</td>
+        <td class="tag-green">Done for you — we scope, build, and deploy</td>
+      </tr>
+      <tr>
+        <td><strong>ICP specificity</strong></td>
+        <td>Good for broad criteria, harder for complex logic</td>
+        <td class="tag-green">Built around your exact variables and exclusions</td>
+      </tr>
+      <tr>
+        <td><strong>Lead sourcing</strong></td>
+        <td>Enriches existing lists — doesn't generate leads</td>
+        <td class="tag-green">Generates and qualifies from scratch</td>
+      </tr>
+      <tr>
+        <td><strong>Ongoing cost</strong></td>
+        <td>$500–$1,000+/mo depending on usage</td>
+        <td class="tag-green">One-time build fee, no usage-based billing</td>
+      </tr>
+      <tr>
+        <td><strong>Who runs it</strong></td>
+        <td>GTM engineer or technically capable RevOps</td>
+        <td class="tag-green">Anyone on your team — one click</td>
+      </tr>
+      <tr>
+        <td><strong>Flexibility</strong></td>
+        <td class="tag-green">Highly flexible — 75+ data source integrations</td>
+        <td>Built for your use case — changes require a developer</td>
+      </tr>
+      <tr>
+        <td><strong>Best for</strong></td>
+        <td class="tag-green">High-volume enrichment, personalization at scale</td>
+        <td>Precision targeting, niche ICPs, teams without a GTM engineer</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2>So Which One Should You Use?</h2>
+
+  <div class="verdict-box">
+    <h3>Use Clay if:</h3>
+    <p>You have a GTM engineer, you're running high-volume outbound, your ICP is relatively broad, and you want maximum flexibility to experiment with different data sources and workflows over time.</p>
+  </div>
+
+  <div class="verdict-box">
+    <h3>Use a custom build if:</h3>
+    <p>Your ICP requires specific, nuanced logic that a general-purpose tool can't handle out of the box. You don't have a GTM engineer. You want your sales team to run the system themselves. And you'd rather pay once for something that works than pay monthly for something you're still figuring out.</p>
+  </div>
+
+  <p>The honest version: Clay is a great tool for the right team. If you have the technical resources to use it well, it's worth evaluating. But if you've already tried it and found the setup harder than expected — or if you're looking at it and realizing you'd need to hire someone just to run it — a custom-built engine is usually faster, cheaper over time, and ends up doing exactly what you need rather than most of what you need.</p>
+
+  <div class="post-cta">
+    <p>If you want this built for your business, book a free 30-minute call — no pitch, just a conversation about what's possible.</p>
+    <a href="https://calendly.com/lexai/ai-implementation-introductory-chat?month=2025-08" target="_blank">Book a Free Call →</a>
+  </div>
+</div>
+
+<footer class="site-footer">
+  <div class="footer-top">
+    <div class="footer-col">
+      <a href="/index.html" class="footer-brand">LexAi</a>
+      <p style="margin-top:1rem;max-width:280px">Building custom AI solutions that drive real results.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Product</h4>
+      <ul>
+        <li><a href="/#features">Features</a></li>
+        <li><a href="https://calendly.com/lexai/ai-implementation-introductory-chat?month=2025-08" target="_blank">Request a Quote</a></li>
+        <li><a href="/case-studies.html">Case Studies</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Company</h4>
+      <ul>
+        <li><a href="/about.html">About Us</a></li>
+        <li><a href="/blog/">Blog</a></li>
+        <li><a href="https://calendly.com/lexai/ai-implementation-introductory-chat?month=2025-08" target="_blank">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Legal</h4>
+      <ul>
+        <li><a href="/privacy.html">Privacy Policy</a></li>
+      </ul>
+    </div>
+  </div>
+  <hr>
+  <div class="footer-bottom">
+    <span>© 2026 LexAi. All rights reserved.</span>
+  </div>
+</footer>
+
+</body>
+</html>
