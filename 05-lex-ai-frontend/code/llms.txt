@@ -1,0 +1,26 @@
+# LexAi
+
+> LexAi builds custom AI automation tools, precision lead generation engines, and LLM-powered workflow systems for B2B growth teams. Founded by Julien Gustinelli.
+
+## Core Services
+
+- [AI Lead Generation Engine](https://www.lexaib2b.com): Custom qualification engines that filter leads against your exact ICP — delivering 90%+ qualified leads with a single click.
+- [Marketing Automation](https://www.lexaib2b.com): End-to-end automation systems built on your exact workflows, from outreach to conversion.
+- [LLM Engineering & Custom Workflow Systems](https://www.lexaib2b.com): Custom LLM-powered systems that eliminate manual operations and save hundreds of hours per year.
+
+## Case Studies
+
+- [Cloud Base Solutions](https://www.lexaib2b.com/case-studies.html): B2B tech firm went from 10% to 90% qualified leads using a custom AI qualification engine.
+- [InboxHunter](https://www.lexaib2b.com/case-studies.html): Marketing automation platform with 970+ active users and $0 monthly operating cost.
+- [St. Vincent Ferrer Catholic School](https://www.lexaib2b.com/case-studies.html): Custom Help Desk & Work Order System saving 450+ hours per year with 90% less manual triage.
+
+## Resources
+
+- [Free GEO Audit](https://www.lexaib2b.com/geo-audit.html): Free AI visibility audit for B2B brands — scored across 6 dimensions, delivered as a PDF.
+- [About LexAi](https://www.lexaib2b.com/about.html): Founder background, company mission, and how we work.
+- [Case Studies](https://www.lexaib2b.com/case-studies.html): Detailed results from client engagements.
+
+## Contact
+
+- Website: https://www.lexaib2b.com
+- LinkedIn: https://www.linkedin.com/company/lexaib2b
