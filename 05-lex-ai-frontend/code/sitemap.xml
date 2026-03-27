@@ -36,6 +36,11 @@
     <changefreq>monthly</changefreq>
   </url>
   <url>
+    <loc>https://www.lexaib2b.com/ai-marketing-audit.html</loc>
+    <priority>0.9</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
     <loc>https://www.lexaib2b.com/blog/</loc>
     <priority>0.8</priority>
     <changefreq>weekly</changefreq>
