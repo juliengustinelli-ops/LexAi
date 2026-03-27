@@ -16,7 +16,8 @@
 
 ## Resources
 
-- [Free GEO Audit](https://www.lexaib2b.com/geo-audit.html): Free AI visibility audit for B2B brands — scored across 6 dimensions, delivered as a PDF.
+- [Free GEO Audit](https://www.lexaib2b.com/geo-audit.html): Free AI visibility audit for B2B brands — scored across 6 GEO dimensions, delivered as a PDF.
+- [Free AI Marketing Audit](https://www.lexaib2b.com/ai-marketing-audit.html): Free AI-assisted SEO and content audit — 47 checks across on-page SEO, content quality, keyword intent, technical SEO, conversion, and competitive positioning. PDF delivered in 2 business days.
 - [About LexAi](https://www.lexaib2b.com/about.html): Founder background, company mission, and how we work.
 - [Case Studies](https://www.lexaib2b.com/case-studies.html): Detailed results from client engagements.
 
