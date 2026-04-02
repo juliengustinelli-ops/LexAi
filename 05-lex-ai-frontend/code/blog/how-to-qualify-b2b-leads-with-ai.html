@@ -1,0 +1,288 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>How to Qualify B2B Leads With AI (Without a $500/mo Tool) | LexAi</title>
+<meta name="description" content="Most B2B lead qualification tools are expensive, generic, and built for someone else's ICP. Here's how to build a qualification layer around your exact criteria — without the monthly bill.">
+<meta property="og:title" content="How to Qualify B2B Leads With AI (Without a $500/mo Tool)">
+<meta property="og:description" content="Most B2B lead qualification tools are expensive, generic, and built for someone else's ICP. Here's how to build a qualification layer around your exact criteria — without the monthly bill.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://www.lexaib2b.com/blog/how-to-qualify-b2b-leads-with-ai.html">
+<meta property="og:site_name" content="LexAi">
+<meta property="og:image" content="https://www.lexaib2b.com/hero.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://www.lexaib2b.com/blog/how-to-qualify-b2b-leads-with-ai.html">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "How to Qualify B2B Leads With AI (Without a $500/mo Tool)",
+  "description": "Most B2B lead qualification tools are expensive, generic, and built for someone else's ICP. Here's how to build a qualification layer around your exact criteria — without the monthly bill.",
+  "author": {
+    "@type": "Person",
+    "name": "Julien Gustinelli",
+    "jobTitle": "Founder & Lead Engineer",
+    "worksFor": { "@type": "Organization", "name": "LexAi" },
+    "sameAs": "https://www.linkedin.com/in/juliengustinelli"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "LexAi",
+    "url": "https://www.lexaib2b.com"
+  },
+  "datePublished": "2026-04-09",
+  "url": "https://www.lexaib2b.com/blog/how-to-qualify-b2b-leads-with-ai.html"
+}
+</script>
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --brand-green:#00c2b5;
+  --brand-teal:#00bfc7;
+  --footer-bg:#0b0d19;
+  --nav-h:84px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Poppins',sans-serif;color:#0b0d19;background:#f4f6f8}
+
+.glass{
+  position:fixed;top:0;left:0;width:100%;z-index:999;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:.8rem 4vw;background:rgba(0,0,0,.52);
+  backdrop-filter:blur(6px);border-bottom:1px solid rgba(255,255,255,.12);
+  min-height:var(--nav-h);
+}
+.brand{font:700 1.4rem/1 'Poppins';color:var(--brand-green);text-decoration:none}
+.nav-links{list-style:none;display:flex;gap:2.5rem;align-items:center}
+.nav-item{color:#fff;text-decoration:none;font-weight:500;transition:color .2s}
+.nav-item:hover{color:var(--brand-green)}
+.btn-cta{background:var(--brand-green);color:#fff;padding:.6rem 1.8rem;border-radius:25px;font-weight:600;font-size:.9rem;text-decoration:none}
+
+.post-hero{
+  background:#0b0d19;
+  padding:calc(var(--nav-h) + 4rem) 2rem 4rem;
+  text-align:center;
+}
+.post-tag{font-size:.75rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--brand-green);margin-bottom:1rem;display:block}
+.post-hero h1{font-size:clamp(1.6rem,4vw,2.6rem);font-weight:700;color:#fff;line-height:1.3;max-width:780px;margin:0 auto 1.5rem}
+.post-hero-meta{font-size:.85rem;color:rgba(255,255,255,.5);display:flex;gap:1.5rem;justify-content:center;flex-wrap:wrap}
+
+.post-body{
+  max-width:720px;margin:0 auto;padding:3rem 2rem 5rem;
+}
+.post-body p{font-size:1rem;line-height:1.85;color:#333;font-weight:300;margin-bottom:1.4rem}
+.post-body h2{font-size:1.35rem;font-weight:700;color:#0b0d19;margin:2.5rem 0 1rem;padding-bottom:.4rem;border-bottom:2px solid var(--brand-green)}
+.post-body strong{font-weight:600;color:#0b0d19}
+.post-body ol,.post-body ul{margin:1rem 0 1.4rem 1.4rem}
+.post-body ol li,.post-body ul li{font-size:1rem;line-height:1.75;color:#333;font-weight:300;margin-bottom:.6rem}
+.post-body blockquote{
+  border-left:4px solid var(--brand-green);
+  padding:1rem 1.5rem;
+  margin:2rem 0;
+  background:#fff;
+  border-radius:0 8px 8px 0;
+  font-style:italic;
+  color:#444;
+  font-size:.95rem;
+  line-height:1.75;
+}
+
+.takeaways{
+  background:#fff;border-radius:12px;padding:1.8rem 2rem;
+  margin:2.5rem 0;box-shadow:0 2px 12px rgba(0,0,0,.06);
+  border-top:4px solid var(--brand-green);
+}
+.takeaways h3{font-size:1rem;font-weight:700;color:#0b0d19;margin-bottom:1rem}
+.takeaways ul{margin-left:1.2rem}
+.takeaways ul li{font-size:.95rem;line-height:1.75;color:#333;font-weight:300;margin-bottom:.4rem}
+
+.post-cta{
+  background:#0b0d19;border-radius:12px;padding:2.5rem;text-align:center;margin-top:3rem;
+}
+.post-cta p{color:rgba(255,255,255,.75);margin-bottom:1.5rem;font-size:.95rem;line-height:1.7}
+.post-cta a{
+  background:var(--brand-green);color:#fff;padding:.9rem 2.4rem;
+  border-radius:50px;font-weight:600;text-decoration:none;font-size:1rem;
+  display:inline-block;transition:opacity .2s,transform .2s;
+}
+.post-cta a:hover{opacity:.9;transform:translateY(-2px)}
+
+.back-link{display:inline-flex;align-items:center;gap:.4rem;color:var(--brand-green);text-decoration:none;font-size:.9rem;font-weight:600;margin-bottom:2rem}
+.back-link:hover{opacity:.8}
+
+.site-footer{background:var(--footer-bg);color:#d1d1d1;padding:4rem 2rem}
+.footer-top{display:grid;gap:2.5rem;max-width:1200px;margin:auto}
+@media(min-width:700px){.footer-top{grid-template-columns:2fr 1fr 1fr 1fr}}
+.footer-brand{font-size:1.4rem;font-weight:700;color:var(--brand-green);text-decoration:none}
+.footer-col h4{font-size:1.05rem;font-weight:600;margin-bottom:1rem;color:#fff}
+.footer-col ul{list-style:none}
+.footer-col li+li{margin-top:.6rem}
+.footer-col a{color:#d1d1d1;text-decoration:none;font-size:.95rem;transition:color .2s}
+.footer-col a:hover{color:var(--brand-green)}
+hr{border:none;border-top:1px solid #2a2e3a;margin:3rem 0 2rem}
+.footer-bottom{max-width:1200px;margin:auto;display:flex;justify-content:space-between;flex-wrap:wrap;gap:1rem;font-size:.9rem}
+</style>
+</head>
+<body>
+
+<header>
+  <nav class="glass">
+    <a class="brand" href="/index.html">LexAi</a>
+    <ul class="nav-links">
+      <li><a class="nav-item" href="/index.html">Home</a></li>
+      <li><a class="nav-item" href="/case-studies.html">Case Studies</a></li>
+      <li><a class="nav-item" href="/blog/">Blog</a></li>
+      <li><a class="nav-item" href="/about.html">About</a></li>
+    </ul>
+    <a href="https://calendly.com/lexai/ai-implementation-introductory-chat" target="_blank" class="btn-cta">Get Started</a>
+  </nav>
+</header>
+
+<div class="post-hero">
+  <span class="post-tag">How-To · Lead Generation</span>
+  <h1>How to Qualify B2B Leads With AI (Without a $500/mo Tool)</h1>
+  <div class="post-hero-meta">
+    <span>Julien Gustinelli</span>
+    <span>April 9, 2026</span>
+    <span>5 min read</span>
+  </div>
+</div>
+
+<div class="post-body">
+  <a class="back-link" href="/blog/">← Back to Blog</a>
+
+  <p>The B2B lead qualification problem isn't new. You have a list of prospects — some are perfect fits, most aren't — and the only way to tell the difference is to manually research each one or pay for a platform that does it for you.</p>
+
+  <p>The platforms work, to a degree. But they're built around someone else's ICP. You get a generic quality score based on firmographic data — company size, industry, revenue range — and that's about it. If your ideal client has more specific characteristics than that, you're on your own.</p>
+
+  <p>There's a better way. Here's how to build a qualification layer around your exact criteria using AI — without a $500/mo subscription to something that only gets you halfway there.</p>
+
+  <h2>Step 1: Write Down Your Actual ICP Criteria</h2>
+
+  <p>Not the generic version. The real one.</p>
+
+  <p>Most companies, when asked to describe their ideal client, say something like "mid-market SaaS companies." That's a starting point, not a filter. The qualification systems that actually work are built around specific, binary criteria — things you can check programmatically.</p>
+
+  <p>Good criteria look like this:</p>
+  <ul>
+    <li>Uses a specific tool or platform (ServiceNow, HubSpot, Salesforce)</li>
+    <li>Job title contains specific keywords (Administrator, Platform Owner, Head of)</li>
+    <li>Company is NOT a consultant, agency, or implementation partner</li>
+    <li>Company size between 50 and 500 employees</li>
+    <li>Industry is one of: SaaS, manufacturing, healthcare, logistics</li>
+  </ul>
+
+  <p>The more specific your criteria, the more effective the filter. If you can't articulate at least 4-5 specific, checkable variables, you're not ready to automate — you need to sharpen the ICP first.</p>
+
+  <h2>Step 2: Map Each Criterion to a Data Source</h2>
+
+  <p>AI can only qualify leads against criteria it can actually check. For each criterion you listed, identify where that data lives:</p>
+
+  <ul>
+    <li><strong>Job title</strong> → LinkedIn (via Google X-ray search or Sales Navigator)</li>
+    <li><strong>Tech stack</strong> → LinkedIn "Skills" section, job postings, BuiltWith, Clearbit</li>
+    <li><strong>Company size</strong> → LinkedIn Company page, Apollo, Clearbit</li>
+    <li><strong>Industry</strong> → LinkedIn Company page, Apollo</li>
+    <li><strong>Exclusions</strong> → Keywords to block in title or company name</li>
+  </ul>
+
+  <p>If a criterion doesn't map to a checkable data source, it's not a filter — it's an assumption. Either find the data source or drop the criterion.</p>
+
+  <h2>Step 3: Build the Qualification Logic</h2>
+
+  <p>This is where the actual AI or automation layer comes in. You have two main options depending on your technical comfort level:</p>
+
+  <p><strong>Option A — Google X-ray + Sheets (no code required).</strong> Use Google's site: search operator to query LinkedIn for profiles matching your criteria, pipe the results into a Google Sheet via a tool like SerpAPI, and use a script to flag or remove false positives. This is exactly what we built for one of our clients — they went from 10% to 90% qualified leads using this approach alone, pulling 35 targeted prospects per batch with a single click.</p>
+
+  <p><strong>Option B — API + LLM scoring (more flexible, more powerful).</strong> Pull a raw lead list from Apollo, LinkedIn, or a CSV. Feed each lead's data to an LLM with a scoring prompt that evaluates them against your criteria. Have the model return a pass/fail plus a reason. This works well when your criteria involve judgment calls that a simple keyword filter can't make — like "does this company's description suggest they have an internal IT team?"</p>
+
+  <p>Both options can be built in a day or two. Neither requires an ongoing $500/mo subscription.</p>
+
+  <h2>Step 4: Build in an Exclusion Layer</h2>
+
+  <p>This is the step most people skip and regret. A qualification system that only filters for what you want will still let through a lot of noise. You also need to explicitly filter out what you don't want.</p>
+
+  <p>Common exclusions:</p>
+  <ul>
+    <li>Consultants, freelancers, and agencies (often use the same job titles as internal roles)</li>
+    <li>Employees of the vendor whose platform you're targeting (they're not buyers)</li>
+    <li>Companies that are too large or too small to be realistic deals</li>
+    <li>Duplicate contacts from the same company when you only need one</li>
+  </ul>
+
+  <p>The exclusion logic is often what separates a 50% hit rate from a 90% one. It takes iteration — you'll need to review early batches manually, spot the false positives, and trace back why they got through.</p>
+
+  <h2>Step 5: Build a Review Interface, Not Just a Script</h2>
+
+  <p>A qualification system that requires a developer to run it every time isn't a system — it's a process. The goal is to put the output in the hands of whoever does the outreach, in a format they can act on immediately.</p>
+
+  <p>At minimum, that means:</p>
+  <ul>
+    <li>A clean list with Name, Title, Company, LinkedIn URL</li>
+    <li>A status column (Passed / Failed / Review)</li>
+    <li>A one-click export to wherever the outreach happens</li>
+  </ul>
+
+  <p>Google Sheets works well for this. A custom menu with "Run," "Mark Passed," "Mark Failed," and "Export" is enough to make the whole system usable by anyone on the team — no technical knowledge required.</p>
+
+  <h2>Key Takeaways</h2>
+
+  <div class="takeaways">
+    <h3>How to qualify B2B leads with AI — in 5 steps:</h3>
+    <ul>
+      <li>Write down your real ICP criteria — specific, binary, checkable variables</li>
+      <li>Map each criterion to a data source (LinkedIn, Apollo, BuiltWith, etc.)</li>
+      <li>Build the qualification logic — Google X-ray for simplicity, API + LLM for flexibility</li>
+      <li>Add an exclusion layer to catch false positives the positive filters miss</li>
+      <li>Wrap it in a review interface your outreach team can use without a developer</li>
+    </ul>
+  </div>
+
+  <p>The platforms charge $500/mo because they've built the infrastructure. But the logic — your ICP criteria, your exclusion rules, your data sources — is something only you can define. Once it's defined, the cost to automate it is a one-time build, not a recurring subscription.</p>
+
+  <div class="post-cta">
+    <p>If you want this built for your business, book a free 30-minute call — no pitch, just a conversation about what's possible.</p>
+    <a href="https://calendly.com/lexai/ai-implementation-introductory-chat" target="_blank">Book a Free Call →</a>
+  </div>
+</div>
+
+<footer class="site-footer">
+  <div class="footer-top">
+    <div class="footer-col">
+      <a href="/index.html" class="footer-brand">LexAi</a>
+      <p style="margin-top:1rem;max-width:280px">Building custom AI solutions that drive real results.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Product</h4>
+      <ul>
+        <li><a href="/#features">Features</a></li>
+        <li><a href="https://calendly.com/lexai/ai-implementation-introductory-chat" target="_blank">Request a Quote</a></li>
+        <li><a href="/case-studies.html">Case Studies</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Company</h4>
+      <ul>
+        <li><a href="/about.html">About Us</a></li>
+        <li><a href="/blog/">Blog</a></li>
+        <li><a href="https://calendly.com/lexai/ai-implementation-introductory-chat" target="_blank">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Legal</h4>
+      <ul>
+        <li><a href="/privacy.html">Privacy Policy</a></li>
+      </ul>
+    </div>
+  </div>
+  <hr>
+  <div class="footer-bottom">
+    <span>© 2026 LexAi. All rights reserved.</span>
+  </div>
+</footer>
+
+</body>
+</html>

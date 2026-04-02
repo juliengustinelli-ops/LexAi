@@ -61,7 +61,7 @@ Informational intent. Builds authority and trust with cold audiences.
 | Date | Day | Post Title | Type | Primary Keyword | Status |
 |---|---|---|---|---|---|
 | Apr 2 | Thursday | How We Took a B2B Tech Firm from 10% to 90% Qualified Leads Using AI | Case Study | AI lead qualification B2B | ✅ Live |
-| Apr 9 | Thursday | How to Qualify B2B Leads With AI (Without a $500/mo Tool) | How-To | AI lead qualification | To draft |
+| Apr 9 | Thursday | How to Qualify B2B Leads With AI (Without a $500/mo Tool) | How-To | AI lead qualification | ✅ Live |
 | Apr 16 | Thursday | LexAi vs Clay: Which Is Right for B2B Lead Generation? | Versus | Clay alternative | To draft |
 | Apr 23 | Thursday | How a K-8 School Saved 450 Hours a Year With a Custom Help Desk System | Case Study | custom workflow automation | To draft |
 | Apr 30 | Thursday | How to Automate LinkedIn Prospecting in 2026 | How-To | LinkedIn prospecting automation | To draft |
