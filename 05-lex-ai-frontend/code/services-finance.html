@@ -18,10 +18,11 @@
     backdrop-filter: blur(20px);
     border-bottom: 1px solid rgba(255,255,255,.08);
   }
-  .logo { font-size: 1.4rem; font-weight: 700; color: #fff; text-decoration: none; }
+  .logo { font-size: 1.9rem; font-weight: 700; color: #fff; text-decoration: none; }
   .logo span { color: #00c2b5; }
+  .nav-right { display: flex; align-items: center; gap: 2.5rem; }
   .nav-links { display: flex; gap: 2rem; list-style: none; }
-  .nav-links a { color: rgba(255,255,255,0.7); text-decoration: none; font-size: 0.9rem; font-weight: 500; transition: color 0.2s; }
+  .nav-links a { color: rgba(255,255,255,0.7); text-decoration: none; font-size: 1rem; font-weight: 500; transition: color 0.2s; }
   .nav-links a:hover, .nav-links a.active { color: #00c2b5; }
   .nav-cta { background: #00c2b5; color: #fff; font-family: 'Poppins', sans-serif; font-weight: 700; font-size: 0.88rem; padding: 0.6rem 1.4rem; border-radius: 25px; border: none; cursor: pointer; text-decoration: none; transition: opacity 0.2s; }
   .nav-cta:hover { opacity: 0.85; }
@@ -268,12 +269,14 @@
 <!-- NAV -->
 <nav>
   <a href="#" class="logo">Lex<span>Ai</span></a>
-  <ul class="nav-links">
-    <li><a href="#">Home</a></li>
-    <li><a href="#" class="active">Services</a></li>
-    <li><a href="#">Case Studies</a></li>
-  </ul>
-  <a href="https://calendly.com/eric-lexai/30-minute-meeting?month=2026-04" target="_blank" class="nav-cta">Book a Discovery Call</a>
+  <div class="nav-right">
+    <ul class="nav-links">
+      <li><a href="#">Home</a></li>
+      <li><a href="#" class="active">Services</a></li>
+      <li><a href="#">Case Studies</a></li>
+    </ul>
+    <a href="https://calendly.com/eric-lexai/30-minute-meeting?month=2026-04" target="_blank" class="nav-cta">Book a Discovery Call</a>
+  </div>
 </nav>
 
 <!-- HERO -->
