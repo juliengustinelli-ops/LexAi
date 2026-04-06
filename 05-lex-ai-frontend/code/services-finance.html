@@ -211,9 +211,10 @@
     padding: 1.6rem 1.5rem;
     display: flex; gap: 1rem; align-items: flex-start;
   }
-  .uc-dot { width: 8px; height: 8px; border-radius: 50%; background: #00c2b5; flex-shrink: 0; margin-top: 8px; }
-  .uc-card strong { display: block; font-size: 0.95rem; font-weight: 700; color: #0b0d19; margin-bottom: 0.3rem; }
+  .uc-icon { font-size: 1.4rem; flex-shrink: 0; margin-top: 2px; line-height: 1; color: #00c2b5; }
+  .uc-card strong { display: block; font-size: 0.95rem; font-weight: 700; color: #0b0d19; margin-bottom: 0.4rem; }
   .uc-card span { font-size: 0.86rem; color: #555; line-height: 1.7; }
+  .uc-eg { display: block; margin-top: 0.65rem; font-size: 0.82rem; color: #00897f; font-style: italic; }
 
   /* TEAM */
   .team-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 3rem; }
@@ -454,44 +455,57 @@
 <section class="section">
   <div class="container">
     <div class="section-label">Finance Use Cases</div>
-    <h2 class="section-title">Problems we solve,<br><em>ranked by how fast they close</em></h2>
+    <h2 class="section-title">What we build<br>for <em>financial services teams</em></h2>
     <p class="section-body">
-      These come directly from discovery conversations with trading desks and fund managers. We lead with what gets firms to yes quickly — then build toward the more transformative work once trust is established.
+      Six high-impact use cases — from quick wins to longer-term infrastructure — drawn from discovery conversations with trading desks and fund managers.
     </p>
     <div class="use-cases-grid">
       <div class="uc-card">
-        <div class="uc-dot"></div>
+        <div class="uc-icon">◻</div>
         <div>
-          <strong>Legacy Spreadsheet Modernization</strong>
-          <span>Every trading desk has one — a critical financial model built 10+ years ago that nobody fully understands anymore. We use AI to reverse-engineer the logic, document it in plain English, validate the outputs, and rebuild it into something your team can actually trust and modify. The risk of leaving it alone is real: silent miscalculations, regulatory exposure, and a ceiling on anything new you want to build.</span>
+          <strong>Modernize Legacy Systems</strong>
+          <span>Your firm is probably running critical decisions on spreadsheets nobody fully understands anymore. We document the logic, validate the outputs, and build something your team can trust — and explain to a regulator.</span>
+          <em class="uc-eg">e.g. That 10-year-old allocation model your last analyst built — let's make sure it still does what you think it does.</em>
         </div>
       </div>
       <div class="uc-card">
-        <div class="uc-dot"></div>
+        <div class="uc-icon">⚡</div>
         <div>
-          <strong>QA & Deployment Acceleration</strong>
-          <span>Smaller firms ship slow and break things — not because the engineers are bad, but because QA is under-resourced and manual. We build AI-powered testing systems that catch bugs before they reach production, flag regressions automatically, and give your dev team the confidence to ship faster without adding headcount.</span>
+          <strong>Automate Model Setup & Data Intake</strong>
+          <span>Stop rebuilding the same models from scratch. We deploy AI systems that ingest your data — even from messy PDFs — generate a first-pass financial model, and adapt it to your templates.</span>
+          <em class="uc-eg">e.g. Analysts focus on reviewing assumptions, not manual setup.</em>
         </div>
       </div>
       <div class="uc-card">
-        <div class="uc-dot"></div>
+        <div class="uc-icon">◈</div>
         <div>
-          <strong>Natural Language Data Querying</strong>
-          <span>Your traders and PMs shouldn't need to write Python just to ask a question about their own book. We build natural language interfaces on top of your existing trade databases and data infrastructure — so anyone on the desk can query positions, run simple analysis, and get answers in plain English, without waiting on an engineer.</span>
+          <strong>Deploy AI Apps</strong>
+          <span>It shouldn't be this hard to build a useful internal AI tool. We scope it tight, build it fast, and put a working product in front of your team — without the enterprise procurement circus.</span>
+          <em class="uc-eg">e.g. Query your trade data conversationally instead of writing Python every time.</em>
         </div>
       </div>
       <div class="uc-card">
-        <div class="uc-dot"></div>
+        <div class="uc-icon">⬡</div>
         <div>
-          <strong>Market Data → Automated Trade Actions</strong>
-          <span>Connect the gap between market signals and execution. We build systems that monitor live market data and trigger predefined actions — from alerts to automated order flow — with the appropriate compliance guardrails in place. Smaller firms can move faster here than large ones; expect an extra sign-off layer from risk and compliance before go-live.</span>
+          <strong>Unlock Your Internal Data</strong>
+          <span>Your historical portfolio data, reports, and documents are an untapped asset. We build a lightweight central data layer and a chat interface so your team can actually use what you've already collected.</span>
+          <em class="uc-eg">e.g. Ask a question. Get an answer from your own data — not a generic model.</em>
         </div>
       </div>
       <div class="uc-card">
-        <div class="uc-dot"></div>
+        <div class="uc-icon">∿</div>
         <div>
-          <strong>Agentic Trading Desk Simulation</strong>
-          <span>The frontier use case: AI agents that simulate the decision-making logic of a trading desk — running scenarios, stress-testing strategies, and surfacing insights before a human ever touches the order book. This is a longer sales cycle conversation, best introduced after we've already proven value on something more concrete. But for the right firm, it's the most transformative thing we build.</span>
+          <strong>Chat with Your Documents</strong>
+          <span>Your employees are probably uploading your business secrets to ChatGPT. Let's build a secure, in-house document search and chat experience your compliance team will actually approve.</span>
+          <em class="uc-eg">e.g. Trade memos, compliance docs, internal research — searchable and private.</em>
+        </div>
+      </div>
+      <div class="uc-card">
+        <div class="uc-icon">⟳</div>
+        <div>
+          <strong>Automate Decision Workflows</strong>
+          <span>If you're automating model building, extend that logic to report preparation, summarization, and insight extraction. We integrate with your preferred AI platform — Microsoft, OpenAI, Anthropic, or others.</span>
+          <em class="uc-eg">e.g. First draft of your weekly portfolio summary, written and ready before you open your laptop.</em>
         </div>
       </div>
     </div>
