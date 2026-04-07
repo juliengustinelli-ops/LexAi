@@ -22,7 +22,7 @@ const BODY_COLOR = '#333333';
 const WHITE      = '#ffffff';
 
 // Logo image URL (hosted on lexaib2b.com)
-const LOGO_URL = 'https://lexaib2b.com/lexai-logo.png';
+const LOGO_URL = 'https://lexaib2b.com/lexai-logo-full.png';
 
 // Section labels to detect and style teal
 const SECTION_LABELS = ['WHAT WE DO', 'HOW WE WORK', 'OUR SERVICES', 'ABOUT US', 'CONTACT'];
@@ -69,8 +69,8 @@ function insertHeader(body, doc) {
   try {
     const imageBlob = UrlFetchApp.fetch(LOGO_URL).getBlob();
     const img = body.appendImage(imageBlob);
-    img.setWidth(140);
-    img.setHeight(36);
+    img.setWidth(180);
+    img.setHeight(60);
   } catch (e) {
     // Fallback: text logo
     const logoP = body.appendParagraph('LexAi');
@@ -87,10 +87,9 @@ function insertHeader(body, doc) {
   styleSmall(meta, LIGHT_GRAY);
   meta.setSpacingAfter(12);
 
-  // Teal rule
-  const rule = body.appendParagraph('');
-  rule.editAsText().setForegroundColor(TEAL);
-  rule.setBorderBottom(DocumentApp.BorderType ? DocumentApp.BorderType.SOLID : null);
+  // Teal rule (using underscores as a visual divider)
+  const rule = body.appendParagraph('____________________________________________________________');
+  rule.editAsText().setForegroundColor(TEAL).setFontSize(8);
   rule.setSpacingAfter(24);
 }
 
@@ -201,8 +200,9 @@ function appendBody(body, text) {
 }
 
 function appendBullet(body, text) {
-  const p = body.appendParagraph(text);
-  p.setGlyphType(DocumentApp.GlyphType.BULLET);
+  const p = body.appendListItem(text);
+  p.setNestingLevel(0);
+  p.setListId(p);
   p.setSpacingAfter(4);
   const t = p.editAsText();
   t.setFontSize(10);
