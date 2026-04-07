@@ -25,6 +25,18 @@
   .nav-links { display: flex; gap: 2rem; list-style: none; }
   .nav-links a { color: rgba(255,255,255,0.85); text-decoration: none; font-size: 1rem; font-weight: 300; transition: color 0.2s; }
   .nav-links a:hover, .nav-links a.active { color: #00c2b5; }
+  .nav-links .dropdown { position: relative; }
+  .nav-links .dropdown-menu {
+    display: none; position: absolute; top: calc(100% + 12px); left: 50%; transform: translateX(-50%);
+    background: #0f1223; border: 1px solid rgba(255,255,255,0.1); border-radius: 10px;
+    padding: 0.5rem 0; min-width: 160px; z-index: 200;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.35);
+  }
+  .nav-links .dropdown-menu a { display: block; padding: 0.55rem 1.2rem; font-size: 0.9rem; white-space: nowrap; }
+  .nav-links .dropdown:hover .dropdown-menu { display: block; }
+  .nav-links .dropdown-toggle { display: flex; align-items: center; gap: 5px; cursor: default; }
+  .nav-links .dropdown-toggle svg { transition: transform 0.2s; }
+  .nav-links .dropdown:hover .dropdown-toggle svg { transform: rotate(180deg); }
   .nav-cta { background: #00c2b5; color: #fff; font-family: 'Poppins', sans-serif; font-weight: 700; font-size: 0.88rem; padding: 0.6rem 1.4rem; border-radius: 25px; border: none; cursor: pointer; text-decoration: none; transition: opacity 0.2s; }
   .nav-cta:hover { opacity: 0.85; }
 
@@ -266,6 +278,13 @@
   <div class="nav-right">
     <ul class="nav-links">
       <li><a href="#">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li class="dropdown">
+        <a class="dropdown-toggle">Team <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg></a>
+        <div class="dropdown-menu">
+          <a href="#team">Our Team</a>
+        </div>
+      </li>
       <li><a href="#" class="active">Services</a></li>
       <li><a href="#">Case Studies</a></li>
     </ul>
@@ -312,7 +331,7 @@
 </div>
 
 <!-- WHY LEXAI -->
-<section style="background:#0b0d19; padding:5rem 2rem;">
+<section id="about" style="background:#0b0d19; padding:5rem 2rem;">
   <div class="container">
     <div style="display:grid; grid-template-columns:1fr 1px 1fr; gap:3.5rem; align-items:center;">
       <div>
@@ -469,7 +488,7 @@
 </section>
 
 <!-- TEAM -->
-<section class="section alt">
+<section id="team" class="section alt">
   <div class="container">
     <div class="section-label">The Team</div>
     <h2 class="section-title">Built by practitioners,<br><em>not theorists.</em></h2>
