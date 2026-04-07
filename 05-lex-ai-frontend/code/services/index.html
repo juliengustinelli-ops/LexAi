@@ -1,0 +1,562 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <link rel="icon" type="image/png" href="/favicon.png">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>LexAi – Custom AI Solutions. Real Results. Built Around Your Business.</title>
+<meta name="description" content="LexAi builds custom AI-powered solutions — from lead generation engines to automation tools to workflow systems — engineered around your exact business needs.">
+<meta property="og:title" content="LexAi – Custom AI Solutions. Real Results. Built Around Your Business.">
+<meta property="og:description" content="LexAi builds custom AI-powered solutions — from lead generation engines to automation tools to workflow systems — engineered around your exact business needs.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.lexaib2b.com">
+<meta property="og:site_name" content="LexAi">
+<meta property="og:image" content="https://www.lexaib2b.com/hero.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="LexAi – Custom AI Solutions. Real Results. Built Around Your Business.">
+<meta name="twitter:description" content="LexAi builds custom AI-powered solutions — from lead generation engines to automation tools to workflow systems — engineered around your exact business needs.">
+<link rel="canonical" href="https://www.lexaib2b.com/services/">
+<meta name="google-site-verification" content="86Rz8xSKtbRKUCTjSb0xDSgOCde32BKnRHz3drT50Zc" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "LexAi",
+  "url": "https://www.lexaib2b.com",
+  "logo": "https://www.lexaib2b.com/logo.svg",
+  "description": "LexAi builds custom AI automation tools, precision lead generation engines, and LLM-powered workflow systems for B2B growth teams.",
+  "founder": {
+    "@type": "Person",
+    "name": "Julien Gustinelli",
+    "jobTitle": "Founder & Lead Engineer",
+    "sameAs": "https://www.linkedin.com/in/juliengustinelli"
+  },
+  "sameAs": [
+    "https://www.linkedin.com/company/lexaib2b"
+  ],
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "AI Services",
+    "itemListElement": [
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "AI Lead Generation Engine",
+          "description": "Custom AI qualification engines that filter leads against your exact ICP — delivering 90%+ qualified leads with a single click."
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Marketing Automation",
+          "description": "End-to-end marketing automation systems built on your exact workflows — from outreach to conversion."
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "LLM Engineering & Custom Workflow Systems",
+          "description": "Custom LLM-powered workflow systems that eliminate manual operations and save hundreds of hours per year."
+        }
+      }
+    ]
+  }
+}
+</script>
+
+<!-- Google Font -->
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --brand-green:#00c2b5;   /* logo, cta buttons            */
+  --brand-teal :#00bfc7;   /* nav hover                    */
+  --cta-bg    :#21a8ad;    /* big teal strip               */
+  --footer-bg :#0b0d19;    /* dark footer                  */
+  --glass-bg  :rgba(255,255,255,.35);
+  --glass-blur:20px;
+}
+
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Poppins',sans-serif;color:#fff}
+
+/* -------- NAVBAR -------- */
+.glass{
+  position:fixed;top:0;left:0;width:100%;z-index:999;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0.8rem 4vw;background:rgba(0,0,0,.52);
+  backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);
+  border-bottom:1px solid rgba(255,255,255,.12);
+}
+.brand{font:700 1.4rem/1 'Poppins';color:var(--brand-green);text-decoration:none}
+.nav-links{list-style:none;display:flex;gap:2.5rem}
+.nav-item{color:#fff;text-decoration:none;font-weight:500;transition:color .2s}
+.nav-item:hover{color:var(--brand-teal)}
+.btn-cta{
+  background:var(--brand-green);color:#fff;padding:.6rem 1.8rem;border-radius:25px;
+  font-weight:600;font-size:.9rem;text-decoration:none;transition:opacity .2s,transform .2s
+}
+.btn-cta:hover{opacity:.9;transform:translateY(-2px)}
+
+/* -------- DROPDOWN -------- */
+.nav-dropdown{position:relative}
+.nav-dropdown .nav-item{display:flex;align-items:center;gap:5px}
+.nav-dropdown .nav-item::after{content:'▾';font-size:.7rem;opacity:.7}
+.dropdown-menu{
+  display:none;position:absolute;top:100%;left:50%;transform:translateX(-50%);
+  padding-top:10px;
+  background:transparent;
+  min-width:140px;z-index:1000;
+}
+.dropdown-menu-inner{
+  background:rgba(11,13,25,.95);backdrop-filter:blur(12px);
+  border:1px solid rgba(255,255,255,.1);border-radius:10px;
+  overflow:hidden;
+}
+.dropdown-menu a{
+  display:block;padding:.65rem 1.2rem;color:rgba(255,255,255,.8);
+  text-decoration:none;font-size:.88rem;font-weight:500;
+  transition:background .15s,color .15s;white-space:nowrap;
+}
+.dropdown-menu a:hover{background:rgba(0,194,181,.12);color:var(--brand-green)}
+.nav-dropdown:hover .dropdown-menu{display:block}
+
+/* -------- HERO -------- */
+.hero{
+  min-height:100vh;display:flex;align-items:center;justify-content:center;
+  position:relative;text-align:center;padding:0 1rem;
+  background-color:#080b16;
+  background-image:
+    radial-gradient(ellipse 100% 80% at 10% 40%, rgba(0,194,181,1)   0%, transparent 65%),
+    radial-gradient(ellipse  80% 70% at 90% 65%, rgba(0,180,194,.9)  0%, transparent 65%),
+    radial-gradient(ellipse  60% 50% at 55% 0%,  rgba(0,194,181,.7)  0%, transparent 60%);
+  background-size:200% 200%;
+  background-position:100% 50%, 0% 50%, 60% 90%;
+}
+.hero::after{content:none}
+.hero-inner{position:relative;z-index:1;max-width:900px}
+.hero h4{letter-spacing:4px;font-size:.9rem;font-weight:400;margin-bottom:1rem}
+.hero h1{font-size:clamp(2.5rem,7vw,4.5rem);font-weight:700;margin:0 0 1rem;color:#e7e7e7}
+.hero p{font-size:1.05rem;font-weight:600;margin-bottom:2.5rem;letter-spacing:.5px;line-height:1.5}
+.hero-tagline{
+  display:inline-block;
+  background:rgba(0,0,0,.52);
+  backdrop-filter:blur(6px);
+  -webkit-backdrop-filter:blur(6px);
+  padding:.7rem 2rem;
+  border-radius:8px;
+  border:1px solid rgba(255,255,255,.12);
+}
+.primary-btn{
+  padding:1.2rem 3rem;font-size:1rem;font-weight:600;border-radius:50px;background:#fff;color:#000;
+  border:2px solid #000;cursor:pointer;transition:transform .25s,box-shadow .25s
+}
+.primary-btn:hover{transform:translateY(-4px);box-shadow:0 10px 20px rgba(0,0,0,.15)}
+
+/* -------- STATS STRIP -------- */
+.stats-strip{background:#0b0d19;padding:0}
+.stats-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));max-width:1200px;margin:0 auto}
+.stat-item{padding:2.5rem 1.5rem;text-align:center;border-right:1px solid rgba(255,255,255,.08)}
+.stat-item:last-child{border-right:none}
+.stat-item .number{font-size:2.4rem;font-weight:900;color:var(--brand-green);line-height:1;display:block}
+.stat-item .label{font-size:.75rem;font-weight:600;color:rgba(255,255,255,.55);margin-top:.4rem;text-transform:uppercase;letter-spacing:.5px}
+
+/* -------- FEATURES -------- */
+#features{color:#000;background:#fff;padding:6rem 2rem}
+.features-wrapper{max-width:1200px;margin:auto;text-align:center}
+.features-wrapper h2{font-size:clamp(1.8rem,4vw,2.5rem);font-weight:700;color:#0b0d19;margin-bottom:.6rem}
+.features-wrapper h2::after{content:'';display:block;width:52px;height:4px;background:var(--brand-green);border-radius:2px;margin:.8rem auto 0}
+.features-grid{
+  margin-top:3.5rem;display:grid;gap:2rem;grid-template-columns:1fr
+}
+@media(min-width:768px){.features-grid{grid-template-columns:repeat(2,1fr)}}
+.feature-card{
+  background:#fff;border:1px solid #ececec;border-top:4px solid var(--brand-green);
+  border-radius:12px;padding:2.5rem 2rem;
+  box-shadow:0 4px 12px rgba(0,0,0,.04);display:flex;flex-direction:column;align-items:center;
+  transition:transform .25s,box-shadow .25s
+}
+.feature-card:hover{transform:translateY(-6px);box-shadow:0 12px 26px rgba(0,0,0,.06)}
+.feature-card svg{width:40px;height:40px;stroke:var(--brand-green);stroke-width:2;fill:none}
+.feature-card h3{margin:1.4rem 0 .8rem;font-size:1.15rem;font-weight:700;color:#0b0d19}
+.feature-card p{font-size:.92rem;font-weight:300;line-height:1.7;color:#555;padding:0 6px}
+
+/* -------- CTA STRIP -------- */
+#cta{
+  background:var(--cta-bg);color:#fff;text-align:center;padding:5rem 1.5rem
+}
+#cta h2{font-size:clamp(2rem,5vw,2.8rem);font-weight:700;margin-bottom:1.4rem}
+#cta p{font-size:1.1rem;font-weight:300;max-width:750px;margin:0 auto 3rem}
+.cta-buttons{display:flex;justify-content:center;gap:1.5rem;flex-wrap:wrap}
+.btn-primary,
+.btn-outline{
+  padding:1rem 2.5rem;border-radius:45px;font-weight:600;font-size:1rem;text-decoration:none;transition:.25s
+}
+.btn-primary{background:#fff;color:var(--cta-bg)}
+.btn-primary:hover{transform:translateY(-3px);box-shadow:0 6px 16px rgba(0,0,0,.15)}
+.btn-outline{
+  background:transparent;color:#fff;border:2px solid #fff
+}
+.btn-outline:hover{background:rgba(255,255,255,.1);transform:translateY(-3px)}
+
+/* -------- FOOTER -------- */
+.site-footer{background:var(--footer-bg);color:#d1d1d1;padding:4rem 2rem}
+.footer-top{display:grid;gap:2.5rem;max-width:1200px;margin:auto}
+@media(min-width:700px){.footer-top{grid-template-columns:2fr 1fr 1fr 1fr}}
+.footer-brand{font-size:1.4rem;font-weight:700;color:var(--brand-green);text-decoration:none}
+.footer-col h4{font-size:1.05rem;font-weight:600;margin-bottom:1rem;color:#fff}
+.footer-col ul{list-style:none}
+.footer-col li+li{margin-top:.6rem}
+.footer-col a{color:#d1d1d1;text-decoration:none;font-size:.95rem;transition:color .2s}
+.footer-col a:hover{color:var(--brand-green)}
+hr{border:none;border-top:1px solid #2a2e3a;margin:3rem 0 2rem}
+.footer-bottom{max-width:1200px;margin:auto;display:flex;justify-content:space-between;flex-wrap:wrap;gap:1rem;font-size:.9rem}
+.social{display:flex;gap:1.5rem;list-style:none}
+.social a{color:#d1d1d1;text-decoration:none;transition:color .2s}
+.social a:hover{color:var(--brand-green)}
+
+/* generic section offset so content isn’t hidden behind fixed nav */
+section{scroll-margin-top:90px}
+
+.hero-text {
+  color: #ffffff;
+  text-shadow:
+    0 4px 24px rgba(11,13,25,.55),
+    0 1px 2px rgba(11,13,25,.35);
+}
+
+/* -------- HERO BADGE & NEW ELEMENTS -------- */
+.hero-badge{
+  display:inline-block;
+  background:rgba(0,194,181,.18);
+  border:1px solid rgba(0,194,181,.45);
+  color:var(--brand-green);
+  font-size:.82rem;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;
+  padding:.45rem 1.2rem;border-radius:50px;margin-bottom:1.6rem;
+}
+.hero h1{font-size:clamp(2.2rem,6vw,4rem);font-weight:700;line-height:1.15;margin-bottom:1.4rem;color:#f0f0f0}
+.hero-sub{
+  font-size:1.05rem;font-weight:300;line-height:1.75;
+  max-width:620px;margin:0 auto 2.5rem;
+  color:rgba(255,255,255,.85);letter-spacing:0;
+}
+.hero-actions{display:flex;justify-content:center;gap:1.2rem;flex-wrap:wrap}
+.hero-btn-primary{
+  padding:1rem 2.4rem;border-radius:50px;font-weight:600;font-size:1rem;
+  background:var(--brand-green);color:#fff;text-decoration:none;
+  transition:transform .25s,box-shadow .25s;
+}
+.hero-btn-primary:hover{transform:translateY(-3px);box-shadow:0 8px 20px rgba(0,194,181,.35)}
+.hero-btn-secondary{
+  padding:1rem 2.4rem;border-radius:50px;font-weight:600;font-size:1rem;
+  background:transparent;color:#fff;border:2px solid rgba(255,255,255,.6);text-decoration:none;
+  transition:border-color .25s,background .25s,transform .25s;
+}
+.hero-btn-secondary:hover{border-color:#fff;background:rgba(255,255,255,.08);transform:translateY(-3px)}
+
+/* -------- FEATURES SUBTITLE -------- */
+.features-sub{
+  font-size:.97rem;font-weight:300;color:#666;max-width:580px;margin:.4rem auto 0;line-height:1.7;
+}
+
+/* -------- HOW WE WORK -------- */
+#how-it-works{background:#f4f6f8;padding:6rem 2rem;color:#0b0d19;text-align:center}
+.hiw-wrapper{max-width:1000px;margin:auto}
+.hiw-wrapper h2{font-size:clamp(1.8rem,4vw,2.5rem);font-weight:700;color:#0b0d19;margin-bottom:.6rem}
+.hiw-wrapper h2::after{content:'';display:block;width:52px;height:4px;background:var(--brand-green);border-radius:2px;margin:.8rem auto 0}
+.hiw-sub{font-size:.97rem;font-weight:300;color:#666;max-width:520px;margin:.8rem auto 3.5rem;line-height:1.7}
+.hiw-grid{display:flex;align-items:flex-start;justify-content:center;gap:0;flex-wrap:wrap}
+.hiw-step{flex:1;min-width:200px;max-width:260px;padding:1.5rem 1rem;text-align:center}
+.hiw-num{
+  display:inline-flex;align-items:center;justify-content:center;
+  width:52px;height:52px;border-radius:50%;
+  background:var(--brand-green);color:#fff;
+  font-size:1.1rem;font-weight:700;margin-bottom:1.2rem;
+}
+.hiw-step h3{font-size:1.1rem;font-weight:700;color:#0b0d19;margin-bottom:.6rem}
+.hiw-step p{font-size:.9rem;font-weight:300;color:#555;line-height:1.7}
+.hiw-divider{
+  width:60px;height:2px;background:rgba(0,194,181,.3);
+  align-self:center;flex-shrink:0;
+}
+@media(max-width:700px){.hiw-divider{display:none}.hiw-step{max-width:100%;width:100%}}
+
+/* --- NAV height variable ----------------------------------------- */
+:root { --nav-h: 84px; }                    /* desktop baseline */
+.glass { min-height: var(--nav-h); }
+
+/* --- Mobile: collapse nav into a stacked menu -------------------- */
+.nav-toggle{
+  display:none; margin-left:auto; background:transparent; border:0; padding:.4rem;
+  cursor:pointer; border-radius:8px;
+}
+.nav-toggle span{
+  display:block; width:24px; height:2px; background:#fff; margin:6px 0; transition:.2s;
+}
+
+/* Default desktop layout remains unchanged */
+
+/* ≤900px: stack + toggle */
+@media (max-width: 900px){
+  :root { --nav-h: 66px; }                  /* smaller fixed bar */
+
+  main{ padding-top: var(--nav-h); }        /* avoid hero overlap on mobile */
+
+  .glass{ flex-wrap:wrap; align-items:center; }
+  .nav-toggle{ display:block; }             /* show burger */
+
+  /* hide menus by default on mobile */
+  .glass .nav-links,
+  .glass .nav-ctas{
+    display:none;
+    width:100%;
+    background:rgba(10,10,20,.96);
+    border:1px solid rgba(255,255,255,.12);
+    border-radius:12px;
+    margin-top:.8rem;
+    padding:.6rem .8rem;
+    box-shadow:0 6px 14px rgba(0,0,0,.3);
+  }
+
+  /* when nav is open */
+  .glass.open .nav-links,
+  .glass.open .nav-ctas{
+    display:flex;
+  }
+
+  .nav-links{ flex-direction:column; gap:.6rem; }
+  .nav-links .nav-item{ padding:.4rem .2rem; }
+
+  .nav-ctas{ justify-content:flex-start; gap:.8rem; }
+  .btn-cta{ padding:.5rem 1.1rem; font-size:.88rem; }
+
+  /* tighten hero/section spacing to fix “margin and padding off” feel */
+  .section{ padding:1.8rem 1.2rem; }
+  .section h1{ font-size:1.6rem; }
+}
+
+/* Anchor jump fix: sections aren't hidden behind the fixed header */
+section[id], [id^="faq"], [id^="features"], [id^="pricing"], [id^="mission"]{
+  scroll-margin-top: calc(var(--nav-h) + 12px);
+}
+</style>
+</head>
+
+<body>
+<span id="top"></span>
+
+<!-- ===== NAVBAR ===== -->
+<header>
+  <nav class="glass">
+    <a class="brand" href="/">LexAi</a>
+    <button id="navToggle" class="nav-toggle" aria-expanded="false" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links">
+      <li><a class="nav-item" href="/">Home</a></li>
+      <li><a href="/services/#features" class="nav-item">Features</a></li>
+      <li class="nav-dropdown">
+        <a class="nav-item" href="/about.html">About</a>
+        <div class="dropdown-menu">
+          <div class="dropdown-menu-inner">
+            <a href="/about.html">About Us</a>
+            <a href="/lexai-faq.html">FAQ</a>
+          </div>
+        </div>
+      </li>
+      <li class="nav-dropdown">
+        <a class="nav-item" href="/ai-solutions.html">Services</a>
+        <div class="dropdown-menu">
+          <div class="dropdown-menu-inner">
+            <a href="/ai-solutions.html">Custom AI Solutions</a>
+            <a href="/geo-services.html">GEO Audit</a>
+            <a href="/ai-marketing-audit.html">AI Marketing Audit</a>
+            <a href="/salesiq-services.html">SalesIQ Weekly</a>
+          </div>
+        </div>
+      </li>
+      <li><a class="nav-item" href="/case-studies.html">Case Studies</a></li>
+    </ul>
+    <div class="nav-ctas">
+      <a href="https://calendly.com/lexai/ai-implementation-introductory-chat" target="_blank" class="btn-cta">Get Started</a>
+    </div>
+  </nav>
+</header>
+
+<!-- ===== HERO ===== -->
+<section id="home" class="hero">
+  <div class="hero-inner">
+    <div class="hero-badge hero-text">AI Solutions for B2B Growth Teams</div>
+    <h1 class="hero-text">Built Around Your Business.<br>Engineered to Perform.</h1>
+    <p class="hero-sub hero-text">Custom AI systems for B2B growth — built to your specs, deployed in weeks.</p>
+    <div class="hero-actions">
+      <a href="https://calendly.com/lexai/ai-implementation-introductory-chat" target="_blank" class="hero-btn-primary">Book a Free Call</a>
+      <a href="#features" class="hero-btn-secondary">See What We Build</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== STATS STRIP ===== -->
+<div class="stats-strip">
+  <div class="stats-grid">
+    <div class="stat-item"><span class="number">970+</span><span class="label">Active Users</span></div>
+    <div class="stat-item"><span class="number">450+</span><span class="label">Client Hours Saved / Year</span></div>
+    <div class="stat-item"><span class="number">90%</span><span class="label">Lead Quality Achieved</span></div>
+    <div class="stat-item"><span class="number">100%</span><span class="label">Custom-Built Solutions</span></div>
+  </div>
+</div>
+
+<!-- ===== FEATURES ===== -->
+<section id="features">
+  <div class="features-wrapper">
+    <h2>Custom-Built Solutions That Drive Real Results</h2>
+    <p class="features-sub">LexAi builds four types of custom AI systems: lead generation engines that qualify prospects against your exact ICP, marketing automation tools that run 24/7 without manual input, custom workflow systems that eliminate operational bottlenecks, and LLM-powered tools that reduce token costs by 50%+. No templates — every system is built from scratch around your workflow.</p>
+
+    <div class="features-grid">
+      <!-- 1 -->
+      <div class="feature-card">
+        <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/><circle cx="12" cy="10" r="3"/></svg>
+        <h3>AI-Powered Automation Tools</h3>
+        <p>We engineer custom software that handles repetitive, time-consuming tasks on autopilot — saving hundreds of hours a year while you focus on growing your business.</p>
+      </div>
+      <!-- 2 -->
+      <div class="feature-card">
+        <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+        <h3>Precision Lead Generation</h3>
+        <p>Using API technology and Google X-ray search, we build lead engines that target your exact ideal customer — not broad bought lists, but verified, qualified prospects matched to your specific criteria.</p>
+      </div>
+      <!-- 3 -->
+      <div class="feature-card">
+        <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+        <h3>Custom Workflow Systems</h3>
+        <p>From help desk platforms to work order systems, we build the operational infrastructure that turns inbox chaos into data-driven clarity — with full tracking, reporting, and accountability built in.</p>
+      </div>
+      <!-- 4 -->
+      <div class="feature-card">
+        <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+        <h3>LLM-Powered Engineering</h3>
+        <p>We integrate large language models into production-ready tools — with sophisticated prompt engineering that cuts token costs by 50%+ and delivers reliable, scalable results across real-world use cases.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== HOW WE WORK ===== -->
+<section id="how-it-works">
+  <div class="hiw-wrapper">
+    <h2>How We Work</h2>
+    <p class="hiw-sub">LexAi follows a three-step process: a free discovery call to scope your exact problem, a custom build phase with no templates or off-the-shelf tools, and a live deployment with team walkthrough and ongoing support.</p>
+    <div class="hiw-grid">
+      <div class="hiw-step">
+        <div class="hiw-num">01</div>
+        <h3>Discover</h3>
+        <p>We start with a free strategy call to understand your business, goals, and the exact problem you need solved.</p>
+      </div>
+      <div class="hiw-divider"></div>
+      <div class="hiw-step">
+        <div class="hiw-num">02</div>
+        <h3>Build</h3>
+        <p>We scope and engineer a custom solution — no templates, no generic tools. Built specifically for your workflow.</p>
+      </div>
+      <div class="hiw-divider"></div>
+      <div class="hiw-step">
+        <div class="hiw-num">03</div>
+        <h3>Deploy</h3>
+        <p>We deliver a production-ready system, walk your team through it, and stay available for ongoing support.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CTA STRIP ===== -->
+<section id="cta">
+  <h2>Ready to see what's possible?</h2>
+  <p>From lead generation to automation to custom AI tools — we build solutions around your exact needs. Let's talk about what that looks like for your business.</p>
+  <div class="cta-buttons">
+    <a href="https://calendly.com/lexai/ai-implementation-introductory-chat" target="_blank" class="btn-primary">Book a Free Call</a>
+    <a href="/case-studies.html" class="btn-outline">See Case Studies</a>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="site-footer">
+  <div class="footer-top">
+
+    <div class="footer-col">
+      <a href="/" class="footer-brand">LexAi</a>
+      <p style="margin-top:1rem;max-width:280px">
+        Building custom AI solutions that drive real results.
+      </p>
+    </div>
+
+    <div class="footer-col">
+      <h4>Product</h4>
+      <ul>
+        <li><a href="/services/#features">Features</a></li>
+        <li><a href="https://calendly.com/lexai/ai-implementation-introductory-chat" target="_blank">Request a Quote</a></li>
+        <li><a href="/case-studies.html">Testimonials</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4>Company</h4>
+      <ul>
+        <li><a href="/about.html">About Us</a></li>
+        <li><a href="https://calendly.com/lexai/ai-implementation-introductory-chat" target="_blank">Contact</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4>Legal</h4>
+      <ul>
+        <li><a href="/privacy.html">Privacy Policy</a></li>
+        <li><a href="javascript:void(0)">Terms of Service</a></li>
+        <li><a href="javascript:void(0)">Cookie Policy</a></li>
+      </ul>
+    </div>
+
+  </div><!-- /footer-top -->
+
+  <hr>
+
+  <div class="footer-bottom">
+    <p>© 2026 LexAi. All rights reserved.</p>
+
+    <ul class="social">
+      <li><a href="javascript:void(0)">Twitter</a></li>
+      <li><a href="javascript:void(0)">LinkedIn</a></li>
+      <li><a href="javascript:void(0)">Facebook</a></li>
+      <li><a href="javascript:void(0)">Instagram</a></li>
+    </ul>
+  </div>
+</footer>
+
+<!-- ===== SCRIPTS ===== -->
+<script>
+  (function(){
+    const nav   = document.querySelector('.glass');
+    const btn   = document.getElementById('navToggle');
+    if(!nav || !btn) return;
+
+    btn.addEventListener('click', () => {
+      const open = nav.classList.toggle('open');
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+
+    // Close menu when a link is tapped (prevents stuck-open state)
+    nav.addEventListener('click', (e)=>{
+      const a = e.target.closest('a');
+      if(a && nav.classList.contains('open')) nav.classList.remove('open');
+    });
+  })();
+</script>
+<script>
+(function(){if(!window.chatbase||window.chatbase("getState")!=="initialized"){window.chatbase=(...arguments)=>{if(!window.chatbase.q){window.chatbase.q=[]}window.chatbase.q.push(arguments)};window.chatbase=new Proxy(window.chatbase,{get(target,prop){if(prop==="q"){return target.q}return(...args)=>target(prop,...args)}})}const onLoad=function(){const script=document.createElement("script");script.src="https://www.chatbase.co/embed.min.js";script.id="x0D2ehC6rlPWPB0WAU7bR";script.domain="www.chatbase.co";document.body.appendChild(script)};if(document.readyState==="complete"){onLoad()}else{window.addEventListener("load",onLoad)}})();
+</script>
+</body>
+</html>

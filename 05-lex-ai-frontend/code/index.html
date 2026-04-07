@@ -1,562 +1,520 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <link rel="icon" type="image/png" href="/favicon.png">
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>LexAi – Custom AI Solutions. Real Results. Built Around Your Business.</title>
-<meta name="description" content="LexAi builds custom AI-powered solutions — from lead generation engines to automation tools to workflow systems — engineered around your exact business needs.">
-<meta property="og:title" content="LexAi – Custom AI Solutions. Real Results. Built Around Your Business.">
-<meta property="og:description" content="LexAi builds custom AI-powered solutions — from lead generation engines to automation tools to workflow systems — engineered around your exact business needs.">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://www.lexaib2b.com">
-<meta property="og:site_name" content="LexAi">
-<meta property="og:image" content="https://www.lexaib2b.com/hero.jpg">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="LexAi – Custom AI Solutions. Real Results. Built Around Your Business.">
-<meta name="twitter:description" content="LexAi builds custom AI-powered solutions — from lead generation engines to automation tools to workflow systems — engineered around your exact business needs.">
-<link rel="canonical" href="https://www.lexaib2b.com/">
-<meta name="google-site-verification" content="86Rz8xSKtbRKUCTjSb0xDSgOCde32BKnRHz3drT50Zc" />
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  "name": "LexAi",
-  "url": "https://www.lexaib2b.com",
-  "logo": "https://www.lexaib2b.com/logo.svg",
-  "description": "LexAi builds custom AI automation tools, precision lead generation engines, and LLM-powered workflow systems for B2B growth teams.",
-  "founder": {
-    "@type": "Person",
-    "name": "Julien Gustinelli",
-    "jobTitle": "Founder & Lead Engineer",
-    "sameAs": "https://www.linkedin.com/in/juliengustinelli"
-  },
-  "sameAs": [
-    "https://www.linkedin.com/company/lexaib2b"
-  ],
-  "hasOfferCatalog": {
-    "@type": "OfferCatalog",
-    "name": "AI Services",
-    "itemListElement": [
-      {
-        "@type": "Offer",
-        "itemOffered": {
-          "@type": "Service",
-          "name": "AI Lead Generation Engine",
-          "description": "Custom AI qualification engines that filter leads against your exact ICP — delivering 90%+ qualified leads with a single click."
-        }
-      },
-      {
-        "@type": "Offer",
-        "itemOffered": {
-          "@type": "Service",
-          "name": "Marketing Automation",
-          "description": "End-to-end marketing automation systems built on your exact workflows — from outreach to conversion."
-        }
-      },
-      {
-        "@type": "Offer",
-        "itemOffered": {
-          "@type": "Service",
-          "name": "LLM Engineering & Custom Workflow Systems",
-          "description": "Custom LLM-powered workflow systems that eliminate manual operations and save hundreds of hours per year."
-        }
-      }
-    ]
-  }
-}
-</script>
-
-<!-- Google Font -->
-<link rel="preconnect" href="https://fonts.gstatic.com">
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI for Finance — LexAi</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
-:root{
-  --brand-green:#00c2b5;   /* logo, cta buttons            */
-  --brand-teal :#00bfc7;   /* nav hover                    */
-  --cta-bg    :#21a8ad;    /* big teal strip               */
-  --footer-bg :#0b0d19;    /* dark footer                  */
-  --glass-bg  :rgba(255,255,255,.35);
-  --glass-blur:20px;
-}
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Poppins', sans-serif; background: #f4f6f8; color: #0b0d19; line-height: 1.75; }
 
-*{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{font-family:'Poppins',sans-serif;color:#fff}
+  /* NAV */
+  nav {
+    position: sticky; top: 0; z-index: 100;
+    height: 84px; display: flex; align-items: center; justify-content: space-between;
+    padding: 0 2.5rem;
+    background: rgba(11,13,25,0.9);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(255,255,255,.08);
+  }
+  .logo { font-size: 1.9rem; font-weight: 700; color: #fff; text-decoration: none; }
+  .logo span { color: #00c2b5; }
+  .nav-right { display: flex; align-items: center; gap: 2.5rem; }
+  .nav-links { display: flex; gap: 2rem; list-style: none; }
+  .nav-links a { color: rgba(255,255,255,0.85); text-decoration: none; font-size: 1rem; font-weight: 300; transition: color 0.2s; }
+  .nav-links a:hover, .nav-links a.active { color: #00c2b5; }
+  .nav-cta { background: #00c2b5; color: #fff; font-family: 'Poppins', sans-serif; font-weight: 700; font-size: 0.88rem; padding: 0.6rem 1.4rem; border-radius: 25px; border: none; cursor: pointer; text-decoration: none; transition: opacity 0.2s; }
+  .nav-cta:hover { opacity: 0.85; }
 
-/* -------- NAVBAR -------- */
-.glass{
-  position:fixed;top:0;left:0;width:100%;z-index:999;
-  display:flex;align-items:center;justify-content:space-between;
-  padding:0.8rem 4vw;background:rgba(0,0,0,.52);
-  backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);
-  border-bottom:1px solid rgba(255,255,255,.12);
-}
-.brand{font:700 1.4rem/1 'Poppins';color:var(--brand-green);text-decoration:none}
-.nav-links{list-style:none;display:flex;gap:2.5rem}
-.nav-item{color:#fff;text-decoration:none;font-weight:500;transition:color .2s}
-.nav-item:hover{color:var(--brand-teal)}
-.btn-cta{
-  background:var(--brand-green);color:#fff;padding:.6rem 1.8rem;border-radius:25px;
-  font-weight:600;font-size:.9rem;text-decoration:none;transition:opacity .2s,transform .2s
-}
-.btn-cta:hover{opacity:.9;transform:translateY(-2px)}
+  /* HERO */
+  .hero {
+    background-color: #080b16;
+    background-image:
+      radial-gradient(ellipse 100% 80% at 10% 40%, rgba(0,194,181,1)  0%, transparent 65%),
+      radial-gradient(ellipse  80% 70% at 90% 65%, rgba(0,180,194,.9) 0%, transparent 65%),
+      radial-gradient(ellipse  60% 50% at 55%  0%, rgba(0,194,181,.7) 0%, transparent 60%);
+    background-size: 200% 200%;
+    background-position: 100% 50%, 0% 50%, 60% 90%;
+    padding: 6rem 2rem 5rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-bg { display: none; }
+  .hero::before { content: none; }
+  .hero > *:not(.hero-bg) { position: relative; z-index: 2; }
+  .hero-eyebrow {
+    display: inline-block; background: rgba(0,194,181,0.12); color: #00c2b5;
+    font-size: 0.72rem; font-weight: 600; text-transform: uppercase; letter-spacing: 3px;
+    padding: 6px 20px; border-radius: 20px; border: 1px solid rgba(0,194,181,0.25);
+    margin-bottom: 1.6rem;
+  }
+  .hero h1 {
+    font-size: clamp(2.2rem, 5.5vw, 3.6rem); font-weight: 700; color: #f0f0f0;
+    line-height: 1.15; margin-bottom: 1.4rem; max-width: 820px; margin-left: auto; margin-right: auto;
+  }
+  .hero h1 em { color: #00c2b5; font-style: normal; }
+  .hero-sub {
+    font-size: 1.05rem; font-weight: 300; color: rgba(255,255,255,0.85); max-width: 580px;
+    margin: 0 auto 2.5rem; line-height: 1.75; letter-spacing: 0;
+  }
+  .hero-actions { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+  .btn-primary {
+    background: #00c2b5; color: #fff; font-family: 'Poppins', sans-serif;
+    font-weight: 700; font-size: 0.95rem; padding: 0.85rem 2rem;
+    border-radius: 30px; text-decoration: none; transition: opacity 0.2s;
+  }
+  .btn-primary:hover { opacity: 0.85; }
+  .btn-ghost {
+    background: transparent; color: rgba(255,255,255,0.75); font-family: 'Poppins', sans-serif;
+    font-weight: 600; font-size: 0.95rem; padding: 0.85rem 2rem;
+    border-radius: 30px; border: 1px solid rgba(255,255,255,0.2); text-decoration: none;
+    transition: border-color 0.2s, color 0.2s;
+  }
+  .btn-ghost:hover { border-color: #00c2b5; color: #00c2b5; }
 
-/* -------- DROPDOWN -------- */
-.nav-dropdown{position:relative}
-.nav-dropdown .nav-item{display:flex;align-items:center;gap:5px}
-.nav-dropdown .nav-item::after{content:'▾';font-size:.7rem;opacity:.7}
-.dropdown-menu{
-  display:none;position:absolute;top:100%;left:50%;transform:translateX(-50%);
-  padding-top:10px;
-  background:transparent;
-  min-width:140px;z-index:1000;
-}
-.dropdown-menu-inner{
-  background:rgba(11,13,25,.95);backdrop-filter:blur(12px);
-  border:1px solid rgba(255,255,255,.1);border-radius:10px;
-  overflow:hidden;
-}
-.dropdown-menu a{
-  display:block;padding:.65rem 1.2rem;color:rgba(255,255,255,.8);
-  text-decoration:none;font-size:.88rem;font-weight:500;
-  transition:background .15s,color .15s;white-space:nowrap;
-}
-.dropdown-menu a:hover{background:rgba(0,194,181,.12);color:var(--brand-green)}
-.nav-dropdown:hover .dropdown-menu{display:block}
+  /* TRUST BAR */
+  .trust-bar {
+    background: #0f1223;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    padding: 1.4rem 2rem;
+    display: flex; align-items: center; justify-content: center; gap: 2.5rem;
+    flex-wrap: wrap;
+  }
+  .trust-item { display: flex; align-items: center; gap: 0.55rem; color: rgba(255,255,255,0.85); font-size: 0.82rem; font-weight: 300; }
+  .trust-item svg { color: #00c2b5; flex-shrink: 0; }
 
-/* -------- HERO -------- */
-.hero{
-  min-height:100vh;display:flex;align-items:center;justify-content:center;
-  position:relative;text-align:center;padding:0 1rem;
-  background-color:#080b16;
-  background-image:
-    radial-gradient(ellipse 100% 80% at 10% 40%, rgba(0,194,181,1)   0%, transparent 65%),
-    radial-gradient(ellipse  80% 70% at 90% 65%, rgba(0,180,194,.9)  0%, transparent 65%),
-    radial-gradient(ellipse  60% 50% at 55% 0%,  rgba(0,194,181,.7)  0%, transparent 60%);
-  background-size:200% 200%;
-  background-position:100% 50%, 0% 50%, 60% 90%;
-}
-.hero::after{content:none}
-.hero-inner{position:relative;z-index:1;max-width:900px}
-.hero h4{letter-spacing:4px;font-size:.9rem;font-weight:400;margin-bottom:1rem}
-.hero h1{font-size:clamp(2.5rem,7vw,4.5rem);font-weight:700;margin:0 0 1rem;color:#e7e7e7}
-.hero p{font-size:1.05rem;font-weight:600;margin-bottom:2.5rem;letter-spacing:.5px;line-height:1.5}
-.hero-tagline{
-  display:inline-block;
-  background:rgba(0,0,0,.52);
-  backdrop-filter:blur(6px);
-  -webkit-backdrop-filter:blur(6px);
-  padding:.7rem 2rem;
-  border-radius:8px;
-  border:1px solid rgba(255,255,255,.12);
-}
-.primary-btn{
-  padding:1.2rem 3rem;font-size:1rem;font-weight:600;border-radius:50px;background:#fff;color:#000;
-  border:2px solid #000;cursor:pointer;transition:transform .25s,box-shadow .25s
-}
-.primary-btn:hover{transform:translateY(-4px);box-shadow:0 10px 20px rgba(0,0,0,.15)}
+  /* SECTION COMMONS */
+  .section { padding: 5rem 2rem; }
+  .section.alt { background: #fff; }
+  .container { max-width: 1080px; margin: 0 auto; }
+  .section-label {
+    font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 3px;
+    color: #00c2b5; margin-bottom: 0.8rem;
+  }
+  .section-title { font-size: clamp(1.7rem, 3.5vw, 2.5rem); font-weight: 700; color: #0b0d19; line-height: 1.2; margin-bottom: 1rem; }
+  .section-title em { color: #00c2b5; font-style: normal; }
+  .section-body { font-size: 1rem; color: #555; max-width: 620px; line-height: 1.85; }
 
-/* -------- STATS STRIP -------- */
-.stats-strip{background:#0b0d19;padding:0}
-.stats-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));max-width:1200px;margin:0 auto}
-.stat-item{padding:2.5rem 1.5rem;text-align:center;border-right:1px solid rgba(255,255,255,.08)}
-.stat-item:last-child{border-right:none}
-.stat-item .number{font-size:2.4rem;font-weight:900;color:var(--brand-green);line-height:1;display:block}
-.stat-item .label{font-size:.75rem;font-weight:600;color:rgba(255,255,255,.55);margin-top:.4rem;text-transform:uppercase;letter-spacing:.5px}
+  /* POSITIONING CALLOUT */
+  .callout-strip {
+    background: #0b0d19;
+    border-radius: 18px;
+    padding: 3.5rem 3rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: center;
+    margin: 3rem 0;
+  }
+  @media (max-width: 700px) { .callout-strip { grid-template-columns: 1fr; } }
+  .callout-strip .left-text h2 { font-size: clamp(1.6rem, 3vw, 2.2rem); font-weight: 700; color: #fff; line-height: 1.3; margin-bottom: 1rem; }
+  .callout-strip .left-text h2 em { color: #00c2b5; font-style: normal; }
+  .callout-strip .left-text p { color: rgba(255,255,255,0.6); font-size: 0.97rem; line-height: 1.8; }
+  .callout-right { display: flex; flex-direction: column; gap: 1.2rem; }
+  .compare-item { display: flex; gap: 1rem; align-items: flex-start; }
+  .compare-icon { width: 40px; height: 40px; border-radius: 10px; background: rgba(0,194,181,0.12); display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 2px; }
+  .compare-icon svg { color: #00c2b5; }
+  .compare-text strong { display: block; color: #fff; font-size: 0.95rem; font-weight: 600; margin-bottom: 0.25rem; }
+  .compare-text span { color: rgba(255,255,255,0.5); font-size: 0.87rem; line-height: 1.6; }
 
-/* -------- FEATURES -------- */
-#features{color:#000;background:#fff;padding:6rem 2rem}
-.features-wrapper{max-width:1200px;margin:auto;text-align:center}
-.features-wrapper h2{font-size:clamp(1.8rem,4vw,2.5rem);font-weight:700;color:#0b0d19;margin-bottom:.6rem}
-.features-wrapper h2::after{content:'';display:block;width:52px;height:4px;background:var(--brand-green);border-radius:2px;margin:.8rem auto 0}
-.features-grid{
-  margin-top:3.5rem;display:grid;gap:2rem;grid-template-columns:1fr
-}
-@media(min-width:768px){.features-grid{grid-template-columns:repeat(2,1fr)}}
-.feature-card{
-  background:#fff;border:1px solid #ececec;border-top:4px solid var(--brand-green);
-  border-radius:12px;padding:2.5rem 2rem;
-  box-shadow:0 4px 12px rgba(0,0,0,.04);display:flex;flex-direction:column;align-items:center;
-  transition:transform .25s,box-shadow .25s
-}
-.feature-card:hover{transform:translateY(-6px);box-shadow:0 12px 26px rgba(0,0,0,.06)}
-.feature-card svg{width:40px;height:40px;stroke:var(--brand-green);stroke-width:2;fill:none}
-.feature-card h3{margin:1.4rem 0 .8rem;font-size:1.15rem;font-weight:700;color:#0b0d19}
-.feature-card p{font-size:.92rem;font-weight:300;line-height:1.7;color:#555;padding:0 6px}
-
-/* -------- CTA STRIP -------- */
-#cta{
-  background:var(--cta-bg);color:#fff;text-align:center;padding:5rem 1.5rem
-}
-#cta h2{font-size:clamp(2rem,5vw,2.8rem);font-weight:700;margin-bottom:1.4rem}
-#cta p{font-size:1.1rem;font-weight:300;max-width:750px;margin:0 auto 3rem}
-.cta-buttons{display:flex;justify-content:center;gap:1.5rem;flex-wrap:wrap}
-.btn-primary,
-.btn-outline{
-  padding:1rem 2.5rem;border-radius:45px;font-weight:600;font-size:1rem;text-decoration:none;transition:.25s
-}
-.btn-primary{background:#fff;color:var(--cta-bg)}
-.btn-primary:hover{transform:translateY(-3px);box-shadow:0 6px 16px rgba(0,0,0,.15)}
-.btn-outline{
-  background:transparent;color:#fff;border:2px solid #fff
-}
-.btn-outline:hover{background:rgba(255,255,255,.1);transform:translateY(-3px)}
-
-/* -------- FOOTER -------- */
-.site-footer{background:var(--footer-bg);color:#d1d1d1;padding:4rem 2rem}
-.footer-top{display:grid;gap:2.5rem;max-width:1200px;margin:auto}
-@media(min-width:700px){.footer-top{grid-template-columns:2fr 1fr 1fr 1fr}}
-.footer-brand{font-size:1.4rem;font-weight:700;color:var(--brand-green);text-decoration:none}
-.footer-col h4{font-size:1.05rem;font-weight:600;margin-bottom:1rem;color:#fff}
-.footer-col ul{list-style:none}
-.footer-col li+li{margin-top:.6rem}
-.footer-col a{color:#d1d1d1;text-decoration:none;font-size:.95rem;transition:color .2s}
-.footer-col a:hover{color:var(--brand-green)}
-hr{border:none;border-top:1px solid #2a2e3a;margin:3rem 0 2rem}
-.footer-bottom{max-width:1200px;margin:auto;display:flex;justify-content:space-between;flex-wrap:wrap;gap:1rem;font-size:.9rem}
-.social{display:flex;gap:1.5rem;list-style:none}
-.social a{color:#d1d1d1;text-decoration:none;transition:color .2s}
-.social a:hover{color:var(--brand-green)}
-
-/* generic section offset so content isn’t hidden behind fixed nav */
-section{scroll-margin-top:90px}
-
-.hero-text {
-  color: #ffffff;
-  text-shadow:
-    0 4px 24px rgba(11,13,25,.55),
-    0 1px 2px rgba(11,13,25,.35);
-}
-
-/* -------- HERO BADGE & NEW ELEMENTS -------- */
-.hero-badge{
-  display:inline-block;
-  background:rgba(0,194,181,.18);
-  border:1px solid rgba(0,194,181,.45);
-  color:var(--brand-green);
-  font-size:.82rem;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;
-  padding:.45rem 1.2rem;border-radius:50px;margin-bottom:1.6rem;
-}
-.hero h1{font-size:clamp(2.2rem,6vw,4rem);font-weight:700;line-height:1.15;margin-bottom:1.4rem;color:#f0f0f0}
-.hero-sub{
-  font-size:1.05rem;font-weight:300;line-height:1.75;
-  max-width:620px;margin:0 auto 2.5rem;
-  color:rgba(255,255,255,.85);letter-spacing:0;
-}
-.hero-actions{display:flex;justify-content:center;gap:1.2rem;flex-wrap:wrap}
-.hero-btn-primary{
-  padding:1rem 2.4rem;border-radius:50px;font-weight:600;font-size:1rem;
-  background:var(--brand-green);color:#fff;text-decoration:none;
-  transition:transform .25s,box-shadow .25s;
-}
-.hero-btn-primary:hover{transform:translateY(-3px);box-shadow:0 8px 20px rgba(0,194,181,.35)}
-.hero-btn-secondary{
-  padding:1rem 2.4rem;border-radius:50px;font-weight:600;font-size:1rem;
-  background:transparent;color:#fff;border:2px solid rgba(255,255,255,.6);text-decoration:none;
-  transition:border-color .25s,background .25s,transform .25s;
-}
-.hero-btn-secondary:hover{border-color:#fff;background:rgba(255,255,255,.08);transform:translateY(-3px)}
-
-/* -------- FEATURES SUBTITLE -------- */
-.features-sub{
-  font-size:.97rem;font-weight:300;color:#666;max-width:580px;margin:.4rem auto 0;line-height:1.7;
-}
-
-/* -------- HOW WE WORK -------- */
-#how-it-works{background:#f4f6f8;padding:6rem 2rem;color:#0b0d19;text-align:center}
-.hiw-wrapper{max-width:1000px;margin:auto}
-.hiw-wrapper h2{font-size:clamp(1.8rem,4vw,2.5rem);font-weight:700;color:#0b0d19;margin-bottom:.6rem}
-.hiw-wrapper h2::after{content:'';display:block;width:52px;height:4px;background:var(--brand-green);border-radius:2px;margin:.8rem auto 0}
-.hiw-sub{font-size:.97rem;font-weight:300;color:#666;max-width:520px;margin:.8rem auto 3.5rem;line-height:1.7}
-.hiw-grid{display:flex;align-items:flex-start;justify-content:center;gap:0;flex-wrap:wrap}
-.hiw-step{flex:1;min-width:200px;max-width:260px;padding:1.5rem 1rem;text-align:center}
-.hiw-num{
-  display:inline-flex;align-items:center;justify-content:center;
-  width:52px;height:52px;border-radius:50%;
-  background:var(--brand-green);color:#fff;
-  font-size:1.1rem;font-weight:700;margin-bottom:1.2rem;
-}
-.hiw-step h3{font-size:1.1rem;font-weight:700;color:#0b0d19;margin-bottom:.6rem}
-.hiw-step p{font-size:.9rem;font-weight:300;color:#555;line-height:1.7}
-.hiw-divider{
-  width:60px;height:2px;background:rgba(0,194,181,.3);
-  align-self:center;flex-shrink:0;
-}
-@media(max-width:700px){.hiw-divider{display:none}.hiw-step{max-width:100%;width:100%}}
-
-/* --- NAV height variable ----------------------------------------- */
-:root { --nav-h: 84px; }                    /* desktop baseline */
-.glass { min-height: var(--nav-h); }
-
-/* --- Mobile: collapse nav into a stacked menu -------------------- */
-.nav-toggle{
-  display:none; margin-left:auto; background:transparent; border:0; padding:.4rem;
-  cursor:pointer; border-radius:8px;
-}
-.nav-toggle span{
-  display:block; width:24px; height:2px; background:#fff; margin:6px 0; transition:.2s;
-}
-
-/* Default desktop layout remains unchanged */
-
-/* ≤900px: stack + toggle */
-@media (max-width: 900px){
-  :root { --nav-h: 66px; }                  /* smaller fixed bar */
-
-  main{ padding-top: var(--nav-h); }        /* avoid hero overlap on mobile */
-
-  .glass{ flex-wrap:wrap; align-items:center; }
-  .nav-toggle{ display:block; }             /* show burger */
-
-  /* hide menus by default on mobile */
-  .glass .nav-links,
-  .glass .nav-ctas{
-    display:none;
-    width:100%;
-    background:rgba(10,10,20,.96);
-    border:1px solid rgba(255,255,255,.12);
-    border-radius:12px;
-    margin-top:.8rem;
-    padding:.6rem .8rem;
-    box-shadow:0 6px 14px rgba(0,0,0,.3);
+  /* SECTION IMAGE */
+  .section-img {
+    width: 100%; border-radius: 16px; overflow: hidden;
+    margin-top: 3rem; aspect-ratio: 16/7;
+    position: relative;
+  }
+  .section-img img {
+    width: 100%; height: 100%; object-fit: cover; object-position: center;
+    display: block;
+  }
+  .section-img-caption {
+    position: absolute; bottom: 0; left: 0; right: 0;
+    padding: 1.5rem 2rem;
+    background: linear-gradient(to top, rgba(11,13,25,0.75) 0%, transparent 100%);
+    color: rgba(255,255,255,0.7); font-size: 0.82rem; font-style: italic;
   }
 
-  /* when nav is open */
-  .glass.open .nav-links,
-  .glass.open .nav-ctas{
-    display:flex;
+  /* FULL BLEED IMAGE BREAK */
+  .image-break {
+    width: 100%; aspect-ratio: 21/7; overflow: hidden; position: relative;
+  }
+  .image-break img { width: 100%; height: 100%; object-fit: cover; object-position: center 30%; display: block; }
+  .image-break-overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(to right, rgba(11,13,25,0.92) 0%, rgba(11,13,25,0.75) 60%, rgba(11,13,25,0.3) 100%);
+    display: flex; align-items: center; padding: 3rem 4rem;
+  }
+  .image-break-quote {
+    max-width: 780px;
+    font-size: clamp(1.1rem, 2.5vw, 1.5rem); font-weight: 700; color: #fff; line-height: 1.4; text-shadow: 0 2px 12px rgba(0,0,0,0.5);
+  }
+  .image-break-quote em { color: #00c2b5; font-style: normal; }
+
+  /* HOW WE WORK STEPS */
+  .steps-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 3rem; }
+  @media (max-width: 800px) { .steps-grid { grid-template-columns: 1fr; } }
+  .step-card {
+    background: #fff;
+    border-radius: 14px;
+    border: 1px solid #e2e8f0;
+    padding: 2rem 1.8rem;
+    position: relative;
+    transition: box-shadow 0.2s, transform 0.2s;
+  }
+  .step-card:hover { box-shadow: 0 10px 30px rgba(0,0,0,0.08); transform: translateY(-3px); }
+  .step-num {
+    font-size: 0.72rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase;
+    color: #00c2b5; margin-bottom: 0.8rem;
+  }
+  .step-card h3 { font-size: 1.1rem; font-weight: 700; color: #0b0d19; margin-bottom: 0.6rem; }
+  .step-card p { font-size: 0.9rem; color: #555; line-height: 1.75; }
+  .step-connector {
+    display: none;
   }
 
-  .nav-links{ flex-direction:column; gap:.6rem; }
-  .nav-links .nav-item{ padding:.4rem .2rem; }
+  /* SERVICES */
+  .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 3rem; }
+  @media (max-width: 900px) { .services-grid { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 580px) { .services-grid { grid-template-columns: 1fr; } }
+  .service-card {
+    background: #fff;
+    border-radius: 14px;
+    border: 1px solid #e2e8f0;
+    border-top: 4px solid #00c2b5;
+    padding: 2rem 1.8rem;
+    transition: box-shadow 0.2s, transform 0.2s;
+  }
+  .service-card:hover { box-shadow: 0 10px 30px rgba(0,0,0,0.08); transform: translateY(-3px); }
+  .service-icon { width: 44px; height: 44px; border-radius: 12px; background: rgba(0,194,181,0.1); display: flex; align-items: center; justify-content: center; margin-bottom: 1.2rem; }
+  .service-icon svg { color: #00c2b5; }
+  .service-card h3 { font-size: 1.05rem; font-weight: 700; color: #0b0d19; margin-bottom: 0.6rem; }
+  .service-card p { font-size: 0.88rem; color: #555; line-height: 1.75; }
+  .service-bullets { list-style: none; margin-top: 1rem; display: flex; flex-direction: column; gap: 0.4rem; }
+  .service-bullets li { font-size: 0.84rem; color: #444; display: flex; align-items: flex-start; gap: 0.5rem; }
+  .service-bullets li::before { content: '—'; color: #00c2b5; font-weight: 700; flex-shrink: 0; }
 
-  .nav-ctas{ justify-content:flex-start; gap:.8rem; }
-  .btn-cta{ padding:.5rem 1.1rem; font-size:.88rem; }
+  /* USE CASES */
+  .use-cases-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; margin-top: 2.5rem; }
+  @media (max-width: 680px) { .use-cases-grid { grid-template-columns: 1fr; } }
+  .uc-card {
+    background: #f4f6f8;
+    border-radius: 12px;
+    border: 1px solid #e2e8f0;
+    padding: 1.6rem 1.5rem;
+    display: flex; gap: 1rem; align-items: flex-start;
+  }
+  .uc-icon { width: 36px; height: 36px; border-radius: 9px; background: rgba(0,194,181,0.1); display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 2px; }
+  .uc-icon svg { color: #00c2b5; }
+  .uc-card strong { display: block; font-size: 0.95rem; font-weight: 700; color: #0b0d19; margin-bottom: 0.4rem; }
+  .uc-card span { font-size: 0.86rem; color: #555; line-height: 1.7; }
+  .uc-eg { display: block; margin-top: 0.65rem; font-size: 0.82rem; color: #00897f; font-style: italic; }
 
-  /* tighten hero/section spacing to fix “margin and padding off” feel */
-  .section{ padding:1.8rem 1.2rem; }
-  .section h1{ font-size:1.6rem; }
-}
+  /* TEAM */
+  .team-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 3rem; }
+  @media (max-width: 640px) { .team-grid { grid-template-columns: 1fr; } }
+  .team-card {
+    background: #fff;
+    border-radius: 16px;
+    border: 1px solid #e2e8f0;
+    padding: 0;
+    overflow: hidden;
+  }
+  .team-photo-wrap {
+    width: 100%; aspect-ratio: 4/3;
+    overflow: hidden;
+    background: #e2e8f0;
+  }
+  .team-avatar {
+    width: 100%; height: 100%;
+    object-fit: cover; object-position: center top;
+    display: block;
+  }
+  .team-body { padding: 1.8rem 2rem 2rem; }
+  .team-card .name { font-size: 1.15rem; font-weight: 700; color: #0b0d19; }
+  .team-card .role { font-size: 0.8rem; font-weight: 600; color: #00a89d; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 0.9rem; }
+  .team-card p { font-size: 0.9rem; color: #555; line-height: 1.8; }
+  .team-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 1.2rem; }
+  .team-tag { background: #f4f6f8; color: #444; font-size: 0.77rem; font-weight: 500; padding: 4px 12px; border-radius: 20px; border: 1px solid #e2e8f0; }
+  .team-tag.highlight { background: rgba(0,194,181,0.1); color: #00897f; border-color: rgba(0,194,181,0.3); font-weight: 600; }
 
-/* Anchor jump fix: sections aren't hidden behind the fixed header */
-section[id], [id^="faq"], [id^="features"], [id^="pricing"], [id^="mission"]{
-  scroll-margin-top: calc(var(--nav-h) + 12px);
-}
+  /* CTA FOOTER */
+  .cta-section { background: #0b0d19; padding: 6rem 2rem; text-align: center; }
+  .cta-section h2 { font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 700; color: #fff; margin-bottom: 1rem; line-height: 1.2; }
+  .cta-section h2 em { color: #00c2b5; font-style: normal; }
+  .cta-section p { color: rgba(255,255,255,0.85); font-size: 1.05rem; font-weight: 300; max-width: 500px; margin: 0 auto 2.5rem; line-height: 1.75; }
+  .cta-note { margin-top: 1.5rem; font-size: 1.05rem; font-weight: 300; color: rgba(255,255,255,0.85); line-height: 1.75; }
+
+  /* FOOTER */
+  footer {
+    background: #070910; padding: 2rem 2.5rem;
+    display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem;
+    border-top: 1px solid rgba(255,255,255,0.06);
+  }
+  .footer-logo { font-size: 1.1rem; font-weight: 700; color: rgba(255,255,255,0.5); text-decoration: none; }
+  .footer-logo span { color: #00c2b5; }
+  footer p { font-size: 0.8rem; color: rgba(255,255,255,0.25); }
 </style>
 </head>
-
 <body>
-<span id="top"></span>
 
-<!-- ===== NAVBAR ===== -->
-<header>
-  <nav class="glass">
-    <a class="brand" href="/index.html">LexAi</a>
-    <button id="navToggle" class="nav-toggle" aria-expanded="false" aria-label="Open menu">
-      <span></span><span></span><span></span>
-    </button>
+<!-- NAV -->
+<nav>
+  <a href="#" class="logo">Lex<span>Ai</span></a>
+  <div class="nav-right">
     <ul class="nav-links">
-      <li><a class="nav-item" href="/index.html">Home</a></li>
-      <li><a href="/#features" class="nav-item">Features</a></li>
-      <li class="nav-dropdown">
-        <a class="nav-item" href="/about.html">About</a>
-        <div class="dropdown-menu">
-          <div class="dropdown-menu-inner">
-            <a href="/about.html">About Us</a>
-            <a href="/lexai-faq.html">FAQ</a>
-          </div>
-        </div>
-      </li>
-      <li class="nav-dropdown">
-        <a class="nav-item" href="/ai-solutions.html">Services</a>
-        <div class="dropdown-menu">
-          <div class="dropdown-menu-inner">
-            <a href="/ai-solutions.html">Custom AI Solutions</a>
-            <a href="/geo-services.html">GEO Audit</a>
-            <a href="/ai-marketing-audit.html">AI Marketing Audit</a>
-            <a href="/salesiq-services.html">SalesIQ Weekly</a>
-          </div>
-        </div>
-      </li>
-      <li><a class="nav-item" href="/case-studies.html">Case Studies</a></li>
+      <li><a href="#">Home</a></li>
+      <li><a href="#" class="active">Services</a></li>
+      <li><a href="#">Case Studies</a></li>
     </ul>
-    <div class="nav-ctas">
-      <a href="https://calendly.com/lexai/ai-implementation-introductory-chat" target="_blank" class="btn-cta">Get Started</a>
-    </div>
-  </nav>
-</header>
+    <a href="https://calendly.com/eric-lexai/30-minute-meeting?month=2026-04" target="_blank" class="nav-cta">Book a Discovery Call</a>
+  </div>
+</nav>
 
-<!-- ===== HERO ===== -->
-<section id="home" class="hero">
-  <div class="hero-inner">
-    <div class="hero-badge hero-text">AI Solutions for B2B Growth Teams</div>
-    <h1 class="hero-text">Built Around Your Business.<br>Engineered to Perform.</h1>
-    <p class="hero-sub hero-text">Custom AI systems for B2B growth — built to your specs, deployed in weeks.</p>
-    <div class="hero-actions">
-      <a href="https://calendly.com/lexai/ai-implementation-introductory-chat" target="_blank" class="hero-btn-primary">Book a Free Call</a>
-      <a href="#features" class="hero-btn-secondary">See What We Build</a>
-    </div>
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-eyebrow">AI for Financial Services</div>
+  <h1>AI that creates <em>edge,</em><br>not overhead.</h1>
+  <p class="hero-sub">
+    We build custom AI solutions to modernize your data workflows.
+  </p>
+  <div class="hero-actions">
+    <a href="https://calendly.com/eric-lexai/30-minute-meeting?month=2026-04" target="_blank" class="btn-primary">Book a Discovery Call</a>
+    <a href="#how-we-work" class="btn-ghost">See How We Work</a>
   </div>
 </section>
 
-<!-- ===== STATS STRIP ===== -->
-<div class="stats-strip">
-  <div class="stats-grid">
-    <div class="stat-item"><span class="number">970+</span><span class="label">Active Users</span></div>
-    <div class="stat-item"><span class="number">450+</span><span class="label">Client Hours Saved / Year</span></div>
-    <div class="stat-item"><span class="number">90%</span><span class="label">Lead Quality Achieved</span></div>
-    <div class="stat-item"><span class="number">100%</span><span class="label">Custom-Built Solutions</span></div>
+<!-- TRUST BAR -->
+<div class="trust-bar">
+  <div class="trust-item">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+    Built for regulated environments
+  </div>
+  <div class="trust-item">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+    Working MVPs within days
+  </div>
+  <div class="trust-item">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+    20+ years in startups and finance
   </div>
 </div>
 
-<!-- ===== FEATURES ===== -->
-<section id="features">
-  <div class="features-wrapper">
-    <h2>Custom-Built Solutions That Drive Real Results</h2>
-    <p class="features-sub">LexAi builds four types of custom AI systems: lead generation engines that qualify prospects against your exact ICP, marketing automation tools that run 24/7 without manual input, custom workflow systems that eliminate operational bottlenecks, and LLM-powered tools that reduce token costs by 50%+. No templates — every system is built from scratch around your workflow.</p>
+<!-- OFFICE IMAGE BREAK -->
+<div class="image-break">
+  <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=2000&q=80" alt="Financial office building">
+  <div class="image-break-overlay" style="background: linear-gradient(to right, rgba(11,13,25,0.65) 0%, rgba(11,13,25,0.35) 50%, rgba(11,13,25,0.1) 100%);">
+    <p class="image-break-quote">"The firms that move first on AI<br>will define the next decade of <em>finance.</em>"</p>
+  </div>
+</div>
 
-    <div class="features-grid">
-      <!-- 1 -->
-      <div class="feature-card">
-        <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/><circle cx="12" cy="10" r="3"/></svg>
-        <h3>AI-Powered Automation Tools</h3>
-        <p>We engineer custom software that handles repetitive, time-consuming tasks on autopilot — saving hundreds of hours a year while you focus on growing your business.</p>
+<!-- WHY LEXAI -->
+<section style="background:#0b0d19; padding:5rem 2rem;">
+  <div class="container">
+    <div style="display:grid; grid-template-columns:1fr 1px 1fr; gap:3.5rem; align-items:center;">
+      <div>
+        <h2 style="font-size:clamp(2.4rem,5vw,3.8rem); font-weight:800; color:#fff; line-height:1.1; margin:0;">Why Choose<br><span style="color:#00c2b5;">LexAi?</span></h2>
       </div>
-      <!-- 2 -->
-      <div class="feature-card">
-        <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
-        <h3>Precision Lead Generation</h3>
-        <p>Using API technology and Google X-ray search, we build lead engines that target your exact ideal customer — not broad bought lists, but verified, qualified prospects matched to your specific criteria.</p>
-      </div>
-      <!-- 3 -->
-      <div class="feature-card">
-        <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
-        <h3>Custom Workflow Systems</h3>
-        <p>From help desk platforms to work order systems, we build the operational infrastructure that turns inbox chaos into data-driven clarity — with full tracking, reporting, and accountability built in.</p>
-      </div>
-      <!-- 4 -->
-      <div class="feature-card">
-        <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
-        <h3>LLM-Powered Engineering</h3>
-        <p>We integrate large language models into production-ready tools — with sophisticated prompt engineering that cuts token costs by 50%+ and delivers reliable, scalable results across real-world use cases.</p>
+      <div style="background:rgba(255,255,255,0.1); height:100%; min-height:140px;"></div>
+      <div>
+        <p style="color:#00c2b5; font-size:1.05rem; font-weight:600; margin-bottom:1.2rem;">Your Partner in AI Implementation</p>
+        <p style="color:rgba(255,255,255,0.85); font-size:1.05rem; font-weight:300; line-height:1.75;">We help businesses turn AI into a competitive advantage. Whether automating data pipelines or modernizing legacy systems, we build AI solutions that address high-impact business challenges.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ===== HOW WE WORK ===== -->
-<section id="how-it-works">
-  <div class="hiw-wrapper">
-    <h2>How We Work</h2>
-    <p class="hiw-sub">LexAi follows a three-step process: a free discovery call to scope your exact problem, a custom build phase with no templates or off-the-shelf tools, and a live deployment with team walkthrough and ongoing support.</p>
-    <div class="hiw-grid">
-      <div class="hiw-step">
-        <div class="hiw-num">01</div>
-        <h3>Discover</h3>
-        <p>We start with a free strategy call to understand your business, goals, and the exact problem you need solved.</p>
+<!-- HOW WE WORK -->
+<section class="section" id="how-we-work">
+  <div class="container">
+    <div class="section-label">Our Process</div>
+    <h2 class="section-title">From ambiguous problem<br>to <em>deployed solution</em></h2>
+    <p class="section-body">
+      Your firm's edge lies in its unique process—so why settle for a generic solution? We transform your specific operational hurdles into bespoke AI systems using a proven methodology that scales with you.
+    </p>
+    <div class="section-img">
+      <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1600&q=80" alt="Finance professionals reviewing data">
+    </div>
+
+    <div class="steps-grid">
+      <div class="step-card">
+        <div class="step-num">Step 01</div>
+        <h3>Discovery Workshop</h3>
+        <p>We sit down with your team to map existing workflows, identify bottlenecks, and surface the problem where AI can drive the highest ROI.</p>
       </div>
-      <div class="hiw-divider"></div>
-      <div class="hiw-step">
-        <div class="hiw-num">02</div>
-        <h3>Build</h3>
-        <p>We scope and engineer a custom solution — no templates, no generic tools. Built specifically for your workflow.</p>
+      <div class="step-card">
+        <div class="step-num">Step 02</div>
+        <h3>Build & Evals</h3>
+        <p>We design and build a custom AI solution tailored to your environment, assembling your grounding data with our evaluation metrics — so you gain confidence in our solution before it goes live.</p>
       </div>
-      <div class="hiw-divider"></div>
-      <div class="hiw-step">
-        <div class="hiw-num">03</div>
-        <h3>Deploy</h3>
-        <p>We deliver a production-ready system, walk your team through it, and stay available for ongoing support.</p>
+      <div class="step-card">
+        <div class="step-num">Step 03</div>
+        <h3>Deployment & Handoff</h3>
+        <p>We deliver high-quality software with documentation, walkthroughs, and support to ensure seamless handoffs, preparing your team to own and maintain new systems.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ===== CTA STRIP ===== -->
-<section id="cta">
-  <h2>Ready to see what's possible?</h2>
-  <p>From lead generation to automation to custom AI tools — we build solutions around your exact needs. Let's talk about what that looks like for your business.</p>
-  <div class="cta-buttons">
-    <a href="https://calendly.com/lexai/ai-implementation-introductory-chat" target="_blank" class="btn-primary">Book a Free Call</a>
-    <a href="/case-studies.html" class="btn-outline">See Case Studies</a>
+<!-- SERVICES -->
+<section class="section alt">
+  <div class="container">
+    <div class="section-label">What We Offer</div>
+    <h2 class="section-title">Three ways to work with us</h2>
+    <p class="section-body">
+      Whether you're exploring AI for the first time or have a clear use case and need execution capacity, we have an engagement model for you.
+    </p>
+    <div class="section-img" style="margin-top:2.5rem; margin-bottom:-0.5rem;">
+      <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1600&q=80" alt="Financial data analysis on laptop">
+    </div>
+
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M2 20h20M6 20V10l6-6 6 6v10"/><path d="M10 20v-6h4v6"/></svg>
+        </div>
+        <h3>End-to-End AI Product Development</h3>
+        <p>From discovery through deployment — we partner with your team to identify where AI can drive revenue, reduce cost, or improve operational efficiency, then ship it.</p>
+        <ul class="service-bullets">
+          <li>Discovery workshops & opportunity mapping</li>
+          <li>Custom LLM-powered product development</li>
+          <li>Integration into existing workflows</li>
+          <li>Ongoing iteration post-launch</li>
+        </ul>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg>
+        </div>
+        <h3>AI Integration & Enablement</h3>
+        <p>You have a clear use case but limited internal capacity. We design and deploy the solution — often placing a working MVP in front of your team within days.</p>
+        <ul class="service-bullets">
+          <li>Rapid solution scoping</li>
+          <li>Fast-track MVP delivery</li>
+          <li>Internal adoption enablement</li>
+          <li>Handoff documentation & training</li>
+        </ul>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+        </div>
+        <h3>Strategy & Advisory</h3>
+        <p>We advise leadership teams on how to thoughtfully integrate AI. We surface the most valuable use cases, evaluate vendors and tooling, and assess data readiness.</p>
+        <ul class="service-bullets">
+          <li>AI readiness assessment</li>
+          <li>Vendor & tooling evaluation</li>
+          <li>Use case prioritization framework</li>
+          <li>Board-ready AI strategy memo</li>
+        </ul>
+      </div>
+    </div>
   </div>
 </section>
 
-<!-- ===== FOOTER ===== -->
-<footer class="site-footer">
-  <div class="footer-top">
-
-    <div class="footer-col">
-      <a href="/index.html" class="footer-brand">LexAi</a>
-      <p style="margin-top:1rem;max-width:280px">
-        Building custom AI solutions that drive real results.
-      </p>
-    </div>
-
-    <div class="footer-col">
-      <h4>Product</h4>
-      <ul>
-        <li><a href="/#features">Features</a></li>
-        <li><a href="https://calendly.com/lexai/ai-implementation-introductory-chat" target="_blank">Request a Quote</a></li>
-        <li><a href="/case-studies.html">Testimonials</a></li>
-      </ul>
-    </div>
-
-    <div class="footer-col">
-      <h4>Company</h4>
-      <ul>
-        <li><a href="/about.html">About Us</a></li>
-        <li><a href="https://calendly.com/lexai/ai-implementation-introductory-chat" target="_blank">Contact</a></li>
-      </ul>
-    </div>
-
-    <div class="footer-col">
-      <h4>Legal</h4>
-      <ul>
-        <li><a href="/privacy.html">Privacy Policy</a></li>
-        <li><a href="javascript:void(0)">Terms of Service</a></li>
-        <li><a href="javascript:void(0)">Cookie Policy</a></li>
-      </ul>
-    </div>
-
-  </div><!-- /footer-top -->
-
-  <hr>
-
-  <div class="footer-bottom">
-    <p>© 2026 LexAi. All rights reserved.</p>
-
-    <ul class="social">
-      <li><a href="javascript:void(0)">Twitter</a></li>
-      <li><a href="javascript:void(0)">LinkedIn</a></li>
-      <li><a href="javascript:void(0)">Facebook</a></li>
-      <li><a href="javascript:void(0)">Instagram</a></li>
-    </ul>
+<!-- IMAGE BREAK -->
+<div class="image-break">
+  <img src="https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?auto=format&fit=crop&w=2000&q=80" alt="Finance data and analysis">
+  <div class="image-break-overlay">
+    <p class="image-break-quote">"The best firms aren't hiring more analysts —<br>they're making the ones they have <em>ten times faster.</em>"</p>
   </div>
+</div>
+
+<!-- USE CASES -->
+<section class="section">
+  <div class="container">
+    <div class="section-label">Finance Use Cases</div>
+    <h2 class="section-title">What we build<br>for <em>financial services teams</em></h2>
+    <p class="section-body">
+      Six high-impact use cases — from quick wins to longer-term infrastructure — drawn from actual workflows that you care about.
+    </p>
+    <div class="use-cases-grid">
+      <div class="uc-card">
+        <div class="uc-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/></svg></div>
+        <div>
+          <strong>Modernize Legacy Systems</strong>
+          <span>Your firm is probably running critical decisions on spreadsheets nobody fully understands anymore. We document the logic, validate the outputs, and build something your team can trust — and explain to a regulator.</span>
+          <em class="uc-eg">e.g. That 10-year-old allocation model your last analyst built — let's make sure it still does what you think it does.</em>
+        </div>
+      </div>
+      <div class="uc-card">
+        <div class="uc-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
+        <div>
+          <strong>Automate Model Setup & Data Intake</strong>
+          <span>Stop rebuilding the same models from scratch. We deploy AI systems that ingest your data — even from messy PDFs — generate a first-pass financial model, and adapt it to your templates.</span>
+          <em class="uc-eg">e.g. Analysts focus on reviewing assumptions, not manual setup.</em>
+        </div>
+      </div>
+      <div class="uc-card">
+        <div class="uc-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div>
+        <div>
+          <strong>Deploy AI Apps</strong>
+          <span>It shouldn't be this hard to build a useful internal AI tool. We scope it tight, build it fast, and put a working product in front of your team — without the enterprise procurement circus.</span>
+          <em class="uc-eg">e.g. Query your trade data conversationally instead of writing Python every time.</em>
+        </div>
+      </div>
+      <div class="uc-card">
+        <div class="uc-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg></div>
+        <div>
+          <strong>Unlock Your Internal Data</strong>
+          <span>Your historical portfolio data, reports, and documents are an untapped asset. We build a lightweight central data layer and a chat interface so your team can actually use what you've already collected.</span>
+          <em class="uc-eg">e.g. Ask a question. Get an answer from your own data — not a generic model.</em>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TEAM -->
+<section class="section alt">
+  <div class="container">
+    <div class="section-label">The Team</div>
+    <h2 class="section-title">Built by practitioners,<br><em>not theorists.</em></h2>
+    <p class="section-body">
+      We're a small team that has spent careers working with complex data in demanding industries. We don't sell AI for its own sake — we find the problems worth solving and build the right tool for the job.
+    </p>
+    <div class="team-grid">
+      <div class="team-card">
+        <div class="team-photo-wrap">
+          <img src="/julien-headshot.jpg" alt="Julien Gustinelli" class="team-avatar">
+        </div>
+        <div class="team-body">
+          <div class="name">Julien Gustinelli</div>
+          <div class="role">Co-Founder &amp; AI Engineering Lead</div>
+          <p>Julien is a Google Gemini Alumni and former Amazon lead. He started his career at Agora Financial, where he developed a deep foundation in financial analysis, investment research, and the data workflows that drive capital decisions. He went on to define and operationalize quality standards for consumer AI experiences at Google, influencing product direction across three major releases — Gemini 1.0, Advanced, and 2.0.</p>
+        </div>
+      </div>
+      <div class="team-card">
+        <div class="team-photo-wrap">
+          <img src="/eric-park.png" alt="Eric Park" class="team-avatar" style="object-position: center 10%;">
+        </div>
+        <div class="team-body">
+          <div class="name">Eric Park</div>
+          <div class="role">Co-Founder &amp; AI Product Lead</div>
+          <p>Eric is a serial entrepreneur and product leader deeply immersed in the specific operational challenges of financial firms — hedge funds, investment banks, and PE firms. He has spent the past decade building zero-to-one products across highly regulated industries like healthcare and education, and understands how automation fits into the way teams actually work. He is a graduate of Harvard and the University of Chicago.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section" id="contact">
+  <div class="container">
+    <h2>Get AI into <em>production.</em></h2>
+    <p class="cta-note" style="margin-bottom:3rem;">The hardest part of AI isn't building it — it's shipping it.<br>We stay in until it's live, integrated, and delivering real returns.</p>
+    <a href="https://calendly.com/eric-lexai/30-minute-meeting?month=2026-04" target="_blank" class="btn-primary" style="font-size:1rem; padding:1rem 2.2rem;">Book a Discovery Call →</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <a href="#" class="footer-logo">Lex<span>Ai</span></a>
+  <p>© 2026 LexAi. AI Product Development for Financial Services.</p>
 </footer>
 
-<!-- ===== SCRIPTS ===== -->
-<script>
-  (function(){
-    const nav   = document.querySelector('.glass');
-    const btn   = document.getElementById('navToggle');
-    if(!nav || !btn) return;
-
-    btn.addEventListener('click', () => {
-      const open = nav.classList.toggle('open');
-      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
-    });
-
-    // Close menu when a link is tapped (prevents stuck-open state)
-    nav.addEventListener('click', (e)=>{
-      const a = e.target.closest('a');
-      if(a && nav.classList.contains('open')) nav.classList.remove('open');
-    });
-  })();
-</script>
-<script>
-(function(){if(!window.chatbase||window.chatbase("getState")!=="initialized"){window.chatbase=(...arguments)=>{if(!window.chatbase.q){window.chatbase.q=[]}window.chatbase.q.push(arguments)};window.chatbase=new Proxy(window.chatbase,{get(target,prop){if(prop==="q"){return target.q}return(...args)=>target(prop,...args)}})}const onLoad=function(){const script=document.createElement("script");script.src="https://www.chatbase.co/embed.min.js";script.id="x0D2ehC6rlPWPB0WAU7bR";script.domain="www.chatbase.co";document.body.appendChild(script)};if(document.readyState==="complete"){onLoad()}else{window.addEventListener("load",onLoad)}})();
-</script>
 </body>
 </html>
