@@ -268,6 +268,51 @@
   .footer-logo { font-size: 1.1rem; font-weight: 700; color: rgba(255,255,255,0.5); text-decoration: none; }
   .footer-logo span { color: #00c2b5; }
   footer p { font-size: 0.8rem; color: rgba(255,255,255,0.25); }
+
+  /* MOBILE NAV */
+  .hamburger {
+    display: none;
+    flex-direction: column; justify-content: center; align-items: center;
+    gap: 5px; background: none; border: none; cursor: pointer; padding: 6px;
+  }
+  .hamburger span {
+    display: block; width: 24px; height: 2px; background: #fff; border-radius: 2px;
+    transition: transform 0.3s, opacity 0.3s;
+  }
+  .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .hamburger.open span:nth-child(2) { opacity: 0; }
+  .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+  .mobile-menu {
+    display: none;
+    position: fixed; top: 84px; left: 0; right: 0; bottom: 0; z-index: 99;
+    background: rgba(11,13,25,0.97);
+    flex-direction: column; align-items: center; justify-content: center;
+    gap: 2rem;
+    padding: 2rem;
+  }
+  .mobile-menu.open { display: flex; }
+  .mobile-menu a {
+    color: rgba(255,255,255,0.85); text-decoration: none; font-size: 1.4rem;
+    font-weight: 500; transition: color 0.2s;
+  }
+  .mobile-menu a:hover { color: #00c2b5; }
+  .mobile-menu .nav-cta { font-size: 1rem; margin-top: 1rem; }
+
+  @media (max-width: 768px) {
+    .nav-right { display: none; }
+    .hamburger { display: flex; }
+
+    /* Why Choose section */
+    .why-choose-grid {
+      grid-template-columns: 1fr !important;
+    }
+    .why-choose-divider { display: none !important; }
+
+    /* Image break quotes */
+    .image-break-overlay { padding: 2rem 1.5rem; }
+    .image-break { aspect-ratio: 4/3; }
+  }
 </style>
 </head>
 <body>
@@ -285,7 +330,20 @@
     </ul>
     <a href="https://calendly.com/eric-lexai/30-minute-meeting?month=2026-04" target="_blank" class="nav-cta">Book a Discovery Call</a>
   </div>
+  <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#" onclick="closeMobileMenu()">Home</a>
+  <a href="#about" onclick="closeMobileMenu()">About</a>
+  <a href="#team" onclick="closeMobileMenu()">Team</a>
+  <a href="#how-we-work" onclick="closeMobileMenu()">Services</a>
+  <a href="#use-cases" onclick="closeMobileMenu()">Case Studies</a>
+  <a href="https://calendly.com/eric-lexai/30-minute-meeting?month=2026-04" target="_blank" class="nav-cta" onclick="closeMobileMenu()">Book a Discovery Call</a>
+</div>
 
 <!-- HERO -->
 <section class="hero">
@@ -328,11 +386,11 @@
 <!-- WHY LEXAI -->
 <section id="about" style="background:#0b0d19; padding:5rem 2rem;">
   <div class="container">
-    <div style="display:grid; grid-template-columns:1fr 1px 1fr; gap:3.5rem; align-items:center;">
+    <div class="why-choose-grid" style="display:grid; grid-template-columns:1fr 1px 1fr; gap:3.5rem; align-items:center;">
       <div>
         <h2 style="font-size:clamp(2.4rem,5vw,3.8rem); font-weight:800; color:#fff; line-height:1.1; margin:0;">Why Choose<br><span style="color:#00c2b5;">LexAi?</span></h2>
       </div>
-      <div style="background:rgba(255,255,255,0.1); height:100%; min-height:140px;"></div>
+      <div class="why-choose-divider" style="background:rgba(255,255,255,0.1); height:100%; min-height:140px;"></div>
       <div>
         <p style="color:#00c2b5; font-size:1.05rem; font-weight:600; margin-bottom:1.2rem;">Your Partner in AI Implementation</p>
         <p style="color:rgba(255,255,255,0.85); font-size:1.05rem; font-weight:300; line-height:1.75;">We help businesses turn AI into a competitive advantage. Whether automating data pipelines or modernizing legacy systems, we build AI solutions that address high-impact business challenges.</p>
@@ -529,6 +587,23 @@
   <a href="#" class="footer-logo">Lex<span>Ai</span></a>
   <p>© 2026 LexAi. AI Product Development for Financial Services.</p>
 </footer>
+
+<script>
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobileMenu');
+
+  hamburger.addEventListener('click', () => {
+    const isOpen = mobileMenu.classList.toggle('open');
+    hamburger.classList.toggle('open', isOpen);
+    document.body.style.overflow = isOpen ? 'hidden' : '';
+  });
+
+  function closeMobileMenu() {
+    mobileMenu.classList.remove('open');
+    hamburger.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+</script>
 
 </body>
 </html>
