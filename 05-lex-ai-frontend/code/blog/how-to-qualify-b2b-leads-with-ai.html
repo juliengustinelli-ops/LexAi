@@ -51,15 +51,15 @@ body{font-family:'Poppins',sans-serif;color:#0b0d19;background:#f4f6f8}
 .glass{
   position:fixed;top:0;left:0;width:100%;z-index:999;
   display:flex;align-items:center;justify-content:space-between;
-  padding:.8rem 4vw;background:rgba(0,0,0,.52);
-  backdrop-filter:blur(6px);border-bottom:1px solid rgba(255,255,255,.12);
+  padding:0 2.5rem;background:rgba(11,13,25,0.9);
+  backdrop-filter:blur(20px);border-bottom:1px solid rgba(255,255,255,.08);
   min-height:var(--nav-h);
 }
-.brand{font:700 1.4rem/1 'Poppins';color:var(--brand-green);text-decoration:none}
-.nav-links{list-style:none;display:flex;gap:2.5rem;align-items:center}
-.nav-item{color:#fff;text-decoration:none;font-weight:500;transition:color .2s}
-.nav-item:hover{color:var(--brand-green)}
-.btn-cta{background:var(--brand-green);color:#fff;padding:.6rem 1.8rem;border-radius:25px;font-weight:600;font-size:.9rem;text-decoration:none}
+.logo{font-size:1.9rem;font-weight:700;color:#fff;text-decoration:none;}.logo span{color:var(--brand-green);}
+.nav-right{display:flex;align-items:center;gap:2.5rem;}.nav-links{list-style:none;display:flex;gap:2rem;}
+.nav-links a{color:rgba(255,255,255,0.85);text-decoration:none;font-size:1rem;font-weight:300;transition:color .2s;}
+.nav-links a:hover{color:var(--brand-green);}
+.nav-cta{background:var(--brand-green);color:#fff;padding:.6rem 1.4rem;border-radius:25px;font-weight:700;font-size:.88rem;text-decoration:none;transition:opacity .2s;}.nav-cta:hover{opacity:.85;}
 
 .post-hero{
   background:#0b0d19;
@@ -130,15 +130,16 @@ hr{border:none;border-top:1px solid #2a2e3a;margin:3rem 0 2rem}
 
 <header>
   <nav class="glass">
-    <a class="brand" href="/index.html">LexAi</a>
-    <ul class="nav-links">
-      <li><a class="nav-item" href="/index.html">Home</a></li>
-      <li><a class="nav-item" href="/case-studies.html">Case Studies</a></li>
-      <li><a class="nav-item" href="/blog/">Blog</a></li>
-      <li><a class="nav-item" href="/about.html">About</a></li>
-      <li><a class="nav-item" href="/ai-marketing-audit.html">Free Marketing Audit</a></li>
+    <a href="/index.html" class="logo">Lex<span>Ai</span></a>
+    <div class="nav-right"><ul class="nav-links">
+      <li><a href="/index.html">Home</a></li>
+      <li><a href="/case-studies.html">Case Studies</a></li>
+      <li><a href="/blog/">Blog</a></li>
+      <li><a href="/about.html">About</a></li>
+      <li><a href="/ai-marketing-audit.html">Free Marketing Audit</a></li>
     </ul>
-    <a href="https://calendly.com/lexai/ai-implementation-introductory-chat" target="_blank" class="btn-cta">Get Started</a>
+    <a href="https://calendly.com/lexai/ai-implementation-introductory-chat" target="_blank" class="nav-cta">Get Started</a>
+  </div>
   </nav>
 </header>
 
