@@ -236,6 +236,9 @@
       submitBtn.disabled=true; spin.style.display='inline-block';
       try{
         await emailjs.send('service_6mzonxg', 'template_oxmajz8', payload);
+        if (payload.send_copy === 'Yes') {
+          await emailjs.send('service_6mzonxg', 'template_og37lix', payload);
+        }
         formMsg.innerHTML = `<div class="success">✅ Ticket submitted. We've emailed the helpdesk.</div>`;
         tForm.reset();
       }catch(err){
