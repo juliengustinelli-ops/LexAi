@@ -1,15 +1,15 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="en">
 <head>
   <link rel="icon" type="image/png" href="/favicon.png">
   <meta charset="utf-8"/>
   <meta http-equiv="Content-Security-Policy"
         content="default-src 'self';
-                 connect-src https://api.lexaib2b.com;
+                 connect-src https://api.emailjs.com;
                  img-src 'self' data:;
                  font-src https://fonts.gstatic.com;
                  style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
-                 script-src 'self' 'unsafe-inline';
+                 script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net;
                  base-uri 'none';
                  frame-ancestors 'none'">
   <meta http-equiv="X-Content-Type-Options" content="nosniff">
@@ -175,7 +175,7 @@
             </div>
             <div>
               <label class="label">Subject *</label>
-              <input id="subject" required placeholder="Short summary (e.g., Chromebook won’t turn on)"/>
+              <input id="subject" required placeholder="Short summary (e.g., Chromebook won't turn on)"/>
             </div>
           </div>
 
@@ -193,7 +193,7 @@
               Submit ticket
             </button>
             <button class="btn" type="button" id="clearBtn">Clear</button>
-            <span class="note">We’ll email the helpdesk and log your ticket.</span>
+            <span class="note">We'll email the helpdesk and log your ticket.</span>
           </div>
           <div class="msg" id="formMsg"></div>
         </form>
@@ -201,13 +201,9 @@
     </section>
   </div>
 
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
   <script>
-    const API_BASE = (()=> {
-      const h = location.hostname;
-      if (h === "localhost" || h === "127.0.0.1") return "http://127.0.0.1:8000";
-      return "https://api.lexaib2b.com";
-    })();
-    const api = (p)=>`${API_BASE}${p}`;
+    emailjs.init('GMu5rfsYof5CCaKjr');
 
     const f = id=>document.getElementById(id);
     const tForm = f('tForm'), submitBtn=f('submitBtn'), spin=f('spin'), formMsg=f('formMsg'), clearBtn=f('clearBtn');
@@ -218,16 +214,15 @@
       e.preventDefault();
       formMsg.innerHTML='';
 
-      const emailVal = f('email').value.trim();
       const payload = {
         name: f('name').value.trim(),
-        email: emailVal,
+        email: f('email').value.trim(),
         role: f('role').value.trim(),
         subject: f('subject').value.trim(),
         message: f('message').value.trim(),
         urgency: f('urgency').value,
         category: f('category')?.value.trim() || 'Other',
-        send_copy: document.getElementById('send_copy').checked
+        send_copy: document.getElementById('send_copy').checked ? 'Yes' : 'No'
       };
 
       const errs = [];
@@ -240,24 +235,12 @@
 
       submitBtn.disabled=true; spin.style.display='inline-block';
       try{
-        const r = await fetch(api('/api/school/ticket'), {
-          method:'POST',
-          headers:{
-            'Content-Type':'application/json',
-            'X-Tenant':'svf'                 // helps you segment logs/rate limits
-          },
-          body: JSON.stringify(payload)
-        });
-        if(!r.ok){
-          let msg = `HTTP ${r.status} ${r.statusText}`;
-          try{ const j = await r.json(); if(j.detail) msg += ` – ${j.detail}`; }catch{}
-          throw new Error(msg);
-        }
-        const data = await r.json();
-        formMsg.innerHTML = `<div class="success">✅ Ticket submitted. ID: <b>${data.id}</b>. We’ve emailed the helpdesk.</div>`;
+        await emailjs.send('service_6mzonxg', 'template_oxmajz8', payload);
+        formMsg.innerHTML = `<div class="success">✅ Ticket submitted. We've emailed the helpdesk.</div>`;
         tForm.reset();
       }catch(err){
-        formMsg.innerHTML = `<div class="error">❌ ${err.message}</div>`;
+        formMsg.innerHTML = `<div class="error">❌ Failed to submit ticket. Please try again or contact the helpdesk directly.</div>`;
+        console.error(err);
       }finally{
         submitBtn.disabled=false; spin.style.display='none';
       }
