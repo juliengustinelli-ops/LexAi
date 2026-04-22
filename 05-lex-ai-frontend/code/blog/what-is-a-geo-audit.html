@@ -1,0 +1,276 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>What Is a GEO Audit — And Why Your B2B Site Is Invisible to AI Search | LexAi</title>
+<meta name="description" content="SEO gets you found on Google. GEO gets you cited by AI. Here's what a GEO audit looks at, what most B2B sites are missing, and why it matters more every month.">
+<meta property="og:title" content="What Is a GEO Audit — And Why Your B2B Site Is Invisible to AI Search">
+<meta property="og:description" content="SEO gets you found on Google. GEO gets you cited by AI. Here's what a GEO audit looks at, what most B2B sites are missing, and why it matters more every month.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://www.lexaib2b.com/blog/what-is-a-geo-audit.html">
+<meta property="og:site_name" content="LexAi">
+<meta property="og:image" content="https://www.lexaib2b.com/hero.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://www.lexaib2b.com/blog/what-is-a-geo-audit.html">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "What Is a GEO Audit — And Why Your B2B Site Is Invisible to AI Search",
+  "description": "SEO gets you found on Google. GEO gets you cited by AI. Here's what a GEO audit looks at, what most B2B sites are missing, and why it matters more every month.",
+  "author": {
+    "@type": "Person",
+    "name": "Julien Gustinelli",
+    "jobTitle": "Founder & Lead Engineer",
+    "worksFor": { "@type": "Organization", "name": "LexAi" },
+    "sameAs": "https://www.linkedin.com/in/juliengustinelli"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "LexAi",
+    "url": "https://www.lexaib2b.com"
+  },
+  "datePublished": "2026-04-16",
+  "url": "https://www.lexaib2b.com/blog/what-is-a-geo-audit.html"
+}
+</script>
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --brand-green:#00c2b5;
+  --brand-teal:#00bfc7;
+  --footer-bg:#0b0d19;
+  --nav-h:84px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Poppins',sans-serif;color:#0b0d19;background:#f4f6f8}
+
+.glass{
+  position:fixed;top:0;left:0;width:100%;z-index:999;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:.8rem 4vw;background:rgba(0,0,0,.52);
+  backdrop-filter:blur(6px);border-bottom:1px solid rgba(255,255,255,.12);
+  min-height:var(--nav-h);
+}
+.brand{font:700 1.4rem/1 'Poppins';color:var(--brand-green);text-decoration:none}
+.nav-links{list-style:none;display:flex;gap:2.5rem;align-items:center}
+.nav-item{color:#fff;text-decoration:none;font-weight:500;transition:color .2s}
+.nav-item:hover{color:var(--brand-green)}
+.btn-cta{background:var(--brand-green);color:#fff;padding:.6rem 1.8rem;border-radius:25px;font-weight:600;font-size:.9rem;text-decoration:none}
+
+.post-hero{
+  background:#0b0d19;
+  padding:calc(var(--nav-h) + 4rem) 2rem 4rem;
+  text-align:center;
+}
+.post-tag{font-size:.75rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--brand-green);margin-bottom:1rem;display:block}
+.post-hero h1{font-size:clamp(1.6rem,4vw,2.6rem);font-weight:700;color:#fff;line-height:1.3;max-width:780px;margin:0 auto 1.5rem}
+.post-hero-meta{font-size:.85rem;color:rgba(255,255,255,.5);display:flex;gap:1.5rem;justify-content:center;flex-wrap:wrap}
+
+.post-body{
+  max-width:720px;margin:0 auto;padding:3rem 2rem 5rem;
+}
+.post-body p{font-size:1rem;line-height:1.85;color:#333;font-weight:300;margin-bottom:1.4rem}
+.post-body h2{font-size:1.35rem;font-weight:700;color:#0b0d19;margin:2.5rem 0 1rem;padding-bottom:.4rem;border-bottom:2px solid var(--brand-green)}
+.post-body strong{font-weight:600;color:#0b0d19}
+.post-body ol,.post-body ul{margin:1rem 0 1.4rem 1.4rem}
+.post-body ol li,.post-body ul li{font-size:1rem;line-height:1.75;color:#333;font-weight:300;margin-bottom:.6rem}
+.post-body blockquote{
+  border-left:4px solid var(--brand-green);
+  padding:1rem 1.5rem;
+  margin:2rem 0;
+  background:#fff;
+  border-radius:0 8px 8px 0;
+  font-style:italic;
+  color:#444;
+  font-size:.95rem;
+  line-height:1.75;
+}
+
+.takeaways{
+  background:#fff;border-radius:12px;padding:1.8rem 2rem;
+  margin:2.5rem 0;box-shadow:0 2px 12px rgba(0,0,0,.06);
+  border-top:4px solid var(--brand-green);
+}
+.takeaways h3{font-size:1rem;font-weight:700;color:#0b0d19;margin-bottom:1rem}
+.takeaways ul{margin-left:1.2rem}
+.takeaways ul li{font-size:.95rem;line-height:1.75;color:#333;font-weight:300;margin-bottom:.4rem}
+
+.post-cta{
+  background:#0b0d19;border-radius:12px;padding:2.5rem;text-align:center;margin-top:3rem;
+}
+.post-cta p{color:rgba(255,255,255,.75);margin-bottom:1.5rem;font-size:.95rem;line-height:1.7}
+.post-cta a{
+  background:var(--brand-green);color:#fff;padding:.9rem 2.4rem;
+  border-radius:50px;font-weight:600;text-decoration:none;font-size:1rem;
+  display:inline-block;transition:opacity .2s,transform .2s;
+}
+.post-cta a:hover{opacity:.9;transform:translateY(-2px)}
+
+.back-link{display:inline-flex;align-items:center;gap:.4rem;color:var(--brand-green);text-decoration:none;font-size:.9rem;font-weight:600;margin-bottom:2rem}
+.back-link:hover{opacity:.8}
+
+.site-footer{background:var(--footer-bg);color:#d1d1d1;padding:4rem 2rem}
+.footer-top{display:grid;gap:2.5rem;max-width:1200px;margin:auto}
+@media(min-width:700px){.footer-top{grid-template-columns:2fr 1fr 1fr 1fr}}
+.footer-brand{font-size:1.4rem;font-weight:700;color:var(--brand-green);text-decoration:none}
+.footer-col h4{font-size:1.05rem;font-weight:600;margin-bottom:1rem;color:#fff}
+.footer-col ul{list-style:none}
+.footer-col li+li{margin-top:.6rem}
+.footer-col a{color:#d1d1d1;text-decoration:none;font-size:.95rem;transition:color .2s}
+.footer-col a:hover{color:var(--brand-green)}
+hr{border:none;border-top:1px solid #2a2e3a;margin:3rem 0 2rem}
+.footer-bottom{max-width:1200px;margin:auto;display:flex;justify-content:space-between;flex-wrap:wrap;gap:1rem;font-size:.9rem}
+</style>
+</head>
+<body>
+
+<header>
+  <nav class="glass">
+    <a class="brand" href="/index.html">LexAi</a>
+    <ul class="nav-links">
+      <li><a class="nav-item" href="/index.html">Home</a></li>
+      <li><a class="nav-item" href="/case-studies.html">Case Studies</a></li>
+      <li><a class="nav-item" href="/blog/">Blog</a></li>
+      <li><a class="nav-item" href="/about.html">About</a></li>
+    </ul>
+    <a href="https://calendly.com/lexai/ai-implementation-introductory-chat" target="_blank" class="btn-cta">Get Started</a>
+  </nav>
+</header>
+
+<div class="post-hero">
+  <span class="post-tag">How-To · GEO Optimization</span>
+  <h1>What Is a GEO Audit — And Why Your B2B Site Is Invisible to AI Search</h1>
+  <div class="post-hero-meta">
+    <span>Julien Gustinelli</span>
+    <span>April 16, 2026</span>
+    <span>6 min read</span>
+  </div>
+</div>
+
+<div class="post-body">
+  <a class="back-link" href="/blog/">← Back to Blog</a>
+
+  <p>For the past decade, SEO meant one thing: rank on Google. Get the right keywords on the right pages, earn backlinks, fix your technical issues, and eventually you'd show up when someone searched for what you sell.</p>
+
+  <p>That model still matters. But something changed in the last two years that most B2B companies haven't caught up to yet. ChatGPT, Perplexity, Google AI Overviews, and Gemini are now answering questions directly — without sending users to your website at all. And the sources they pull from, quote, and cite are not determined by your Google ranking. They're determined by a completely different set of signals.</p>
+
+  <p>That's what GEO — Generative Engine Optimization — is about. And a GEO audit is how you find out where you stand.</p>
+
+  <h2>GEO vs. SEO: What's Actually Different</h2>
+
+  <p>SEO optimizes your site to rank in a list of links. GEO optimizes your site to be quoted, cited, or surfaced by an AI model when it answers a question in your category.</p>
+
+  <p>The difference matters because the user behavior is different. Someone asking ChatGPT "what's the best way to qualify B2B leads" isn't going to click ten blue links. They're going to read the answer ChatGPT gives them — and if your content informed that answer, your brand gets the mention. If it didn't, your competitor does.</p>
+
+  <p>A high Google ranking doesn't guarantee AI visibility. We've audited sites with strong SEO scores that register near zero on GEO — because the signals AI models use are almost entirely different from the ones Google's crawlers prioritize.</p>
+
+  <h2>What a GEO Audit Actually Looks At</h2>
+
+  <p>A GEO audit covers six areas. Each one affects a different part of how AI systems find, read, and decide whether to cite your content.</p>
+
+  <p><strong>1. GEO Score (0–100).</strong> An overall visibility score across the four main AI search platforms: ChatGPT, Perplexity, Google AI Overviews, and Gemini. This is the headline number — most B2B sites we audit score between 20 and 45 out of 100. The good news is that the low-hanging fixes move the score fast.</p>
+
+  <p><strong>2. Citability Score.</strong> This measures how likely an AI model is to actually quote a passage from your site. AI systems don't cite pages — they cite specific claims, statistics, and structured answers. If your content is written in vague marketing language ("we help companies grow with AI-powered solutions"), it won't get cited. If it makes a specific, verifiable claim with context ("companies using custom qualification logic typically see a 3–4x improvement in lead-to-meeting rate within 60 days"), it will. Citability is almost entirely about content structure.</p>
+
+  <p><strong>3. AI Crawler Access.</strong> AI platforms send their own crawlers — GPTBot, PerplexityBot, ClaudeBot, Google-Extended — to index the web. Many sites have accidentally blocked them, either through a misconfigured robots.txt or through directives that were set up to manage Google's crawlers and inadvertently caught everything else. If the bots can't reach your pages, you can't be cited. This is one of the most common issues we find and one of the quickest to fix.</p>
+
+  <p><strong>4. Schema Markup.</strong> Schema is structured data — JSON-LD code in your site's head — that tells machines what your content is about. Google has required it for rich results for years. AI models use it to classify entities, understand relationships, and decide how authoritative a source is. Most B2B sites have no schema markup at all, which means AI systems are guessing at what the site is and who it belongs to.</p>
+
+  <p><strong>5. Brand Mentions.</strong> AI models build their understanding of who you are partly from where you appear across the web — third-party platforms, directories, review sites, publications. If your brand only exists on your own domain, AI systems have very little to anchor their understanding to. The audit checks where you appear (or don't) on the platforms AI models rely on most heavily for entity recognition.</p>
+
+  <p><strong>6. llms.txt.</strong> This is an emerging standard — a plain-text file hosted at yoursite.com/llms.txt — that tells AI systems what your site contains and how it's structured. Think of it as a sitemap specifically designed for language models. Almost no B2B sites have one. The ones that do have a meaningful advantage in how AI systems navigate and index their content.</p>
+
+  <h2>What Most B2B Sites Are Missing</h2>
+
+  <p>After running GEO audits across dozens of sites, the pattern is consistent. Most B2B sites are missing the same three things:</p>
+
+  <ul>
+    <li><strong>No schema markup anywhere</strong> — not on the homepage, not on service pages, not on blog posts. AI systems have no structured signal for who you are or what you do.</li>
+    <li><strong>Content written for humans, not for citability</strong> — valuable expertise buried in paragraphs of brand-speak instead of structured, quotable claims with specifics.</li>
+    <li><strong>AI crawlers blocked or inconsistently allowed</strong> — usually not intentional, but the result is the same: the bots that power AI search can't read the site.</li>
+  </ul>
+
+  <p>These aren't hard problems to fix. They're just invisible until you run an audit and see them laid out.</p>
+
+  <div class="post-cta">
+    <p>Want to see your GEO Score? We'll run a full audit — GEO visibility, citability, crawler access, schema gaps, and brand mentions — and deliver a PDF report in 48 hours.</p>
+    <a href="https://calendly.com/lexai/ai-implementation-introductory-chat" target="_blank">Book a Free Call →</a>
+  </div>
+
+  <h2>What Fixing It Actually Looks Like</h2>
+
+  <p>The fixes fall into two categories: technical and content.</p>
+
+  <p>The technical fixes are fast. Unblocking AI crawlers takes 10 minutes. Adding an Organization schema block to your homepage takes 30 minutes. Generating an llms.txt file takes an afternoon. These are one-time changes — you do them once and they're done.</p>
+
+  <p>The content fixes take longer but compound over time. Rewriting key pages to lead with specific, citable claims. Adding an FAQ section structured as questions and direct answers. Publishing blog posts that make verifiable arguments with numbers behind them — not just thought leadership, but the kind of specific, sourced content that AI systems are designed to surface.</p>
+
+  <p>A site that starts at a GEO Score of 32 can realistically hit 55–60 within 30 days of focused work. The ceiling for most B2B sites is in the 70s — that range puts you ahead of most competitors in your category for AI visibility.</p>
+
+  <h2>Why This Matters More Every Month</h2>
+
+  <p>AI search isn't a trend — it's a shift in how people find information. ChatGPT crossed 700 million weekly active users earlier this year. Perplexity is a default search option on a growing number of devices. Google AI Overviews now appears on a large share of commercial search queries, answering the question before the user scrolls to the blue links.</p>
+
+  <p>The companies that show up in those answers aren't the ones who rank #1 on Google. They're the ones who've structured their content and technical infrastructure to be legible to AI systems. That gap is going to keep widening — and it's easier to close now, before your competitors have figured it out, than in two years when it's table stakes.</p>
+
+  <div class="takeaways">
+    <h3>What a GEO audit covers — and why it matters:</h3>
+    <ul>
+      <li>GEO Score (0–100) — your overall visibility across ChatGPT, Perplexity, Gemini, and Google AI Overviews</li>
+      <li>Citability Score — how likely AI models are to quote specific passages from your content</li>
+      <li>AI Crawler Access — whether GPTBot, PerplexityBot, and ClaudeBot can actually reach your site</li>
+      <li>Schema Markup — structured data that tells AI systems who you are and what you do</li>
+      <li>Brand Mentions — where your brand appears on the platforms AI models use for entity recognition</li>
+      <li>llms.txt — the emerging standard for helping AI systems understand your site structure</li>
+    </ul>
+  </div>
+
+  <p>Most B2B sites score between 20 and 45 out of 100 on their first audit. The technical fixes alone — crawlers, schema, llms.txt — typically move the score 15–20 points within a week. The content work takes longer but is what drives sustained visibility as AI search continues to grow.</p>
+
+  <div class="post-cta">
+    <p>If you want to know where your site stands, book a free call — we'll walk through what a GEO audit would show for your specific site and what the fixes look like.</p>
+    <a href="https://calendly.com/lexai/ai-implementation-introductory-chat" target="_blank">Book a Free Call →</a>
+  </div>
+</div>
+
+<footer class="site-footer">
+  <div class="footer-top">
+    <div class="footer-col">
+      <a href="/index.html" class="footer-brand">LexAi</a>
+      <p style="margin-top:1rem;max-width:280px">Building custom AI solutions that drive real results.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Product</h4>
+      <ul>
+        <li><a href="/#features">Features</a></li>
+        <li><a href="https://calendly.com/lexai/ai-implementation-introductory-chat" target="_blank">Request a Quote</a></li>
+        <li><a href="/case-studies.html">Case Studies</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Company</h4>
+      <ul>
+        <li><a href="/about.html">About Us</a></li>
+        <li><a href="/blog/">Blog</a></li>
+        <li><a href="https://calendly.com/lexai/ai-implementation-introductory-chat" target="_blank">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Legal</h4>
+      <ul>
+        <li><a href="/privacy.html">Privacy Policy</a></li>
+      </ul>
+    </div>
+  </div>
+  <hr>
+  <div class="footer-bottom">
+    <span>© 2026 LexAi. All rights reserved.</span>
+  </div>
+</footer>
+
+</body>
+</html>
