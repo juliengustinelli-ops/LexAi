@@ -1,0 +1,1095 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LexDesk — AI-Native Desktop Software for Financial Firms | LexAi</title>
+  <meta name="description" content="LexDesk puts a fully customized AI workspace on every analyst's desktop — branded to your firm, built for your workflows, and engineered so your data never lives in the cloud.">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+/* ───────────── RESET & BASE ───────────── */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+html { scroll-behavior: smooth; }
+body { font-family: 'Poppins', sans-serif; background: #080b16; color: #fff; line-height: 1.75; }
+img { max-width: 100%; display: block; }
+
+/* ───────────── NAV ───────────── */
+nav {
+  position: fixed; top: 0; left: 0; width: 100%; z-index: 999;
+  height: 84px; display: flex; align-items: center; justify-content: space-between;
+  padding: 0 2.5rem;
+  background: rgba(8,11,22,0.92);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(255,255,255,.08);
+}
+.logo { font-size: 1.9rem; font-weight: 700; color: #fff; text-decoration: none; }
+.logo span { color: #00c2b5; }
+.nav-right { display: flex; align-items: center; gap: 2.5rem; }
+.nav-links { display: flex; gap: 2rem; list-style: none; }
+.nav-links a { color: rgba(255,255,255,0.85); text-decoration: none; font-size: 1rem; font-weight: 300; transition: color 0.2s; }
+.nav-links a:hover { color: #00c2b5; }
+.nav-cta {
+  background: #00c2b5; color: #fff; font-family: 'Poppins', sans-serif;
+  font-weight: 700; font-size: 0.88rem; padding: 0.6rem 1.4rem;
+  border-radius: 25px; border: none; cursor: pointer; text-decoration: none; transition: opacity 0.2s;
+}
+.nav-cta:hover { opacity: 0.85; }
+.hamburger {
+  display: none; flex-direction: column; justify-content: center; align-items: center;
+  gap: 5px; background: none; border: none; cursor: pointer; padding: 6px;
+}
+.hamburger span { display: block; width: 24px; height: 2px; background: #fff; border-radius: 2px; transition: transform .3s, opacity .3s; }
+.hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.hamburger.open span:nth-child(2) { opacity: 0; }
+.hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+.mobile-menu {
+  display: none; position: fixed; top: 84px; left: 0; right: 0; bottom: 0; z-index: 99;
+  background: rgba(8,11,22,0.97); flex-direction: column; align-items: center; justify-content: center;
+  gap: 2rem; padding: 2rem;
+}
+.mobile-menu.open { display: flex; }
+.mobile-menu a { color: rgba(255,255,255,0.85); text-decoration: none; font-size: 1.4rem; font-weight: 500; }
+.mobile-menu a:hover { color: #00c2b5; }
+@media(max-width:768px) { .nav-right { display: none; } .hamburger { display: flex; } }
+
+/* ───────────── HERO ───────────── */
+.hero {
+  padding: calc(84px + 5rem) 2rem 5rem;
+  background: #080b16;
+  background-image:
+    radial-gradient(ellipse 80% 70% at 10% 40%, rgba(0,194,181,0.55) 0%, transparent 65%),
+    radial-gradient(ellipse 60% 50% at 90% 60%, rgba(0,180,194,0.4) 0%, transparent 60%),
+    radial-gradient(ellipse 50% 40% at 55% 0%, rgba(0,194,181,0.3) 0%, transparent 55%);
+  text-align: center; position: relative; overflow: hidden;
+}
+.hero-eyebrow {
+  display: inline-block; background: rgba(0,194,181,0.12); color: #00c2b5;
+  font-size: 0.72rem; font-weight: 600; text-transform: uppercase; letter-spacing: 3px;
+  padding: 6px 20px; border-radius: 20px; border: 1px solid rgba(0,194,181,0.25);
+  margin-bottom: 1.6rem;
+}
+.hero h1 {
+  font-size: clamp(2.4rem, 5.5vw, 3.8rem); font-weight: 800; color: #f0f0f0;
+  line-height: 1.12; margin-bottom: 1.4rem; max-width: 860px; margin-left: auto; margin-right: auto;
+}
+.hero h1 em { color: #00c2b5; font-style: normal; }
+.hero-sub {
+  font-size: 1.1rem; font-weight: 300; color: rgba(255,255,255,0.8); max-width: 620px;
+  margin: 0 auto 2.8rem; line-height: 1.8;
+}
+.hero-actions { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+.btn-primary {
+  background: #00c2b5; color: #fff; font-family: 'Poppins', sans-serif;
+  font-weight: 700; font-size: 0.95rem; padding: 0.9rem 2.2rem;
+  border-radius: 30px; text-decoration: none; transition: opacity 0.2s, transform 0.2s;
+}
+.btn-primary:hover { opacity: 0.88; transform: translateY(-2px); }
+.btn-ghost {
+  background: transparent; color: rgba(255,255,255,0.75); font-family: 'Poppins', sans-serif;
+  font-weight: 600; font-size: 0.95rem; padding: 0.9rem 2.2rem;
+  border-radius: 30px; border: 1px solid rgba(255,255,255,0.2); text-decoration: none;
+  transition: border-color 0.2s, color 0.2s;
+}
+.btn-ghost:hover { border-color: #00c2b5; color: #00c2b5; }
+
+/* ───────────── TRUST BAR ───────────── */
+.trust-bar {
+  background: #0d1020;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  padding: 1.2rem 2rem;
+  display: flex; align-items: center; justify-content: center; gap: 2.5rem; flex-wrap: wrap;
+}
+.trust-item { display: flex; align-items: center; gap: 0.55rem; color: rgba(255,255,255,0.7); font-size: 0.82rem; font-weight: 400; }
+.trust-icon { color: #00c2b5; font-size: 1rem; }
+
+/* ───────────── SECTION WRAPPERS ───────────── */
+.section { padding: 6rem 2rem; }
+.section-inner { max-width: 1100px; margin: 0 auto; }
+.section-eyebrow {
+  display: inline-block; background: rgba(0,194,181,0.10); color: #00c2b5;
+  font-size: 0.68rem; font-weight: 700; text-transform: uppercase; letter-spacing: 3px;
+  padding: 5px 16px; border-radius: 20px; border: 1px solid rgba(0,194,181,0.2);
+  margin-bottom: 1.2rem;
+}
+.section-title { font-size: clamp(1.8rem, 3.5vw, 2.8rem); font-weight: 800; line-height: 1.2; margin-bottom: 1rem; }
+.section-sub { font-size: 1rem; font-weight: 300; color: rgba(255,255,255,0.7); max-width: 640px; line-height: 1.8; }
+.teal { color: #00c2b5; }
+
+/* ───────────── PROBLEM SECTION ───────────── */
+.problem-section { background: #0b0e1a; }
+.problem-grid {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem; margin-top: 3rem;
+}
+.problem-card {
+  background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 16px; padding: 2rem;
+  position: relative; overflow: hidden;
+}
+.problem-card::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+  background: rgba(255,80,80,0.6);
+}
+.problem-icon { font-size: 2rem; margin-bottom: 1rem; }
+.problem-card h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: 0.6rem; }
+.problem-card p { font-size: 0.9rem; color: rgba(255,255,255,0.6); line-height: 1.7; }
+
+/* ───────────── SOLUTION / SECURITY SECTION ───────────── */
+.solution-section { background: #080b16; }
+.solution-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; margin-top: 1rem;
+}
+@media(max-width:768px) { .solution-grid { grid-template-columns: 1fr; gap: 3rem; } }
+.solution-points { display: flex; flex-direction: column; gap: 2rem; margin-top: 2.5rem; }
+.solution-point { display: flex; gap: 1.2rem; align-items: flex-start; }
+.solution-point-icon {
+  width: 44px; height: 44px; border-radius: 12px;
+  background: rgba(0,194,181,0.12); border: 1px solid rgba(0,194,181,0.25);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.2rem; flex-shrink: 0;
+}
+.solution-point-text h4 { font-size: 1rem; font-weight: 700; margin-bottom: 0.4rem; }
+.solution-point-text p { font-size: 0.88rem; color: rgba(255,255,255,0.6); line-height: 1.7; }
+
+/* ───────────── APP MOCK-UP (CSS RENDERED) ───────────── */
+.mockup-window {
+  background: #0d111e;
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 32px 80px rgba(0,0,0,0.6), 0 0 0 1px rgba(0,194,181,0.08), 0 0 40px rgba(0,194,181,0.06);
+}
+.mockup-titlebar {
+  background: #090c1a;
+  padding: 10px 16px;
+  display: flex; align-items: center; gap: 8px;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+.mockup-dot { width: 10px; height: 10px; border-radius: 50%; }
+.mockup-dot-r { background: #ff5f57; }
+.mockup-dot-y { background: #febc2e; }
+.mockup-dot-g { background: #28c840; }
+.mockup-titlebar-name {
+  margin-left: auto; margin-right: auto; font-size: 0.72rem; color: rgba(255,255,255,0.4); font-weight: 500;
+}
+.mockup-body { display: flex; height: 400px; overflow: hidden; }
+.mockup-sidebar {
+  width: 180px; min-width: 180px; background: #080b16;
+  border-right: 1px solid rgba(255,255,255,0.06);
+  display: flex; flex-direction: column;
+  height: 100%; overflow: hidden;
+}
+.mockup-sidebar-logo {
+  padding: 16px 16px 14px;
+  font-size: 1.2rem; font-weight: 700; color: #fff;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  flex-shrink: 0;
+}
+.mockup-sidebar-logo span { color: #00c2b5; }
+.mockup-nav { padding: 12px 10px; flex: 1; display: flex; flex-direction: column; gap: 4px; overflow: hidden; }
+.mockup-nav-item {
+  display: flex; align-items: center; gap: 10px; padding: 8px 10px;
+  border-radius: 8px; font-size: 0.75rem; color: rgba(255,255,255,0.5); cursor: pointer;
+  border: 1px solid transparent;
+}
+.mockup-nav-item.active {
+  background: rgba(0,194,181,0.1); color: #00c2b5;
+  border-color: rgba(0,194,181,0.22);
+  box-shadow: 0 0 12px rgba(0,194,181,0.15), inset 0 0 8px rgba(0,194,181,0.04);
+}
+.mockup-nav-dot { width: 6px; height: 6px; border-radius: 50%; background: currentColor; flex-shrink: 0; }
+.mockup-main { flex: 1; display: flex; flex-direction: column; overflow: hidden; }
+.mockup-header {
+  background: #080b16;
+  background-image: radial-gradient(ellipse 80% 200% at 50% -20%, rgba(0,194,181,0.15) 0%, transparent 60%);
+  padding: 14px 20px;
+  display: flex; align-items: center; justify-content: space-between;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+.mockup-header-left h2 { font-size: 0.88rem; font-weight: 600; }
+.mockup-header-left p { font-size: 0.68rem; color: rgba(255,255,255,0.45); margin-top: 2px; }
+.mockup-header-center { font-size: 1rem; font-weight: 800; color: #fff; text-shadow: 0 0 20px rgba(0,194,181,0.5); }
+.mockup-header-center span { font-size: 0.6rem; display: block; color: rgba(255,255,255,0.4); font-weight: 400; margin-top: 1px; text-align: center; }
+.mockup-header-right { text-align: right; }
+.mockup-header-right .greeting { font-size: 0.82rem; font-weight: 600; }
+.mockup-header-right .sub { font-size: 0.64rem; color: rgba(255,255,255,0.4); margin-top: 2px; }
+.mockup-content { flex: 1; padding: 20px; overflow: hidden; background: #0b0e1b; }
+
+/* Chat mock-up content */
+.mock-chat-welcome {
+  background: rgba(0,194,181,0.05); border: 1px solid rgba(0,194,181,0.15);
+  border-radius: 12px; padding: 16px 20px; margin-bottom: 16px;
+}
+.mock-chat-welcome h3 { font-size: 0.88rem; font-weight: 700; color: #00c2b5; margin-bottom: 4px; }
+.mock-chat-welcome p { font-size: 0.75rem; color: rgba(255,255,255,0.55); line-height: 1.6; }
+.mock-message { display: flex; gap: 10px; margin-bottom: 12px; }
+.mock-message.user { flex-direction: row-reverse; }
+.mock-avatar { width: 26px; height: 26px; border-radius: 50%; flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-size: 0.65rem; font-weight: 700; }
+.mock-avatar.ai { background: rgba(0,194,181,0.2); color: #00c2b5; border: 1px solid rgba(0,194,181,0.3); }
+.mock-avatar.user { background: rgba(255,255,255,0.1); color: rgba(255,255,255,0.7); }
+.mock-bubble { max-width: 75%; padding: 8px 12px; border-radius: 10px; font-size: 0.72rem; line-height: 1.55; }
+.mock-bubble.ai { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.08); color: rgba(255,255,255,0.8); }
+.mock-bubble.user { background: rgba(0,194,181,0.15); border: 1px solid rgba(0,194,181,0.25); color: rgba(255,255,255,0.9); }
+
+/* DCF mock-up content */
+.mock-dcf { padding: 0; }
+.mock-dcf-header { font-size: 0.88rem; font-weight: 700; color: #fff; margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+.mock-dcf-badge { background: rgba(0,194,181,0.12); color: #00c2b5; font-size: 0.62rem; padding: 2px 8px; border-radius: 10px; border: 1px solid rgba(0,194,181,0.2); }
+.mock-upload {
+  border: 1px dashed rgba(0,194,181,0.3); border-radius: 10px;
+  padding: 16px; text-align: center; margin-bottom: 12px;
+  background: rgba(0,194,181,0.03);
+}
+.mock-upload p { font-size: 0.7rem; color: rgba(255,255,255,0.5); }
+.mock-upload .icon { font-size: 1.4rem; margin-bottom: 4px; }
+.mock-outputs { display: flex; gap: 8px; margin-bottom: 12px; }
+.mock-output-chip {
+  flex: 1; padding: 8px 10px; border-radius: 8px;
+  background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08);
+  text-align: center; font-size: 0.66rem; color: rgba(255,255,255,0.6);
+}
+.mock-output-chip .chip-icon { font-size: 1.1rem; margin-bottom: 3px; }
+.mock-btn-run {
+  width: 100%; background: #00c2b5; border: none; border-radius: 8px;
+  padding: 8px; font-size: 0.75rem; font-weight: 700; color: #fff; cursor: pointer;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* ───────────── PERSONALIZATION SECTION ───────────── */
+.personalization-section { background: #0b0e1a; }
+.personalize-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+@media(max-width:768px) { .personalize-grid { grid-template-columns: 1fr; gap: 2.5rem; } }
+
+/* ───────────── WORKFLOWS / TOOLS SECTION ───────────── */
+.tools-section { background: #080b16; }
+.tools-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; margin-top: 3rem; }
+@media(max-width:900px) { .tools-grid { grid-template-columns: repeat(2, 1fr); } }
+@media(max-width:500px) { .tools-grid { grid-template-columns: 1fr; } }
+.tool-card {
+  background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 16px; padding: 1.8rem; position: relative; overflow: hidden;
+  transition: border-color 0.2s, transform 0.2s;
+}
+.tool-card:hover { border-color: rgba(0,194,181,0.35); transform: translateY(-4px); }
+.tool-card::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+  background: linear-gradient(90deg, #00c2b5, #00b0c8);
+}
+.tool-icon { font-size: 2rem; margin-bottom: 1rem; }
+.tool-card h3 { font-size: 1rem; font-weight: 700; margin-bottom: 0.5rem; }
+.tool-card p { font-size: 0.85rem; color: rgba(255,255,255,0.6); line-height: 1.6; }
+.tool-tag {
+  display: inline-block; background: rgba(0,194,181,0.08); color: #00c2b5;
+  font-size: 0.62rem; font-weight: 700; padding: 3px 10px; border-radius: 10px;
+  border: 1px solid rgba(0,194,181,0.2); margin-top: 1rem;
+}
+
+/* ───────────── LARGE DEMO MOCKUP ───────────── */
+.demo-section { background: #0b0e1a; }
+.demo-window-wrap { margin-top: 3.5rem; }
+.demo-tabs { display: flex; gap: 0; margin-bottom: 0; overflow: hidden; border-radius: 12px 12px 0 0; }
+.demo-tab {
+  padding: 10px 20px; font-size: 0.78rem; font-weight: 600; cursor: pointer;
+  background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.07);
+  color: rgba(255,255,255,0.5); border-bottom: none; border-right: none; transition: all 0.2s;
+}
+.demo-tab:first-child { border-radius: 12px 0 0 0; }
+.demo-tab:last-child { border-radius: 0 12px 0 0; border-right: 1px solid rgba(255,255,255,0.07); }
+.demo-tab.active { background: #0d111e; color: #00c2b5; border-bottom: none; border-color: rgba(255,255,255,0.1); border-bottom-color: transparent; }
+
+/* Large window */
+.large-mockup { background: #0d111e; border: 1px solid rgba(255,255,255,0.1); border-radius: 0 12px 12px 12px; overflow: hidden; box-shadow: 0 40px 100px rgba(0,0,0,0.6); }
+.large-topbar {
+  background: #080b16;
+  background-image: radial-gradient(ellipse 80% 200% at 50% -20%, rgba(0,194,181,0.18) 0%, transparent 60%);
+  padding: 16px 24px; display: flex; align-items: center; justify-content: space-between;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+.large-topbar-brand { font-size: 1.1rem; font-weight: 800; text-shadow: 0 0 24px rgba(0,194,181,0.5); }
+.large-topbar-brand sub { font-size: 0.6rem; color: rgba(255,255,255,0.35); font-weight: 400; display: block; text-align: center; margin-top: 1px; text-shadow: none; }
+.large-topbar-greeting .name { font-size: 1rem; font-weight: 700; }
+.large-topbar-greeting .sub { font-size: 0.7rem; color: rgba(255,255,255,0.4); margin-top: 2px; }
+.large-content { flex: 1; padding: 24px; background: #0b0e1b; overflow: auto; }
+
+/* DCF full content */
+.dcf-content { max-width: 700px; }
+.dcf-title { font-size: 1.1rem; font-weight: 800; margin-bottom: 0.4rem; }
+.dcf-sub { font-size: 0.8rem; color: rgba(255,255,255,0.5); margin-bottom: 1.5rem; }
+.dcf-upload-zone {
+  border: 2px dashed rgba(0,194,181,0.3); border-radius: 12px; padding: 2.5rem;
+  text-align: center; background: rgba(0,194,181,0.03); margin-bottom: 1.5rem;
+  cursor: pointer; transition: border-color 0.2s;
+}
+.dcf-upload-zone:hover { border-color: rgba(0,194,181,0.6); }
+.dcf-upload-zone .big-icon { font-size: 2.5rem; margin-bottom: 0.5rem; }
+.dcf-upload-zone h4 { font-size: 0.9rem; font-weight: 700; color: rgba(255,255,255,0.8); margin-bottom: 0.3rem; }
+.dcf-upload-zone p { font-size: 0.75rem; color: rgba(255,255,255,0.4); }
+.dcf-output-row { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; margin-bottom: 1.5rem; }
+.dcf-output-card {
+  background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 10px; padding: 16px; text-align: center;
+}
+.dcf-output-card .o-icon { font-size: 1.8rem; margin-bottom: 6px; }
+.dcf-output-card h4 { font-size: 0.78rem; font-weight: 700; color: rgba(255,255,255,0.8); }
+.dcf-output-card p { font-size: 0.68rem; color: rgba(255,255,255,0.4); margin-top: 3px; }
+.dcf-run-btn {
+  width: 100%; background: #00c2b5; border: none; border-radius: 10px;
+  padding: 12px; font-size: 0.88rem; font-weight: 700; color: #fff;
+  cursor: pointer; font-family: 'Poppins', sans-serif; transition: opacity 0.2s;
+}
+.dcf-run-btn:hover { opacity: 0.88; }
+
+/* Chat full content */
+.chat-welcome { background: rgba(0,194,181,0.06); border: 1px solid rgba(0,194,181,0.15); border-radius: 12px; padding: 20px 24px; margin-bottom: 20px; }
+.chat-welcome h3 { font-size: 1rem; font-weight: 700; color: #00c2b5; margin-bottom: 6px; }
+.chat-welcome p { font-size: 0.82rem; color: rgba(255,255,255,0.55); line-height: 1.65; }
+.chat-msgs { display: flex; flex-direction: column; gap: 14px; }
+.chat-msg { display: flex; gap: 12px; align-items: flex-start; }
+.chat-msg.user { flex-direction: row-reverse; }
+.chat-av { width: 30px; height: 30px; border-radius: 50%; flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-size: 0.7rem; font-weight: 700; }
+.chat-av.ai { background: rgba(0,194,181,0.15); color: #00c2b5; border: 1px solid rgba(0,194,181,0.3); }
+.chat-av.hu { background: rgba(255,255,255,0.08); color: rgba(255,255,255,0.6); }
+.chat-bub { max-width: 72%; padding: 10px 14px; border-radius: 12px; font-size: 0.8rem; line-height: 1.6; }
+.chat-bub.ai { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.08); color: rgba(255,255,255,0.82); }
+.chat-bub.hu { background: rgba(0,194,181,0.12); border: 1px solid rgba(0,194,181,0.22); color: rgba(255,255,255,0.9); }
+
+/* ───────────── INTEGRATIONS ───────────── */
+.integrations-section { background: #080b16; }
+.integrations-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 1.2rem; margin-top: 3rem; }
+@media(max-width:900px) { .integrations-grid { grid-template-columns: repeat(3, 1fr); } }
+@media(max-width:500px) { .integrations-grid { grid-template-columns: repeat(2, 1fr); } }
+.int-card {
+  background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 14px; padding: 1.8rem 1.4rem; text-align: center;
+  transition: border-color 0.2s, transform 0.2s;
+}
+.int-card:hover { border-color: rgba(0,194,181,0.3); transform: translateY(-3px); }
+.int-icon { font-size: 2.4rem; margin-bottom: 0.8rem; }
+.int-card h3 { font-size: 0.9rem; font-weight: 700; margin-bottom: 0.3rem; }
+.int-card p { font-size: 0.78rem; color: rgba(255,255,255,0.5); line-height: 1.5; }
+
+/* ───────────── STATS SECTION ───────────── */
+.stats-section { background: #0b0e1a; }
+.stats-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 3rem; }
+@media(max-width:600px) { .stats-grid { grid-template-columns: 1fr; } }
+.stat-card {
+  background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 16px; padding: 2rem 1.8rem; text-align: center;
+}
+.stat-number { font-size: 2.8rem; font-weight: 900; color: #00c2b5; line-height: 1; }
+.stat-label { font-size: 0.82rem; color: rgba(255,255,255,0.65); margin-top: 0.5rem; line-height: 1.5; }
+.stat-source { font-size: 0.65rem; color: rgba(255,255,255,0.3); margin-top: 0.5rem; }
+
+/* ───────────── TESTIMONIAL ───────────── */
+.testimonial-section { background: #080b16; }
+.testimonial-card {
+  background: linear-gradient(135deg, #0d111e 0%, #0f1628 100%);
+  border: 1px solid rgba(0,194,181,0.15);
+  border-radius: 20px; overflow: hidden;
+  box-shadow: 0 0 60px rgba(0,194,181,0.06);
+  max-width: 900px; margin: 3rem auto 0;
+}
+.testimonial-inner { display: flex; gap: 0; }
+@media(max-width:640px) { .testimonial-inner { flex-direction: column; } }
+.testimonial-person {
+  flex-shrink: 0; width: 220px; background: rgba(0,194,181,0.05);
+  border-right: 1px solid rgba(0,194,181,0.1);
+  padding: 3rem 2rem; display: flex; flex-direction: column; align-items: center; text-align: center;
+}
+@media(max-width:640px) { .testimonial-person { width: 100%; border-right: none; border-bottom: 1px solid rgba(0,194,181,0.1); padding: 2rem; } }
+.testimonial-avatar {
+  width: 96px; height: 96px; border-radius: 50%;
+  border: 3px solid #00c2b5; object-fit: cover; margin-bottom: 1rem;
+  background: rgba(0,194,181,0.1); display: flex; align-items: center; justify-content: center;
+  font-size: 2rem; overflow: hidden;
+}
+.testimonial-person .name { font-weight: 800; font-size: 0.95rem; color: #fff; }
+.testimonial-person .role { font-size: 0.75rem; color: #00c2b5; font-weight: 600; margin-top: 5px; }
+.testimonial-person .org { font-size: 0.7rem; color: rgba(255,255,255,0.45); margin-top: 3px; }
+.testimonial-product-badge {
+  display: inline-block; background: rgba(0,194,181,0.12); border: 1px solid rgba(0,194,181,0.2);
+  color: #00c2b5; font-size: 0.6rem; font-weight: 700; padding: 3px 10px;
+  border-radius: 10px; margin-top: 12px; letter-spacing: 1px; text-transform: uppercase;
+}
+.testimonial-quote-block { flex: 1; padding: 3rem; display: flex; flex-direction: column; justify-content: center; }
+.testimonial-quote-mark { font-size: 5rem; line-height: 0.6; color: #00c2b5; font-family: Georgia, serif; display: block; margin-bottom: 1rem; opacity: 0.4; }
+.testimonial-quote blockquote { font-size: 0.92rem; line-height: 1.8; color: rgba(255,255,255,0.82); font-style: italic; }
+.testimonial-quote blockquote p + p { margin-top: 0.9rem; }
+
+/* ───────────── CTA SECTION ───────────── */
+.cta-section {
+  background: #080b16;
+  background-image:
+    radial-gradient(ellipse 70% 60% at 50% 100%, rgba(0,194,181,0.15) 0%, transparent 65%);
+  padding: 7rem 2rem; text-align: center;
+}
+.cta-section h2 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); font-weight: 800; max-width: 700px; margin: 0 auto 1.2rem; }
+.cta-section p { font-size: 1rem; font-weight: 300; color: rgba(255,255,255,0.7); max-width: 520px; margin: 0 auto 2.5rem; }
+
+/* ───────────── FOOTER ───────────── */
+.site-footer { background: #04060f; color: rgba(255,255,255,0.6); padding: 4rem 2rem; border-top: 1px solid rgba(255,255,255,0.06); }
+.footer-top { display: grid; gap: 2.5rem; max-width: 1100px; margin: auto; }
+@media(min-width:700px) { .footer-top { grid-template-columns: 2fr 1fr 1fr 1fr; } }
+.footer-brand { font-size: 1.4rem; font-weight: 700; color: #00c2b5; text-decoration: none; }
+.footer-col h4 { font-size: 1rem; font-weight: 600; margin-bottom: 1rem; color: #fff; }
+.footer-col ul { list-style: none; }
+.footer-col li + li { margin-top: 0.6rem; }
+.footer-col a { color: rgba(255,255,255,0.6); text-decoration: none; font-size: 0.9rem; transition: color 0.2s; }
+.footer-col a:hover { color: #00c2b5; }
+hr { border: none; border-top: 1px solid rgba(255,255,255,0.06); margin: 3rem 0 2rem; }
+.footer-bottom { max-width: 1100px; margin: auto; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1rem; font-size: 0.85rem; }
+
+/* ───────────── VIDEO PLACEHOLDER ───────────── */
+.video-placeholder {
+  position: relative; width: 100%; padding-bottom: 56.25%; border-radius: 16px; overflow: hidden;
+  background: #0d111e; border: 1px solid rgba(255,255,255,0.1);
+  box-shadow: 0 40px 100px rgba(0,0,0,0.5);
+}
+.video-placeholder-inner {
+  position: absolute; inset: 0;
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1rem;
+}
+.video-play-btn {
+  width: 72px; height: 72px; border-radius: 50%;
+  background: rgba(0,194,181,0.9); display: flex; align-items: center; justify-content: center;
+  cursor: pointer; transition: transform 0.2s, background 0.2s;
+  border: 3px solid rgba(255,255,255,0.3);
+}
+.video-play-btn:hover { transform: scale(1.08); background: #00c2b5; }
+.video-play-btn svg { width: 28px; height: 28px; fill: #fff; margin-left: 4px; }
+.video-placeholder-inner h3 { font-size: 1rem; font-weight: 700; color: rgba(255,255,255,0.7); }
+.video-placeholder-inner p { font-size: 0.8rem; color: rgba(255,255,255,0.35); }
+.video-bg-grid {
+  position: absolute; inset: 0;
+  background-image: linear-gradient(rgba(0,194,181,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,194,181,0.04) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+/* ───────────── SCREENSHOT PLACEHOLDER ───────────── */
+.screenshot-ph {
+  background: #0d111e; border: 1px solid rgba(255,255,255,0.08); border-radius: 12px;
+  aspect-ratio: 16/9; display: flex; align-items: center; justify-content: center;
+  flex-direction: column; gap: 0.5rem; color: rgba(255,255,255,0.3); font-size: 0.8rem;
+  cursor: pointer; transition: border-color 0.2s;
+}
+.screenshot-ph:hover { border-color: rgba(0,194,181,0.3); }
+.screenshot-ph .ph-icon { font-size: 1.8rem; opacity: 0.4; }
+
+/* ───────────── PRINT ───────────── */
+@media print {
+  * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+  nav, .mobile-menu { display: none !important; }
+  .hero { padding-top: 4rem !important; }
+  body { background: #080b16 !important; }
+}
+
+/* ───────────── UTILITIES ───────────── */
+.text-center { text-align: center; }
+.mt-1 { margin-top: 0.5rem; }
+.mt-2 { margin-top: 1rem; }
+.mt-3 { margin-top: 1.5rem; }
+.mt-4 { margin-top: 2rem; }
+.divider { width: 48px; height: 4px; background: #00c2b5; border-radius: 2px; margin: 1.2rem 0 1.5rem; }
+.divider.center { margin-left: auto; margin-right: auto; }
+
+/* section spacer */
+.section.bg-alt { background: #0b0e1a; }
+</style>
+</head>
+<body>
+
+<!-- ===== NAVBAR ===== -->
+<nav>
+  <a href="/index.html" class="logo">Lex<span>Ai</span></a>
+  <div class="nav-right">
+    <ul class="nav-links">
+      <li><a href="/index.html">Home</a></li>
+      <li><a href="/index.html#about">About</a></li>
+      <li><a href="/index.html#team">Team</a></li>
+      <li><a href="/index.html#services">Services</a></li>
+      <li><a href="/case-studies.html">Case Studies</a></li>
+    </ul>
+    <a href="https://calendly.com/eric-lexai/30-minute-meeting" target="_blank" class="nav-cta">Book a Discovery Call</a>
+  </div>
+  <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="/index.html" onclick="closeMobileMenu()">Home</a>
+  <a href="/index.html#about" onclick="closeMobileMenu()">About</a>
+  <a href="/case-studies.html" onclick="closeMobileMenu()">Case Studies</a>
+  <a href="https://calendly.com/eric-lexai/30-minute-meeting" target="_blank" class="nav-cta" onclick="closeMobileMenu()">Book a Discovery Call</a>
+</div>
+
+<!-- ===== HERO ===== -->
+<section class="hero">
+  <span class="hero-eyebrow">LexDesk &nbsp;·&nbsp; AI-Native Desktop Software for Financial Firms</span>
+  <h1>Your Analysts Aren't the Problem.<br><em>The Tools Are.</em></h1>
+  <p class="hero-sub">Rogo isn't working. Giving everyone Claude Code isn't working. What your firm actually needs is AI that's easy to use, built for your exact workflows, and adjustable in a moment's notice — sitting on every desktop, under your control.</p>
+  <div class="hero-actions">
+    <a href="https://calendly.com/eric-lexai/30-minute-meeting" target="_blank" class="btn-primary">See LexDesk in Action →</a>
+    <a href="#how-it-works" class="btn-ghost">How It Works</a>
+  </div>
+</section>
+
+<!-- ===== TRUST BAR ===== -->
+<div class="trust-bar">
+  <div class="trust-item"><span class="trust-icon">🔒</span> Stateless API — your data never persists on any server</div>
+  <div class="trust-item"><span class="trust-icon">💻</span> Lives on the desktop — not in the cloud</div>
+  <div class="trust-item"><span class="trust-icon">🎨</span> Branded to your firm, down to the color scheme</div>
+  <div class="trust-item"><span class="trust-icon">⚡</span> Deployed and customized in days, not months</div>
+  <div class="trust-item"><span class="trust-icon">📊</span> Integrated with Excel, Word, PowerPoint &amp; PDF</div>
+</div>
+
+<!-- ===== PROBLEM SECTION ===== -->
+<section class="section problem-section" id="problem">
+  <div class="section-inner">
+    <div class="text-center" style="max-width:680px; margin:0 auto 3rem;">
+      <span class="section-eyebrow">The Problem</span>
+      <h2 class="section-title">Every Financial Firm Knows It.<br>Nobody's Solved It.</h2>
+      <p class="section-sub" style="margin:0 auto;">AI is everywhere — but for financial firms, the gap between "this could transform our business" and "our team actually uses this every day" remains enormous.</p>
+    </div>
+
+    <div class="problem-grid">
+      <div class="problem-card">
+        <div class="problem-icon">❌</div>
+        <h3>Rogo Isn't Working</h3>
+        <p>One-size-fits-all AI platforms built generically for finance don't understand your specific deal flow, your proprietary models, your internal terminology, or the unique way your team works. You get a tool that looks impressive in a demo and collects dust in practice.</p>
+      </div>
+      <div class="problem-card">
+        <div class="problem-icon">❌</div>
+        <h3>Giving Everyone Claude Code Isn't Working</h3>
+        <p>Handing analysts raw AI access without structure creates inconsistency, compliance exposure, and a steep learning curve. Senior talent spends time managing prompts instead of managing deals. Junior talent doesn't know where to start. Nothing becomes standard.</p>
+      </div>
+      <div class="problem-card">
+        <div class="problem-icon">❌</div>
+        <h3>Generic SaaS Tools Can't Be Customized</h3>
+        <p>Your workflows aren't generic. Your templates, your models, your document types, your clients — they're unique to your firm. Off-the-shelf AI tools force you to change how you work to fit the software. That's backwards.</p>
+      </div>
+    </div>
+
+    <div style="margin-top:3rem; background:rgba(0,194,181,0.05); border:1px solid rgba(0,194,181,0.15); border-radius:16px; padding:2.5rem 2.5rem; max-width:780px; margin-left:auto; margin-right:auto; text-align:center;">
+      <p style="font-size:1.15rem; font-weight:700; color:#fff; line-height:1.65;">What your firm actually needs is software that is <em style="color:#00c2b5;font-style:normal;">easy to use</em>, customized to every one of your workflows, and that you can <em style="color:#00c2b5;font-style:normal;">monitor and adjust in a moment's notice.</em></p>
+      <p style="font-size:0.9rem; color:rgba(255,255,255,0.55); margin-top:0.8rem;">That's where LexDesk comes in.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== WHO IT'S FOR SECTION ===== -->
+<section class="section" style="background:#080b16; padding-top:0; padding-bottom:5rem;">
+  <div class="section-inner">
+    <div class="text-center" style="max-width:680px; margin:0 auto 3.5rem;">
+      <span class="section-eyebrow">Built for Finance Teams</span>
+      <h2 class="section-title">The People Who <span class="teal">Win With LexDesk</span></h2>
+      <p class="section-sub" style="margin:0 auto;">From first-year analysts to senior partners, LexDesk puts the right tools in front of the right people — so everyone on your team works faster, smarter, and with less friction.</p>
+    </div>
+
+    <div style="display:grid; grid-template-columns:repeat(3, 1fr); gap:2rem;">
+
+      <div style="border-radius:20px; overflow:hidden; border:1px solid rgba(255,255,255,0.08); background:rgba(255,255,255,0.02); transition:border-color 0.2s, transform 0.2s;" onmouseover="this.style.borderColor='rgba(0,194,181,0.3)'; this.style.transform='translateY(-4px)';" onmouseout="this.style.borderColor='rgba(255,255,255,0.08)'; this.style.transform='translateY(0)';">
+        <div style="height:280px; overflow:hidden; position:relative;">
+          <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&q=80" alt="Investment Banking Analyst" style="width:100%; height:100%; object-fit:cover; object-position:center 15%; display:block;">
+          <div style="position:absolute;inset:0;background:linear-gradient(to bottom, transparent 60%, rgba(8,11,22,0.85) 100%);"></div>
+        </div>
+        <div style="padding:1.6rem;">
+          <div style="font-size:0.62rem;font-weight:700;color:#00c2b5;text-transform:uppercase;letter-spacing:2px;margin-bottom:0.5rem;">Investment Banking Analyst</div>
+          <h3 style="font-size:1.05rem;font-weight:800;margin-bottom:0.6rem;">Hours of manual work, done in minutes</h3>
+          <p style="font-size:0.85rem;color:rgba(255,255,255,0.58);line-height:1.65;">PDF financials → live Excel DCF model → branded PowerPoint. What used to take half a day now takes under two minutes. More time on deal analysis, less on reformatting data.</p>
+        </div>
+      </div>
+
+      <div style="border-radius:20px; overflow:hidden; border:1px solid rgba(255,255,255,0.08); background:rgba(255,255,255,0.02); transition:border-color 0.2s, transform 0.2s;" onmouseover="this.style.borderColor='rgba(0,194,181,0.3)'; this.style.transform='translateY(-4px)';" onmouseout="this.style.borderColor='rgba(255,255,255,0.08)'; this.style.transform='translateY(0)';">
+        <div style="height:280px; overflow:hidden; position:relative;">
+          <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=600&q=80" alt="Deal Team VP" style="width:100%; height:100%; object-fit:cover; object-position:center 15%; display:block;">
+          <div style="position:absolute;inset:0;background:linear-gradient(to bottom, transparent 60%, rgba(8,11,22,0.85) 100%);"></div>
+        </div>
+        <div style="padding:1.6rem;">
+          <div style="font-size:0.62rem;font-weight:700;color:#00c2b5;text-transform:uppercase;letter-spacing:2px;margin-bottom:0.5rem;">Vice President / Deal Lead</div>
+          <h3 style="font-size:1.05rem;font-weight:800;margin-bottom:0.6rem;">Full deal context in 30 seconds</h3>
+          <p style="font-size:0.85rem;color:rgba(255,255,255,0.58);line-height:1.65;">Drop a CIM and get a structured deal summary — financials, key risks, growth thesis. Walk into every meeting fully briefed, with talking points and critical questions already prepared.</p>
+        </div>
+      </div>
+
+      <div style="border-radius:20px; overflow:hidden; border:1px solid rgba(255,255,255,0.08); background:rgba(255,255,255,0.02); transition:border-color 0.2s, transform 0.2s;" onmouseover="this.style.borderColor='rgba(0,194,181,0.3)'; this.style.transform='translateY(-4px)';" onmouseout="this.style.borderColor='rgba(255,255,255,0.08)'; this.style.transform='translateY(0)';">
+        <div style="height:280px; overflow:hidden; position:relative;">
+          <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=600&q=80" alt="Senior Partner" style="width:100%; height:100%; object-fit:cover; object-position:center 15%; display:block;">
+          <div style="position:absolute;inset:0;background:linear-gradient(to bottom, transparent 60%, rgba(8,11,22,0.85) 100%);"></div>
+        </div>
+        <div style="padding:1.6rem;">
+          <div style="font-size:0.62rem;font-weight:700;color:#00c2b5;text-transform:uppercase;letter-spacing:2px;margin-bottom:0.5rem;">Managing Director / Partner</div>
+          <h3 style="font-size:1.05rem;font-weight:800;margin-bottom:0.6rem;">Control, visibility, and zero data risk</h3>
+          <p style="font-size:0.85rem;color:rgba(255,255,255,0.58);line-height:1.65;">Firm data never touches an external server. Every AI request is stateless — nothing stored, nothing logged. Push workflow updates to every analyst's desk in minutes, with full visibility into what your team can access.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== SOLUTION / SECURITY SECTION ===== -->
+<section class="section solution-section" id="how-it-works">
+  <div class="section-inner">
+    <div class="solution-grid">
+
+      <!-- Left: Text -->
+      <div>
+        <span class="section-eyebrow">How LexDesk Works</span>
+        <h2 class="section-title">AI-Native. Desktop-First.<br><span class="teal">Engineered for Security.</span></h2>
+        <div class="divider"></div>
+        <p class="section-sub">LexDesk sits on every one of your employees' desktops and connects to AI models through a stateless API key — giving your team intelligent, workflow-specific tools without ever storing your firm's data in the cloud.</p>
+
+        <div class="solution-points">
+
+          <div class="solution-point">
+            <div class="solution-point-icon">🔑</div>
+            <div class="solution-point-text">
+              <h4>Stateless API Key — No Data Retention</h4>
+              <p>LexDesk connects to AI models (Claude, GPT-4o) through a stateless API key. This means each request is a one-way transaction: your prompt goes out, the response comes back, and nothing from your firm — no documents, no financials, no client names — is ever stored, logged, or retained on any external server. The model answers and forgets. Your data stays yours.</p>
+            </div>
+          </div>
+
+          <div class="solution-point">
+            <div class="solution-point-icon">🖥️</div>
+            <div class="solution-point-text">
+              <h4>Desktop-Resident — Never Statefully in the Cloud</h4>
+              <p>Traditional SaaS AI tools store your conversations, your documents, your history in their database — creating a permanent record of your firm's most sensitive work on someone else's servers. LexDesk is fundamentally different: it runs entirely on each employee's local machine. The only network call is a live, encrypted API request. No storage. No persistent sessions. No cloud database holding your deal flow.</p>
+            </div>
+          </div>
+
+          <div class="solution-point">
+            <div class="solution-point-icon">📁</div>
+            <div class="solution-point-text">
+              <h4>Controlled File Access — Right Documents, Right People</h4>
+              <p>Each employee only accesses the files and data relevant to their role. Analysts working on a specific deal see the documents for that deal. Senior partners see what they need to see. No information sprawl, no accidental exposure. You define the access structure; LexDesk enforces it.</p>
+            </div>
+          </div>
+
+          <div class="solution-point">
+            <div class="solution-point-icon">🎛️</div>
+            <div class="solution-point-text">
+              <h4>Monitor &amp; Adjust in a Moment's Notice</h4>
+              <p>As your firm's needs evolve, LexDesk evolves with it. Add a new tool. Update a workflow. Change the AI prompts behind a template. Push the update and every desktop is running the new version within minutes. You're always in control of what your team can do and how they do it.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Right: App mock-up -->
+      <div>
+        <div class="mockup-window">
+          <div class="mockup-titlebar">
+            <div class="mockup-dot mockup-dot-r"></div>
+            <div class="mockup-dot mockup-dot-y"></div>
+            <div class="mockup-dot mockup-dot-g"></div>
+            <span class="mockup-titlebar-name">LexDesk — Vantage Capital</span>
+          </div>
+          <div class="mockup-body">
+            <div class="mockup-main">
+              <div class="mockup-header">
+                <div class="mockup-header-left">
+                  <h2>Document Chat</h2>
+                  <p>Chat with your deal documents</p>
+                </div>
+                <div class="mockup-header-center">
+                  LexDesk
+                  <span>by Lex<em style="color:#00c2b5;font-style:normal;font-weight:700;">Ai</em></span>
+                </div>
+                <div class="mockup-header-right">
+                  <div class="greeting">Hi Sarah 👋</div>
+                  <div class="sub">Welcome to your workspace</div>
+                </div>
+              </div>
+              <div class="mockup-content">
+                <div class="mock-chat-welcome">
+                  <h3>Chat with your documents</h3>
+                  <p>Drop any PDFs below and ask me anything — financial models, CIMs, term sheets, or research notes.</p>
+                </div>
+                <div class="mock-message ai">
+                  <div class="mock-avatar ai">LD</div>
+                  <div class="mock-bubble ai">Based on the Q3 CIM you uploaded, EBITDA margins have expanded 340bps YoY driven by operating leverage in the SaaS segment. Revenue grew 28% to $142M. Want me to populate the DCF model?</div>
+                </div>
+                <div class="mock-message user">
+                  <div class="mock-avatar user">SF</div>
+                  <div class="mock-bubble user">Yes — also pull the key risk factors from Section 4</div>
+                </div>
+                <div class="mock-message ai">
+                  <div class="mock-avatar ai">LD</div>
+                  <div class="mock-bubble ai">Populating DCF... Key risks identified: customer concentration (top 3 = 41% of ARR), FX exposure in EU segment, and pending regulatory review in Q1 2027.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <p style="text-align:center; font-size:0.72rem; color:rgba(255,255,255,0.3); margin-top:0.8rem;">Branded to your firm · Your logo, colors &amp; name throughout</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== PERSONALIZATION SECTION ===== -->
+<section class="section bg-alt" id="personalization">
+  <div class="section-inner">
+    <div class="text-center" style="max-width:680px; margin:0 auto 4rem;">
+      <span class="section-eyebrow">Personalization</span>
+      <h2 class="section-title">Every Analyst Gets <span class="teal">Their Own Workspace</span></h2>
+      <p class="section-sub" style="margin:0 auto;">From the moment they open LexDesk, it knows who they are. The software greets each employee by name, surfaces the tools relevant to their role, and adapts to how they work — driving the adoption that generic tools never achieve.</p>
+    </div>
+
+    <div class="personalize-grid">
+      <!-- Mock-up: Hello [Name] -->
+      <div>
+        <div class="mockup-window">
+          <div class="mockup-titlebar">
+            <div class="mockup-dot mockup-dot-r"></div>
+            <div class="mockup-dot mockup-dot-y"></div>
+            <div class="mockup-dot mockup-dot-g"></div>
+            <span class="mockup-titlebar-name">LexDesk v2.1.4</span>
+          </div>
+          <div style="background:#080b16; background-image:radial-gradient(ellipse 80% 200% at 50% -20%, rgba(0,194,181,0.18) 0%, transparent 60%); padding:28px 32px; border-bottom:1px solid rgba(255,255,255,0.06); display:flex; align-items:center; justify-content:space-between;">
+            <div>
+              <div style="font-size:1.5rem; font-weight:900; color:#fff; text-shadow:0 0 24px rgba(0,194,181,0.5);">LexDesk</div>
+              <div style="font-size:0.6rem; color:rgba(255,255,255,0.35); margin-top:2px;">by Lex<span style="color:#00c2b5;font-weight:700;">Ai</span></div>
+            </div>
+            <div style="text-align:right;">
+              <div style="font-size:1.35rem; font-weight:800; color:#fff;">Hi Marcus 👋</div>
+              <div style="font-size:0.72rem; color:rgba(255,255,255,0.45); margin-top:3px;">Welcome to your personalized workspace</div>
+            </div>
+          </div>
+          <div style="background:#0b0e1b; padding:24px 28px; display:grid; grid-template-columns:1fr 1fr; gap:12px;">
+            <div style="background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.08); border-radius:10px; padding:16px; border-top:3px solid #00c2b5;">
+              <div style="font-size:1.3rem; margin-bottom:6px;">📊</div>
+              <div style="font-size:0.82rem; font-weight:700;">DCF Populator</div>
+              <div style="font-size:0.7rem; color:rgba(255,255,255,0.45); margin-top:3px;">PDF → Excel model in seconds</div>
+            </div>
+            <div style="background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.08); border-radius:10px; padding:16px; border-top:3px solid #00c2b5;">
+              <div style="font-size:1.3rem; margin-bottom:6px;">💬</div>
+              <div style="font-size:0.82rem; font-weight:700;">Document Chat</div>
+              <div style="font-size:0.7rem; color:rgba(255,255,255,0.45); margin-top:3px;">Chat with any deal doc</div>
+            </div>
+            <div style="background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.08); border-radius:10px; padding:16px; border-top:3px solid #00c2b5;">
+              <div style="font-size:1.3rem; margin-bottom:6px;">📋</div>
+              <div style="font-size:0.82rem; font-weight:700;">CIM Analyzer</div>
+              <div style="font-size:0.7rem; color:rgba(255,255,255,0.45); margin-top:3px;">Structured deal summaries</div>
+            </div>
+            <div style="background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.08); border-radius:10px; padding:16px; border-top:3px solid #00c2b5;">
+              <div style="font-size:1.3rem; margin-bottom:6px;">🗓️</div>
+              <div style="font-size:0.82rem; font-weight:700;">Meeting Prep</div>
+              <div style="font-size:0.7rem; color:rgba(255,255,255,0.45); margin-top:3px;">One-click briefs &amp; talking points</div>
+            </div>
+          </div>
+        </div>
+        <p style="text-align:center;font-size:0.72rem;color:rgba(255,255,255,0.3);margin-top:0.8rem;">Replace "Marcus" with any employee's name — set in Settings once, remembered forever</p>
+      </div>
+
+      <!-- Right: bullets -->
+      <div>
+        <h3 style="font-size:1.5rem; font-weight:800; margin-bottom:1.2rem;">The look and feel of <span class="teal">familiarity</span> your team needs to actually adopt AI</h3>
+        <p style="font-size:0.9rem; color:rgba(255,255,255,0.65); line-height:1.8; margin-bottom:2rem;">One of the biggest reasons AI rollouts fail isn't the technology — it's adoption. When software looks foreign, feels generic, and requires a learning curve, people go back to what they know. LexDesk solves this by making every employee feel like the tool was built specifically for them.</p>
+
+        <div style="display:flex; flex-direction:column; gap:1.2rem;">
+          <div style="display:flex; gap:1rem; align-items:flex-start;">
+            <div style="width:36px;height:36px;border-radius:8px;background:rgba(0,194,181,0.12);border:1px solid rgba(0,194,181,0.2);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:1rem;">🎨</div>
+            <div>
+              <div style="font-size:0.92rem;font-weight:700;margin-bottom:3px;">Branded to Your Firm</div>
+              <div style="font-size:0.82rem;color:rgba(255,255,255,0.55);line-height:1.65;">Your logo, your color scheme, your firm name throughout the interface. Analysts see Goldman, Morgan, Vantage — not a generic third-party tool.</div>
+            </div>
+          </div>
+          <div style="display:flex; gap:1rem; align-items:flex-start;">
+            <div style="width:36px;height:36px;border-radius:8px;background:rgba(0,194,181,0.12);border:1px solid rgba(0,194,181,0.2);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:1rem;">🙋</div>
+            <div>
+              <div style="font-size:0.92rem;font-weight:700;margin-bottom:3px;">Personalized Greeter — "Hi [Name]"</div>
+              <div style="font-size:0.82rem;color:rgba(255,255,255,0.55);line-height:1.65;">Every employee's workspace greets them by name. Small detail, massive psychological impact on ownership and engagement.</div>
+            </div>
+          </div>
+          <div style="display:flex; gap:1rem; align-items:flex-start;">
+            <div style="width:36px;height:36px;border-radius:8px;background:rgba(0,194,181,0.12);border:1px solid rgba(0,194,181,0.2);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:1rem;">🛠️</div>
+            <div>
+              <div style="font-size:0.92rem;font-weight:700;margin-bottom:3px;">Built Around Your Workflows — Not Generic Ones</div>
+              <div style="font-size:0.82rem;color:rgba(255,255,255,0.55);line-height:1.65;">Each tool in LexDesk is designed around the way your team actually works — your document types, your deal stages, your output formats.</div>
+            </div>
+          </div>
+          <div style="display:flex; gap:1rem; align-items:flex-start;">
+            <div style="width:36px;height:36px;border-radius:8px;background:rgba(0,194,181,0.12);border:1px solid rgba(0,194,181,0.2);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:1rem;">🔄</div>
+            <div>
+              <div style="font-size:0.92rem;font-weight:700;margin-bottom:3px;">Auto-Updates — Always Current</div>
+              <div style="font-size:0.82rem;color:rgba(255,255,255,0.55);line-height:1.65;">Deploy new tools or update existing workflows firm-wide in minutes. Every desktop updates automatically — no IT tickets, no rollouts.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== WORKFLOWS / TOOLS SECTION ===== -->
+<section class="section tools-section" id="tools">
+  <div class="section-inner">
+    <div class="text-center" style="max-width:680px; margin:0 auto;">
+      <span class="section-eyebrow">Workflow Tools</span>
+      <h2 class="section-title">Every Tool Your Team Needs,<br><span class="teal">Built for Finance</span></h2>
+      <p class="section-sub" style="margin:0 auto;">LexDesk ships with a core suite of financial workflow tools and is fully extensible — add any tool your firm needs, built to your exact specifications.</p>
+    </div>
+
+    <div class="tools-grid">
+      <div class="tool-card">
+        <div class="tool-icon">📊</div>
+        <h3>DCF Populator</h3>
+        <p>Drop a PDF financial statement. LexDesk extracts the figures, maps them to your Excel template, populates live formulas, and generates a branded PowerPoint pitch deck — all in one workflow.</p>
+        <span class="tool-tag">PDF → Excel → PPTX</span>
+      </div>
+      <div class="tool-card">
+        <div class="tool-icon">💬</div>
+        <h3>Document Chat</h3>
+        <p>Upload multiple PDFs — CIMs, research notes, term sheets, annual reports — and have a natural conversation with them. Ask anything, get cited, structured answers in seconds.</p>
+        <span class="tool-tag">Multi-Doc AI Chat</span>
+      </div>
+      <div class="tool-card">
+        <div class="tool-icon">📋</div>
+        <h3>CIM Analyzer</h3>
+        <p>Drop a Confidential Information Memorandum. Get a structured summary of the business, financial profile, key risks, growth thesis, and competitive positioning — formatted your way.</p>
+        <span class="tool-tag">Deal Analysis</span>
+      </div>
+      <div class="tool-card">
+        <div class="tool-icon">🗓️</div>
+        <h3>Meeting Prep</h3>
+        <p>Input a company name, attendees, and meeting objective. Get a complete one-page brief — background, recent developments, key questions, and talking points — before every call.</p>
+        <span class="tool-tag">One-Click Briefs</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FULL-WIDTH DEMO MOCK-UP ===== -->
+<section class="section demo-section" id="demo">
+  <div class="section-inner">
+    <div class="text-center" style="max-width:680px; margin:0 auto 1rem;">
+      <span class="section-eyebrow">In Action</span>
+      <h2 class="section-title">See It Running — <span class="teal">Live Preview</span></h2>
+      <p class="section-sub" style="margin:0 auto;">This is exactly what your team would see on their desktop — branded to your firm, with the tools relevant to their role front and center.</p>
+    </div>
+
+    <div class="demo-window-wrap">
+
+      <!-- Screenshot grid: real app -->
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:1.5rem;">
+
+        <div>
+          <div style="font-size:0.7rem;font-weight:700;color:#00c2b5;text-transform:uppercase;letter-spacing:2px;margin-bottom:0.6rem;">📊 DCF Populator</div>
+          <img src="lexdesk-screenshots/screenshot-dcf.png" alt="DCF Populator — PDF to Excel model" style="width:100%;border-radius:12px;border:1px solid rgba(255,255,255,0.1);box-shadow:0 20px 60px rgba(0,0,0,0.5);">
+          <p style="font-size:0.78rem;color:rgba(255,255,255,0.45);margin-top:0.6rem;line-height:1.5;">Upload any financial PDF. Get a live Excel DCF model + branded PowerPoint deck in seconds.</p>
+        </div>
+
+        <div>
+          <div style="font-size:0.7rem;font-weight:700;color:#00c2b5;text-transform:uppercase;letter-spacing:2px;margin-bottom:0.6rem;">💬 Document Chat</div>
+          <img src="lexdesk-screenshots/screenshot-chat.png" alt="Document Chat — ask anything about your deal docs" style="width:100%;border-radius:12px;border:1px solid rgba(255,255,255,0.1);box-shadow:0 20px 60px rgba(0,0,0,0.5);">
+          <p style="font-size:0.78rem;color:rgba(255,255,255,0.45);margin-top:0.6rem;line-height:1.5;">Drop any PDFs and ask anything — CIMs, 10-Ks, earnings reports. Your data never leaves your machine.</p>
+        </div>
+
+        <div>
+          <div style="font-size:0.7rem;font-weight:700;color:#00c2b5;text-transform:uppercase;letter-spacing:2px;margin-bottom:0.6rem;">📋 CIM Analyzer</div>
+          <img src="lexdesk-screenshots/screenshot-cim.png" alt="CIM Analyzer — structured deal summaries" style="width:100%;border-radius:12px;border:1px solid rgba(255,255,255,0.1);box-shadow:0 20px 60px rgba(0,0,0,0.5);">
+          <p style="font-size:0.78rem;color:rgba(255,255,255,0.45);margin-top:0.6rem;line-height:1.5;">Drop a CIM and get a structured 1-page deal summary — financials, key risks, investment highlights.</p>
+        </div>
+
+        <div>
+          <div style="font-size:0.7rem;font-weight:700;color:#00c2b5;text-transform:uppercase;letter-spacing:2px;margin-bottom:0.6rem;">🗓️ Meeting Prep</div>
+          <img src="lexdesk-screenshots/screenshot-meeting.png" alt="Meeting Prep — one-click briefing docs" style="width:100%;border-radius:12px;border:1px solid rgba(255,255,255,0.1);box-shadow:0 20px 60px rgba(0,0,0,0.5);">
+          <p style="font-size:0.78rem;color:rgba(255,255,255,0.45);margin-top:0.6rem;line-height:1.5;">Company name, meeting type, optional doc — get a full structured briefing in under 30 seconds.</p>
+        </div>
+
+      </div>
+
+      <div style="margin-top:3.5rem;">
+        <p style="text-align:center;font-size:0.82rem;color:rgba(255,255,255,0.4);margin-bottom:1.5rem;font-weight:500;text-transform:uppercase;letter-spacing:2px;">Watch It Work</p>
+        <video src="lexdesk-screenshots/dcf-demo.mp4" controls style="width:100%;border-radius:16px;border:1px solid rgba(255,255,255,0.1);box-shadow:0 40px 100px rgba(0,0,0,0.5);display:block;"></video>
+        <p style="text-align:center;font-size:0.75rem;color:rgba(255,255,255,0.3);margin-top:0.8rem;">DCF Populator — PDF to live Excel model in under 60 seconds</p>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- ===== INTEGRATIONS SECTION ===== -->
+<section class="section integrations-section" id="integrations">
+  <div class="section-inner">
+    <div class="text-center" style="max-width:680px; margin:0 auto;">
+      <span class="section-eyebrow">Integrations</span>
+      <h2 class="section-title">Works With the Tools<br><span class="teal">Your Team Already Uses</span></h2>
+      <p class="section-sub" style="margin:0 auto;">LexDesk doesn't replace your existing stack — it makes it dramatically more powerful. Outputs go directly into the formats your team already works in every day.</p>
+    </div>
+
+    <div class="integrations-grid">
+      <div class="int-card">
+        <div class="int-icon">📗</div>
+        <h3>Microsoft Excel</h3>
+        <p>DCF models, loan tapes, and financial analyses output directly as live Excel workbooks with working formulas.</p>
+      </div>
+      <div class="int-card">
+        <div class="int-icon">📊</div>
+        <h3>PowerPoint</h3>
+        <p>Pitch decks, deal summaries, and presentations generated as branded .pptx files ready for boardroom delivery.</p>
+      </div>
+      <div class="int-card">
+        <div class="int-icon">📝</div>
+        <h3>Microsoft Word</h3>
+        <p>Memos, reports, and structured deal analyses exported as formatted Word documents matching your firm's templates.</p>
+      </div>
+      <div class="int-card">
+        <div class="int-icon">📄</div>
+        <h3>PDF Generation</h3>
+        <p>Branded, print-ready PDFs for one-pagers, client briefs, and deal summaries — firm logo and colors throughout.</p>
+      </div>
+      <div class="int-card">
+        <div class="int-icon">🔒</div>
+        <h3>Stateless API (Claude / GPT-4o)</h3>
+        <p>Connects to frontier AI models through a secure stateless API. No persistent sessions, no data retention, no storage on external servers.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== STATS SECTION ===== -->
+<section class="section stats-section" id="stats">
+  <div class="section-inner">
+    <div class="text-center" style="max-width:680px; margin:0 auto;">
+      <span class="section-eyebrow">Why Now</span>
+      <h2 class="section-title">The Numbers on AI<br><span class="teal">in Finance</span></h2>
+      <p class="section-sub" style="margin:0 auto;">The productivity gap between firms that have deployed AI correctly and those still experimenting with generic tools is widening every quarter.</p>
+    </div>
+
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-number">60%</div>
+        <div class="stat-label">of analyst time in investment banking is spent on tasks AI can fully automate — document review, data extraction, formatting</div>
+        <div class="stat-source">Goldman Sachs Global Investment Research, 2023</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">3.5×</div>
+        <div class="stat-label">productivity multiplier for knowledge workers using AI tools integrated into their specific workflows vs. generic AI access</div>
+        <div class="stat-source">MIT Sloan Management Review, 2024</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">70%</div>
+        <div class="stat-label">of AI implementations fail due to poor adoption — not technology. The #1 reason: tools don't fit existing workflows</div>
+        <div class="stat-source">Gartner, 2024</div>
+      </div>
+    </div>
+
+    <div style="margin-top:3rem; background:rgba(0,194,181,0.05); border:1px solid rgba(0,194,181,0.12); border-radius:16px; padding:2.5rem; text-align:center; max-width:760px; margin-left:auto; margin-right:auto;">
+      <p style="font-size:1.05rem; font-weight:700; line-height:1.65; color:rgba(255,255,255,0.9);">The firms winning with AI aren't the ones with the biggest budgets or the most sophisticated engineers. They're the ones who put <em style="color:#00c2b5;font-style:normal;">the right tools in front of the right people</em> — tools that fit their workflows, respect their security posture, and get used every single day.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== TESTIMONIAL ===== -->
+<section class="section testimonial-section" id="testimonial">
+  <div class="section-inner text-center">
+    <span class="section-eyebrow">Client Testimonial</span>
+    <h2 class="section-title">What LexDesk Clients Say</h2>
+    <div class="divider center"></div>
+
+    <div class="testimonial-card">
+      <div class="testimonial-inner">
+        <div class="testimonial-person">
+          <img class="testimonial-avatar" src="sean-ferres.png" alt="Sean Ferres" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+          <div class="testimonial-avatar" style="display:none; background:rgba(0,194,181,0.12); font-size:2rem; width:96px; height:96px; border-radius:50%; border:3px solid #00c2b5; align-items:center; justify-content:center; margin:0 auto 1rem;">🙋</div>
+          <div class="name">Sean Ferres</div>
+          <div class="role">CEO &amp; Founder</div>
+          <div class="org">Copy Millions Blueprint</div>
+          <span class="testimonial-product-badge">LexDesk Client</span>
+        </div>
+        <div class="testimonial-quote-block">
+          <span class="testimonial-quote-mark">"</span>
+          <div class="testimonial-quote">
+            <blockquote>
+              <p>Getting a 20–30% success rate is amazing — that's on par with doing it manually, and exactly what we're after. It skips the parts that don't apply exactly as we'd do manually.</p>
+              <p>I understand and appreciate the time, energy, and resources you guys have put into this project. I sincerely appreciate you bringing on a second, more competent engineering team to see this through to completion.</p>
+              <p>Thanks for seeing this through and building something epic and useful — <strong style="color:#00c2b5;">this is going to be a gamechanger for our clients.</strong></p>
+            </blockquote>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CTA SECTION ===== -->
+<section class="cta-section" id="contact">
+  <div style="max-width:800px; margin:0 auto;">
+    <span class="section-eyebrow" style="display:inline-block; margin-bottom:1.5rem;">Ready to Deploy</span>
+    <h2 class="section-title">Get Your Team Actually<br><span class="teal">Using AI Right</span></h2>
+    <p style="font-size:1.05rem; font-weight:300; color:rgba(255,255,255,0.65); max-width:560px; margin:0 auto 2.5rem; line-height:1.8;">Stop paying for AI tools nobody uses. LexDesk is built for your workflows, branded to your firm, and deployed on your team's desktops — so your people can finally focus on the work that actually matters.</p>
+    <div class="hero-actions">
+      <a href="https://calendly.com/eric-lexai/30-minute-meeting" target="_blank" class="btn-primary">Book a Discovery Call →</a>
+    </div>
+    <p style="font-size:0.78rem; color:rgba(255,255,255,0.3); margin-top:1.5rem;">No commitment required · Typically deployed in 2–4 weeks · Built and maintained by LexAi</p>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="site-footer">
+  <div class="footer-top">
+    <div class="footer-col">
+      <a href="/index.html" class="footer-brand">LexAi</a>
+      <p style="margin-top:1rem; max-width:260px; font-size:0.88rem; line-height:1.6;">Building custom AI solutions that drive real results. LexDesk — AI-native software for financial firms.</p>
+    </div>
+    <div class="footer-col">
+      <h4>LexDesk</h4>
+      <ul>
+        <li><a href="#how-it-works">How It Works</a></li>
+        <li><a href="#tools">Workflow Tools</a></li>
+        <li><a href="#integrations">Integrations</a></li>
+        <li><a href="#demo">Live Demo</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Company</h4>
+      <ul>
+        <li><a href="/index.html">Home</a></li>
+        <li><a href="/about.html">About</a></li>
+        <li><a href="/case-studies.html">Case Studies</a></li>
+        <li><a href="https://calendly.com/eric-lexai/30-minute-meeting" target="_blank">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Legal</h4>
+      <ul>
+        <li><a href="/privacy.html">Privacy Policy</a></li>
+        <li><a href="javascript:void(0)">Terms of Service</a></li>
+      </ul>
+    </div>
+  </div>
+  <hr>
+  <div class="footer-bottom">
+    <p>© 2026 LexAi. All rights reserved. LexDesk is a product of LexAi.</p>
+  </div>
+</footer>
+
+<script>
+  // Hamburger
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobileMenu');
+  hamburger.addEventListener('click', () => {
+    const isOpen = mobileMenu.classList.toggle('open');
+    hamburger.classList.toggle('open', isOpen);
+    document.body.style.overflow = isOpen ? 'hidden' : '';
+  });
+  function closeMobileMenu() {
+    mobileMenu.classList.remove('open');
+    hamburger.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+</script>
+
+</body>
+</html>
