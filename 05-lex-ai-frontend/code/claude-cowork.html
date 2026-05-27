@@ -5,7 +5,7 @@
   <link rel="icon" type="image/png" href="/favicon.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>LexAi × Claude Cowork — AI Cost Optimization for Finance Teams</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -28,15 +28,21 @@
       font-family: 'Poppins', sans-serif;
       background: var(--navy);
       color: var(--text);
-      line-height: 1.65;
+      line-height: 1.75;
       overflow-x: hidden;
     }
 
     /* NAV */
     nav {
-      position: sticky; top: 0; z-index: 100;
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
       height: 84px; display: flex; align-items: center; justify-content: space-between;
       padding: 0 2.5rem;
+      background: transparent;
+      backdrop-filter: none;
+      border-bottom: 1px solid transparent;
+      transition: background 0.3s ease, backdrop-filter 0.3s ease, border-color 0.3s ease;
+    }
+    nav.scrolled {
       background: rgba(11,13,25,0.9);
       backdrop-filter: blur(20px);
       border-bottom: 1px solid rgba(255,255,255,.08);
@@ -84,7 +90,7 @@
       min-height: 100vh;
       display: flex; flex-direction: column; align-items: center; justify-content: center;
       text-align: center;
-      padding: 6rem 2rem 5rem;
+      padding: 10rem 2rem 5rem;
       position: relative; overflow: hidden;
     }
     .hero-bg {
@@ -259,13 +265,10 @@
     }
 
     /* FOOTER */
-    footer {
-      border-top: 1px solid var(--border-subtle);
-      padding: 2rem; text-align: center;
-      color: var(--text-muted); font-size: 0.8rem;
-    }
-    .logo-footer { font-weight: 800; margin-bottom: 0.3rem; }
-    .logo-footer .lex { color: var(--teal); }
+    footer { background: #070910; padding: 2rem 2.5rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; border-top: 1px solid rgba(255,255,255,0.06); }
+    .footer-logo { font-size: 1.1rem; font-weight: 700; color: rgba(255,255,255,0.5); text-decoration: none; }
+    .footer-logo span { color: #00c2b5; }
+    footer p { font-size: 0.8rem; color: rgba(255,255,255,0.25); }
 
     @media (max-width: 900px) {
       .token-wrap { grid-template-columns: 1fr; }
@@ -526,9 +529,8 @@
 
   <!-- FOOTER -->
   <footer>
-    <div class="logo-footer"><span class="lex">Lex</span>Ai × Claude Cowork</div>
-    <p>Claude token optimization and AI workstation setup for finance teams.</p>
-    <p style="margin-top:0.3rem;"><a href="https://lexaib2b.com" style="color:var(--teal);text-decoration:none;">lexaib2b.com</a></p>
+    <a href="https://www.lexaib2b.com" class="footer-logo">Lex<span>Ai</span></a>
+    <p>&copy; 2026 LexAi. AI Product Development for Financial Services.</p>
   </footer>
 
 <script>
@@ -544,6 +546,12 @@
     hamburger.classList.remove('open');
     document.body.style.overflow = '';
   }
+  (function() {
+    const nav = document.querySelector('nav');
+    window.addEventListener('scroll', function() {
+      nav.classList.toggle('scrolled', window.scrollY > 50);
+    });
+  })();
 </script>
 </body>
 </html>

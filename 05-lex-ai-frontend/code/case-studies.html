@@ -72,8 +72,7 @@
 </script>
 
 <!-- Google Font -->
-<link rel="preconnect" href="https://fonts.gstatic.com">
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
 <style>
 :root{
@@ -97,13 +96,19 @@
 
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{font-family:'Poppins',sans-serif;color:#fff}
+body{font-family:'Poppins',sans-serif;color:#fff;line-height:1.75}
 
 /* -------- NAVBAR -------- */
 nav{
   position:fixed;top:0;left:0;width:100%;z-index:999;
   height:84px;display:flex;align-items:center;justify-content:space-between;
   padding:0 2.5rem;
+  background:transparent;
+  backdrop-filter:none;
+  border-bottom:1px solid transparent;
+  transition:background 0.3s ease,backdrop-filter 0.3s ease,border-color 0.3s ease;
+}
+nav.scrolled{
   background:rgba(11,13,25,0.9);
   backdrop-filter:blur(20px);
   border-bottom:1px solid rgba(255,255,255,.08);
@@ -288,20 +293,10 @@ blockquote p{color:rgba(255,255,255,.9);margin-bottom:12px}
 .cs-coming-soon p{font-size:.95rem;color:#6b7280;max-width:400px;margin:0 auto}
 
 /* -------- FOOTER -------- */
-.site-footer{background:var(--footer-bg);color:#d1d1d1;padding:4rem 2rem}
-.footer-top{display:grid;gap:2.5rem;max-width:1200px;margin:auto}
-@media(min-width:700px){.footer-top{grid-template-columns:2fr 1fr 1fr 1fr}}
-.footer-brand{font-size:1.4rem;font-weight:700;color:var(--brand-green);text-decoration:none}
-.footer-col h4{font-size:1.05rem;font-weight:600;margin-bottom:1rem;color:#fff}
-.footer-col ul{list-style:none}
-.footer-col li+li{margin-top:.6rem}
-.footer-col a{color:#d1d1d1;text-decoration:none;font-size:.95rem;transition:color .2s}
-.footer-col a:hover{color:var(--brand-green)}
-hr{border:none;border-top:1px solid #2a2e3a;margin:3rem 0 2rem}
-.footer-bottom{max-width:1200px;margin:auto;display:flex;justify-content:space-between;flex-wrap:wrap;gap:1rem;font-size:.9rem}
-.social{display:flex;gap:1.5rem;list-style:none}
-.social a{color:#d1d1d1;text-decoration:none;transition:color .2s}
-.social a:hover{color:var(--brand-green)}
+footer{background:#070910;padding:2rem 2.5rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;border-top:1px solid rgba(255,255,255,0.06)}
+.footer-logo{font-size:1.1rem;font-weight:700;color:rgba(255,255,255,0.5);text-decoration:none}
+.footer-logo span{color:#00c2b5}
+footer p{font-size:0.8rem;color:rgba(255,255,255,0.25)}
 
 @media(max-width:640px){
   .testimonial-inner{flex-direction:column;align-items:center}
@@ -904,46 +899,9 @@ hr{border:none;border-top:1px solid #2a2e3a;margin:3rem 0 2rem}
 </main>
 
 <!-- ===== FOOTER ===== -->
-<footer class="site-footer">
-  <div class="footer-top">
-    <div class="footer-col">
-      <a href="/index.html" class="footer-brand">LexAi</a>
-      <p style="margin-top:1rem;max-width:280px">Building custom AI solutions that drive real results.</p>
-    </div>
-    <div class="footer-col">
-      <h4>Product</h4>
-      <ul>
-        <li><a href="/#features">Features</a></li>
-        <li><a href="https://calendly.com/lexai/ai-implementation-introductory-chat" target="_blank">Request a Quote</a></li>
-        <li><a href="/case-studies.html">Testimonials</a></li>
-      </ul>
-    </div>
-    <div class="footer-col">
-      <h4>Company</h4>
-      <ul>
-        <li><a href="/about.html">About Us</a></li>
-        <li><a href="https://calendly.com/lexai/ai-implementation-introductory-chat" target="_blank">Contact</a></li>
-      </ul>
-    </div>
-    <div class="footer-col">
-      <h4>Legal</h4>
-      <ul>
-        <li><a href="/privacy.html">Privacy Policy</a></li>
-        <li><a href="javascript:void(0)">Terms of Service</a></li>
-        <li><a href="javascript:void(0)">Cookie Policy</a></li>
-      </ul>
-    </div>
-  </div>
-  <hr>
-  <div class="footer-bottom">
-    <p>© 2025 LexAi. All rights reserved.</p>
-    <ul class="social">
-      <li><a href="javascript:void(0)">Twitter</a></li>
-      <li><a href="javascript:void(0)">LinkedIn</a></li>
-      <li><a href="javascript:void(0)">Facebook</a></li>
-      <li><a href="javascript:void(0)">Instagram</a></li>
-    </ul>
-  </div>
+<footer>
+  <a href="https://www.lexaib2b.com" class="footer-logo">Lex<span>Ai</span></a>
+  <p>&copy; 2026 LexAi. AI Product Development for Financial Services.</p>
 </footer>
 
 <script>
@@ -959,6 +917,12 @@ hr{border:none;border-top:1px solid #2a2e3a;margin:3rem 0 2rem}
     hamburger.classList.remove('open');
     document.body.style.overflow = '';
   }
+  (function() {
+    const nav = document.querySelector('nav');
+    window.addEventListener('scroll', function() {
+      nav.classList.toggle('scrolled', window.scrollY > 50);
+    });
+  })();
 </script>
 
 </body>
