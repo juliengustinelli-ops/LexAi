@@ -603,6 +603,17 @@
     hamburger.classList.remove('open');
     document.body.style.overflow = '';
   }
+
+  // Clean URL routing — strip hash, replace with clean path, scroll to section
+  (function() {
+    const hashToPath = { services: '/services', about: '/about', team: '/team' };
+    const hash = window.location.hash.slice(1);
+    if (hashToPath[hash]) {
+      history.replaceState(null, '', hashToPath[hash]);
+      const el = document.getElementById(hash);
+      if (el) el.scrollIntoView({ behavior: 'smooth' });
+    }
+  })();
 </script>
 
 </body>
