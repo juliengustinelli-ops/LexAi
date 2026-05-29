@@ -346,13 +346,13 @@ h2 { font-size: clamp(28px,3vw,40px); font-weight: 900; letter-spacing: -0.5px; 
 
 /* ── FOOTER ────────────────────────────────────────── */
 footer {
+  background: #070910; padding: 2rem 2.5rem;
+  display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem;
   border-top: 1px solid rgba(255,255,255,0.06);
-  padding: 2rem; text-align: center;
-  color: #7a90b0; font-size: 0.8rem;
-  background: #080f1e;
 }
-.logo-footer { font-weight: 800; margin-bottom: 0.3rem; font-size: 1rem; color: #fff; }
-.logo-footer .lex { color: #00c2b5; }
+.footer-logo { font-size: 1.1rem; font-weight: 700; color: rgba(255,255,255,0.5); text-decoration: none; }
+.footer-logo span { color: #00c2b5; }
+footer p { font-size: 0.8rem; color: rgba(255,255,255,0.25); }
 
 /* ── FADE IN ───────────────────────────────────────── */
 .fade { opacity: 0; transform: translateY(20px); transition: opacity 0.65s ease, transform 0.65s ease; }
@@ -736,9 +736,8 @@ footer {
 
 <!-- ── FOOTER ────────────────────────────────────────── -->
 <footer>
-  <div class="logo-footer"><span class="lex">Lex</span>Ai × Claude Cowork</div>
-  <p>SEC-compliant Claude AI setup for regulated financial services firms.</p>
-  <p style="margin-top:0.3rem;"><a href="https://lexaib2b.com" style="color:#00c2b5;text-decoration:none;">lexaib2b.com</a></p>
+  <a href="https://www.lexaib2b.com" class="footer-logo">Lex<span>Ai</span></a>
+  <p>&copy; 2026 LexAi. AI Product Development for Financial Services.</p>
 </footer>
 
 <script>
