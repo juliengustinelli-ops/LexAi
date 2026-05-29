@@ -15,9 +15,15 @@ img { display: block; max-width: 100%; }
 
 /* ── NAV ─────────────────────────────────────────── */
 nav {
-  position: sticky; top: 0; z-index: 100;
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
   height: 84px; display: flex; align-items: center; justify-content: space-between;
   padding: 0 2.5rem;
+  background: transparent;
+  backdrop-filter: none;
+  border-bottom: 1px solid transparent;
+  transition: background 0.3s ease, backdrop-filter 0.3s ease, border-color 0.3s ease;
+}
+nav.scrolled {
   background: rgba(11,13,25,0.9);
   backdrop-filter: blur(20px);
   border-bottom: 1px solid rgba(255,255,255,0.08);
@@ -95,7 +101,7 @@ nav {
 /* ── HERO ─────────────────────────────────────────── */
 .hero {
   min-height: 100vh;
-  padding: 0;
+  padding-top: 84px;
   background: #161616;
   background-image: radial-gradient(rgba(255,255,255,0.03) 1px, transparent 1px);
   background-size: 28px 28px;
@@ -740,6 +746,11 @@ const observer = new IntersectionObserver((entries) => {
   entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
 }, { threshold: 0.08 });
 document.querySelectorAll('.fade').forEach(el => observer.observe(el));
+
+const nav = document.querySelector('nav');
+window.addEventListener('scroll', function() {
+  nav.classList.toggle('scrolled', window.scrollY > 50);
+});
 
 const hamburger = document.getElementById('hamburger');
 const mobileMenu = document.getElementById('mobileMenu');
