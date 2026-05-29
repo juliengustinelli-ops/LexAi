@@ -285,7 +285,9 @@
   .team-tag.highlight { background: rgba(0,194,181,0.1); color: #00897f; border-color: rgba(0,194,181,0.3); font-weight: 600; }
 
   /* CTA FOOTER */
-  .cta-section { background: #0b0d19; padding: 6rem 2rem; text-align: center; }
+  .cta-section { background: #0b0d19; padding: 6rem 2rem; text-align: center; position: relative; overflow: hidden; }
+  .cta-section > *:not(#cta-canvas) { position: relative; z-index: 2; }
+  #cta-canvas { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none; }
   .cta-section h2 { font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 700; color: #fff; margin-bottom: 1rem; line-height: 1.2; }
   .cta-section h2 em { color: #00c2b5; font-style: normal; }
   .cta-section p { color: rgba(255,255,255,0.85); font-size: 1.05rem; font-weight: 300; max-width: 500px; margin: 0 auto 2.5rem; line-height: 1.75; }
@@ -296,10 +298,7 @@
     background: #070910; padding: 2rem 2.5rem;
     display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem;
     border-top: 1px solid rgba(255,255,255,0.06);
-    position: relative; overflow: hidden;
   }
-  footer > *:not(#footer-canvas) { position: relative; z-index: 2; }
-  #footer-canvas { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none; }
   .footer-logo { font-size: 1.1rem; font-weight: 700; color: rgba(255,255,255,0.5); text-decoration: none; }
   .footer-logo span { color: #00c2b5; }
   footer p { font-size: 0.8rem; color: rgba(255,255,255,0.25); }
@@ -620,6 +619,7 @@
 
 <!-- CTA -->
 <section class="cta-section" id="contact">
+  <canvas id="cta-canvas"></canvas>
   <div class="container">
     <h2>Get AI into <em>production.</em></h2>
     <p class="cta-note" style="margin-bottom:3rem;">The hardest part of AI isn't building it &mdash; it's shipping it.<br>We stay in until it's live, integrated, and delivering real returns.</p>
@@ -629,7 +629,6 @@
 
 <!-- FOOTER -->
 <footer>
-  <canvas id="footer-canvas"></canvas>
   <a href="#" class="footer-logo">Lex<span>Ai</span></a>
   <p>&copy; 2026 LexAi. AI Product Development for Financial Services.</p>
 </footer>
@@ -745,7 +744,7 @@
 })();
 
 (function() {
-  const canvas = document.getElementById('footer-canvas');
+  const canvas = document.getElementById('cta-canvas');
   const ctx = canvas.getContext('2d');
   const TEAL = '0,194,181';
   const NODE_COUNT = 40;
