@@ -144,6 +144,45 @@ nav.scrolled{
 .mobile-menu a:hover{color:#00c2b5}
 .mobile-menu .nav-cta{font-size:1rem;margin-top:1rem}
 
+/* ── DROPDOWN ─────────────────────────────────────── */
+.nav-dropdown { position: relative; }
+.nav-dropdown > a {
+  display: flex; align-items: center; gap: 5px;
+  color: rgba(255,255,255,0.85); text-decoration: none;
+  font-size: 1rem; font-weight: 300; transition: color 0.2s; cursor: pointer;
+}
+.nav-dropdown > a.active,
+.nav-dropdown:hover > a { color: #00c2b5; }
+.dropdown-menu {
+  position: absolute; top: 100%; left: 50%;
+  padding-top: 12px;
+  background: transparent;
+  opacity: 0; pointer-events: none;
+  transform: translateX(-50%);
+  transition: opacity 0.15s;
+}
+.dropdown-menu-inner {
+  background: rgba(11,13,25,0.98);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 8px;
+  padding: 4px 0;
+  min-width: 160px;
+  box-shadow: 0 12px 32px rgba(0,0,0,0.5);
+}
+.nav-dropdown:hover .dropdown-menu {
+  opacity: 1; pointer-events: all;
+}
+.dropdown-menu a {
+  display: block;
+  padding: 10px 18px;
+  font-size: 0.875rem; font-weight: 400;
+  color: rgba(255,255,255,0.6); text-decoration: none;
+  transition: color 0.15s;
+  white-space: nowrap;
+}
+.dropdown-menu a:hover { color: #fff; }
+.dropdown-menu a.active { color: #00c2b5; font-weight: 500; }
+
 @media(max-width:768px){
   .nav-right{display:none}
   .hamburger{display:flex}
@@ -393,7 +432,15 @@ footer p{font-size:0.8rem;color:rgba(255,255,255,0.25)}
       <li><a href="/team">Team</a></li>
       <li><a href="/services">Services</a></li>
       <li><a href="/case-studies" class="active">Case Studies</a></li>
-      <li><a href="/claude-cowork">Claude Cowork</a></li>
+      <li class="nav-dropdown">
+        <a>Claude Cowork</a>
+        <div class="dropdown-menu">
+          <div class="dropdown-menu-inner">
+            <a href="/claude-cowork-setup">Setup</a>
+            <a href="/claude-cowork">Cost Efficiency</a>
+          </div>
+        </div>
+      </li>
     </ul>
     <a href="https://calendly.com/eric-lexaib2b/30min" target="_blank" class="nav-cta">Book a Discovery Call</a>
   </div>
@@ -408,7 +455,8 @@ footer p{font-size:0.8rem;color:rgba(255,255,255,0.25)}
   <a href="/team" onclick="closeMobileMenu()">Team</a>
   <a href="/services" onclick="closeMobileMenu()">Services</a>
   <a href="/case-studies" onclick="closeMobileMenu()">Case Studies</a>
-  <a href="/claude-cowork" onclick="closeMobileMenu()">Claude Cowork</a>
+  <a href="/claude-cowork-setup" onclick="closeMobileMenu()">Claude Cowork · Setup</a>
+  <a href="/claude-cowork" onclick="closeMobileMenu()">Claude Cowork · Cost Efficiency</a>
   <a href="https://calendly.com/eric-lexaib2b/30min" target="_blank" class="nav-cta" onclick="closeMobileMenu()">Book a Discovery Call</a>
 </div>
 
