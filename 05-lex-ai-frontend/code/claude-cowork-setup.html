@@ -388,10 +388,18 @@ footer p { font-size: 0.8rem; color: rgba(255,255,255,0.25); }
   .outcome-grid { grid-template-columns: 1fr; }
   .compliance-grid { grid-template-columns: 1fr 1fr; }
   .hero-body { gap: 32px; padding: 32px 20px 48px; text-align: center; }
-  .hero-body .label { justify-content: center; }
   .hero-body .btn-row { justify-content: center; }
-  .hero-sub { display: none; }
+  .hero-body .hero-sub { display: block; margin: 0 auto 32px; }
   .hero-body > .fade:last-child { display: none; }
+  /* pill eyebrow to match cost-efficiency page */
+  .hero-body .label {
+    display: inline-flex; justify-content: center;
+    background: rgba(0,194,181,0.1); border: 1px solid rgba(0,194,181,0.25);
+    border-radius: 999px; padding: 0.4rem 1.1rem;
+    font-size: 0.75rem; font-weight: 600; letter-spacing: 1.8px;
+    color: #00c2b5; text-transform: uppercase; margin-bottom: 1.4rem;
+  }
+  .hero-body .label .label-line { display: none; }
   .split-content { padding: 40px 24px; }
   .cta-band { padding: 64px 24px; }
   section { padding: 48px 20px; }
