@@ -58,6 +58,11 @@ nav.scrolled {
 .mobile-menu a { color: rgba(255,255,255,0.85); text-decoration: none; font-size: 1.4rem; font-weight: 500; transition: color 0.2s; }
 .mobile-menu a:hover { color: #00c2b5; }
 .mobile-menu .nav-cta { font-size: 1rem; margin-top: 1rem; }
+.mobile-nav-group { display: flex; flex-direction: column; align-items: center; gap: 0.5rem; }
+.mobile-nav-group-label { font-size: 1.4rem; font-weight: 500; color: rgba(255,255,255,0.85); }
+.mobile-nav-group-links { display: flex; flex-direction: column; align-items: center; gap: 0.55rem; }
+.mobile-nav-group-links a { font-size: 1.05rem !important; color: rgba(255,255,255,0.6) !important; }
+.mobile-nav-group-links a:hover { color: #00c2b5 !important; }
 
 /* ── DROPDOWN ─────────────────────────────────────── */
 .nav-dropdown { position: relative; }
@@ -377,6 +382,18 @@ footer p { font-size: 0.8rem; color: rgba(255,255,255,0.25); }
   .outcome-grid { grid-template-columns: 1fr 1fr; }
   footer { flex-direction: column; gap: 12px; text-align: center; }
 }
+@media (max-width: 600px) {
+  .stat-bar { grid-template-columns: 1fr; }
+  .pain-grid { grid-template-columns: 1fr; }
+  .outcome-grid { grid-template-columns: 1fr; }
+  .compliance-grid { grid-template-columns: 1fr 1fr; }
+  .hero-body { gap: 32px; padding: 32px 20px 48px; }
+  .mockup { font-size: 0.85em; }
+  .log-prompt { max-width: 160px; }
+  .split-content { padding: 40px 24px; }
+  .cta-band { padding: 64px 24px; }
+  section { padding: 48px 20px; }
+}
 </style>
 </head>
 <body>
@@ -413,8 +430,13 @@ footer p { font-size: 0.8rem; color: rgba(255,255,255,0.25); }
   <a href="/team" onclick="closeMobileMenu()">Team</a>
   <a href="/services" onclick="closeMobileMenu()">Services</a>
   <a href="/case-studies" onclick="closeMobileMenu()">Case Studies</a>
-  <a href="/claude-cowork-setup" onclick="closeMobileMenu()" style="color:#00c2b5;">Claude Cowork · Setup</a>
-  <a href="/claude-cowork-optimization" onclick="closeMobileMenu()">Claude Cowork · Cost Efficiency</a>
+  <div class="mobile-nav-group">
+    <span class="mobile-nav-group-label">Claude Cowork</span>
+    <div class="mobile-nav-group-links">
+      <a href="/claude-cowork-setup" onclick="closeMobileMenu()">Setup</a>
+      <a href="/claude-cowork-optimization" onclick="closeMobileMenu()">Cost Efficiency</a>
+    </div>
+  </div>
   <a href="https://calendly.com/eric-lexaib2b/30min" target="_blank" class="nav-cta" onclick="closeMobileMenu()">Book a Discovery Call</a>
 </div>
 
