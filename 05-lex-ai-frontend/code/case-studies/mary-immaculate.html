@@ -68,6 +68,10 @@ nav.scrolled{
 }
 .logo{font-size:1.9rem;font-weight:700;color:#fff;text-decoration:none}
 .logo span{color:#00c2b5}
+.nav-left{display:flex;align-items:center;gap:1.5rem}
+.case-breadcrumb{font-size:.85rem;color:rgba(255,255,255,.55);text-decoration:none;white-space:nowrap}
+.case-breadcrumb:hover{color:#00c2b5}
+@media(max-width:768px){.case-breadcrumb{display:none}}
 .nav-right{display:flex;align-items:center;gap:2.5rem}
 .nav-links{display:flex;gap:2rem;list-style:none}
 .nav-links a{color:rgba(255,255,255,0.85);text-decoration:none;font-size:1rem;font-weight:300;transition:color .2s}
@@ -148,20 +152,8 @@ nav.scrolled{
 
 section[id],main{scroll-margin-top:calc(84px + 12px)}
 
-/* -------- PAGE HERO -------- */
-.page-hero{
-  background:linear-gradient(135deg,#0b0d19 0%,#1a2540 100%);
-  padding:calc(84px + 3rem) 2rem 4rem;
-  text-align:center;
-}
-.page-hero--compact{padding:calc(84px + 1.5rem) 2rem 1.5rem;text-align:left}
-.page-hero .eyebrow-link{display:inline-block;font-size:.85rem;color:rgba(255,255,255,.5);margin-bottom:0;text-decoration:none}
-.page-hero .eyebrow-link:hover{color:#00c2b5}
-.page-hero h1{font-size:clamp(2rem,5vw,3rem);font-weight:700;color:#fff;margin-bottom:1rem;max-width:800px;margin-left:auto;margin-right:auto}
-.page-hero p{font-size:1.1rem;font-weight:300;color:rgba(255,255,255,.75);max-width:640px;margin:0 auto}
-
 /* -------- CASE STUDY CARD LIST -------- */
-.cs-list{background:#f4f7fb;padding:4rem 2rem}
+.cs-list{background:#f4f7fb;padding:calc(84px + 3rem) 2rem 4rem}
 .cs-list-inner{max-width:960px;margin:0 auto;display:flex;flex-direction:column;gap:3rem}
 
 /* -------- INDIVIDUAL CASE STUDY -------- */
@@ -365,7 +357,10 @@ footer p{font-size:0.8rem;color:rgba(255,255,255,0.25)}
 
 <!-- ===== NAVBAR ===== -->
 <nav>
-  <a href="https://www.lexaib2b.com" class="logo">Lex<span>Ai</span></a>
+  <div class="nav-left">
+    <a href="https://www.lexaib2b.com" class="logo">Lex<span>Ai</span></a>
+    <a href="/case-studies" class="case-breadcrumb">&larr; All Case Studies</a>
+  </div>
   <div class="nav-right">
     <ul class="nav-links">
       <li><a href="/about">About</a></li>
@@ -391,6 +386,7 @@ footer p{font-size:0.8rem;color:rgba(255,255,255,0.25)}
 
 <!-- MOBILE MENU -->
 <div class="mobile-menu" id="mobileMenu">
+  <a href="/case-studies" onclick="closeMobileMenu()">&larr; All Case Studies</a>
   <a href="/about" onclick="closeMobileMenu()">About</a>
   <a href="/team" onclick="closeMobileMenu()">Team</a>
   <a href="/services" onclick="closeMobileMenu()">Services</a>
@@ -406,11 +402,6 @@ footer p{font-size:0.8rem;color:rgba(255,255,255,0.25)}
 </div>
 
 <main>
-
-  <!-- ===== PAGE HERO ===== -->
-  <div class="page-hero page-hero--compact">
-    <a href="/case-studies" class="eyebrow-link">&larr; All Case Studies</a>
-  </div>
 
   <!-- ===== CASE STUDY ===== -->
   <div class="cs-list">
