@@ -642,6 +642,27 @@ footer p{font-size:0.8rem;color:rgba(255,255,255,0.25)}
     function openLightbox(img) {
       lightboxImg.src = img.src;
       lightboxImg.alt = img.alt;
+
+      const isCropped = img.closest('.mi-compare-pane');
+      if (isCropped) {
+        // Show the same top-cropped view as on the page, just larger,
+        // instead of the full uncropped screenshot shrunk to fit.
+        const ratio = img.clientWidth / img.clientHeight;
+        lightboxImg.style.aspectRatio = ratio;
+        lightboxImg.style.width = 'min(92vw, 1100px)';
+        lightboxImg.style.height = 'auto';
+        lightboxImg.style.maxHeight = '90vh';
+        lightboxImg.style.objectFit = 'cover';
+        lightboxImg.style.objectPosition = 'top';
+      } else {
+        lightboxImg.style.aspectRatio = '';
+        lightboxImg.style.width = '';
+        lightboxImg.style.height = '';
+        lightboxImg.style.maxHeight = '90vh';
+        lightboxImg.style.objectFit = '';
+        lightboxImg.style.objectPosition = '';
+      }
+
       lightbox.classList.add('open');
       document.body.style.overflow = 'hidden';
     }
