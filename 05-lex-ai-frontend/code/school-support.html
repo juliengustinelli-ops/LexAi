@@ -5,7 +5,7 @@
   <meta charset="utf-8"/>
   <meta http-equiv="Content-Security-Policy"
         content="default-src 'self';
-                 connect-src https://api.emailjs.com;
+                 connect-src 'self' https://api.emailjs.com;
                  img-src 'self' data:;
                  font-src https://fonts.gstatic.com;
                  style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
@@ -116,6 +116,8 @@
     .svf-option:hover,.svf-option[aria-selected="true"]{color:var(--svf-blue-dark);background:var(--svf-gold)}
     .svf-dot{width:10px;height:10px;border-radius:50%;box-shadow:0 0 0 2px rgba(255,255,255,.6) inset}
   </style>
+  <script>window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };</script>
+  <script defer src="/_vercel/insights/script.js"></script>
 </head>
 <body>
   <div class="wrap">
